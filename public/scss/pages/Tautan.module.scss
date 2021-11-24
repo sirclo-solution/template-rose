@@ -1,0 +1,69 @@
+@import '../utils/variables';
+
+.tautan
+{
+  text-align: center;
+  padding: 50px 18px;
+
+  &_logo
+  {
+    height: 30px;
+    margin-bottom: 50px;
+  }
+
+  &_title
+  {
+    @include typographyBuilder(primary, 500, 20, 32);
+    color: $color_text_primary;
+    margin-bottom: 12px;
+  }
+
+  &_description
+  {
+    @include typographyBuilder(secondary, 400, 14, 24);
+    color: $color_text_primary;
+    margin-bottom: 24px;
+  }
+
+  &_linkSection
+  {
+    @include flex(row-reverse, center);
+    @include fixedWidth(100%);
+    margin: 12px 0;
+    padding: 13.5px 16px;
+    border-radius: 50px;
+    border: 1px solid $color_rose;
+    cursor: pointer;
+
+    &:hover,
+    &:active
+    {
+      transition: 0.5s all ease;
+    }
+  }
+
+  &_labelText
+  {
+    flex: 1 0 auto;
+    
+    & > p
+    {
+      @include typographyBuilder(secondary, 400, 14, 24);
+      text-align: left;
+      margin: 0;
+    }
+  }
+
+  &_labelImage
+  {
+    flex: 0 1 auto;
+    margin-right: 16px;
+
+    img
+    {
+      @include fixedWidth(21px);
+      @include fixedHeight(21px);
+      object-fit: cover;
+    }
+  }
+}

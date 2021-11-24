@@ -1,0 +1,30 @@
+@import '../utils/variables';
+@import '../components/Placeholder.module.scss';
+
+.shippingMethod
+{
+  padding: 18px;
+
+  &_title
+  {
+    @include typographyBuilder(secondary, 400, 14, 24);
+  }
+}
+
+.customer
+{
+  padding: 18px;
+  background: $color_rose_bg1;
+
+  &_section
+  {
+    padding-top: 8px;
+    border-top: 1px dashed $color_rose;
+  }
+
+  &_notes
+  {
+    @include typographyBuilder(secondary, 400, 12, 16);
+    color: $color_text_secondary;
+  }
+}

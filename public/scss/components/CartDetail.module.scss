@@ -1,0 +1,301 @@
+@import "../utils/variables";
+
+.cart
+{
+  &_container
+  {
+    padding-left: 15px;
+    padding-right: 15px;
+    height: calc(100vh - 265px);
+    overflow-y: auto;
+  }
+
+  &_breadcrumb
+  {
+    padding: 58px 18px 0 18px;
+    margin: 20px 0 24px 0;
+  }
+
+  &_header
+  {
+    @include flex(row,center,space-between);
+    padding: 0 18px 0 18px;
+
+    & :first-child
+    {
+      color: $color_text_primary;
+      @include typographyBuilder(secondary,500,14,24);
+    }
+
+    & :last-child 
+    {
+      color: $color_rose;
+      @include typographyBuilder(secondary,400,14,24);
+      text-decoration: none;
+    }
+  }
+
+  &_empty
+  {
+    padding: 0 18px;
+
+    svg 
+    {
+      color: $color_text_inactive
+    }
+  }
+
+  &_error
+  {
+    border-radius: 2px;
+    background: $color_rose_bg2;
+    margin: 24px 18px 0 18px;
+    padding: 12px;
+    color: $color_error;
+    @include flex();
+    @include typographyBuilder(secondary,400,12,16);
+  }
+}
+
+.cartItem
+{
+  display: grid;
+  grid-template-columns: 30% 20% 40% 10%;
+  border-bottom: 1px solid $color_grey;
+  padding: 24px 0;
+
+  &_image
+  {
+    grid-row: 1 / span 2;
+    margin-right: 0.75rem;
+
+    img
+    {
+      width: 100%;
+      object-fit: contain;
+      border-radius: 2px;
+    }
+  }
+
+  &_variant
+  {
+    display: flex;
+    @include typographyBuilder(secondary,400,12,16);
+    color: $color_text_secondary;
+
+    :not(:first-of-type)
+    {
+      padding-left: 5px;
+    }
+  }
+
+  &_title
+  {
+    @include typographyBuilder(secondary,400,14,24);
+    grid-row: 1;
+    grid-column: 2/ span 4;
+    align-self: center;
+
+    & > div
+    {
+      cursor: pointer;
+    }
+  }
+
+  &_price
+  {
+    grid-row: 2;
+    grid-column: 3;
+
+    & > :only-child
+    {
+      @include typographyBuilder(secondary,500,14,24);
+      text-decoration-line: none;
+      color: $color_text_primary;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    & > :not(:only-child)
+    {
+      padding-top: 12px;
+    }
+  }
+
+  &_salePriceWrapper{
+    padding-top: 0 !important;
+  }
+
+  &_discNote 
+  {
+    grid-column: 2;
+  }
+
+  &_regularPrice
+  {
+    @include typographyBuilder(secondary,400,12,16);
+    text-decoration-line: line-through;
+    color: $color_text_secondary;
+  }
+
+  &_salePrice
+  {
+    color: $color_error !important;
+    @include typographyBuilder(secondary,500,14,24);
+  }
+
+  &_totalPrice
+  {
+    display: flex;
+    flex-direction: column-reverse;
+    grid-row: 2 / span 3;
+    grid-column: 2 / span 2;
+    min-height: 119px;
+
+    & :first-child:before
+    {
+      @include typographyBuilder(secondary,400,10,16);
+      color: $color_text_secondary;
+      display: block;
+      content: "Subtotal";
+    }
+  }
+
+  &_discNote
+  {
+    @include typographyBuilder(secondary,400,10,16);
+    margin-bottom: 20px;
+    padding-left: 75px;
+    color: $color_error;
+  }
+
+  &_qty
+  {
+    z-index: 2;
+    padding: 22px 0;
+    grid-row: 2;
+    grid-column: 2;
+  }
+
+  &_qtyBox
+  {
+    display: grid;
+    border: 1px solid $color_text_inactive;
+    border-radius: 2px;
+    width: 63px;
+    height: 56px;
+    padding: 2px 5px;
+    grid-template-columns: 70% 30%;
+
+    & :last-child 
+    {
+      grid-row: 1;
+      background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iNiIgdmlld0JveD0iMCAwIDEwIDYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik00Ljk5OTk5IDIuODI4TDIuMTcxOTkgNS42NTdMMC43NTY5ODkgNC4yNDNMNC45OTk5OSAwTDkuMjQyOTkgNC4yNDNMNy44Mjc5OSA1LjY1N0w0Ljk5OTk5IDIuODI4WiIgZmlsbD0iIzQ0NDQ0NCIvPgo8L3N2Zz4K)
+    }
+
+    & :first-child 
+    {
+      background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iNiIgdmlld0JveD0iMCAwIDEwIDYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik00Ljk5OTk5IDZMMC43NTY5ODkgMS43NTdMMi4xNzE5OSAwLjM0M0w0Ljk5OTk5IDMuMTcyTDcuODI3OTkgMC4zNDNMOS4yNDI5OSAxLjc1N0w0Ljk5OTk5IDZaIiBmaWxsPSIjNDQ0NDQ0Ii8+Cjwvc3ZnPgo=)
+    }
+
+    & > input 
+    {
+      border: none;
+      grid-row: 1 / span 2;
+    }
+
+    & > button 
+    {
+      width: 8px;
+      border: none;
+      background-color: transparent;
+      background-repeat: no-repeat;
+      background-position: center;
+      color: transparent; 
+    }
+
+    & > input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button 
+    { 
+      -webkit-appearance: none; 
+      margin: 0; 
+    }
+  }
+
+  &_remove
+  {
+    grid-row: 3;
+    grid-column: 4;
+    display: flex;
+    justify-content: center;
+
+    & > a > svg
+    {
+      cursor: pointer;
+      color: $color_error;
+    }
+  }
+}
+
+.cartFooter
+{
+  padding: 24px 0;
+  border-bottom: 1px solid $color_border;
+}
+
+.crossSell
+{
+  position: relative;
+  margin-top: 24px;
+  padding-top: 24px;
+  padding-bottom: 224px;
+  background: $color_rose_bg2;
+
+  &_title
+  {
+    @include typographyBuilder(primary, 500, 20, 32);
+    color: $color_text_primary;
+  }
+
+  &_pagination
+  {
+    @include absolute(28px, 15px)
+  }
+
+  &_paginationItem
+  {
+    padding: 0;
+    border: none;
+    background: transparent;
+
+    &:disabled
+    {
+      svg
+      {
+        color: $color_text_inactive;
+      }
+    }
+
+    svg
+    {
+      color: $color_text_primary;
+    }
+
+    &:active,
+    &:focus
+    {
+      outline: 0;
+      box-shadow: none;
+    }
+
+    &:first-child
+    {
+      margin-right: 7.5px;
+    }
+
+    &:last-child
+    {
+      margin-left: 7.5px;
+    }
+  }
+}

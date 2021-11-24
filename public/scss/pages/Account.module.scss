@@ -1,0 +1,222 @@
+@import '../utils/variables';
+
+.account
+{
+  &_container
+  {
+    padding: 58px 0 106px 0;
+    height: 100%;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  &_breadcrumb
+  {
+    padding: 0 18px;
+    margin: 16px 0 24px 0;
+  }
+
+  &_header
+  {
+    @include flex(column,center);
+
+    &_title
+    {
+      color: $color_rose;
+      @include typographyBuilder(primary,500,28,40);
+      margin:0;
+    }
+
+    &_img
+    {
+      @include flex();
+      width: 42px;
+      height: 42px;
+      border-radius: 50px;
+      margin: 24px 0 12px 0;
+      background-color: $color_rose_bg2;
+
+      & > svg
+      {
+        color: $color_rose;
+      }
+    }
+  }
+
+  &_tab
+  {
+    display: flex;
+    overflow: auto;
+    list-style-type:none;
+    margin:  24px 0;
+    padding: 10px 17px;
+  }
+
+  &_tabItem
+  {
+    margin-right: 8px;
+    @include typographyBuilder(secondary,400,14,24);
+
+    &:hover, &_active
+    {
+      cursor: pointer;
+      border-color: $color_rose;
+      background-color: $color_rose_bg2;
+      border-radius: 50px;
+    }
+
+    &_link
+    {
+      border: 1px solid $color_border;
+      height: 100%;
+      padding: 8px 16px;
+      display: flex;
+      width: max-content;
+      text-decoration: none !important;
+      color: $color_text_primary !important;
+      border-radius: 50px;
+    }
+  }
+
+  &_input
+  {
+    padding: 0 17px;
+    padding-bottom: 16px;
+  }
+
+  &_btn
+  {
+    width: calc(100% - 32px) !important;
+    margin: auto !important;
+    min-width: unset !important;
+    margin-bottom: 16px !important;
+  }
+}
+
+.membership
+{
+  &_status
+  {
+    margin: 12px 17px 0 17px;
+    background-color: $color_rose_bg2;
+    padding: 16px;
+
+    & > p 
+    {
+      color: $color_text_secondary;
+      @include typographyBuilder(secondary,400,12,16);
+    }
+  }
+  
+  &_accordion
+  {
+    padding-bottom: 12px;
+    @include flex(row,normal,space-between);
+
+    & > p 
+    {
+      color: $color_text_secondary;
+      @include typographyBuilder(secondary,400,12,16);
+    }
+
+    &_toggle
+    {
+      @include flex(row,center,space-between);
+
+      & > p 
+      {
+        color: $color_text_primary;
+        @include typographyBuilder(secondary,500,12,16);
+      }
+    }
+
+    &_icon
+    {
+      padding-left: 9px;
+      display: flex;
+    }
+  }
+
+  &_progress
+  {
+    border-radius: 6px;
+    width: 100%;
+    height: 7px;
+
+    &::-webkit-progress-bar {
+      border-radius: 6px;
+      background-color: $color_border;
+    }
+
+    &::-webkit-progress-value {
+      background-color: $color_rose;
+      border-radius: 6px;
+    }
+  }
+}
+
+.myAccount
+{
+  padding: 0 17px;
+
+  &_list
+  {
+    list-style-type:none;
+    margin: 0 0 16px 0;
+    padding: 0;
+
+    &_item
+    {
+      @include flex(column,unset,unset);
+    }
+
+    &_label
+    {
+      color: $color_text_secondary;
+      padding: 9px 24px 0 24px;
+      @include absolute();
+      @include typographyBuilder(secondary,500,10,16);
+      margin-bottom: 8px;
+    }
+
+    &_value
+    {
+      position: relative;
+      border-radius: 37px;
+      padding: 20px 24px 9px 24px;
+      color: $color_text_primary;
+      border: 1px solid $color_border;
+      @include typographyBuilder(secondary,400,14,24);
+      margin-bottom: 16px;
+    }
+
+    li:last-child
+    {
+      border: 1px solid $color_border;
+      border-radius: 2px;
+      padding: 12px;
+
+      :first-child
+      {
+        position: unset;
+        padding: 0;
+      }
+
+      :last-child
+      {
+        border: unset;
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+}
+
+.form
+{
+  &_criteria
+  {
+    padding-left: 17px !important;
+    padding-right: 17px !important;
+  }
+}

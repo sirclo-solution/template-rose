@@ -1,0 +1,363 @@
+@import '../utils/variables';
+@import '../components/Button.module.scss';
+
+.ratingReview
+{
+  @include transition();
+  display: none;
+
+  &_show
+  {
+    @include transition();
+    display: block;
+  }
+
+  &_extra
+  {
+    padding-bottom: 106px;
+  }
+
+  &_header
+  {
+    @include flex(row, center, flex-start);
+    padding: 14px;
+    background: $color_rose_bg2;
+    border-radius: 2px;
+
+    &Title
+    {
+      @include typographyBuilder(secondary, 400, 12, 16);
+      color: $color_text_primary;
+      margin-left: 10px;
+      margin-bottom: 0;
+    }
+  }
+
+  &_titleSection
+  {
+    font-family: "roboto-medium";
+    font-size: 16px;
+  }
+
+  &_filters
+  {
+    @include flex(row, center, flex-start, true);
+    margin: 24px 0;
+  }
+
+  &_filter
+  {
+    @include typographyBuilder(secondary, 400, 16, 24);
+    color: $color_text_primary;
+    border: 1px solid $color_border;
+    border-radius: 2px;
+    padding: 8px 12px;
+    margin: 0 8px 8px 0;
+    cursor: pointer;
+  }
+
+  &_filterActive
+  {
+    border-color: $color_rose;
+    background: $color_rose_bg2;
+  }
+
+  &_filterLabel
+  {
+    @include flex(row, center);
+    width: max-content;
+    margin: 0;
+    cursor: pointer;
+  }
+
+  &_filterInput
+  {
+    display: none;
+  }
+
+  &_filterIcon
+  {
+    margin-left: 4px;
+    color: $color_warning;
+  }
+
+  &_sort
+  {
+    margin: 24px 0;
+  }
+
+  &_sortOptions
+  {
+    @include fixedWidth(100%);
+    @include fixedHeight(58px);
+    @include flex(row, center, flex-start);
+    border: 1px solid $color_border;
+    border-radius: 37px;
+    -webkit-user-select: none;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-appearance: none;
+    -moz-appearance: radio-container;
+    appearance: none;
+    padding-left: 24px;
+    padding-right: 58px;
+    background: url("../../icons/chevron-down.svg") no-repeat;
+    background-position: right 24px top 50%;
+    cursor: pointer;
+
+    &:focus,
+    &:active
+    {
+      outline: 0;
+      box-shadow: none;
+      border: 1px solid $color_border;
+    }
+  }
+
+  &_container
+  {
+    margin: 24px 0;
+    padding-bottom: 24px;
+    border-bottom: 1px solid $color_border;
+  }
+
+  &_starContainer
+  {
+    font-size: 14px !important;
+    margin-right: 5px;
+  }
+
+  &_desc
+  {
+    @include typographyBuilder(secondary, 400, 14, 24);
+    margin: 12px 0;
+    color: $color_text_primary;
+  }
+
+  &_imageContainer
+  {
+    @extend .scrollbar_main;
+    @include flex(row, center, flex-start);
+    padding-bottom: 12px;
+    overflow-x: auto;
+  }
+
+  &_image
+  {
+    @include fixedWidth(100px);
+    @include fixedHeight(100px);
+    margin-right: 12px;
+    border-radius: 2px;
+    cursor: pointer;
+
+    img,
+    video
+    {
+      @include fixedWidth(100px);
+      @include fixedHeight(100px);
+      border: 1px solid $color_border;
+      border-radius: 2px;
+      object-fit: cover;
+    }
+  }
+
+  &_footer
+  {
+    @include flex(row, center, flex-start, true);
+    margin: 12px 0 0;
+  }
+
+  &_author
+  {
+    @include typographyBuilder(secondary, 400, 12, 16);
+    color: $color_text_primary;
+    text-transform: capitalize;
+  }
+
+  &_date
+  {
+    @include typographyBuilder(secondary, 400, 12, 16);
+    color: $color_text_secondary;
+    margin-left: 4px;
+  }
+
+  &_itemPerPage
+  {
+    @include flex(row, center, flex-end);
+  }
+
+  &_itemPerPageLabel
+  {
+    margin-right: 10px;
+    p
+    {
+      @include typographyBuilder(secondary, 400, 14, 24);
+      color: $color_text_secondary;
+      margin: 0;
+    }
+  }
+
+  &_itemPerPageOptions
+  {
+    select
+    {
+      @include flex(row, center, flex-start);
+      @include typographyBuilder(secondary, 400, 14, 24);
+      @include fixedHeight(58px);
+      width: max-content;
+      color: $color_text_primary;
+      border: 1px solid $color_border;
+      border-radius: 37px;
+      -webkit-user-select: none;
+      -moz-user-select: -moz-none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-appearance: none;
+      -moz-appearance: radio-container;
+      appearance: none;
+      padding-left: 24px;
+      padding-right: 36px;
+      background: url("../../icons/chevron-down.svg") no-repeat;
+      background-position: right 24px top 50%;
+      cursor: pointer;
+  
+      &:focus,
+      &:active
+      {
+        outline: 0;
+        box-shadow: none;
+        border: 1px solid $color_border;
+      }
+    }
+  }
+
+  &_popupContainer
+  {
+    @include fixed(0, auto, auto, 0);
+    z-index: 30;
+
+    @include fixedWidth(100%);
+    @include fixedHeight(100%);
+    @include flex(row, center, center);
+    background-color: rgba($color_black, 0.8);
+  }
+
+  &_popupContent
+  {
+    @include position(relative);
+    @include fixedWidth(330px);
+    background: $color_white;
+    border-radius: 2px;
+    padding: 12px;
+  }
+
+  &_popupPreview
+  {
+    @include flex(row, center, flex-start);
+    overflow-x: auto;
+    margin: 10px 0 0;
+  }
+
+  &_popupImage
+  {
+    @include position(relative);
+    @include flex(row, center, center);
+    @include fixedWidth(100%);
+    @include fixedHeight(300px);
+
+    img,
+    video
+    {
+      @include fixedWidth(100%);
+      @include fixedHeight(300px);
+      border: 1px solid $color_border;
+      border-radius: 4px;
+      object-fit: cover;
+
+      &:focus,
+      &:active
+      {
+        outline: 0;
+        box-shadow: none;
+      }
+    }
+  }
+
+  &_popupImagePreview
+  {
+    @include fixedWidth(64px);
+    @include fixedHeight(64px);
+    margin: 0 4px;
+    cursor: pointer;
+
+    &:first-child
+    {
+      margin-left: 0;
+    }
+
+    img,
+    video
+    {
+      @include fixedWidth(64px);
+      @include fixedHeight(64px);
+      border: 1px solid $color_border;
+      border-radius: 2px;
+      object-fit: cover;
+    }
+  }
+
+  &_popupLeftButton,
+  &_popupRightButton
+  {
+    @include absolute(45%, auto, auto, 0);
+    background: rgba($color_white, 0.75);
+    border: none;
+    padding: 6px 8px;
+    cursor: pointer;
+  }
+
+  &_popupRightButton
+  {
+    left: unset;
+    right: 0;
+  }
+
+  &_popupButtonClose
+  {
+    margin-bottom: 10px;
+    text-align: right;
+
+    svg
+    {
+      cursor: pointer;
+    }
+  }
+}
+
+.pagination
+{
+  @include flex(row, center, center);
+  margin: 0;
+  margin-top: 24px;
+  padding: 0;
+
+  &_item
+  {
+    padding: 10px 15px;
+    margin: 5px;
+    list-style: none;
+    color: $color_text_primary;
+    background: $color_white;
+    border: 1px solid $color_border;
+    cursor: pointer;
+  }
+
+  &_active
+  {
+    color: $color_white;
+    background: $color_rose;
+    border: 1px solid $color_rose;
+    border-radius: 2px;
+  }
+}

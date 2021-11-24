@@ -1,0 +1,82 @@
+@import '~bootstrap/scss/bootstrap.scss';
+@import 'rose.scss';
+@import './utils/variables.scss';
+@import './utils/scrollbar.scss';
+
+html, body
+{
+  background-color: $color_rose_bg1;
+}
+
+body
+{
+  @include fixedWidth(375px);
+  position: relative;
+  padding: 0;
+  margin: 0 auto;
+  background-color: $color_white;
+  box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.1);
+
+  @media screen and (max-width: $breakpoint_max_sm)
+  {
+    @include fixedWidth(100%);
+  }
+}
+
+.layout
+{
+  &_fullHeight
+  {
+    min-height: 100vh;
+    height: auto;
+  }
+}
+
+.BrainhubCarousel
+{
+  &__container
+  {
+    position: relative;
+  }
+
+  &__dots
+  {
+    @include absolute(auto, 0, 10px, 0);
+    z-index: 1;
+  }
+
+  &__dot
+  {
+    margin: 2px !important;
+    padding: 0 !important;
+
+    &::before
+    {
+      width: 20px !important;
+      height: 3px !important;
+      border-radius: 0 !important;
+      background: rgba($color_white, 0.5) !important;
+    }
+  }
+}
+
+.spinner
+{
+  &_wrapper
+  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 20;
+    background-color: $color_text_placeholder;
+  }
+}
+
+.spinner-border {
+  color: $color_rose;
+}

@@ -1,0 +1,104 @@
+@import '../utils/variables';
+@import '../components/Placeholder.module.scss';
+
+.header
+{
+  @include position(fixed, 32px);
+  @include fixedWidth(375px, true);
+  @include transition();
+  height: 58px;
+  z-index: 20;
+
+  @media screen and (max-width: $breakpoint_max_sm)
+  {
+    @include fixedWidth(100%, true);
+  }
+
+  &_top
+  {
+    @include position(fixed, 0);
+  }
+
+  &_scroll
+  {
+    @include position(fixed, 0);
+  }
+
+  &_navbar
+  {
+    @include flex(row, center, space-between);
+    @include transition();
+    height: 58px;
+    background: transparent;
+  }
+
+  &_sticky
+  {
+    background-color: $color_white;
+    border-bottom: 1px solid $color_border;
+
+    .header_logo
+    {
+      filter: invert(0);
+    }
+  }
+
+  &_title
+  {
+    @include typographyBuilder(primary, 500, 20, 32);
+    margin: 0;
+  }
+
+  &_logo
+  {
+    height: 20px;
+
+    @include transition();
+    filter: invert(1);
+  }
+
+  &_menuIcon
+  {
+    cursor: pointer;
+  }
+
+  &_menus
+  {
+    @include flex(column, center, flex-start);
+    position: relative;
+    margin: 0;
+    padding: 0;
+
+    @include position(absolute, -100vh, auto, auto, auto);
+    @include fixedWidth(375px, true);
+    @include fixedHeight(100vh);
+    overflow-x: hidden;
+    overflow-y: auto;
+    border: none;
+    background-color: $color_rose_bg2;
+    z-index: 20;
+
+    @include transition();
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    @media screen and (max-width: $breakpoint_max_sm)
+    {
+      @include fixedWidth(100%, true);
+    }
+
+    &Height
+    {
+      @include position(absolute, calc($header_height + 32px), auto, auto, auto);
+    }
+  
+    &Active
+    {
+      top: 58px;
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+  }
+}

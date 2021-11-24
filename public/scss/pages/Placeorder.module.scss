@@ -1,0 +1,86 @@
+@import '../utils/variables';
+
+.placeorder
+{
+  padding: 24px 18px;
+
+  &_header
+  {
+    &__label
+    {
+      margin-bottom: 24px;
+    }
+
+    &__login
+    {
+      @include typographyBuilder(secondary, 400, 12, 16);
+      color: $color_text_primary;
+      text-align: center;
+      margin-bottom: 24px;
+
+      span
+      {
+        color: $color_rose !important;
+        margin-left: 5px;
+      }
+    }
+  }
+
+  &_labelRegister,
+  &_shipping
+  {
+    @include position(relative);
+
+    input
+    {
+      @include absolute(4px, auto, auto, 2px);
+      opacity: 1;
+      cursor: pointer;
+
+      &::after
+      {
+        content: "";
+        @include absolute(-2px, auto, auto, -2px);
+        @include fixedWidth(20px);
+        @include fixedHeight(20px);
+        background: $color_white;
+        border: 2px solid $color_rose;
+        border-radius: 2px;
+        z-index: 1;
+      }
+
+      &:checked::after 
+      {
+        border: none;
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiByeD0iMiIgZmlsbD0iIzk5ODA2MCIvPgo8cGF0aCBkPSJNNCAxMUw2IDlMMTAgMTNMOCAxNUw0IDExWiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTE0IDVMMTYgN0wxMCAxM0w4IDExTDE0IDVaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K")
+      }
+    }
+
+    label
+    {
+      @include typographyBuilder(secondary, 400, 14, 24);
+      color: $color_text_primary;
+      margin-left: 32px;
+      margin-bottom: 0;
+    }
+  }
+
+  &_formError
+  {
+    background: $color_error;
+    padding: 13px 18px;
+    margin-bottom: 24px;
+
+    &:empty
+    {
+      display: none;
+    }
+
+    &__label
+    {
+      @include typographyBuilder(secondary, 400, 12, 16);
+      color: $color_white;
+      margin: 0;
+    }
+  }
+}

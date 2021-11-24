@@ -1,0 +1,110 @@
+@import '../utils/variables';
+
+.products
+{
+  min-height: 100vh;
+  padding-bottom: 106px;
+
+  &_header
+  {
+    @include flex(row, center, space-between);
+    margin-bottom: 24px;
+
+    &TotalItem
+    {
+      @include typographyBuilder(secondary, 400, 14, 24);
+      color: $color_text_primary;
+      margin: 0;
+    }
+
+    &Customize
+    {
+      @include flex(row, center, flex-start);
+      @include typographyBuilder(secondary, 400, 14, 24);
+      color: $color_rose;
+      cursor: pointer;
+
+      img
+      {
+        width: 12px;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  &_sortLabel
+  {
+    @include fixedWidth(100%);
+    @include typographyBuilder(secondary, 400, 14, 24);
+    background: $color_rose_bg2;
+    padding: 4px 12px;
+    margin-bottom: 16px;
+  }
+}
+
+.category
+{
+  padding-left: 12px;
+  margin-bottom: 24px;
+
+  &_list
+  {
+    list-style: none;
+    margin: 12px 0;
+
+    &:first-child
+    {
+      margin-top: 0;
+    }
+
+    &:last-child
+    {
+      margin-bottom: 0;
+    }
+
+    ul
+    {
+      margin-top: 12px;
+      margin-bottom: 12px;
+    }
+  }
+
+  &_listContainer
+  {
+    @include flex(row, center, space-between);
+
+    &:hover
+    {
+      .category_listLink,
+      .category_listIcon
+      {
+        color: $color_rose;
+      }
+    }
+  }
+
+  &_listLink
+  {
+    &:hover
+    {
+      text-decoration: none;
+    }
+  }
+
+  &_listItem
+  {
+    @include typographyBuilder(secondary, 400, 14, 24);
+  }
+
+  &_listTotalNumber
+  {
+    @include typographyBuilder(secondary, 400, 14, 24);
+    margin-left: 4px;
+    color: $color_rose;
+  }
+
+  &_listIcon
+  {
+    cursor: pointer;
+  }
+}

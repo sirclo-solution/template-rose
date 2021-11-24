@@ -1,0 +1,53 @@
+@import '../utils/variables';
+
+.thankYou
+{
+  &_header
+  {
+    @include flex(row, center, space-between);
+    background: $color_rose_bg2;
+    padding: 16px 18px;
+
+    &Title
+    {
+      @include typographyBuilder(secondary, 400, 14, 24);
+      color: $color_text_primary;
+      margin: 0;
+    }
+  }
+
+  &_inner
+  {
+    padding: 24px 18px 8px;
+
+    h3
+    {
+      display: none;
+    }
+  }
+
+  &_message
+  {
+    @include typographyBuilder(secondary, 400, 14, 24);
+    color: $color_text_primary;
+    margin-bottom: 24px;
+  }
+
+  &_paymentInformation
+  {
+    margin: 24px 0;
+    @include typographyBuilder(secondary, 400, 12, 16);
+    color: $color_text_primary; 
+  }
+
+  &_footer
+  {
+    padding: 0 18px 24px;
+
+    &Btn
+    {
+      background: none;
+      color: $color_rose;
+    }
+  }
+}

@@ -1,0 +1,269 @@
+@import '../utils/variables';
+
+.blog
+{
+  &_container
+  {
+    padding: 58px 0 106px 0;
+    background-color: $color_rose_bg1;
+  }
+
+  &_header
+  {
+    padding: 16px 18px 24px 18px;
+    background-color: $color_white;
+  }
+
+  &_body
+  {
+    padding: 0;
+  }
+
+  &_categoryContainer
+  {
+    display: flex;
+    
+    overflow: auto;
+    margin-top: 16px;
+    margin-left: 17px;
+    padding: 10px 0;
+  }
+
+  &_category
+  {
+    display: flex;
+    list-style-type:none;
+    margin: 0;
+    padding: 0;
+    height: 40px;
+  }
+
+  &_categoryItem
+  {
+    @include flex(row,center);
+    border: 1px solid $color_border;
+    padding: 8px 16px;
+    border-radius: 50px;
+    margin-right: 8px;
+    width: max-content;
+    color: $color_text_primary;
+    @include typographyBuilder(secondary,400,14,24);
+    cursor: pointer;
+
+    &:hover
+    {
+      border-color: $color_rose;
+      background-color: $color_rose_bg2;
+
+    }
+
+    & > a 
+    {
+      text-decoration: none;
+    }
+  }
+
+  &_items
+  {
+    @include fixedWidth(100%);
+    padding: 0 17px;
+  }
+
+  &_item
+  {
+    @include flex(row,center,unset);
+    border-bottom: 1px solid #E8E8E8;
+    padding: 24px 0;
+
+    &_imageContainer
+    {
+      @include fixedWidth(64px);
+      margin-right: 8px;
+    }
+
+    &_title
+    {
+      @include typographyBuilder(secondary,500,14,24);
+      text-decoration: none !important;
+    }
+
+    &_content
+    {
+      width: 100%;
+    }
+
+    &_author
+    {
+      padding: 0 2px;
+      display: flex;
+
+      &::after
+      {
+        content: ','
+      }
+    }
+
+    &_innerFooterDate
+    {
+      padding: 0 2px;
+    }
+
+    &_innerFooter
+    {
+      display: flex;
+      color: $color_text_secondary;
+      @include typographyBuilder(secondary,400,12,16);
+    }
+  }
+
+  &_detail
+  {
+    background-color: $color_white;
+    padding-bottom: 24px;
+
+    &_header
+    {
+      padding: 0 17px;
+      text-align: center;
+    }
+
+    &_title
+    {
+      @include typographyBuilder(primary,500,28,40); 
+      color: $color_rose;
+    }
+
+    &_desc
+    {
+      @include flex(row,center);
+      padding: 24px 0;
+      @include typographyBuilder(secondary,400,12,16); 
+      color: $color_text_secondary;
+    }
+
+    &_content
+    {
+      color: $color_text_primary;
+      @include typographyBuilder(secondary,400,14,24);
+      padding: 0 17px;
+
+      & > *
+      {
+        color: $color_text_primary;
+        margin: 0;
+      }
+
+      & > ul,ol
+      {
+        padding: 0 40px;
+      }
+
+      & > h1
+      {
+        @include typographyBuilder(primary,500,32,48);
+      }
+
+      & > h2
+      {
+        @include typographyBuilder(primary,500,28,40);
+      }
+
+      & > h3
+      {
+        @include typographyBuilder(primary,500,20,32);
+      }
+
+      & > img
+      {
+        padding: 0;
+        width: 100%;
+      }
+
+      & > table
+      {
+        width: calc(100% - 34px);
+        margin: auto;
+        margin-top: 12px;
+        
+        & > tbody 
+        {
+          & > tr 
+          {
+            & > th 
+            {
+              height: 51px;
+              color: $color_white;
+              background-color: $color_rose;
+              padding: 13.5px 16px;
+              box-shadow: inset 0px -1px 0px $color_border;
+              @include typographyBuilder(secondary,500,14,24);
+            }
+
+            & > td 
+            {
+              height: 48px;
+              color:$color_text_primary;
+              padding: 13.5px 16px;
+              border-bottom: 1px solid $color_border;
+              @include typographyBuilder(secondary,400,14,24);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &_recent
+  {
+    padding-top: 24px;
+
+    &_title
+    {
+      padding: 0 16px;
+      @include typographyBuilder(primary,500,20,32);
+    }
+  }
+
+  &_footer
+  {
+    color: $color_rose;
+    text-decoration: none;
+    padding: 0 19px;
+    padding-top: 7px;
+
+    & > a 
+    {
+      color: $color_rose;
+      text-decoration: none;
+    }
+    
+    
+    & > a > svg
+    {
+      margin-right: 15px;
+    }
+  }
+
+  &_empty
+  {
+    & > div > a 
+    {
+      text-decoration: none;
+      @include typographyBuilder(secondary,500,14,24); 
+      color: $color_rose;
+      margin-top: 100px;
+    }
+  }
+
+  &_shareContainer
+  {
+    background-color: $color_white;
+    
+    & > div
+    {
+      padding: 24px 0;
+      border-top: 1px solid $color_border;
+      margin: 0 17px;
+    }
+  }
+}

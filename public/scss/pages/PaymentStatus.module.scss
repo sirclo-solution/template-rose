@@ -1,0 +1,50 @@
+@import '../utils/variables';
+
+.paymentStatus
+{
+  min-height: calc(100vh - 58px - 36px);
+
+  &_header
+  {
+    @include flex(row, center, space-between);
+    background: $color_rose_bg2;
+    padding: 16px 18px;
+
+    &Title
+    {
+      @include typographyBuilder(secondary, 400, 14, 24);
+      color: $color_text_primary;
+      margin: 0;
+    }
+  }
+
+  &_content
+  {
+    padding: 24px 18px;
+
+    &Desc
+    {
+      @include typographyBuilder(secondary, 400, 14, 24);
+      color: $color_text_primary;
+      margin: 0; 
+    }
+  }
+
+  &_action
+  {
+    padding: 0 18px;
+  }
+
+  &_btnFailed
+  {
+    color: $color_rose !important;
+    background: none !important;
+
+    &:hover,
+    &:active
+    {
+      background: none !important;
+      color: $color_rose !important;
+    }
+  }
+}

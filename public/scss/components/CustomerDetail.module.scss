@@ -1,0 +1,212 @@
+@import '../utils/variables';
+
+.customer
+{
+  margin-bottom: 18px;
+
+  &:last-child
+  {
+    margin: 0
+  }
+
+  &_info
+  {
+    @include position(relative);
+  }
+
+  &_infoPerson
+  {
+    & > a
+    {
+      cursor: pointer;
+      display: none;
+    }
+
+    &:empty
+    {
+      display: none;
+    }
+
+    &:nth-child(3)
+    {
+      display: none;
+    }
+  }
+
+  &_infoPersonValue
+  {
+    @include typographyBuilder(secondary, 400, 12, 16);
+    color: $color_text_secondary;
+
+    &:first-child
+    {
+      @include typographyBuilder(secondary, 500, 14, 24);
+      margin-bottom: 5px;
+      color: $color_text_primary;
+    }
+  }
+
+  &_infoHeader
+  {
+    @include flex(row, center, space-between);
+    padding: 8px 0;
+  }
+
+  &_infoHeaderContainer
+  {
+    @include flex(row, center);
+  }
+
+  &_infoHeaderTitle,
+  &_infoHeaderLink
+  {
+    @include typographyBuilder(secondary, 400, 12, 16);
+    margin: 0;
+    color: $color_text_primary;
+  }
+
+  &_infoHeaderTitle
+  {
+    color: $color_rose !important;
+    margin-right: 5px;
+    text-transform: uppercase;
+  }
+
+  &_infoHeaderLink
+  {
+    color: $color_info !important;
+    cursor: pointer;
+
+    &:hover
+    {
+      text-decoration: none
+    }
+  }
+
+  &_mapPopup
+  {
+    @include fixed(0, auto, auto, 0);
+    @include fixedWidth(100%);
+    @include fixedHeight(100%);
+    @include flex(row, flex-end, center);
+    background-color: rgba($color_black, 0.8);
+    z-index: 12;
+
+    @media screen and (max-width: 575px)
+    {
+      @include flex(row, center, center);
+    }
+  }
+
+  &_mapPopupContainer
+  {
+    @include position(relative);
+    @include fixedWidth(375px);
+    @include fixedHeight(80vh);
+    background: $color_white;
+    border-radius: 4px 4px 0 0;
+
+    @media screen and (max-width: 575px)
+    {
+      @include fixedWidth(100%);
+      @include fixedHeight(100vh);
+      border-radius: 0;
+    }
+  }
+
+  &_mapPopupHeader
+  {
+    @include position(relative);
+    @include flex(row, center, center);
+    padding: 12px;
+  }
+
+  &_mapPopupHeaderTitle
+  {
+    @include typographyBuilder(secondary, 400, 14, 24);
+  }
+
+  &_mapPopupClose
+  {
+    @include absolute(auto, 15px, auto, auto);
+    border: none;
+    background-color: transparent;
+    padding: 0;
+
+    &:focus,
+    &:active
+    {
+      outline: 0;
+      border: none;
+      box-shadow: none;
+    }
+  }
+
+  &_mapPopupNote
+  {
+    @include typographyBuilder(secondary, 400, 12, 16);
+    background: $color_white;
+    color: $color_text_primary;
+    padding: 8px 16px;
+  }
+
+  &_mapPopupMaps
+  {
+    @include position(relative);
+    background-color: $color_white;
+    width: 100%;
+    height: calc(80vh - 48px * 4);
+    z-index: 1;
+
+    @media screen and (max-width: 575px)
+    {
+      height: calc(100vh - 48px * 4);
+    }
+
+    input
+    {
+      @include typographyBuilder(secondary, 400, 12, 16);
+      @include fixedWidth(calc(100% - 75px));
+      padding: 10px 12px;
+      border: 1px;
+      background: $color_white;
+      border-radius: 2px;
+      box-shadow: none;
+      outline: 0;
+
+      @include absolute(12px, 12px, auto, 16px);
+      z-index: 2;
+    }
+
+    [class*="autocomplete-dropdown-container"]
+    {
+      @include absolute(48px, 12px, auto, 16px);
+      width: calc(100% - 75px);
+
+      &:empty
+      {
+        display: none;
+      }
+    }
+  }
+
+  &_mapPopupCenterButton
+  {
+    @include absolute(12px, 10px, auto, auto);
+    @include fixedWidth(36px);
+    @include fixedHeight(36px);
+    @include flex(row, center, center);
+    background: $color_white;
+    padding: 0;
+    border: none;
+    border-radius: 2px;
+  }
+
+  &_mapPopupLabelAddress
+  {
+    @include typographyBuilder(secondary, 400, 12, 16);
+    background: $color_white;
+    color: $color_text_primary;
+    padding: 8px 16px;
+  }
+}

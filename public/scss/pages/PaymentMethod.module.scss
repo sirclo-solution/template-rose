@@ -1,0 +1,541 @@
+@import '../utils/variables';
+
+.payment
+{
+  padding: 18px;
+
+  &_shipping
+  {
+    @include flex(row, center, flex-start);
+  }
+
+  &_shippingTitle
+  {
+    @include typographyBuilder(secondary, 400, 14, 24);
+    color: $color_text_primary;
+    margin-bottom: 0;
+  }
+
+  &_shippingCost
+  {
+    @include typographyBuilder(secondary, 400, 14, 24);
+    color: $color_text_secondary;
+    margin-left: 6px;
+    margin-bottom: 0;
+  }
+
+  &_listTitle
+  {
+    @include typographyBuilder(secondary, 400, 14, 24);
+    color: $color_text_primary;
+  }
+
+  &_listItemDisabled
+  {
+    @include flex(row, center, space-between, true);
+    background: $color_text_secondary;
+    border: 1px solid $color_border;
+    border-radius: 2px;
+    margin-bottom: 16px;
+    @include typographyBuilder(secondary, 400, 14, 24);
+    color: $color_white;
+    cursor: pointer;
+  }
+
+  &_listItemEnabled
+  {
+    @include flex(row, center, space-between, true);
+    background: $color_white;
+    border: 1px solid $color_border;
+    border-radius: 2px;
+    margin-bottom: 16px;
+    @include typographyBuilder(secondary, 400, 14, 24);
+    color: $color_text_primary;
+    cursor: pointer;
+  }
+
+  &_listItemOverlay
+  {
+    @include fixedWidth(100%);
+    @include fixedHeight(100%);
+    @include flex(row, center, center);
+    padding: 0 16px;
+    background-color: rgba($color_black, 0.8);
+    @include fixed(0, auto, auto, 0);
+    z-index: 10;
+  }
+
+  &_listItemPopup
+  {
+    @include fixed(0, 0, 0, 0);
+    @include fixedWidth(375px);
+    @include fixedHeight(80%);
+    @include transition();
+    margin: auto auto 0 !important;
+    padding: 16px;
+    background-color: $color_white;
+    border-radius: 4px 4px 0px 0px;
+
+    @media screen and (max-width: $breakpoint_max_sm)
+    {
+      @include fixedWidth(100%, true);
+    }
+  }
+
+  &_closeButton
+  {
+    @include position(absolute, 14px, 14px, auto, auto);
+    background: transparent;
+    padding: 0;
+    border: none;
+
+    &:active,
+    &:focus
+    {
+      outline: 0;
+      box-shadow: none;
+    }
+  }
+
+  &_voucherFormContainer
+  {
+    position: relative;
+    margin-top: 50px;
+    padding: 9px 12px;
+    background: $color_white;
+    border: 1px solid $color_border;
+    border-radius: 37px;
+  }
+
+  &_voucherForm
+  {
+    @include fixedWidth(100%);
+    @include flex(row, center, space-between);
+  }
+
+  &_voucherInput
+  {
+    @include fixedWidth(60%);
+    @include typographyBuilder(secondary, 400, 14, 24);
+    color: $color_text_primary;
+    border: none;
+    padding: 17px;
+    margin: 0 5px;
+    background: transparent;
+
+    &:active,
+    &:focus
+    {
+      outline: 0;
+      box-shadow: none;
+    }
+  }
+
+  &_voucherSubmitButton
+  {
+    @include typographyBuilder(secondary, 400, 12, 18);
+    @include fixedWidth(30%);
+  }
+
+  &_listItemPayment
+  {
+    @include position(relative);
+    display: flex;
+    flex: 1;
+    padding: 16px;
+
+    &__radio
+    {
+      margin-top: 2px;
+      margin-right: 12px;
+      padding-right: 0;
+
+      & > input
+      {
+        @include absolute(49%, auto, auto, 24px);
+        transform: translate(-50%, -50%);
+        opacity: 1;
+        cursor: pointer;
+
+        &::after
+        {
+          content: "";
+          @include absolute(-2px, auto, auto, -2px);
+          @include fixedWidth(20px);
+          @include fixedHeight(20px);
+          background: $color_white;
+          border: 1px solid $color_rose;
+          border-radius: 50%;
+          z-index: 1;
+        }
+
+        &:checked::after 
+        {
+          border: none;
+          background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3QgeD0iMC41IiB5PSIwLjUiIHdpZHRoPSIxOSIgaGVpZ2h0PSIxOSIgcng9IjkuNSIgZmlsbD0id2hpdGUiLz4KPGNpcmNsZSBjeD0iMTAiIGN5PSIxMCIgcj0iNiIgZmlsbD0iIzk5ODA2MCIvPgo8cmVjdCB4PSIwLjUiIHk9IjAuNSIgd2lkdGg9IjE5IiBoZWlnaHQ9IjE5IiByeD0iOS41IiBzdHJva2U9IiM5OTgwNjAiLz4KPC9zdmc+Cg==");
+        }
+      }
+    }
+
+    & > p
+    {
+      @include typographyBuilder(secondary, 400, 14, 24);
+      margin-top: 1px;
+      margin-bottom: 0;
+      margin-left: 16px;
+    }
+
+    &__image
+    {
+      text-align: right;
+      padding: 16px;
+
+      img
+      {
+        height: 25px;
+      }
+    }
+
+    &__warning
+    {
+      display: block;
+      width: 100%;
+      padding: 0 1rem;
+      color: $color_error;
+      font-size: 14px;
+    }
+  }
+  
+  &_listItemBody
+  {
+    flex-grow: 1;
+    padding: 16px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    background: $color_rose_bg1;
+    border-top: 1px solid $color_border;
+  }
+  
+  &_listItemDetail
+  {
+    margin-bottom: 12px;
+  }
+
+  &_listItemTable
+  {
+    @include position(relative);
+    @include fixedWidth(100%);
+    border-collapse: collapse;
+  }
+
+  &_listItemTableRow
+  {
+    @include typographyBuilder(secondary, 400, 14, 24);
+    @include flex(row, center, space-between);
+    @include fixedWidth(100%);
+    padding: 4px 0;
+
+    &:last-child
+    {
+      @include typographyBuilder(secondary, 500, 14, 24);
+      margin-top: 8px;
+      padding-top: 12px;
+      border-top: 1px dashed $color_rose;
+    }
+
+    &__label
+    {
+      @include flex(row, center);
+      text-align: left;
+    }
+
+    &__value
+    {
+      text-align: right;
+    }
+
+    &__priceSale
+    {
+      &:first-of-type:not(:only-of-type)
+      {
+        display: block;
+        text-decoration: line-through;
+        color: $color_text_secondary;
+
+        @media screen and (max-width: 575px) {
+          display: inherit;
+        }
+      }
+    }
+
+    &__price
+    {
+      margin-left: 5px;
+    }
+  }
+
+  &_footer
+  {
+    &__promotion
+    {
+      margin: 12px 0;
+    }
+
+    &__agreement
+    {
+      @include position(relative);
+      @include typographyBuilder(secondary, 400, 12, 16);
+      text-align: center;
+      color: $color_text_primary;
+      margin: 24px 0;
+
+      & > input
+      {
+        @include absolute(4px, auto, auto, 5px);
+        opacity: 1;
+        cursor: pointer;
+
+        &::after
+        {
+          content: "";
+          @include absolute(-2px, auto, auto, -2px);
+          @include fixedWidth(20px);
+          @include fixedHeight(20px);
+          background: $color_white;
+          border: 2px solid $color_rose;
+          border-radius: 2px;
+          z-index: 1;
+        }
+
+        &:checked::after 
+        {
+          border: none;
+          background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiByeD0iMiIgZmlsbD0iIzk5ODA2MCIvPgo8cGF0aCBkPSJNNCAxMUw2IDlMMTAgMTNMOCAxNUw0IDExWiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTE0IDVMMTYgN0wxMCAxM0w4IDExTDE0IDVaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K")
+        }
+      }
+
+      & > span
+      {
+        margin-left: 20px;
+      }
+    }
+
+    &__check
+    {
+      position: relative;
+      top: 2px;
+      margin-right: 5px;
+    }
+
+    &__button
+    {
+      margin: 12px 0;
+    }
+  }
+
+  &_popupProcessOverlay
+  {
+    @include fixed(0, auto, auto, 0);
+    @include fixedWidth(100%);
+    @include fixedHeight(100%);
+    @include flex(row, center, center);
+    z-index: 10;
+    background-color: rgba($color_black, 0.8);
+  }
+
+
+  &_popupProcessContainer
+  {
+    @include position(relative);
+    @include flex(row, center, center);
+  }
+
+  &_popupProcessInner
+  {
+    @include flex(row, center);
+    width: 100%;
+    height: auto;
+    padding: 16px;
+    text-align: center;
+    border-radius: 4px;
+    background-color: $color_white;
+    box-shadow: 0 0 15px rgba($color_black, 0.15);
+  }
+
+  &_pointButton
+  {
+    @include fixedWidth(100%);
+    @include fixedHeight(60px);
+    @include flex(row, center, flex-start);
+    @include typographyBuilder(secondary, 400, 14, 24);
+    padding: 0 24px;
+    border: 1px solid $color_border;
+    background: $color_white;
+    border-radius: 37px;
+    cursor: pointer;
+
+    &:hover
+    {
+      opacity: .8;
+    }
+  }
+
+  &_pointAppliedText,
+  &_voucherAppliedText
+  {
+    flex-grow: 1;
+    text-align: left;
+  }
+
+  &_pointAppliedRemove,
+  &_voucherAppliedRemove
+  {
+    cursor: pointer;
+  }
+
+  &_containerPointPopup
+  {
+    @include position(relative);
+    @include fixedWidth(375px);
+    @include transition();
+    min-height: 0;
+    max-height: calc(100vh - 58px);
+    height: auto;
+    margin: auto auto 0 !important;
+    padding: 16px;
+    background-color: $color_white;
+    border-radius: 4px 4px 0px 0px;
+
+    @media screen and (max-width: $breakpoint_max_sm)
+    {
+      @include fixedWidth(100%, true);
+    }
+  }
+
+  &_numberOfPoints
+  {
+    padding: 16px 16px 11px 16px;
+  }
+
+  &_pointsPopup
+  {
+    @include flex(column, center, center);
+
+    img
+    {
+        width: 25px;
+        margin-bottom: 10px;
+        margin-right: 0 !important;
+    }
+  }
+
+  &_pointsFormContainer
+  {
+    position: relative;
+    @include flex(column, center, center);
+  }
+
+  &_pointsChange
+  {
+    @include fixedWidth(60px);
+    @include fixedHeight(60px);
+    @include typographyBuilder(secondary, 400, 24, 24);
+    color: $color_text_primary;
+    border: 1px solid $color_border;
+    border-radius: 37px;
+    background: transparent;
+
+    &:active,
+    &:focus
+    {
+      outline: 0;
+      box-shadow: none;
+    }
+
+    &[class*="increment"]
+    {
+      order: 3;
+    }
+
+    &[class*="decrement"]
+    {
+      order: 1;
+    }
+  }
+
+  &_pointsForm
+  {
+    @include flex(row, center, center);
+    @include fixedWidth(100%);
+
+    input
+    {
+      @include fixedWidth(calc(100% - 140px));
+      @include typographyBuilder(secondary, 400, 14, 24);
+      color: $color_text_primary;
+      border: 1px solid $color_border;
+      border-radius: 37px;
+      padding: 17px;
+      margin: 0 5px;
+      background: transparent;
+      order: 2;
+
+      &:active,
+      &:focus
+      {
+        outline: 0;
+        box-shadow: none;
+      }
+    }
+  }
+
+  &_pointsSubmitButton
+  {
+    @include typographyBuilder(secondary, 400, 12, 18);
+    margin-top: 12px;
+  }
+
+  &_pointsInsufficient
+  {
+    @include typographyBuilder(secondary, 400, 12, 18);
+    color: $color_error;
+    margin-top: 12px;
+
+    & > p
+    {
+      margin: 0;
+    }
+  }
+
+  &_pointsWarning
+  {
+    padding: 0 0 16px;
+
+    p
+    {
+      @include typographyBuilder(secondary, 400, 11, 16);
+      text-align: center;
+      color: $color_error;
+      margin: 8px 0 0 0;
+    }
+  }
+}
+
+.customer
+{
+  padding: 18px;
+  background: $color_rose_bg1;
+
+  &_section
+  {
+    padding-top: 8px;
+    padding-bottom: 16px;
+    border-top: 1px dashed $color_rose;
+  }
+
+  &_notes
+  {
+    @include typographyBuilder(secondary, 400, 12, 16);
+    color: $color_text_secondary;
+  }
+}

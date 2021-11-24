@@ -1,0 +1,73 @@
+@import '../utils/variables';
+
+.paymentNotif
+{
+  &_container
+  {
+    padding: 78px 18px;
+  }
+
+  &_order
+  {
+    margin: 16px 0;
+  }
+
+  &_paymentInfo
+  {
+    @include typographyBuilder(secondary, 400, 12, 16);
+    color: $color_text_primary;
+    margin-bottom: 16px;
+  }
+
+  &_form
+  {
+    margin: 24px 0;
+
+    &Input
+    {
+      @include typographyBuilder(secondary, 400, 12, 16);
+      color: $color_text_primary;
+      margin-bottom: 16px;
+
+      &:nth-child(2)
+      {
+        label
+        {
+          display: none;
+        }
+      }
+
+      & > input[type="file"]
+      {
+        padding-top: 16px;
+        padding-left: 115px;
+
+        &::-webkit-file-upload-button
+        {
+          @include absolute(50%, auto, auto, 20px);
+          transform: translate(0, -50%);
+          @include typographyBuilder(secondary, 400, 12, 16);
+          border: none;
+          border-radius: 37px;
+          background: $color_rose_bg2;
+          color: $color_rose;
+          padding: 5px 10px;
+          cursor: pointer;
+  
+          &:active,
+          &:focus
+          {
+            outline: 0;
+          }
+        }
+      }
+    }
+  }
+
+  &_infoUpload
+  {
+    @include typographyBuilder(secondary, 400, 12, 16);
+    color: $color_text_secondary;
+    text-align: center;
+  }
+}

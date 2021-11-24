@@ -1,0 +1,22 @@
+@import '../utils/variables';
+
+.error
+{
+  @include fixed(0, auto, auto, 0);
+  @include fixedWidth(100%);
+  @include fixedHeight(100%);
+  @include flex(column, center, center);
+  background-color: $color_white;
+  z-index: 1;
+
+  &_container
+  {
+    text-align: center;
+
+    &__title
+    {
+      @include typographyBuilder(secondary,400,20,24);
+      margin-bottom: 24px;
+    }
+  }
+}
