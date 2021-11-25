@@ -1,0 +1,179 @@
+@import '../utils/variables';
+@import '../components/Placeholder.module.scss';
+
+.product
+{
+  &_container
+  {
+    margin: 5px 0 24px;
+
+    &Item
+    {
+      @include flex(row, flex-start, flex-start);
+      white-space: nowrap;
+      overflow-x: scroll;
+      @extend .scrollbar_none;
+    }
+
+    &Title
+    {
+      border-bottom: 1px solid $color_border;
+      margin-bottom: 24px;
+    }
+  }
+
+  &_homeTitle
+  {
+    @include typographyBuilder(secondary, 400, 14, 24);
+    color: $color_text_inactive;
+    padding: 12px 0;
+    margin: 0 15px;
+    cursor: pointer;
+
+    &:hover
+    {
+      color: $color_text_primary;
+    }
+
+    &Active
+    {
+      color: $color_text_primary;
+      border-bottom: 2px solid $color_rose;
+    }
+  }
+
+  &_item
+  {
+    position: relative;
+    margin: 0 8px;
+    width: min-content;
+
+    &:first-child
+    {
+      margin-left: 0;
+    }
+
+    &:last-child
+    {
+      margin-right: 0;
+    }
+  }
+
+  &_sticker
+  {
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: center;
+  }
+
+  &_stickerGrid
+  {
+    right: 15px
+  }
+
+  &_stickerLabel
+  {
+    @include typographyBuilder(secondary, 600, 10, 16);
+    width: fit-content;
+    padding: 3px 8px;
+    display: table-cell;
+    vertical-align: middle;
+
+    &__outofstock
+    {
+      background: $color_text_secondary;
+      color: $color_white;
+    }
+
+    &__sale
+    {
+      background: $color_error;
+      color: $color_white;
+    }
+
+    &__openorder
+    {
+      background: $color_info;
+      color: $color_white;
+    }
+
+    &__comingsoon
+    {
+      background: $color_warning;
+      color: $color_white;
+    }
+
+    &__new
+    {
+      background: $color_success;
+      color: $color_white;
+    }
+
+    &__preorder
+    {
+      background: $color_rose;
+      color: $color_white;
+    }
+  }
+
+  &_link
+  {
+    &__image
+    {
+      width: 130px;
+      object-fit: contain;
+    }
+  }
+
+  &_label
+  {
+    @include flex(column, flex-start, space-between);
+    padding: 10px 0 0;
+
+    &__title
+    {
+      @include typographyBuilder(secondary, 600, 14, 24);
+      margin-bottom: 5px;
+      white-space: normal;
+      overflow: hidden;
+      display: block;
+      display: -webkit-box;
+      text-overflow: ellipsis;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      max-height: 45px;
+    }
+  }
+
+  &_labelPrice
+  {
+    @include typographyBuilder(secondary, 400, 14, 16);
+    color: $color_rose;
+    margin-bottom: 0;
+
+    &__sale
+    {
+      @include fontSize(12);
+      display: block;
+      color: $color_text_placeholder;
+      text-decoration: line-through;
+    }
+
+    &__price
+    {
+      display: block;
+      color: $color_error;
+    }
+  }
+
+  &_itemContainer
+  {
+    margin-bottom: 32px;
+
+    &Image
+    {
+      width: 100%;
+    }
+  }
+}

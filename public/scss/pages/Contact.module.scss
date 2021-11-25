@@ -1,0 +1,99 @@
+@import '../utils/variables';
+
+.contact
+{
+  &_container
+  {
+    padding: 58px 0 106px 0;
+  }
+
+  &_header
+  {
+    padding: 16px 18px 24px 18px;
+  }
+
+  &_info
+  {
+    padding: 0 17px;
+    @include typographyBuilder(secondary,400,14,24);
+    color : $color_text_secondary;
+  }
+
+  &_body
+  {
+    padding: 0 17px;
+  }
+
+  &_form
+  {
+    & > textarea
+    {
+      padding: 25px 24px 0 24px;
+      @include typographyBuilder(secondary,400,14,24);
+      height: 58px;
+      width: 100%;
+      border: 1px solid $color_border;
+      box-sizing: border-box;
+      border-radius: 37px;
+      resize: none;
+
+      &:focus
+      {
+          outline: none !important;
+          border: 1px solid $color_rose;
+          border-radius: 37px;
+      }
+    }
+  }
+
+  &_widget
+  {
+    border-top: 1px solid $color_border;
+    margin-top: 24px;
+  }
+
+  &_widgetInfo
+  {
+
+    & > *
+    {
+      width: 100%;
+      margin: 24px 0 0 0;
+    }
+
+    & > p
+    {
+      @include typographyBuilder(secondary,400,14,24);
+      color: $color_text_secondary;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+
+      & > br 
+      {
+        height: 2px;
+      }
+
+      & > strong
+      {
+        @include typographyBuilder(secondary,500,14,24);
+        color: $color_text_primary;  
+        padding: 24px 0 8px 0;  
+      }
+
+      & > a
+      {
+        @include typographyBuilder(secondary,500,14,24);
+        color: $color_text_secondary !important; 
+        display: flex;
+        width: 100%; 
+        text-decoration: none !important;
+
+        & ~ br 
+        {
+          display: none;
+        }
+      }
+    }
+  }
+}

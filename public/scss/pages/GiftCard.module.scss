@@ -1,0 +1,51 @@
+@import '../utils/variables';
+
+.gift
+{
+  &_container
+  {
+    padding: 58px 0 106px 0;
+  }
+
+  &_header
+  {
+    padding: 16px 18px 24px 18px;
+  }
+
+  &_info
+  {
+    padding: 0 17px;
+    margin-bottom: 24px;
+    color: $color_text_secondary;
+    @include typographyBuilder(secondary,400,14,24);
+  }
+
+  &_body
+  {
+    padding: 0 17px;
+    display: grid;
+    grid-gap: 24px;
+  }
+
+  &_form
+  {
+    & > textarea
+    {
+      padding: 25px 24px 0 24px;
+      @include typographyBuilder(secondary,400,14,24);
+      height: 58px;
+      width: 100%;
+      border: 1px solid $color_border;
+      box-sizing: border-box;
+      border-radius: 37px;
+      resize: none;
+      
+      &:focus
+      {
+        outline: none !important;
+        border: 1px solid $color_rose;
+        border-radius: 37px;
+      }
+    }
+  }
+}

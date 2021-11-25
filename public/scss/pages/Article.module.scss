@@ -1,0 +1,64 @@
+@import '../utils/variables';
+
+.article 
+{
+  padding: 0 17.5px;
+
+  h1,h2,h3,h4,h5,h6
+	{
+		@include typographyBuilder(secondary,500,14,24);
+		color: $color_text_primary;
+	}
+
+	p
+	{
+		@include typographyBuilder(secondary,400,14,24);
+    color: $color_text_primary;
+	}
+
+	img
+	{
+		width: 100%;
+  }
+
+  &_container
+  {
+    padding: 58px 0 106px 0;
+  }
+
+  &_header
+  {
+    padding: 16px 18px 24px 18px;
+  }
+
+  &_categories
+  {
+    padding: 0 17.5px;
+  }
+
+  &_categoriesOrder
+  {
+    margin: 0;
+    border-top: 1px solid $color_border;
+    padding: 24px 0;
+
+    &_list
+    {
+      list-style: none;
+      margin-bottom: 12px;
+      
+      & > a
+      {
+        color: $color_text_primary !important;
+        text-decoration: none !important;
+        @include typographyBuilder(secondary,400,14,24);
+        
+        &:hover
+        {
+          color: $color_rose !important;
+        }
+      }
+
+    }
+  }
+}

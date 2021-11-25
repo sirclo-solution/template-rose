@@ -1,0 +1,28 @@
+@import "../utils/variables";
+
+.breadcrumbs
+{
+  @include typographyBuilder(secondary,400,10,16);
+  @include flex(row,flex-start,flex-start);
+}
+
+.breadcrumb
+{
+  cursor: pointer;
+
+  & > a {
+    color: $color_text_primary;
+    text-decoration: none;
+  }
+
+  &_separator
+  {
+    padding: 0 4px;
+  }
+
+  &_last
+  {
+    cursor: text;
+    color: $color_text_inactive;
+  }
+}
