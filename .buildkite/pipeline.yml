@@ -1,0 +1,34 @@
+steps:
+  
+  - command:
+      - gcloud auth activate-service-account --key-file /etc/service_key/service-account-key.json
+      - cp staging.Dockerfile deployment.Dockerfile
+      - full_detail=$$(deployer --build-from-pod --only-build-docker | grep Image)
+      - dockerimage=$$(echo $$full_detail |  cut -d ' ' -f3  )
+      - tag=$$(echo $$full_detail | cut -d ':' -f3 )
+      - id=$$(docker create $$dockerimage )
+      - mkdir -p /tmp/$$dockerimage/static
+      - docker cp $$id:/usr/src/app/.next/static /tmp/$$dockerimage/
+      - gsutil cp -r /tmp/$$dockerimage/static gs://sirclo-1152-templates/rose/_next/
+      - docker rm -v $$id
+      - deployer --build-from-pod  --docker-tag $$tag --use-helmfile
+    agents:
+      - "gce=true"
+
+  - block: "Request Release to production"
+
+  - label: ":rocket: Release to Production"
+    command:
+      - gcloud auth activate-service-account --key-file /etc/service_key/service-account-key.json
+      - cp production.Dockerfile deployment.Dockerfile
+      - full_detail=$$(deployer --build-from-pod --only-build-docker | grep Image)
+      - dockerimage=$$(echo $$full_detail |  cut -d ' ' -f3  )
+      - tag=$$(echo $$full_detail | cut -d ':' -f3 )
+      - id=$$(docker create $$dockerimage )
+      - mkdir -p /tmp/$$dockerimage/static
+      - docker cp $$id:/usr/src/app/.next/static /tmp/$$dockerimage/
+      - gsutil cp -r /tmp/$$dockerimage/static gs://sirclo-template/rose/_next/
+      - docker rm -v $$id
+      - deployer --build-from-pod --docker-tag $$tag --use-helmfile --project=sirclo-prod
+    agents:
+      - "gce-prod=true"
