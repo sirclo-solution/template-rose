@@ -36,11 +36,6 @@
   {
     background-color: $color_white;
     border-bottom: 1px solid $color_border;
-
-    .header_logo
-    {
-      filter: invert(0);
-    }
   }
 
   &_title
@@ -52,9 +47,6 @@
   &_logo
   {
     height: 20px;
-
-    @include transition();
-    filter: invert(1);
   }
 
   &_menuIcon

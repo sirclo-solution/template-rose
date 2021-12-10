@@ -62,6 +62,7 @@ const classesAccount = {
   myAccountBodyClassName: styleAccount.myAccount_list,
   myAccountFieldClassName: styleAccount.myAccount_list_item,
   myAccountLabelClassName: styleAccount.myAccount_list_label,
+  myAccountSeparatorClassName: 'd-none',
   myAccountValueClassName: styleAccount.myAccount_list_value,
   // map
   mapAreaClassName: styleMap.map_mapArea,

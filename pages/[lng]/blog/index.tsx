@@ -62,6 +62,7 @@ const Blog: FC<any> = ({
     itemPerPage: 5,
     totalItems: 0,
   })
+
   return (
     <Layout
       i18n={i18n}
@@ -69,6 +70,7 @@ const Blog: FC<any> = ({
       lngDict={lngDict}
       brand={brand}
       headerTitle={i18n.t('blog.title')}
+      layoutClassName="layout_fullHeight"
       withAllowed={BlogAllowed}
     >
       <div className={styleBlog.blog_container}>
@@ -78,7 +80,7 @@ const Blog: FC<any> = ({
           />
         </div>
         <div className={styleBlog.blog_body}>
-          {headerImage ? (
+          {(headerImage !== "") &&
             <div
               style={{
                 height: '211px',
@@ -87,7 +89,7 @@ const Blog: FC<any> = ({
                 backgroundImage: `url(${headerImage})`,
               }}
             />
-          ) : null}
+          }
           <div className={styleBlog.blog_categoryContainer}>
             <ul className={styleBlog.blog_category}>
               <Link href="/[lng]/blog" as={`/${lng}/blog`}>
@@ -124,11 +126,11 @@ const Blog: FC<any> = ({
               emptyStateComponent={
                 <div className={styleBlog.blog_empty}>
                   <EmptyComponent
-                    title={i18n.t('lookbook.isEmpty')}
+                    title={i18n.t('blog.isEmpty')}
                     icon={<RiQuestionFill color="#BCBCBC" />}
                     button={
                       <Link href="/[lng]" as={`/${lng}`}>
-                        <a>{i18n.t('lookbook.back')}</a>
+                        <a>{i18n.t('blog.back')}</a>
                       </Link>
                     }
                   />

@@ -92,7 +92,7 @@ const Header: FC<any> = ({
       <header
         className={`
           ${styleHeader.header} 
-          ${(!showAnnounce || !withAnnouncement) && styleHeader.header_top}
+          ${(!showAnnounce || !withAnnouncement || countWidgetAnnouncement === 0) && styleHeader.header_top}
           ${(stickyClass !== "transparent") && styleHeader.header_scroll}
         `}>
         <div
