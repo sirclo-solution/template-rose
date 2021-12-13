@@ -56,6 +56,16 @@
       border: 1px solid $color_rose;
       border-radius: 37px;
     }
+
+    &::placeholder {
+      color: $color_text_placeholder !important;
+      opacity: 1; /* Firefox */
+    }
+    
+    &:-ms-input-placeholder,&::-ms-input-placeholder 
+    { /* Internet Explorer 10-11 */
+     color: $color_text_placeholder !important;
+    }
   }
 
   & > select
@@ -94,13 +104,13 @@
   & > input,select,textarea
   {
     &::placeholder {
-      color: $color_text_placeholder;
+      color: $color_text_placeholder !important;
       opacity: 1; /* Firefox */
     }
     
     &:-ms-input-placeholder,&::-ms-input-placeholder 
     { /* Internet Explorer 10-11 */
-     color: $color_text_placeholder;
+     color: $color_text_placeholder !important;
     }
   }
 

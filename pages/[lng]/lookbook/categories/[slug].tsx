@@ -71,7 +71,14 @@ const LookbookSinglePage: FC<any> = ({
   })
 
   return (
-    <Layout i18n={i18n} lng={lng} lngDict={lngDict} brand={brand} withAllowed={LookbookAllowed}>
+    <Layout
+      i18n={i18n}
+      lng={lng}
+      lngDict={lngDict}
+      brand={brand}
+      withAllowed={LookbookAllowed}
+      headerTitle={i18n.t('lookbook.title')}
+    >
       <div className={styleLookbook.lookbook_container}>
         <div className={styleLookbook.lookbook_breadcrumb}>
           <Breadcrumb
@@ -108,6 +115,19 @@ const LookbookSinglePage: FC<any> = ({
                 />
               </div>
             </>
+          }
+          emptyStateComponent={
+            <div className={styleLookbook.lookbook_empty}>
+              <EmptyComponent
+                title={i18n.t('lookbook.isEmpty')}
+                icon={<RiQuestionFill color="#BCBCBC" />}
+                button={
+                  <Link href="/[lng]/lookbook/categories" as={`/${lng}/lookbook/categories`}>
+                    <a>{i18n.t('lookbook.back')}</a>
+                  </Link>
+                }
+              />
+            </div>
           }
           mode="thumbnail"
           thumborSetting={{

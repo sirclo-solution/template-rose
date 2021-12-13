@@ -3,10 +3,10 @@ import { FC } from 'react'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import Link from 'next/link'
 import { RiQuestionFill } from 'react-icons/ri'
-import { 
-  Lookbook, 
-  isLookbookAllowed, 
-  useI18n 
+import {
+  Lookbook,
+  isLookbookAllowed,
+  useI18n
 } from '@sirclo/nexus'
 /* library template */
 import { useBrand } from 'lib/useBrand'
@@ -43,6 +43,7 @@ const LookbookCategory: FC<any> = ({
       brand={brand}
       withAllowed={LookbookAllowed}
       headerTitle={i18n.t('lookbook.title')}
+      layoutClassName="layout_fullHeight"
     >
       <div className={styleLookbook.lookbook_container}>
         <div className={styleLookbook.lookbook_breadcrumb}>

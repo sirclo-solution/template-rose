@@ -239,6 +239,7 @@
 
     &_controlInvoice
     {
+      @include typographyBuilder(secondary,400,12,16);
       text-decoration: none !important;
       color: $color_text_primary !important;
       @include flex(row,center,flex-end);
@@ -251,6 +252,8 @@
 
       &::before
       {
+        position: relative;
+        top: 2px;
         width: 12px;
         height: 16px;
         margin-right: 4px;

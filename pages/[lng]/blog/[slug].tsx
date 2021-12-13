@@ -49,7 +49,13 @@ const BlogSlug: FC<any> = ({
   const [title, setTitle] = useState<string>('')
 
   return (
-    <Layout i18n={i18n} lng={lng} lngDict={lngDict} brand={brand}>
+    <Layout
+      i18n={i18n}
+      lng={lng}
+      lngDict={lngDict}
+      brand={brand}
+      headerTitle={i18n.t('blog.title')}
+    >
       <div className={styleBlog.blog_container}>
         <div className={styleBlog.blog_header}>
           <Breadcrumb
@@ -83,7 +89,7 @@ const BlogSlug: FC<any> = ({
             <SocialShare
               urlSite={urlSite}
               title={i18n.t("article.share")}
-              />
+            />
           </div>
         </div>
         <div className={styleBlog.blog_recent}>

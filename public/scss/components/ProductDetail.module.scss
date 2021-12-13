@@ -331,6 +331,7 @@
   {
     @include fixedWidth(64px);
     @include fixedHeight(64px);
+    object-fit: contain;
     margin-right: 12px;
     flex: 1 0 auto;
   }

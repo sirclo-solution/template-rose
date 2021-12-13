@@ -77,11 +77,11 @@
 
   &_itemSelected
   {
-    color: $color_rose;
+    color: $color_rose !important;
 
     a
     {
-      color: $color_rose;
+      color: $color_rose !important;
     }
   }
 

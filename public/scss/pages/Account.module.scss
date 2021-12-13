@@ -167,6 +167,7 @@
 
     &_item
     {
+      position: relative;
       @include flex(column,unset,unset);
     }
 
@@ -175,6 +176,8 @@
       color: $color_text_secondary;
       padding: 9px 24px 0 24px;
       @include absolute();
+      left: 1px;
+      z-index: 1;
       @include typographyBuilder(secondary,500,10,16);
       margin-bottom: 8px;
     }
