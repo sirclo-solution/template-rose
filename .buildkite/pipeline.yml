@@ -35,6 +35,6 @@ steps:
 
   - label: ":envelope: Notify to slack channel"
     command:
-      - 'curl -X POST --data-urlencode "payload={\"channel\": \"#template-deployment\", \"username\": \"webhookbot\", \"text\": \"template Rose released to production\", \"icon_emoji\": \":rocket:\"}" https://hooks.slack.com/services/T02FRP3AM/B02T9N2HMEF/aMi6zFE3PqhmPbZMVKMh6lZ'
+      - 'curl -X POST --data-urlencode "payload={"channel": "#template-deployment", "username": "webhookbot", "text": "template Rose released to production", "icon_emoji": ":rocket:"}" https://hooks.slack.com/services/T02FRP3AM/B02T9N2HMEF/aMi6zFE3PqhmPbZMVKMh6lZ'
     agents:
       - "gce-prod=true"
