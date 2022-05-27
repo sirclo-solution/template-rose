@@ -104,6 +104,12 @@ const classesListPaymentMethod = {
   pointButtonClassName: `${styleBtn.btn} ${styles.payment_pointButton} mb-3 px-3`,
   pointAppliedTextClassName: styles.payment_pointAppliedText,
   pointButtonRemoveClassName: styles.payment_pointAppliedRemove,
+  // traveloka paylater
+  travelokaPayLaterHeaderClassName: styles.payment_travelokaPayLater__header,
+  travelokaPayLaterFooterClassName: styles.payment_travelokaPayLater__footer,
+  travelokaPayLaterFooterTextClassName: styles.payment_travelokaPayLater__text,
+  travelokaPayLaterFooterLinkClassName: styles.payment_travelokaPayLater__link,
+  travelokaPayLaterFooterImgClassName: styles.payment_travelokaPayLater__img
 }
 
 const classesPlaceholderCustomerDetail = {
