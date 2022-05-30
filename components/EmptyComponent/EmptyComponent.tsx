@@ -2,7 +2,7 @@ import { FC } from 'react'
 import styles from 'public/scss/components/EmptyComponent.module.scss'
 
 type EmptyComponentPropsType = {
-	icon?: React.ReactNode
+	icon?: any
 	title?: string
 	button?: React.ReactNode
 }

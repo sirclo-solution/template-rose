@@ -141,6 +141,7 @@ const Header: FC<any> = ({
           }
         >
           {openMenu &&
+            // @ts-ignore
             <CollapsibleNav
               dropdownIcon={<FiChevronDown size={20} />}
               dropdownOpenIcon={<FiChevronUp size={20} />}

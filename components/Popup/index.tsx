@@ -9,7 +9,7 @@ type TWithButtonLeft = {
 }
 
 type PopupPropType = {
-  children: ReactNode
+  children?: ReactNode
   title?: string
   withCloseButton?: boolean
   withCloseBackground?: boolean

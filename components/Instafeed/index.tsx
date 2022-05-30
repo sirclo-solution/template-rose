@@ -82,6 +82,7 @@ const Instafeed: FC<InstafeedType> = ({
         }
 
         {(instagramQuickView && instagramMedia) &&
+          // @ts-ignore
           <InstagramQuickView
             classes={classesInstagramQuickView}
             showQuickView={setInstagramQuickView}

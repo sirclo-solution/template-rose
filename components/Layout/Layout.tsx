@@ -156,6 +156,7 @@ const Layout: FC<LayoutPropType> = ({
           <Copyright brand={brand} />
         }
       </main>
+      { /* @ts-ignore */ }
       <ToastContainer />
       <div className={styleNewsletter.newsletter_overlay}>
         <Newsletter
