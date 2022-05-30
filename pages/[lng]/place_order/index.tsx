@@ -5,7 +5,6 @@ import {
   useState
 } from 'react'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
-import dynamic from 'next/dynamic'
 import { toast } from 'react-toastify'
 import { BiTargetLock } from 'react-icons/bi'
 import {
@@ -30,9 +29,9 @@ import Layout from 'components/Layout/Layout'
 import HeaderCheckout from 'components/Header/HeaderCheckout'
 import Stepper from 'components/Stepper'
 import OrderSummaryBox from 'components/OrderSummaryBox'
-const Popup = dynamic(() => import('components/Popup'))
-const Loader = dynamic(() => import('components/Loader/Loader'))
-const LoaderPages = dynamic(() => import('components/Loader/LoaderPages'))
+import Popup from 'components/Popup'
+import Loader from 'components/Loader/Loader'
+import LoaderPages from 'components/Loader/LoaderPages'
 /* styles */
 import styleForm from 'public/scss/components/Form.module.scss'
 import styleButton from 'public/scss/components/Button.module.scss'

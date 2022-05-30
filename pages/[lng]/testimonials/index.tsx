@@ -1,7 +1,6 @@
 /* library package */
 import { FC, useState } from 'react'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
-import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import { toast } from 'react-toastify'
 import ReCAPTCHA from 'react-google-recaptcha'
@@ -17,7 +16,7 @@ import { useBrand } from 'lib/useBrand'
 /* components */
 import Layout from 'components/Layout/Layout'
 import Placeholder from 'components/Placeholder'
-const Popup = dynamic(() => import('components/Popup'))
+import Popup from 'components/Popup'
 /* styles */
 import styles from 'public/scss/pages/Testimonials.module.scss'
 

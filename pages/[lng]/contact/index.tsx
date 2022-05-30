@@ -1,7 +1,6 @@
 /* library package */
 import { FC } from 'react'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
-import dynamic from 'next/dynamic'
 import { toast } from 'react-toastify'
 import { 
   useI18n, 
@@ -14,13 +13,12 @@ import { useBrand } from 'lib/useBrand'
 /* components */
 import Layout from 'components/Layout/Layout'
 import Breadcrumb from 'components/Breadcrumb/Breadcrumb'
+import Placeholder from 'components/Placeholder'
 /* styles */
 import styleContact from 'public/scss/pages/Contact.module.scss'
 import styleForm from 'public/scss/components/Form.module.scss'
 import styleButton from 'public/scss/components/Button.module.scss'
 import stylePlaceholder from 'public/scss/components/Placeholder.module.scss'
-
-const Placeholder = dynamic(() => import('components/Placeholder'))
 
 const classesContact = {
   containerClassName: styleContact.contact_body,
