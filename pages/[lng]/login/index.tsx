@@ -1,7 +1,6 @@
 /* library package */
 import { FC, useState } from 'react'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
-import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import {
   RiEyeCloseLine,
@@ -27,8 +26,8 @@ import { useWhatsAppOTPSetting } from 'lib/useWhatsAppOtp'
 /* components */
 import SEO from 'components/SEO'
 import Layout from 'components/Layout/Layout'
-const LoaderPages = dynamic(() => import("components/Loader/LoaderPages"))
-const Loader = dynamic(() => import("components/Loader/Loader"))
+import LoaderPages from 'components/Loader/LoaderPages'
+import Loader from 'components/Loader/Loader'
 import Breadcrumb from 'components/Breadcrumb/Breadcrumb'
 /* styles */
 import styleLogin from 'public/scss/pages/Login.module.scss'

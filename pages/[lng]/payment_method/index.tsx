@@ -2,7 +2,6 @@
 import { FC, ReactNode } from 'react'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { useRouter } from 'next/router'
-import dynamic from 'next/dynamic'
 import { toast } from 'react-toastify'
 import { HiCheckCircle } from 'react-icons/hi'
 import { FiX } from 'react-icons/fi'
@@ -22,9 +21,9 @@ import Layout from 'components/Layout/Layout'
 import EmptyComponent from 'components/EmptyComponent/EmptyComponent'
 import Stepper from 'components/Stepper'
 import HeaderCheckout from 'components/Header/HeaderCheckout'
-const Loader = dynamic(() => import('components/Loader/Loader'))
-const LoaderPages = dynamic(() => import('components/Loader/LoaderPages'))
-const Placeholder = dynamic(() => import('components/Placeholder'))
+import Loader from 'components/Loader/Loader'
+import LoaderPages from 'components/Loader/LoaderPages'
+import Placeholder from 'components/Placeholder'
 /* styles */
 import styleCustomer from 'public/scss/components/CustomerDetail.module.scss'
 import styleBtn from 'public/scss/components/Button.module.scss'

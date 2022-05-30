@@ -2,7 +2,6 @@
 import { FC, useState } from 'react'
 import { useRouter } from 'next/router'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
-import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { RiQuestionFill } from 'react-icons/ri'
 import { IoChevronBack, IoChevronForward } from 'react-icons/io5'
@@ -13,12 +12,11 @@ import { useBrand } from 'lib/useBrand'
 /* components */
 import Layout from 'components/Layout/Layout'
 import Breadcrumb from 'components/Breadcrumb/Breadcrumb'
+import EmptyComponent from 'components/EmptyComponent/EmptyComponent'
 /* styles */
 import styleBlog from 'public/scss/pages/Blog.module.scss'
 import stylePlaceHolder from 'public/scss/components/Placeholder.module.scss'
 import stylePagination from 'public/scss/components/Pagination.module.scss'
-
-const EmptyComponent = dynamic(() => import('components/EmptyComponent/EmptyComponent'))
 
 const classesBlogs = {
   blogsContainerClassName: styleBlog.blog_items,

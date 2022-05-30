@@ -6,7 +6,6 @@ import {
 } from 'react'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { useRouter } from 'next/router'
-import dynamic from 'next/dynamic'
 import {
   RiQuestionFill,
   RiCloseLine
@@ -31,7 +30,7 @@ import SEO from 'components/SEO'
 import Layout from 'components/Layout/Layout'
 import Breadcrumb from 'components/Breadcrumb/Breadcrumb'
 import EmptyComponent from 'components/EmptyComponent/EmptyComponent'
-const Popup = dynamic(() => import('components/Popup'))
+import Popup from 'components/Popup'
 /* styles */
 import styleButton from 'public/scss/components/Button.module.scss'
 import styleProduct from 'public/scss/components/Product.module.scss'

@@ -2,7 +2,6 @@
 import { FC, useState } from 'react'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { useRouter } from 'next/router'
-import dynamic from 'next/dynamic'
 import { toast } from 'react-toastify'
 import ReCAPTCHA from 'react-google-recaptcha'
 import {
@@ -31,8 +30,8 @@ import { useWhatsAppOTPSetting } from 'lib/useWhatsAppOtp'
 import SEO from 'components/SEO'
 import Layout from 'components/Layout/Layout'
 import Breadcrumbs from 'components/Breadcrumb/Breadcrumb'
-const LoaderPages = dynamic(() => import("components/Loader/LoaderPages"))
-const Loader = dynamic(() => import("components/Loader/Loader"))
+import LoaderPages from 'components/Loader/LoaderPages'
+import Loader from 'components/Loader/Loader'
 /* styles */
 import styleLogin from 'public/scss/pages/Login.module.scss'
 import styleForm from 'public/scss/components/Form.module.scss'

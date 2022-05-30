@@ -4,7 +4,6 @@ import {
   useState,
   useEffect
 } from 'react'
-import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import { toast } from 'react-toastify'
 import {
@@ -36,9 +35,9 @@ import { formatPrice } from 'lib/formatPrice'
 import SEO from 'components/SEO'
 import Layout from 'components/Layout/Layout'
 import Placeholder from 'components/Placeholder'
-const EmptyComponent = dynamic(() => import('components/EmptyComponent/EmptyComponent'))
-const Popup = dynamic(() => import('components/Popup'))
-const SocialShare = dynamic(() => import('components/SocialShare'))
+import EmptyComponent from 'components/EmptyComponent/EmptyComponent'
+import Popup from 'components/Popup'
+import SocialShare from 'components/SocialShare'
 /* styles */
 import styleEstimate from 'public/scss/components/EstimateShipping.module.scss'
 import styleProductDetail from 'public/scss/components/ProductDetail.module.scss'

@@ -2,7 +2,6 @@
 import { FC, ReactNode } from 'react'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { useRouter } from 'next/router'
-import dynamic from 'next/dynamic'
 import { toast } from 'react-toastify'
 import { FiX } from 'react-icons/fi'
 import { BiTargetLock } from 'react-icons/bi'
@@ -21,8 +20,8 @@ import Layout from 'components/Layout/Layout'
 import HeaderCheckout from 'components/Header/HeaderCheckout'
 import Stepper from 'components/Stepper'
 import OrderSummaryBox from 'components/OrderSummaryBox'
-const Placeholder = dynamic(() => import('components/Placeholder'))
-const LoaderPages = dynamic(() => import('components/Loader/LoaderPages'))
+import Placeholder from 'components/Placeholder'
+import LoaderPages from 'components/Loader/LoaderPages'
 /* styles */
 import styleShipping from 'public/scss/components/Shipping.module.scss'
 import styleCustomer from 'public/scss/components/CustomerDetail.module.scss'
