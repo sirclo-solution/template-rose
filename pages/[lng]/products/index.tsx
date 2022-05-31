@@ -136,14 +136,19 @@ const ProductsPage: FC<any> = ({
     setOpenCustomize(false)
   }
 
+  const layoutProps = {
+    i18n,
+    lng,
+    lngDict,
+    brand,
+    headerTitle: i18n.t('products.title'),
+    SEO: {
+      title: i18n.t("product.title")
+    }
+  }
+
   return (
-    <Layout
-      i18n={i18n}
-      lng={lng}
-      lngDict={lngDict}
-      brand={brand}
-      headerTitle={i18n.t("products.title")}
-    >
+    <Layout {...layoutProps}>
       <SEO title={i18n.t("product.products")} />
       <div className="container mt-5 pt-4 pb-3">
         <Breadcrumb

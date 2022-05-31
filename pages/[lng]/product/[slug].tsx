@@ -218,14 +218,22 @@ const Product: FC<any> = ({
 
   const toggleRatingReview = () => setShowRatingReview(!showRatingReview)
 
+  const layoutProps = {
+    i18n,
+    lng,
+    lngDict,
+    brand,
+    layoutClassName: 'layout_fullHeight',
+    SEO: {
+      title: data?.details[0]?.name || "",
+      description: data?.SEOs[0]?.description || "",
+      keywords: data?.SEOs[0]?.keywords?.join(", ") || "",
+      image: data?.imageURLs[0] || ""
+    }
+  }
+
   return (
-    <Layout
-      i18n={i18n}
-      lng={lng}
-      lngDict={lngDict}
-      brand={brand}
-      layoutClassName="layout_fullHeight"
-    >
+    <Layout {...layoutProps}>
       {data && (
         <SEO
           title={data?.details[0]?.name || ""}

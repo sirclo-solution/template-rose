@@ -41,16 +41,21 @@ const ContactPage: FC<any> = ({
   const i18n: any = useI18n()
   const allowedEnquiry = isEnquiryAllowed()
 
+  const layoutProps = {
+    i18n,
+    lng,
+    lngDict,
+    brand,
+    headerTitle: i18n.t('contact.title'),
+    withFooter: false,
+    withAllowed: allowedEnquiry,
+    SEO: {
+      title: i18n.t("contact.title")
+    }
+  }
+
   return (
-    <Layout
-      i18n={i18n}
-      lng={lng}
-      lngDict={lngDict}
-      brand={brand}
-      headerTitle={i18n.t('contact.title')}
-      withFooter={false}
-      withAllowed={allowedEnquiry}
-    >
+    <Layout {...layoutProps}>
       <div className={styleContact.contact_container}>
         <div className={styleContact.contact_header}>
           <Breadcrumb

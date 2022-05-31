@@ -22,16 +22,21 @@ const TautanPage: FC<any> = ({
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const i18n: any = useI18n();
 
+  const layoutProps = {
+    i18n,
+    lng,
+    lngDict,
+    brand,
+    SEO: {
+      title: i18n.t("global.links")
+    },
+    withHeader: false,
+    withFooter: false,
+    layoutClassName: 'layout_fullHeight'
+  }
+
   return (
-    <Layout
-      i18n={i18n}
-      lng={lng}
-      lngDict={lngDict}
-      brand={brand}
-      withHeader={false}
-      withFooter={false}
-      layoutClassName='layout_fullHeight'
-    >
+    <Layout {...layoutProps}>
       <Links classes={classesLinks} />
     </Layout>
   )

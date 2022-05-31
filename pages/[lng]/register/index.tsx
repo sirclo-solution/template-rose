@@ -130,14 +130,19 @@ const RegisterPage: FC<any> = ({
     if (step === STEPS.WA) setStep(STEPS.EMAIL)
   }
 
+  const layoutProps = {
+    i18n,
+    lng,
+    lngDict,
+    brand,
+    SEO: {
+      title: i18n.t("register.title")
+    },
+    layoutClassName: 'layout_fullHeight'
+  }
+
   return (
-    <Layout
-      i18n={i18n}
-      lng={lng}
-      lngDict={lngDict}
-      brand={brand}
-      layoutClassName='layout_fullHeight'
-    >
+    <Layout {...layoutProps}>
       <SEO title={i18n.t('register.register')} />
       <div className={styleLogin.login}>
         <div className={styleLogin.login_breadcrumb}>

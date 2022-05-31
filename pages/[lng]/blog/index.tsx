@@ -61,16 +61,21 @@ const Blog: FC<any> = ({
     totalItems: 0,
   })
 
+  const layoutProps = {
+    i18n,
+    lng,
+    lngDict,
+    brand,
+    headerTitle: i18n.t('blog.title'),
+    layoutClassName: "layout_fullHeight",
+    SEO: {
+      title: i18n.t("blog.title")
+    },
+    withAllowed: BlogAllowed
+  }
+
   return (
-    <Layout
-      i18n={i18n}
-      lng={lng}
-      lngDict={lngDict}
-      brand={brand}
-      headerTitle={i18n.t('blog.title')}
-      layoutClassName="layout_fullHeight"
-      withAllowed={BlogAllowed}
-    >
+    <Layout {...layoutProps}>
       <div className={styleBlog.blog_container}>
         <div className={styleBlog.blog_header}>
           <Breadcrumb

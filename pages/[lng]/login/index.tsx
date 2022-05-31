@@ -121,14 +121,19 @@ const LoginPage: FC<any> = ({
     if (step === STEPS.WA) setStep(STEPS.EMAIL)
   }
 
+  const layoutProps = {
+    i18n,
+    lng,
+    lngDict,
+    brand,
+    layoutClassName: 'layout_fullHeight',
+    SEO: {
+      title: i18n.t("login.title")
+    }
+  }
+
   return (
-    <Layout
-      i18n={i18n}
-      lng={lng}
-      lngDict={lngDict}
-      brand={brand}
-      layoutClassName='layout_fullHeight'
-    >
+    <Layout {...layoutProps}>
       <SEO title={i18n.t('login.title')} />
       <div className={styleLogin.login}>
         <div className={styleLogin.login_breadcrumb}>

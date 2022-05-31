@@ -94,17 +94,22 @@ const PaymentConfirmationPage: FC<any> = ({
     orderID = router.query.orderID.toString()
   }
 
+  const layoutProps = {
+    i18n,
+    lng,
+    lngDict,
+    brand,
+    withFooter: false,
+    withCopyright: true,
+    headerTitle: orderID ? i18n.t('paymentConfirm.heading') : i18n.t('paymentConfirm.checkOrder'),
+    layoutClassName: 'layout_fullHeight',
+    SEO: {
+      title: i18n.t("paymentNotif.title")
+    }
+  }
+
   return (
-    <Layout
-      i18n={i18n}
-      lng={lng}
-      lngDict={lngDict}
-      brand={brand}
-      withFooter={false}
-      withCopyright
-      headerTitle={orderID ? i18n.t("paymentConfirm.heading") : i18n.t("paymentConfirm.checkOrder")}
-      layoutClassName='layout_fullHeight'
-    >
+    <Layout {...layoutProps}>
       <div className={styles.paymentNotif_container}>
         <Breadcrumb
           steps={[

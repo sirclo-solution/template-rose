@@ -70,17 +70,22 @@ const ThankYouPage: FC<any> = ({
   const i18n: any = useI18n()
   const router: any = useRouter()
 
+  const layoutProps = {
+    i18n,
+    lng,
+    lngDict,
+    brand,
+    SEO: {
+      title: i18n.t("thankYou.title")
+    },
+    withHeader: false,
+    withFooter: false,
+    withCopyright: true,
+    layoutClassName: 'layout_fullHeight'
+  }
+
   return (
-    <Layout
-      i18n={i18n}
-      lng={lng}
-      lngDict={lngDict}
-      brand={brand}
-      withHeader={false}
-      withFooter={false}
-      withCopyright
-      layoutClassName='layout_fullHeight'
-    >
+    <Layout {...layoutProps}>
       <HeaderCheckout
         i18n={i18n}
       />

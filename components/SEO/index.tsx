@@ -18,7 +18,6 @@ const SEO = ({
   <Head>
     {title && (
       <>
-        <title>{title}</title>
         <meta property="og:title" content={title} key="ogtitle" />
         <meta property="twitter:title" content={title} key="twittertitle" />
       </>
@@ -44,7 +43,6 @@ const SEO = ({
       </>
     )}
     {keywords && <meta name="keyword" content={keywords}/>}
-    <link rel="manifest" href="/manifest.json" />
   </Head>
 );
 

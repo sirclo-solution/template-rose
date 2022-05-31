@@ -59,17 +59,22 @@ const PaymentStatus: FC<any> = ({
       }
   }
 
+  const layoutProps = {
+    i18n,
+    lng,
+    lngDict,
+    brand,
+    withHeader: false,
+    withFooter: false,
+    withCopyright: true,
+    layoutClassName: 'layout_fullHeight',
+    SEO: {
+      title: i18n.t("paymentStatus.title")
+    }
+  }
+
   return (
-    <Layout
-      i18n={i18n}
-      lng={lng}
-      lngDict={lngDict}
-      brand={brand}
-      withHeader={false}
-      withFooter={false}
-      withCopyright
-      layoutClassName='layout_fullHeight'
-    >
+    <Layout {...layoutProps}>
       <HeaderCheckout
         i18n={i18n}
       />
