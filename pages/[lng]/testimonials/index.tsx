@@ -175,28 +175,18 @@ const TestimonialsPage: FC<any> = ({
 
 export const getServerSideProps: GetServerSideProps = async ({
   req,
-  res,
-  params
+  params,
 }) => {
-  const { default: lngDict = {} } = await import(
-    `locales/${params.lng}.json`
-  )
-
   const brand = await useBrand(req)
-
-  if (res) {
-    res.writeHead(307, {
-      Location: `/`,
-    });
-    res.end();
-  }
+  const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
+  const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
 
   return {
     props: {
-      lng: params.lng,
+      lng: defaultLanguage,
       lngDict,
-      brand: brand || ''
-    }
+      brand: brand || '',
+    },
   }
 }
 

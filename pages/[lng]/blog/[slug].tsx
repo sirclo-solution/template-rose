@@ -124,21 +124,23 @@ const BlogSlug: FC<any> = ({
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ params, req }) => {
-  const { slug } = params
-  const { default: lngDict = {} } = await import(`locales/${params.lng}.json`)
-
+export const getServerSideProps: GetServerSideProps = async ({
+  params,
+  req,
+}) => {
   const brand = await useBrand(req)
-
+  const { slug } = params
   const urlSite = `https://${req.headers.host}/${params.lng}/blog/${slug}`
+  const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
+  const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
 
   return {
     props: {
-      lng: params.lng,
+      lng: defaultLanguage,
       lngDict,
-      slug: params.slug,
+      slug,
       brand: brand || '',
-      urlSite: urlSite,
+      urlSite
     },
   }
 }

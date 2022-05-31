@@ -573,20 +573,19 @@ export async function getServerSideProps({ req, params }) {
   const { slug } = params
   const data = await getProductDetail(GRAPHQL_URI(req), slug)
   const brand = await useBrand(req)
-
-  const { default: lngDict = {} } = await import(`locales/${params.lng}.json`)
-
+  const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
+  const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
   const urlSite = `https://${req.headers.host}/${params.lng}/product/${slug}`
 
   return {
     props: {
-      lng: params.lng,
+      lng: defaultLanguage,
       slug,
       lngDict,
       data: data || null,
       brand: brand || "",
       urlSite: urlSite,
-    }
+    },
   }
 }
 

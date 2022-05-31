@@ -12,7 +12,6 @@ import {
 } from '@sirclo/nexus'
 /* library template */
 import useWindowSize from 'lib/useWindowSize'
-import { parseCookies } from 'lib/parseCookies'
 import { GRAPHQL_URI } from 'lib/Constants'
 import { useBrand } from 'lib/useBrand'
 /* components */
@@ -229,35 +228,29 @@ const Home: FC<any> = ({
 export const getServerSideProps: GetServerSideProps = async ({
   req,
   res,
-  params
+  params,
 }: any) => {
-
-  const allowedUri: Array<string> = ['en', 'id', 'graphql', 'favicon.ico']
-
-  if (allowedUri.indexOf(params.lng.toString()) == -1) {
-    const cookies = parseCookies(req)
-
-    res.writeHead(307, {
-      Location: cookies.ACTIVE_LNG ? '/' + cookies.ACTIVE_LNG + '/' + params.lng : '/id/' + params.lng
-    })
-
-    res.end()
-  }
-
-  const { default: lngDict = {} } = await import(
-    `locales/${params.lng}.json`
-  )
 
   const brand = await useBrand(req)
   const dataBanners = await getBanner(GRAPHQL_URI(req))
+  const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
+  const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
+  const allowedUri: Array<string> = ['en', 'id', 'graphql', 'favicon.ico'];
+
+  if (allowedUri.indexOf(params.lng.toString()) == -1) {
+    res.writeHead(307, {
+      Location: `/${defaultLanguage}/` + params.lng
+    })
+    res.end()
+  }
 
   return {
     props: {
-      lng: params.lng,
+      lng: defaultLanguage,
       lngDict,
-      brand: brand || "",
-      dataBanners
-    }
+      brand: brand || '',
+      dataBanners,
+    },
   }
 }
 
