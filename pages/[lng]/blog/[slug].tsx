@@ -48,14 +48,17 @@ const BlogSlug: FC<any> = ({
   const i18n: any = useI18n()
   const [title, setTitle] = useState<string>('')
 
+  const layoutProps = {
+    i18n,
+    lng,
+    lngDict,
+    brand,
+    headerTitle: i18n.t('blog.title'),
+    SEO: { title }
+  }
+
   return (
-    <Layout
-      i18n={i18n}
-      lng={lng}
-      lngDict={lngDict}
-      brand={brand}
-      headerTitle={i18n.t('blog.title')}
-    >
+    <Layout {...layoutProps}>
       <div className={styleBlog.blog_container}>
         <div className={styleBlog.blog_header}>
           <Breadcrumb

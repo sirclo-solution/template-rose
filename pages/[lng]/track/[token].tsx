@@ -35,14 +35,18 @@ const TrackerPage: FC<any> = ({
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const i18n: any = useI18n()
 
+  const layoutProps = {
+    i18n,
+    lng,
+    lngDict,
+    brand,
+    SEO: {
+      title: i18n.t("shipping.track")
+    }
+  }
+
   return (
-    <Layout
-      i18n={i18n}
-      lng={lng}
-      lngDict={lngDict}
-      brand={brand}
-      setSEO={{ title: i18n.t("shipping.track") }}
-    >
+    <Layout {...layoutProps}>
       <ShipmentTracker
         token={order_token}
         iconTracker={<img className="mr-2" src={'/icons/motorcycle.svg'} alt="motorcycle" />}

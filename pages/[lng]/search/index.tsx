@@ -91,13 +91,18 @@ const LoginPage: FC<any> = ({
     })
   }
 
+  const layoutProps = {
+    i18n,
+    lng,
+    lngDict,
+    brand,
+    SEO: {
+      title: i18n.t("search.title")
+    }
+  }
+
   return (
-    <Layout 
-      i18n={i18n} 
-      lng={lng} 
-      lngDict={lngDict} 
-      brand={brand}
-    >
+    <Layout {...layoutProps}>
       <div className={styleSearch.container}>
         <div className={styleSearch.container_search}>
           <form action="#" onSubmit={handleSubmit}>

@@ -97,16 +97,21 @@ const Cart: FC<any> = ({
 		setTotalQuantity(dataCart?.totalItem)
 	}, [dataCart])
 
+	const layoutProps = {
+		i18n,
+		lng,
+		lngDict,
+		brand,
+		headerTitle: i18n.t('cart.title'),
+		withFooter: totalQuantity > 0 ? false : true,
+		layoutClassName: "layout_fullHeight",
+		SEO: {
+		  title: i18n.t("cart.title")
+		}
+	}
+
 	return (
-		<Layout
-			i18n={i18n}
-			lng={lng}
-			lngDict={lngDict}
-			brand={brand}
-			headerTitle={i18n.t('cart.title')}
-			withFooter={(totalQuantity > 0) ? false : true}
-			layoutClassName="layout_fullHeight"
-		>
+		<Layout {...layoutProps}>
 			<div className={styleCart.cart}>
 				<div className={styleCart.cart_breadcrumb}>
 					<Breadcrumb

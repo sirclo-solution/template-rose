@@ -113,13 +113,18 @@ const ReviewPage: FC<any> = ({
     ...classesPagination
   }
 
+  const layoutProps = {
+    i18n,
+    lng,
+    lngDict,
+    brand,
+    SEO: {
+      title: i18n.t("orderReview.title")
+    }
+  }
+
   return (
-    <Layout
-      i18n={i18n}
-      lng={lng}
-      lngDict={lngDict}
-      brand={brand}
-    >
+    <Layout {...layoutProps}>
       <div className={styleReview.review_container}>
         <div className={styleReview.review_header}>
           <Breadcrumb

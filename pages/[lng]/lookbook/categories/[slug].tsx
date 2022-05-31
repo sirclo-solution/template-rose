@@ -70,15 +70,18 @@ const LookbookSinglePage: FC<any> = ({
     curPage: 0,
   })
 
+  const layoutProps = {
+    i18n,
+    lng,
+    lngDict,
+    brand,
+    withAllowed: LookbookAllowed,
+    headerTitle: i18n.t('lookbook.title'),
+    SEO: { title }
+  }
+
   return (
-    <Layout
-      i18n={i18n}
-      lng={lng}
-      lngDict={lngDict}
-      brand={brand}
-      withAllowed={LookbookAllowed}
-      headerTitle={i18n.t('lookbook.title')}
-    >
+    <Layout {...layoutProps}>
       <div className={styleLookbook.lookbook_container}>
         <div className={styleLookbook.lookbook_breadcrumb}>
           <Breadcrumb

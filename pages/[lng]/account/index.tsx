@@ -221,14 +221,20 @@ const AccountsPage: FC<any> = ({
     setName(`${firstName} ${lastName}`)
   }
 
+  const layoutProps = {
+    i18n,
+    lng,
+    lngDict,
+    brand,
+    hasOtp,
+    layoutClassName: "layout_fullHeight",
+    SEO: {
+      title: i18n.t("account.myAccount")
+    },
+  }
+
   return (
-    <Layout
-      i18n={i18n}
-      lng={lng}
-      lngDict={lngDict}
-      brand={brand}
-      layoutClassName="layout_fullHeight"
-    >
+    <Layout {...layoutProps}>
       <div className={styleAccount.account_container}>
         <div className={styleAccount.account_breadcrumb}>
           <Breadcrumb

@@ -92,14 +92,19 @@ const Home: FC<any> = ({
     }
   }
 
+  const layoutProps = {
+    i18n,
+    lng,
+    lngDict,
+    brand,
+    withAnnouncement: true,
+    SEO: {
+      title: i18n.t("home.title")
+    },
+  }
+
   return (
-    <Layout
-      i18n={i18n}
-      lng={lng}
-      lngDict={lngDict}
-      brand={brand}
-      withAnnouncement={true}
-    >
+    <Layout {...layoutProps}>
       <div className={styleBanner.bannerCarousel}>
         <BannerComponent
           data={dataBanners?.data}

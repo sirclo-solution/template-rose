@@ -72,14 +72,19 @@ const TestimonialsPage: FC<any> = ({
 
   const toggleShowAdd = () => setShowAdd(!showAdd)
 
+  const layoutProps = {
+    i18n,
+    lng,
+    lngDict,
+    brand,
+    SEO: {
+      title: i18n.t("testimonial.title")
+    },
+    withAllowed: testimonialAllowed
+  }
+
   return (
-    <Layout
-      i18n={i18n}
-      lng={lng}
-      lngDict={lngDict}
-      brand={brand}
-      withAllowed={testimonialAllowed}
-    >
+    <Layout {...layoutProps}>
       <div className={`${styles.testimonials} container`}>
         <div className={styles.testimonials_header}>
           <h4>{i18n.t("testimonial.title")}</h4>
