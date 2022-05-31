@@ -97,7 +97,7 @@ const LoginPage: FC<any> = ({
     lngDict,
     brand,
     SEO: {
-      title: i18n.t("search.title")
+      title: i18n.t("global.search")
     }
   }
 

@@ -206,11 +206,13 @@
     "checkoutTitle": "Periksa Pesanan",
     "continueShopping": "Lanjutkan Berbelanja",
     "error": "Terjadi kesalahan",
+    "links": "Tautan",
     "loading": "Memuat",
     "notes": "Catatan",
     "notesEmpty": "Tidak ada catatan",
     "notImplemented": "Belum tersedia",
-    "pageNotFound": "Halaman Tidak Ditemukan"
+    "pageNotFound": "Halaman Tidak Ditemukan",
+    "search": "Cari"
   },
   "header": {
     "account": "Akun",
@@ -234,7 +236,8 @@
     "featureProduct": "Produk Unggulan",
     "newProduct": "Terbaru",
     "ourProduct": "Produk Kami",
-    "preOrder": "Pre-order"
+    "preOrder": "Pre-order",
+    "title": "Beranda"
   },
   "instagram": {
     "cta": "ikuti kami di instagram"
@@ -413,11 +416,16 @@
     "pleaseLogin": "Nomor pesanan anda tidak ditemukan. Silahkan login terlebih dahulu",
     "infoUpload": "Bukti pembayaran yang sudah dikirim tidak dapat diperbaiki, pastikan data yang akan Anda kirim sudah benar!"
   },
+  "paymentNotif": {
+    "message": "Mohon masukkan detail transaksi anda setelah anda melakukan transfer melalui bank.",
+    "title": "Konfirmasi Pembayaran"
+  },
   "paymentStatus": {
     "continueShopping": "Lanjutkan Berbelanja",
     "failedDesc": "Pembayaran anda gagal diproses. Silakan lakukan proses pembayaran kembali",
     "orderNotFound": "Pesanan Tidak Ditemukan",
     "orderNotFoundDesc": "Mohon maaf, nomor pesanan Anda tidak dapat kamu temukan.",
+    "title": "Status Pembayaran",
     "titleFailed": "Pembayaran Gagal",
     "titleUnfinish": "Pembayaran tidak lengkap",
     "tryAgain": "Coba lagi",
@@ -430,6 +438,7 @@
     "orderSummary": "Ringkasan Pesanan",
     "shipToDiffAddress": "Kirim ke alamat berbeda?",
     "signUp": "Daftarkan akun baru",
+    "title": "Pesanan",
     "userInformation": "Informasi Pengiriman"
   },
   "product": {
@@ -689,6 +698,7 @@
     "shippingTitle": "Pengiriman",
     "summaryTitle": "Kamu belanja apa nih?",
     "thanks": "Pesanan Berhasil Dibuat",
+    "title": "Pesanan",
     "yourOrderID": "Nomor pesanan anda"
   },
   "whatsAppOTPInput": {
