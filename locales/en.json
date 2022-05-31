@@ -206,11 +206,13 @@
     "checkoutTitle": "Check Order",
     "continueShopping": "Continue Shopping",
     "error": "Error",
+    "links": "Links",
     "loading": "Loading",
     "notes": "Notes",
     "notesEmpty": "Notes empty",
     "notImplemented": "Not implemented yet",
-    "pageNotFound": "Page not found"
+    "pageNotFound": "Page not found",
+    "search": "Search"
   },
   "header": {
     "account": "Account",
@@ -234,7 +236,8 @@
     "featureProduct": "Feature Product",
     "newProduct": "New",
     "ourProduct": "Our Product",
-    "preOrder": "Pre-order"
+    "preOrder": "Pre-order",
+    "title": "Home"
   },
   "instagram": {
     "cta": "follow us on instagram"
@@ -413,11 +416,16 @@
     "pleaseLogin": "Your order ID not found. Please login with your account.",
     "infoUpload": "Proof of payment that has been sent cannot be reupload, please make sure the data you are about to send is correct!"
   },
+  "paymentNotif": {
+    "message": "After you have made your bank transfer, please notify us by entering the details of the transaction.",
+    "title": "Payment Confirmation"
+  },
   "paymentStatus": {
     "continueShopping": "Continue Shopping",
     "failedDesc": "Your payment failed to process. Please make a repayment process",
     "orderNotFound": "Order Not Found",
     "orderNotFoundDesc": "Sorry, you can't find your order number.",
+    "title": "Payment Status",
     "titleFailed": "Payment Failed",
     "titleUnfinish": "Incomplete Payment",
     "tryAgain": "Try Again",
@@ -430,6 +438,7 @@
     "orderSummary": "Order Summary",
     "shipToDiffAddress": "Ship to different address?",
     "signUp": "Also sign me up on Checkout",
+    "title": "Place Order",
     "userInformation": "Information"
   },
   "product": {
@@ -687,6 +696,7 @@
     "shippingMethod": "Shipping Method",
     "shippingTitle": "Delivery",
     "summaryTitle": "What are you shopping for?",
+    "title": "Place Order",
     "thanks": "Order Successfully Created",
     "yourOrderID": "Your Order ID"
   },

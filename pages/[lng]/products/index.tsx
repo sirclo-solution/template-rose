@@ -143,7 +143,7 @@ const ProductsPage: FC<any> = ({
     brand,
     headerTitle: i18n.t('products.title'),
     SEO: {
-      title: i18n.t("product.title")
+      title: i18n.t("products.title")
     }
   }
 
