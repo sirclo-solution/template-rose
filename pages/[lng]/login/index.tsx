@@ -246,25 +246,30 @@ const LoginPage: FC<any> = ({
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ req, res, params }) => {
-  const { default: lngDict = {} } = await import(`locales/${params.lng}.json`)
-
+export const getServerSideProps: GetServerSideProps = async ({
+  req,
+  res,
+  params
+}) => {
   const brand = await useBrand(req)
+  const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
+  const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
 
   const cookies = parseCookies(req)
   const hasGoogleAuth = await useGoogleAuth(req)
   const hasFacebookAuth = await useFacebookAuth(req)
   const hasOtp = await useWhatsAppOTPSetting(req)
-  redirectIfAuthenticated(res, cookies, 'account')
+
+  redirectIfAuthenticated(res, cookies, 'account', defaultLanguage)
 
   return {
     props: {
-      lng: params.lng,
+      lng: defaultLanguage,
       lngDict,
       hasGoogleAuth,
       hasFacebookAuth,
       hasOtp,
-      brand: brand || ''
+      brand: brand || ""
     }
   }
 }

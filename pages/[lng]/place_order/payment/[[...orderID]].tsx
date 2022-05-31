@@ -116,22 +116,23 @@ const PaymentStatus: FC<any> = ({
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ req, params }) => {
-  const { default: lngDict = {} } = await import(
-    `locales/${params.lng}.json`
-  )
-
+export const getServerSideProps: GetServerSideProps = async ({
+  req,
+  params,
+}) => {
   const brand = await useBrand(req)
+  const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
+  const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
   const [orderID, status] = params?.orderID as string[]
 
   return {
     props: {
-      lng: params.lng,
+      lng: defaultLanguage,
       lngDict,
       brand: brand || '',
       orderID: orderID || '',
       status: status || '',
-    }
+    },
   }
 }
 

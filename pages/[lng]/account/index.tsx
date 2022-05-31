@@ -317,19 +317,26 @@ const AccountsPage: FC<any> = ({
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ req, res, params }) => {
-  const { default: lngDict = {} } = await import(`locales/${params.lng}.json`)
-
+export const getServerSideProps: GetServerSideProps = async ({
+  req,
+  res,
+  params
+}) => {
   const brand = await useBrand(req)
   const hasOtp = await useWhatsAppOTPSetting(req)
+  const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
+
+  const { default: lngDict = {} } = await import(
+    `locales/${defaultLanguage}.json`
+  )
 
   if (res) {
     const cookies = parseCookies(req)
-    const auth = cookies.AUTH_KEY
+    const auth = cookies.AUTH_KEY;
 
     if (!auth) {
-      res.writeHead(301, {
-        Location: `/${cookies.ACTIVE_LNG || 'id'}/login`,
+      res.writeHead(307, {
+        Location: `/${defaultLanguage || "id"}/login`,
       })
       res.end()
     }
@@ -337,11 +344,11 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res, params 
 
   return {
     props: {
-      lng: params.lng,
+      lng: defaultLanguage,
       lngDict,
       hasOtp,
-      brand: brand || '',
-    },
+      brand: brand || ""
+    }
   }
 }
 

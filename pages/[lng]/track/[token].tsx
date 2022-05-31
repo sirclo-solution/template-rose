@@ -1,5 +1,14 @@
 /* library package */
-import { ShipmentTracker } from '@sirclo/nexus'
+import { FC } from 'react'
+import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
+import {
+  ShipmentTracker,
+  useI18n
+} from '@sirclo/nexus'
+/* library template */
+import { useBrand } from 'lib/useBrand'
+/* components */
+import Layout from 'components/Layout/Layout'
 /* style */
 import styleShipmentTracking from 'public/scss/components/shipmentTracking.module.scss'
 
@@ -18,23 +27,44 @@ const classesTrackerPage = {
   shipmentFooterClassName: styleShipmentTracking.shipmentTracking_footer,
 }
 
-const TrackerPage = ({ order_token }) => {
+const TrackerPage: FC<any> = ({
+  lng,
+  lngDict,
+  brand,
+  order_token
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+  const i18n: any = useI18n()
+
   return (
-    <ShipmentTracker
-      token={order_token}
-      iconTracker={<img className="mr-2" src={'/icons/motorcycle.svg'} alt="motorcycle" />}
-      classes={classesTrackerPage}
-    />
+    <Layout
+      i18n={i18n}
+      lng={lng}
+      lngDict={lngDict}
+      brand={brand}
+      setSEO={{ title: i18n.t("shipping.track") }}
+    >
+      <ShipmentTracker
+        token={order_token}
+        iconTracker={<img className="mr-2" src={'/icons/motorcycle.svg'} alt="motorcycle" />}
+        classes={classesTrackerPage}
+      />
+    </Layout>
   )
 }
 
-export async function getServerSideProps({ params }) {
-  const { default: lngDict = {} } = await import(`locales/${params.lng}.json`)
+export const getServerSideProps: GetServerSideProps = async ({
+  req,
+  params
+}) => {
+  const brand = await useBrand(req)
+  const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
+  const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
 
   return {
     props: {
-      lng: params.lng,
+      lng: defaultLanguage,
       lngDict,
+      brand: brand || "",
       order_token: params.token
     },
   }
