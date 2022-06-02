@@ -6,6 +6,7 @@
     "back": "Kembali ke akun saya",
     "birthDate": "Tanggal Lahir",
     "cancelled": "Dibatalkan",
+    "cantFindYourOrder": "Tidak menemukan pesanan anda?",
     "changePassword": "Ganti kata sandi",
     "city": "Kecamatan / Wilayah",
     "cityPlaceholder": "Ketik nama kecamatan/wilayah Anda",
@@ -17,13 +18,10 @@
     "completedOrderNote": "Dengan melakukan klik Selesai, dana pembelian akan diteruskan ke Penjual",
     "completedOrderTitle": "Selesaikan Pesanan",
     "completedSuccess": "Sukses Selesaikan Pesanan",
-    "delivered": "Pesanan Tiba",
-    "readyToShip": "Pesanan Dikemas",
-    "returned": "Dikembalikan",
-    "shipped": "Dikirim",
     "confirming": "Menunggu konfirmasi",
     "confirmNewPassword": "Konfirmasi Password Baru",
     "confirmPayment": "Konfirmasi Pembayaran",
+    "delivered": "Pesanan Tiba",
     "editAccount": "Sunting Akun",
     "email": "Email",
     "emailPlaceholder": "Masukan email anda",
@@ -36,6 +34,7 @@
     "hallo": "Halo",
     "invoice": "Cetak Tagihan",
     "items": "Barang",
+    "loading": "mohon tunggu",
     "location": "Pin Lokasi",
     "locationOptional": "Optional",
     "locationPlaceholder": "Tetapkan Lokasi Pin",
@@ -63,19 +62,20 @@
     "points": "Points",
     "postalCode": "Kode Pos",
     "postalCodePlaceholder": "Masukan kode pos anda",
+    "readyToShip": "Pesanan Dikemas",
+    "returned": "Dikembalikan",    
     "save": "Simpan Perubahan",
-    "settingNotification": "Notifikasi",
+    "searchHere": "Cari disini",
     "sessionExpired": "Sesi anda telah usai",
+    "settingNotification": "Notifikasi",
+    "shipped": "Dikirim",
     "shippingDetails": "Detil pengiriman",
     "shippingMethod": "Metode Pengiriman",
     "total": "Total :",
     "unpaid": "Belum Dibayar",
     "viewInvoice": "Lihat Tagihan",
     "youGot": "",
-    "youHave": "Anda memiliki",
-    "cantFindYourOrder": "Tidak menemukan pesanan anda?",
-    "searchHere": "Cari disini",
-    "loading": "mohon tunggu"
+    "youHave": "Anda memiliki"
   },
   "article": {
     "categories": "Bantuan",
@@ -85,29 +85,29 @@
     "isEmpty": "Tidak ada banner"
   },
   "blog": {
+    "allBlog": "Semua Blog",
+    "back": "Kembali Ke Daftar Blog",
     "by": "Oleh",
     "categories": "Kategori",
     "isEmpty": "Blog kosong",
     "leaveReply": "Tinggalkan Balasan",
     "postComment": "Kirimkan Komentar",
     "recentPost": "Postingan Terbaru",
-    "title": "Blog",
-    "allBlog": "Semua Blog",
-    "back": "Kembali Ke Daftar Blog"
+    "title": "Blog"
   },
   "breadcrumb": {
-    "home": "Beranda",
-    "cart": "Keranjang",
-    "login": "Masuk",
     "account": "Akun",
-    "search": "Pencarian",
-    "lookbook": "Lookbook",
-    "forgotPassword": "Lupa Kata Sandi",
     "blog": "Blog",
+    "cart": "Keranjang",
     "contact": "Kontak",
+    "forgotPassword": "Lupa Kata Sandi",
     "giftCard": "Kartu Hadiah",
+    "home": "Beranda",
+    "login": "Masuk",
+    "lookbook": "Lookbook",
+    "resetPassword": "Setel Ulang Kata sandi",
     "review": "Ulasan",
-    "resetPassword": "Setel Ulang Kata sandi"
+    "search": "Pencarian"
   },
   "cart": {
     "amount": "Jumlah",
@@ -116,11 +116,11 @@
     "errorSKUTitle": "Mohon maaf, pesanan belum dapat diproses",
     "invalidItems": "Daftar produk yang tidak valid: ",
     "isEmpty": "Anda belum menambahkan barang",
-    "prefixItem": "Terdapat",
     "item": "Barang",
     "limitStock": "Tidak bisa melebihi stok yang tersedia",
     "noteToSeller": "Catatan untuk penjual",
     "outofStock": "Stok Habis",
+    "prefixItem": "Terdapat",
     "price": "Harga",
     "quantity": "Kuantitas",
     "shopNow": "Belanja Sekarang",
@@ -135,6 +135,7 @@
   },
   "contact": {
     "formIsEmpty": "Formulir belum diisi",
+    "info": "Kami ingin memberi Anda pengalaman belanja online terbaik untuk informasi lebih lanjut, kami akan dengan senang hati membantu menjawab pertanyaan apa pun yang Anda miliki.",
     "message": "Pesan",
     "name": "Nama",
     "namePlaceholder": "Nama anda",
@@ -143,8 +144,7 @@
     "submit": "Kirimkan",
     "submitError": "Gagal mengirim pesan",
     "submitSuccess": "Berhasil mengirim pesan",
-    "title": "Kontak",
-    "info": "Kami ingin memberi Anda pengalaman belanja online terbaik untuk informasi lebih lanjut, kami akan dengan senang hati membantu menjawab pertanyaan apa pun yang Anda miliki."
+    "title": "Kontak"
   },
   "coupon": {
     "apply": "Terapkan",
@@ -174,29 +174,29 @@
     "2900067": "Gagal mendapatkan harga"
   },
   "footer": {
-    "home": "Beranda",
-    "search": "Pencarian",
-    "cart": "Keranjang",
     "account": "Akun",
+    "cart": "Keranjang",
+    "home": "Beranda",
     "login": "Masuk",
     "newsletter": "Tetap berlangganan",
-    "newsletterDesc": "Tetap update untuk item baru & penawaran khusus"
+    "newsletterDesc": "Tetap update untuk item baru & penawaran khusus",
+    "search": "Pencarian"
   },
   "forgotPassword": {
     "requestFail": "Pengaturan ulang sandi gagal.",
-    "titleSuccessful": "Cek Email Anda!",
-    "requestSuccessful": "Kami telah mengirim instruksi ke email Anda untuk memperbarui kata sandi Anda."
+    "requestSuccessful": "Kami telah mengirim instruksi ke email Anda untuk memperbarui kata sandi Anda.",
+    "titleSuccessful": "Cek Email Anda!"
   },
   "giftCard": {
     "desc": "Berikan sesuatu untuk membuat seseorang tersenyum dengan membeli kartu hadiah online kami. Email yang berisi kartu hadiah elektronik akan dikirim kepada mereka dan mereka dapat membelanjakannya untuk barang apa pun.",
+    "info": "Beri seseorang sesuatu untuk tersenyum dengan membeli kartu hadiah online kami. Email yang berisi kartu E-gift akan dikirimkan kepada mereka dan mereka dapat membelanjakannya pada item apa pun.",
     "message": "Pesan Pribadi",
     "recipient": "Penerima",
     "send": "Kirimkan Kartu Hadiah",
     "sender": "Nama Pengirim",
     "title": "Kartu Hadiah",
     "value": "Nilai Kartu Hadiah",
-    "welcome": "Tambahkan Kartu Hadiah Ke Belanjaan Anda",
-    "info": "Beri seseorang sesuatu untuk tersenyum dengan membeli kartu hadiah online kami. Email yang berisi kartu E-gift akan dikirimkan kepada mereka dan mereka dapat membelanjakannya pada item apa pun."
+    "welcome": "Tambahkan Kartu Hadiah Ke Belanjaan Anda"
   },
   "global": {
     "back": "Kembali",
@@ -247,14 +247,12 @@
   },
   "login": {
     "chooseAnyAccountToLogin": "Anda memiliki beberapa akun yang terdaftar, silakan pilih salah satu untuk masuk",
-    "title": "Masuk",
     "clickHere": "Lupa Kata Sandi",
-    "forgetPassword": "",
-    "dontHaveAccount": "",
     "disclaimer": "Dengan klik 'Masuk' berarti anda setuju menerima pemberitahuan melalui Whatsapp dan mengetahui",
-    "register": "Daftar",
+    "dontHaveAccount": "",
     "email": "Email",
     "failed": "Gagal untuk login cek kembali email dan kata sandi anda",
+    "forgetPassword": "",
     "inputWhatsApp": "Masukan nomor Whatsapp Anda untuk masuk ke toko kami",
     "insertEmail": "Masukan Email Anda",
     "insertPassword": "Masukan Kata Sandi Anda",
@@ -262,8 +260,10 @@
     "loginWithAnotherMethod": "Masuk menggunakan metode lain",
     "or": "atau masuk dengan",
     "password": "Kata Sandi",
+    "register": "Daftar",
     "success": "Login berhasil",
     "sso": "{SSO_PROVIDER}",
+    "title": "Masuk",
     "titleWA": "Masuk",
     "toRegister": "Daftar",
     "verifyLoginAttempt": "Mohon verifikasi bahwa anda adalah manusia!",
@@ -273,16 +273,16 @@
     "withEmail": "Masuk dengan Email"
   },
   "lookbook": {
+    "back": "Kembali Ke lookbook",
     "errorButton": "Kembali ke Halaman Awal",
     "errorDesc": "Coba beberapa saat lagi",
     "errorTitle": "Terjadi kesalahan",
     "isEmpty": "Belum ada lookbook",
+    "relatedProducts": "Produk Terkait",
     "seeCollection": "Lihat Koleksi",
     "seeMore": "Lebih Banyak",
-    "title": "Lookbook",
-    "back": "Kembali Ke lookbook",
-    "relatedProducts": "Produk Terkait",
-    "share": "Bagikan Lookbook"
+    "share": "Bagikan Lookbook",
+    "title": "Lookbook"
   },
   "membership": {
     "exchangePoints": "Tukar Poin Anda",
@@ -298,11 +298,11 @@
     "yourPoints": "Poin Anda"
   },
   "newsletter": {
+    "close": "Tidak, nanti saja",
     "inputEmailPlaceholder": "Masukan email Anda",
     "submitError": "Gagal berlangganan",
     "submitSuccess": "Success berlangganan",
-    "subscribe": "Berlangganan",
-    "close": "Tidak, nanti saja"
+    "subscribe": "Berlangganan"
   },
   "notificationOptIn": {
     "checkboxLabel": "Saya ingin menerima status pesanan melalui media sosial",
@@ -312,8 +312,8 @@
     "title": "Perbarui melalui Media Sosial "
   },
   "notifyMe": {
-    "phoneInputPlaceholder": "Masukan nomor Whatsapp Anda",
-    "emailInputPlaceholder": "Masukan email Anda"
+    "emailInputPlaceholder": "Masukan email Anda",
+    "phoneInputPlaceholder": "Masukan nomor Whatsapp Anda"
   },
   "orderHistory": {
     "lineItemNeedReview": "Needs Review",
@@ -368,6 +368,7 @@
     "agreement": "Saya setuju dengan syarat dan ketentuan yang berlaku.",
     "availCoupon": "Kupon yang dapat di gunakan",
     "availPoint": "Poin yang dapat di gunakan",
+    "confirm": "Kirim Bukti Pembayaran",
     "discountBundle": "Paket Diskon",
     "fee": "Biaya",
     "generateLinkFailed": "Gagal menggunakan metode pembayaran",
@@ -376,45 +377,44 @@
     "prepayment": "Order anda sedang diproses, jangan tinggalkan halaman ini",
     "shipping": "Pengiriman",
     "title": "Pembayaran",
+    "to": "Tujuan bank transfer",
+    "total": "Total Tagihan",
     "travelokaPayLaterHeader": "Rekomendasi",
     "travelokaPayLaterLink": "Aktifkan Traveloka PayLater-mu sekarang!",
     "travelokaPayLaterText": "Ubah pembayaranmu jadi cicilan melalui Aplikasi",
     "uniqueCode": "Kode Unik",
     "voucher": "Voucher",
-    "warning": "Transaksi di bawah 10,000 tidak dapat diproses",
-    "total": "Total Tagihan",
-    "to": "Tujuan bank transfer",
-    "confirm": "Kirim Bukti Pembayaran"
+    "warning": "Transaksi di bawah 10,000 tidak dapat diproses"
   },
   "paymentConfirm": {
     "amountTransfered": "Jumlah yang ditransfer",
+    "checkOrder": "Periksa Nomor Pesanan",
     "confirm": "Konfirmasi pembayaran",
+    "confirmationPaymentSuccess": "Konfirmasi Pembayaran berhasil",
     "continue": "Lanjut belanja",
+    "descCheckYoutOrder": "Untuk konfirmasi pembayaran, silahkan masukkan email dan nomor pesanan Anda.",
+    "details": "Rincian",
     "doesNotEqual": "Jumlah yang ditransfer tidak sesuai",
+    "email": "Email",
+    "emailNotMatch": "Email tidak sesuai dengan nomor pesanan",
     "failed": "Gagal konfirmasi pesanan, silahkan cek nomor pesanan anda.",
     "file": "Bukti transfer",
     "heading": "Konfirmasi Pembayaran",
+    "infoUpload": "Bukti pembayaran yang sudah dikirim tidak dapat diperbaiki, pastikan data yang akan Anda kirim sudah benar!",
+    "invalidFileType": "Tipe File tidak didukung",
+    "optional": "Optional",
+    "orderId": "Nomor Pesanan",
+    "orderIdNotFound": "Nomor Pesanan tidak ditemukan",
+    "placeholderEmail": "user@gmail.com",
+    "placeholderOrderId": "Nomor Pesanan",
+    "pleaseLogin": "Nomor pesanan anda tidak ditemukan. Silahkan login terlebih dahulu",
+    "titleCheckYoutOrder": "Periksa Nomor Pesanan",
     "to": "Pembayaran ke",
     "totalAmount": "Jumlah tagihan yang harus anda bayar untuk pesanan ini adalah :",
     "transactionDate": "Tanggal transaksi",
     "unauthorize": "Konfirmasi pembayaran gagal, silakan login terlebih dahulu dan lakukan konfirmasi kembali",
     "uploadFailed": "Gagal mengunggah dokumen, silahkan coba lagi.",
-    "wrongEmail": "Mohon gunakan email yang sesuai dengan saat membuat pesanan",
-    "orderIdNotFound": "Nomor Pesanan tidak ditemukan",
-    "emailNotMatch": "Email tidak sesuai dengan nomor pesanan",
-    "titleCheckYoutOrder": "Periksa Nomor Pesanan",
-    "descCheckYoutOrder": "Untuk konfirmasi pembayaran, silahkan masukkan email dan nomor pesanan Anda.",
-    "orderId": "Nomor Pesanan",
-    "placeholderOrderId": "Nomor Pesanan",
-    "email": "Email",
-    "placeholderEmail": "user@gmail.com",
-    "checkOrder": "Periksa Nomor Pesanan",
-    "details": "Rincian",
-    "optional": "Optional",
-    "invalidFileType": "Tipe File tidak didukung",
-    "confirmationPaymentSuccess": "Konfirmasi Pembayaran berhasil",
-    "pleaseLogin": "Nomor pesanan anda tidak ditemukan. Silahkan login terlebih dahulu",
-    "infoUpload": "Bukti pembayaran yang sudah dikirim tidak dapat diperbaiki, pastikan data yang akan Anda kirim sudah benar!"
+    "wrongEmail": "Mohon gunakan email yang sesuai dengan saat membuat pesanan"
   },
   "paymentNotif": {
     "message": "Mohon masukkan detail transaksi anda setelah anda melakukan transfer melalui bank.",
@@ -530,7 +530,6 @@
     "cityPlaceholder": "Ketik nama kecamatan/wilayah Anda",
     "confPassword": "Konfirmasi Kata Sandi",
     "confPasswordPlaceholder": "Masukan konfirmasi kata sandi",
-    "noOptionsMessage": "Silahkan ketik keyword lain",
     "delivery": "Alamat Pengiriman",
     "disclaimer": "Dengan klik 'Daftar' berarti anda setuju menerima pemberitahuan melalui Whatsapp dan mengetahui",
     "doesntMatch": "Kata sandi tidak sama",
@@ -565,6 +564,7 @@
     "mobilePhone": "Telepon Genggam",
     "mobilePhonePlaceholder": "Masukan nomor telepon genggam anda",
     "newAccount": "Daftar",
+    "noOptionsMessage": "Silahkan ketik keyword lain",
     "or": "atau daftar dengan",
     "password": "Kata Sandi",
     "passwordHasDigit": "Memiliki angka",
@@ -604,9 +604,9 @@
     "submittedDescending": "Ulasan terbaru"
   },
   "settingNotification": {
-    "title": "Notifikasi",
     "description": "Anda akan mendapatkan semua notifikasi dari toko ini sesuai dengan media yang Anda aktifkan di bawah ini",
-    "emailDescription": "Semua notifikasi melalui email tidak dapat diubah"
+    "emailDescription": "Semua notifikasi melalui email tidak dapat diubah",
+    "title": "Notifikasi"
   },
   "shipping": {
     "allocating": "Sedang mencari kurir",
@@ -643,8 +643,10 @@
     "priceDescending": "Harga (Tertinggi ke Terendah)"
   },
   "testimonial": {
+    "add": "Tambahkan Testimonial",
     "createError": "Terjadi kesalahan. gagal menambahkan testimonial!",
     "createSuccess": "Berhasil menambahkan testimonial!",
+    "desc": "Kami berusaha sebaik mungkin untuk memberikan kesan yang indah kepada pelanggan kami, salam hangat dari mereka yang telah bersama kami.",
     "inputAuthor": "Penulis",
     "inputAuthorPlaceholder": "Nama penulis",
     "inputCompany": "Perusahaan",
@@ -663,10 +665,8 @@
     "submitBtn": "Submit",
     "successUpload": "Berhasil upload foto",
     "title": "Testimonial",
-    "desc": "Kami berusaha sebaik mungkin untuk memberikan kesan yang indah kepada pelanggan kami, salam hangat dari mereka yang telah bersama kami.",
     "weHave": "Kami memiliki ",
     "weHave2": " testimonial dari pelanggan setia kami",
-    "add": "Tambahkan Testimonial",
     "writeReview": "Buat Ulasan",
     "yes": "Ya"
   },
