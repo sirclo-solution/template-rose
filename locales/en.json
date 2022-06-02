@@ -6,6 +6,7 @@
     "back": "Back to my account",
     "birthDate": "Birthdate",
     "cancelled": "Cancelled",
+    "cantFindYourOrder": "Can't find your order?",
     "changePassword": "Change Password",
     "city": "District / Region",
     "cityPlaceholder": "Type the name of your district/region",
@@ -33,6 +34,7 @@
     "hallo": "Hallo",
     "invoice": "Print Invoice",
     "items": "Items",
+    "loading": "please wait",
     "location": "Location",
     "locationOptional": "* Optional",
     "locationPlaceholder": "Choose Your Location",
@@ -63,6 +65,7 @@
     "readyToShip": "Ready to Ship",
     "returned": "Returned",
     "save": "Save Changes",
+    "searchHere": "Search here",
     "sessionExpired": "Your session is expired",
     "settingNotification": "Notification",
     "shipped": "Shipped",
@@ -72,10 +75,7 @@
     "unpaid": "Unpaid",
     "viewInvoice": "View Invoice",
     "youGot": "",
-    "youHave": "You have",
-    "cantFindYourOrder": "Can't find your order?",
-    "searchHere": "Search here",
-    "loading": "please wait"
+    "youHave": "You have"
   },
   "article": {
     "categories": "Help",
@@ -85,29 +85,29 @@
     "isEmpty": "Banner is empty"
   },
   "blog": {
+    "allBlog": "All Blogs",
+    "back": "Back to Blog List",
     "by": "By",
     "categories": "Categories",
     "isEmpty": "Blog is empty",
     "leaveReply": "Leave a reply",
     "postComment": "Post a comment",
     "recentPost": "Recent Post",
-    "title": "Blogs",
-    "allBlog": "All Blogs",
-    "back": "Back to Blog List"
+    "title": "Blogs"
   },
   "breadcrumb": {
-    "home": "Home",
-    "cart": "Cart",
-    "login": "Login",
     "account": "Account",
-    "search": "Search",
-    "lookbook": "Lookbook",
-    "forgotPassword": "Forgot Password",
     "blog": "Blog",
+    "cart": "Cart",
     "contact": "Contact",
+    "forgotPassword": "Forgot Password",
     "giftCard": "Gift Card",
+    "home": "Home",
+    "login": "Login",
+    "lookbook": "Lookbook",
+    "resetPassword": "Reset Password",
     "review": "Review",
-    "resetPassword": "Reset Password"
+    "search": "Search"
   },
   "cart": {
     "amount": "Amount",
@@ -116,13 +116,13 @@
     "errorSKUTitle": "Sorry, the order cannot be processed",
     "invalidItems": "List of invalid products: ",
     "isEmpty": "You haven't added items yet",
-    "prefixItem": "There are",
     "item": "Item",
     "limitStock": "Cannot exceed the available stock",
     "noteToSeller": "Note to Seller",
     "outofStock": "Out of Stock",
-    "price": "Price",
     "quantity": "Quantity",
+    "prefixItem": "There are",
+    "price": "Price",
     "shopNow": "Shop Now",
     "shopMore": "+ Buy More",
     "title": "Cart",
@@ -135,6 +135,7 @@
   },
   "contact": {
     "formIsEmpty": "Form is empty",
+    "info": "We want to provide you with the best online shopping experience for more information, we will be happy to help answer any questions you may have.",
     "message": "Message",
     "name": "Name",
     "namePlaceholder": "Your name",
@@ -143,8 +144,7 @@
     "submit": "Submit",
     "submitError": "Failed send a message",
     "submitSuccess": "Success send a message",
-    "title": "Contact",
-    "info": "We want to provide you with the best online shopping experience for more information, we will be happy to help answer any questions you may have."
+    "title": "Contact"
   },
   "coupon": {
     "apply": "Apply",
@@ -174,29 +174,29 @@
     "errorTitle": "Page Not Found"
   },
   "footer": {
-    "home": "Homepage",
-    "search": "Search",
-    "cart": "Cart",
     "account": "Account",
+    "cart": "Cart",
+    "home": "Homepage",
     "login": "Login",
     "newsletter": "Stay in touch",
-    "newsletterDesc": "Stay updated for new items & special offer"
+    "newsletterDesc": "Stay updated for new items & special offer",
+    "search": "Search"
   },
   "forgotPassword": {
     "requestFail": "Password reset request fail.",
-    "titleSuccessful": "Check Your Email!",
-    "requestSuccessful": "We have sent instructions to your email to update your password."
+    "requestSuccessful": "We have sent instructions to your email to update your password.",
+    "titleSuccessful": "Check Your Email!"
   },
   "giftCard": {
     "desc": "Give someone something to smile about by purchasing our online gift card. An email containing the e-gift card will be sent to them and they can spend it on any item(s).",
+    "info": "Give someone something to smile about by purchasing our online gift card. An email containing an E-gift card will be sent to them and they can spend it on any item.",
     "message": "Personal Message",
     "recipient": "Recipient",
     "send": "Send Gift Card",
     "sender": "Sender Name",
     "title": "Gift Card",
     "value": "Gift Card Value",
-    "welcome": "Add Gift Card To Your Bag",
-    "info": "Give someone something to smile about by purchasing our online gift card. An email containing an E-gift card will be sent to them and they can spend it on any item."
+    "welcome": "Add Gift Card To Your Bag"
   },
   "global": {
     "back": "Back",
@@ -232,8 +232,8 @@
   },
   "home": {
     "close": "Close",
-    "loading": "Please Wait",
     "featureProduct": "Feature Product",
+    "loading": "Please Wait",
     "newProduct": "New",
     "ourProduct": "Our Product",
     "preOrder": "Pre-order",
@@ -247,14 +247,12 @@
   },
   "login": {
     "chooseAnyAccountToLogin": "You have multiple accounts registered, please select one to login",
-    "title": "Login",
     "clickHere": "Forgot your password",
-    "forgetPassword": "",
-    "dontHaveAccount": "",
-    "register": "Register",
-    "email": "Email",
     "disclaimer": "By clicking 'Login' means you agree to receive notifications via Whatsapp and know",
+    "dontHaveAccount": "",
+    "email": "Email",
     "failed": "Failed to login, check your email and password",
+    "forgetPassword": "",
     "inputWhatsApp": "Enter your Whatsapp number to enter our store",
     "insertEmail": "Insert Your Email",
     "insertPassword": "Insert Your Password",
@@ -262,8 +260,10 @@
     "loginWithAnotherMethod": "Login with another method",
     "or": "or login with",
     "password": "Password",
+    "register": "Register",
     "sso": "{SSO_PROVIDER}",
     "success": "Login success",
+    "title": "Login",
     "titleWA": "Login",
     "toRegister": "Sign Up",
     "verifyLoginAttempt": "Please verify that you are human!",
@@ -273,16 +273,16 @@
     "withEmail": "Login with Email"
   },
   "lookbook": {
+    "back": "Back to lookbook",
     "errorButton": "Return to Home Page",
     "errorDesc": "Please try again later",
     "errorTitle": "Error",
     "isEmpty": "Lookbook is empty",
-    "seeCollection": "See Collection",
-    "seeMore": "See More",
-    "title": "Lookbook",
-    "back": "Back to lookbook",
     "relatedProducts": "Related Products",
-    "share": "Bagikan Lookbook"
+    "seeCollection": "See Collection",
+    "share": "Bagikan Lookbook",
+    "seeMore": "See More",
+    "title": "Lookbook"
   },
   "membership": {
     "exchangePoints": "Redeem your Point",
@@ -298,11 +298,11 @@
     "yourPoints": "Your Point"
   },
   "newsletter": {
+    "close": "No, later",
     "inputEmailPlaceholder": "Input your email",
     "submitError": "Failed subscribe",
     "submitSuccess": "Success subscribe",
-    "subscribe": "Subscribe",
-    "close": "No, later"
+    "subscribe": "Subscribe"
   },
   "notificationOptIn": {
     "checkboxLabel": "I want to receive order status via social media",
@@ -312,8 +312,8 @@
     "title": "Update via Social Media"
   },
   "notifyMe": {
-    "phoneInputPlaceholder": "Input your number Whatsapp",
-    "emailInputPlaceholder": "Input your Email"
+    "emailInputPlaceholder": "Input your Email",
+    "phoneInputPlaceholder": "Input your number Whatsapp"
   },
   "orderHistory": {
     "lineItemDelivered": "Delivered",
@@ -368,6 +368,7 @@
     "agreement": "I agree to Terms of Use and Privacy Policy",
     "availCoupon": "Available Coupon",
     "availPoint": "Available Point",
+    "confirm": "Send Proof of Payment",
     "discountBundle": "Discount Bundle",
     "fee": "Fee",
     "generateLinkFailed": "Failed to use this payment method",
@@ -376,45 +377,44 @@
     "prepayment": "Your order is being processed, please do not leave this page.",
     "shipping": "Shipping",
     "title": "Payment",
+    "to": "Destination of bank transfer",
+    "total": "Total Bill",
     "travelokaPayLaterHeader": "Recommended",
     "travelokaPayLaterLink": "Activate your Traveloka PayLater now!",
     "travelokaPayLaterText": "Turn your payments into installments via",
     "uniqueCode": "Unique Code",
     "voucher": "Voucher",
-    "warning": "Unable to proceed transaction amount below 10,000",
-    "total": "Total Bill",
-    "to": "Destination of bank transfer",
-    "confirm": "Send Proof of Payment"
+    "warning": "Unable to proceed transaction amount below 10,000"
   },
   "paymentConfirm": {
     "amountTransfered": "Amount Transfered",
+    "checkOrder": "Check Order Number",
     "confirm": "Confirm payment",
+    "confirmationPaymentSuccess": "Payment confirmation successful",
     "continue": "Continue shopping",
+    "descCheckYoutOrder": "To confirm payment, please enter your email and order ID.",
+    "details": "Details",
     "doesNotEqual": "Amount transfered is unsuitable",
+    "email": "Email",
+    "emailNotMatch": "Email does not match the order number",
     "failed": "Payment confirmation failed! Please check your Order ID.",
     "file": "Receipt file",
     "heading": "Payment Confirmation",
+    "infoUpload": "Proof of payment that has been sent cannot be reupload, please make sure the data you are about to send is correct!",
+    "invalidFileType": "File Type not supported",
+    "optional": "Optional",
+    "orderId": "Order ID",
+    "orderIdNotFound": "Order ID not found",
+    "placeholderEmail": "user@gmail.com",
+    "placeholderOrderId": "Order ID",
+    "pleaseLogin": "Your order ID not found. Please login with your account.",
+    "titleCheckYoutOrder": "Check Order ID",
     "to": "Payment to",
     "totalAmount": "Total amount payable for this order is:",
     "transactionDate": "Transaction Date",
     "unauthorize": "Payment confirmation has failed, please login first and try again",
     "uploadFailed": "File upload failed. Please try again.",
-    "wrongEmail": "Please use the email that you used to create the order",
-    "orderIdNotFound": "Order ID not found",
-    "emailNotMatch": "Email does not match the order number",
-    "titleCheckYoutOrder": "Check Order ID",
-    "descCheckYoutOrder": "To confirm payment, please enter your email and order ID.",
-    "orderId": "Order ID",
-    "placeholderOrderId": "Order ID",
-    "email": "Email",
-    "placeholderEmail": "user@gmail.com",
-    "checkOrder": "Check Order Number",
-    "details": "Details",
-    "optional": "Optional",
-    "invalidFileType": "File Type not supported",
-    "confirmationPaymentSuccess": "Payment confirmation successful",
-    "pleaseLogin": "Your order ID not found. Please login with your account.",
-    "infoUpload": "Proof of payment that has been sent cannot be reupload, please make sure the data you are about to send is correct!"
+    "wrongEmail": "Please use the email that you used to create the order"
   },
   "paymentNotif": {
     "message": "After you have made your bank transfer, please notify us by entering the details of the transaction.",
