@@ -420,6 +420,10 @@
     "message": "After you have made your bank transfer, please notify us by entering the details of the transaction.",
     "title": "Payment Confirmation"
   },
+  "paymentNotif": {
+    "message": "After you have made your bank transfer, please notify us by entering the details of the transaction.",
+    "title": "Payment Confirmation"
+  },
   "paymentStatus": {
     "continueShopping": "Continue Shopping",
     "failedDesc": "Your payment failed to process. Please make a repayment process",

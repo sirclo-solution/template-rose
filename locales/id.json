@@ -420,6 +420,10 @@
     "message": "Mohon masukkan detail transaksi anda setelah anda melakukan transfer melalui bank.",
     "title": "Konfirmasi Pembayaran"
   },
+  "paymentNotif": {
+    "message": "Mohon masukkan detail transaksi anda setelah anda melakukan transfer melalui bank.",
+    "title": "Konfirmasi Pembayaran"
+  },
   "paymentStatus": {
     "continueShopping": "Lanjutkan Berbelanja",
     "failedDesc": "Pembayaran anda gagal diproses. Silakan lakukan proses pembayaran kembali",
