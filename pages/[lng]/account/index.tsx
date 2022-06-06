@@ -221,14 +221,20 @@ const AccountsPage: FC<any> = ({
     setName(`${firstName} ${lastName}`)
   }
 
+  const layoutProps = {
+    i18n,
+    lng,
+    lngDict,
+    brand,
+    hasOtp,
+    layoutClassName: "layout_fullHeight",
+    SEO: {
+      title: i18n.t("account.myAccount")
+    },
+  }
+
   return (
-    <Layout
-      i18n={i18n}
-      lng={lng}
-      lngDict={lngDict}
-      brand={brand}
-      layoutClassName="layout_fullHeight"
-    >
+    <Layout {...layoutProps}>
       <div className={styleAccount.account_container}>
         <div className={styleAccount.account_breadcrumb}>
           <Breadcrumb
@@ -317,19 +323,26 @@ const AccountsPage: FC<any> = ({
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ req, res, params }) => {
-  const { default: lngDict = {} } = await import(`locales/${params.lng}.json`)
-
+export const getServerSideProps: GetServerSideProps = async ({
+  req,
+  res,
+  params
+}) => {
   const brand = await useBrand(req)
   const hasOtp = await useWhatsAppOTPSetting(req)
+  const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
+
+  const { default: lngDict = {} } = await import(
+    `locales/${defaultLanguage}.json`
+  )
 
   if (res) {
     const cookies = parseCookies(req)
-    const auth = cookies.AUTH_KEY
+    const auth = cookies.AUTH_KEY;
 
     if (!auth) {
-      res.writeHead(301, {
-        Location: `/${cookies.ACTIVE_LNG || 'id'}/login`,
+      res.writeHead(307, {
+        Location: `/${defaultLanguage || "id"}/login`,
       })
       res.end()
     }
@@ -337,11 +350,11 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res, params 
 
   return {
     props: {
-      lng: params.lng,
+      lng: defaultLanguage,
       lngDict,
       hasOtp,
-      brand: brand || '',
-    },
+      brand: brand || ""
+    }
   }
 }
 

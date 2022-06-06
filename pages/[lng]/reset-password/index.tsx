@@ -41,16 +41,21 @@ const ResetPasswordPage: FC<any> = ({
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const i18n: any = useI18n()
 
+  const layoutProps = {
+    i18n,
+    lng,
+    lngDict,
+    brand,
+    headerTitle: i18n.t('resetPassword.setNew'),
+    withFooter: false,
+    withCopyright: true,
+    SEO: {
+      title: i18n.t("resetPassword.setNew")
+    }
+  }
+
   return (
-    <Layout
-      i18n={i18n}
-      lng={lng}
-      lngDict={lngDict}
-      brand={brand}
-      headerTitle={i18n.t('resetPassword.setNew')}
-      withFooter={false}
-      withCopyright
-    >
+    <Layout {...layoutProps}>
       <SEO title={i18n.t('resetPassword.setNew')} />
       <div className={styleLogin.login_breadcrumb}>
         <Breadcrumbs
@@ -77,16 +82,16 @@ const ResetPasswordPage: FC<any> = ({
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ req, params }) => {
-  const { default: lngDict = {} } = await import(`locales/${params.lng}.json`)
-
   const brand = await useBrand(req)
+  const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
+  const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
 
   return {
     props: {
-      lng: params.lng,
+      lng: defaultLanguage,
       lngDict,
-      brand: brand || '',
-    },
+      brand: brand || ""
+    }
   }
 }
 

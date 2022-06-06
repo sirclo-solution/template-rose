@@ -218,14 +218,22 @@ const Product: FC<any> = ({
 
   const toggleRatingReview = () => setShowRatingReview(!showRatingReview)
 
+  const layoutProps = {
+    i18n,
+    lng,
+    lngDict,
+    brand,
+    layoutClassName: 'layout_fullHeight',
+    SEO: {
+      title: data?.details[0]?.name || "",
+      description: data?.SEOs[0]?.description || "",
+      keywords: data?.SEOs[0]?.keywords?.join(", ") || "",
+      image: data?.imageURLs[0] || ""
+    }
+  }
+
   return (
-    <Layout
-      i18n={i18n}
-      lng={lng}
-      lngDict={lngDict}
-      brand={brand}
-      layoutClassName="layout_fullHeight"
-    >
+    <Layout {...layoutProps}>
       {data && (
         <SEO
           title={data?.details[0]?.name || ""}
@@ -573,20 +581,19 @@ export async function getServerSideProps({ req, params }) {
   const { slug } = params
   const data = await getProductDetail(GRAPHQL_URI(req), slug)
   const brand = await useBrand(req)
-
-  const { default: lngDict = {} } = await import(`locales/${params.lng}.json`)
-
+  const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
+  const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
   const urlSite = `https://${req.headers.host}/${params.lng}/product/${slug}`
 
   return {
     props: {
-      lng: params.lng,
+      lng: defaultLanguage,
       slug,
       lngDict,
       data: data || null,
       brand: brand || "",
       urlSite: urlSite,
-    }
+    },
   }
 }
 

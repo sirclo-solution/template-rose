@@ -11,7 +11,7 @@ import { withBrand, Newsletter } from '@sirclo/nexus'
 /* components */
 import Header from '../Header'
 import Footer from '../Footer/Footer'
-import SEO from '../SEO'
+import SEOHead from '../SEO'
 import PageNotFound from 'components/PageNotFound'
 import Copyright from 'components/Copyright'
 /* styles */
@@ -52,6 +52,7 @@ const Layout: FC<LayoutPropType> = ({
   withCopyright = false,
   withAllowed = true,
   brand,
+  SEO,
   ...props
 }) => {
   const router: any = useRouter()
@@ -95,13 +96,20 @@ const Layout: FC<LayoutPropType> = ({
     return token
   }
 
+  const SEOprops = {
+    title: `${brand?.settings?.websiteTitle} - ${SEO?.title}` || "",
+    description: SEO?.desc || brand?.settings?.websiteDescription,
+    image: SEO?.image || brand?.logoURL,
+    keywords: SEO?.keywords || ""
+  }
+
   return (
     <>
       <Head>
         {brand?.settings?.hideFromSearchEngine && (
           <meta name="robots" content="noindex, nofollow"></meta>
         )}
-        <title>{brand?.settings?.websiteTitle}</title>
+        <title>{brand?.settings?.websiteTitle} {SEO?.title && "-"} {SEO?.title}</title>
         {brand?.googleAdsWebsiteMetaToken &&
           <meta name="google-site-verification" content={getToken()} />
         }
@@ -132,11 +140,7 @@ const Layout: FC<LayoutPropType> = ({
         <link rel="preconnect" href="https://thumbor.sirclocdn.com" />
         <link rel="preconnect" href="https://storage.googleapis.com" />
       </Head>
-      <SEO
-        title={brand?.settings?.websiteTitle}
-        description={brand?.settings?.websiteDescription}
-        image={brand?.logoURL}
-      />
+      <SEOHead {...SEOprops} />
       {withHeader &&
         <Header
           withAnnouncement={withAnnouncement}

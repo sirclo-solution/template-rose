@@ -72,14 +72,19 @@ const TestimonialsPage: FC<any> = ({
 
   const toggleShowAdd = () => setShowAdd(!showAdd)
 
+  const layoutProps = {
+    i18n,
+    lng,
+    lngDict,
+    brand,
+    SEO: {
+      title: i18n.t("testimonial.title")
+    },
+    withAllowed: testimonialAllowed
+  }
+
   return (
-    <Layout
-      i18n={i18n}
-      lng={lng}
-      lngDict={lngDict}
-      brand={brand}
-      withAllowed={testimonialAllowed}
-    >
+    <Layout {...layoutProps}>
       <div className={`${styles.testimonials} container`}>
         <div className={styles.testimonials_header}>
           <h4>{i18n.t("testimonial.title")}</h4>
@@ -175,28 +180,18 @@ const TestimonialsPage: FC<any> = ({
 
 export const getServerSideProps: GetServerSideProps = async ({
   req,
-  res,
-  params
+  params,
 }) => {
-  const { default: lngDict = {} } = await import(
-    `locales/${params.lng}.json`
-  )
-
   const brand = await useBrand(req)
-
-  if (res) {
-    res.writeHead(307, {
-      Location: `/`,
-    });
-    res.end();
-  }
+  const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
+  const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
 
   return {
     props: {
-      lng: params.lng,
+      lng: defaultLanguage,
       lngDict,
-      brand: brand || ''
-    }
+      brand: brand || '',
+    },
   }
 }
 

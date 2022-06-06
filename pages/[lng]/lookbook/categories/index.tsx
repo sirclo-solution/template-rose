@@ -35,16 +35,21 @@ const LookbookCategory: FC<any> = ({
   const i18n: any = useI18n()
   const LookbookAllowed = isLookbookAllowed()
 
+  const layoutProps = {
+    i18n,
+    lng,
+    lngDict,
+    brand,
+    SEO: {
+      title: i18n.t("lookbook.title")
+    },
+    withAllowed: LookbookAllowed,
+    headerTitle: i18n.t('lookbook.title'),
+    layoutClassName: 'layout_fullHeight'
+  }
+
   return (
-    <Layout
-      i18n={i18n}
-      lng={lng}
-      lngDict={lngDict}
-      brand={brand}
-      withAllowed={LookbookAllowed}
-      headerTitle={i18n.t('lookbook.title')}
-      layoutClassName="layout_fullHeight"
-    >
+    <Layout {...layoutProps}>
       <div className={styleLookbook.lookbook_container}>
         <div className={styleLookbook.lookbook_breadcrumb}>
           <Breadcrumb
@@ -85,14 +90,17 @@ const LookbookCategory: FC<any> = ({
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ params, req }) => {
-  const { default: lngDict = {} } = await import(`locales/${params.lng}.json`)
-
+export const getServerSideProps: GetServerSideProps = async ({
+  params,
+  req,
+}) => {
   const brand = await useBrand(req)
+  const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
+  const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
 
   return {
     props: {
-      lng: params.lng,
+      lng: defaultLanguage,
       lngDict,
       brand: brand || '',
     },

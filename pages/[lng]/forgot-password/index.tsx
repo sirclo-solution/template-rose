@@ -31,17 +31,22 @@ const ForgotPassword: FC<any> = ({
   const i18n: any = useI18n()
   const [isSuccess, setIsSuccess] = useState<boolean>(false)
 
+  const layoutProps = {
+    i18n,
+    lng,
+    lngDict,
+    brand,
+    headerTitle: i18n.t('resetPassword.title'),
+    layoutClassName: 'layout_fullHeight',
+    withCopyright: true,
+    withFooter: false,
+    SEO: {
+      title: i18n.t("resetPassword.title")
+    }
+  }
+
   return (
-    <Layout
-      i18n={i18n}
-      lng={lng}
-      lngDict={lngDict}
-      brand={brand}
-      headerTitle={i18n.t('resetPassword.title')}
-      layoutClassName='layout_fullHeight'
-      withCopyright
-      withFooter={false}
-    >
+    <Layout {...layoutProps}>
       <div className={styleLogin.login_breadcrumb}>
         <Breadcrumb
           steps={[
@@ -80,20 +85,24 @@ const ForgotPassword: FC<any> = ({
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ req, res, params }) => {
-  const { default: lngDict = {} } = await import(`locales/${params.lng}.json`)
-
+export const getServerSideProps: GetServerSideProps = async ({
+  req,
+  res,
+  params
+}) => {
   const brand = await useBrand(req)
-
   const cookies = parseCookies(req)
-  redirectIfAuthenticated(res, cookies, 'account')
+  const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
+  const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
+
+  redirectIfAuthenticated(res, cookies, 'account', defaultLanguage)
 
   return {
     props: {
-      lng: params.lng,
+      lng: defaultLanguage,
       lngDict,
-      brand: brand || '',
-    },
+      brand: brand || ""
+    }
   }
 }
 

@@ -48,14 +48,17 @@ const BlogSlug: FC<any> = ({
   const i18n: any = useI18n()
   const [title, setTitle] = useState<string>('')
 
+  const layoutProps = {
+    i18n,
+    lng,
+    lngDict,
+    brand,
+    headerTitle: i18n.t('blog.title'),
+    SEO: { title }
+  }
+
   return (
-    <Layout
-      i18n={i18n}
-      lng={lng}
-      lngDict={lngDict}
-      brand={brand}
-      headerTitle={i18n.t('blog.title')}
-    >
+    <Layout {...layoutProps}>
       <div className={styleBlog.blog_container}>
         <div className={styleBlog.blog_header}>
           <Breadcrumb
@@ -124,21 +127,23 @@ const BlogSlug: FC<any> = ({
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ params, req }) => {
-  const { slug } = params
-  const { default: lngDict = {} } = await import(`locales/${params.lng}.json`)
-
+export const getServerSideProps: GetServerSideProps = async ({
+  params,
+  req,
+}) => {
   const brand = await useBrand(req)
-
+  const { slug } = params
   const urlSite = `https://${req.headers.host}/${params.lng}/blog/${slug}`
+  const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
+  const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
 
   return {
     props: {
-      lng: params.lng,
+      lng: defaultLanguage,
       lngDict,
-      slug: params.slug,
+      slug,
       brand: brand || '',
-      urlSite: urlSite,
+      urlSite
     },
   }
 }

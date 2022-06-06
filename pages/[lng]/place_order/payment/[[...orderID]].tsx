@@ -59,17 +59,22 @@ const PaymentStatus: FC<any> = ({
       }
   }
 
+  const layoutProps = {
+    i18n,
+    lng,
+    lngDict,
+    brand,
+    withHeader: false,
+    withFooter: false,
+    withCopyright: true,
+    layoutClassName: 'layout_fullHeight',
+    SEO: {
+      title: i18n.t("paymentStatus.title")
+    }
+  }
+
   return (
-    <Layout
-      i18n={i18n}
-      lng={lng}
-      lngDict={lngDict}
-      brand={brand}
-      withHeader={false}
-      withFooter={false}
-      withCopyright
-      layoutClassName='layout_fullHeight'
-    >
+    <Layout {...layoutProps}>
       <HeaderCheckout
         i18n={i18n}
       />
@@ -116,22 +121,23 @@ const PaymentStatus: FC<any> = ({
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ req, params }) => {
-  const { default: lngDict = {} } = await import(
-    `locales/${params.lng}.json`
-  )
-
+export const getServerSideProps: GetServerSideProps = async ({
+  req,
+  params,
+}) => {
   const brand = await useBrand(req)
+  const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
+  const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
   const [orderID, status] = params?.orderID as string[]
 
   return {
     props: {
-      lng: params.lng,
+      lng: defaultLanguage,
       lngDict,
       brand: brand || '',
       orderID: orderID || '',
       status: status || '',
-    }
+    },
   }
 }
 

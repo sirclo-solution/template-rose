@@ -94,17 +94,22 @@ const PaymentConfirmationPage: FC<any> = ({
     orderID = router.query.orderID.toString()
   }
 
+  const layoutProps = {
+    i18n,
+    lng,
+    lngDict,
+    brand,
+    withFooter: false,
+    withCopyright: true,
+    headerTitle: orderID ? i18n.t('paymentConfirm.heading') : i18n.t('paymentConfirm.checkOrder'),
+    layoutClassName: 'layout_fullHeight',
+    SEO: {
+      title: i18n.t("paymentNotif.title")
+    }
+  }
+
   return (
-    <Layout
-      i18n={i18n}
-      lng={lng}
-      lngDict={lngDict}
-      brand={brand}
-      withFooter={false}
-      withCopyright
-      headerTitle={orderID ? i18n.t("paymentConfirm.heading") : i18n.t("paymentConfirm.checkOrder")}
-      layoutClassName='layout_fullHeight'
-    >
+    <Layout {...layoutProps}>
       <div className={styles.paymentNotif_container}>
         <Breadcrumb
           steps={[
@@ -165,19 +170,20 @@ const PaymentConfirmationPage: FC<any> = ({
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ req, params }) => {
-  const { default: lngDict = {} } = await import(
-    `locales/${params.lng}.json`
-  )
-
+export const getServerSideProps: GetServerSideProps = async ({
+  req,
+  params,
+}) => {
   const brand = await useBrand(req)
+  const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
+  const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
 
   return {
     props: {
-      lng: params.lng,
+      lng: defaultLanguage,
       lngDict,
-      brand: brand || ""
-    }
+      brand: brand || '',
+    },
   }
 }
 

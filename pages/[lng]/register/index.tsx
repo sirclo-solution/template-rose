@@ -130,14 +130,19 @@ const RegisterPage: FC<any> = ({
     if (step === STEPS.WA) setStep(STEPS.EMAIL)
   }
 
+  const layoutProps = {
+    i18n,
+    lng,
+    lngDict,
+    brand,
+    SEO: {
+      title: i18n.t("register.title")
+    },
+    layoutClassName: 'layout_fullHeight'
+  }
+
   return (
-    <Layout
-      i18n={i18n}
-      lng={lng}
-      lngDict={lngDict}
-      brand={brand}
-      layoutClassName='layout_fullHeight'
-    >
+    <Layout {...layoutProps}>
       <SEO title={i18n.t('register.register')} />
       <div className={styleLogin.login}>
         <div className={styleLogin.login_breadcrumb}>
@@ -268,26 +273,29 @@ const RegisterPage: FC<any> = ({
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ req, res, params }) => {
-  const { default: lngDict = {} } = await import(`locales/${params.lng}.json`)
-
+export const getServerSideProps: GetServerSideProps = async ({
+  req,
+  res,
+  params
+}) => {
   const brand = await useBrand(req)
-
+  const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
+  const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
   const cookies = parseCookies(req)
   const hasGoogleAuth = await useGoogleAuth(req)
   const hasFacebookAuth = await useFacebookAuth(req)
   const hasOtp = await useWhatsAppOTPSetting(req)
-  redirectIfAuthenticated(res, cookies, 'account')
+  redirectIfAuthenticated(res, cookies, 'account', defaultLanguage)
 
   return {
     props: {
-      lng: params.lng,
+      lng: defaultLanguage,
       lngDict,
       hasGoogleAuth,
       hasFacebookAuth,
       hasOtp,
-      brand: brand || '',
-    },
+      brand: brand || ""
+    }
   }
 }
 

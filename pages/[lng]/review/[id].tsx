@@ -113,13 +113,18 @@ const ReviewPage: FC<any> = ({
     ...classesPagination
   }
 
+  const layoutProps = {
+    i18n,
+    lng,
+    lngDict,
+    brand,
+    SEO: {
+      title: i18n.t("orderReview.title")
+    }
+  }
+
   return (
-    <Layout
-      i18n={i18n}
-      lng={lng}
-      lngDict={lngDict}
-      brand={brand}
-    >
+    <Layout {...layoutProps}>
       <div className={styleReview.review_container}>
         <div className={styleReview.review_header}>
           <Breadcrumb
@@ -160,19 +165,17 @@ const ReviewPage: FC<any> = ({
 };
 
 export const getServerSideProps: GetServerSideProps = async ({ params, req }) => {
-  const { default: lngDict = {} } = await import(
-    `locales/${params.lng}.json`
-  );
-
-  const brand = await useBrand(req);
+  const brand = await useBrand(req)
+  const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
+  const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
 
   return {
     props: {
-      lng: params.lng,
+      lng: defaultLanguage,
       lngDict,
       brand: brand || ''
     },
-  };
-};
+  }
+}
 
 export default ReviewPage;

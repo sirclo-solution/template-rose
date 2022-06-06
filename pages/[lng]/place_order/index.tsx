@@ -100,17 +100,22 @@ const PlaceOrderPage: FC<any> = ({
   const i18n: any = useI18n()
   const [showModalErrorAddToCart, setShowModalErrorAddToCart] = useState<boolean>(false)
 
+  const layoutProps = {
+    i18n,
+    lng,
+    lngDict,
+    brand,
+    SEO: {
+      title: i18n.t("placeOrder.title")
+    },
+    withHeader: false,
+    withFooter: false,
+    layoutClassName: 'layout_fullHeight'
+  }
+
   return (
     <PrivateRouteWrapper>
-      <Layout
-        i18n={i18n}
-        lng={lng}
-        lngDict={lngDict}
-        brand={brand}
-        withHeader={false}
-        withFooter={false}
-        layoutClassName='layout_fullHeight'
-      >
+      <Layout {...layoutProps}>
         <HeaderCheckout
           i18n={i18n}
         />
@@ -184,21 +189,16 @@ const PlaceOrderPage: FC<any> = ({
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({
-  req,
-  params
-}) => {
-  const { default: lngDict = {} } = await import(
-    `locales/${params.lng}.json`
-  )
-
+export const getServerSideProps: GetServerSideProps = async ({ req, params }) => {
   const brand = await useBrand(req)
+  const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
+  const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
 
   return {
     props: {
-      lng: params.lng,
+      lng: defaultLanguage,
       lngDict,
-      brand: brand || ''
+      brand: brand || ""
     }
   }
 }
