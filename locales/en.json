@@ -609,7 +609,8 @@
   "settingNotification": {
     "title": "Notification",
     "description": "You will get all notification from this store according to the medium you activated below",
-    "emailDescription": "All notification by email cannot changed"
+    "emailDescription": "All notification by email cannot changed",
+    "pleaseFillWANumber": "Please fill your whatsapp number first"
   },
   "shipping": {
     "allocating": "Looking for a driver",
