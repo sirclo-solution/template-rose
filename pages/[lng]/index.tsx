@@ -3,7 +3,7 @@ import { FC, useState } from 'react'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { useRouter } from 'next/router'
 import { LazyLoadComponent } from 'react-lazy-load-image-component'
-import { RiQuestionFill } from 'react-icons/ri'
+import { RiQuestionFill, RiStarFill } from 'react-icons/ri'
 import {
   getBanner,
   Products,
@@ -40,10 +40,27 @@ const classesProducts = {
   productImageContainerClassName: styleProduct.product_link,
   productImageClassName: styleProduct.product_link__image,
   productLabelContainerClassName: styleProduct.product_label,
+  titleContainerClassName: styleProduct.product_label__container,
   productTitleClassName: styleProduct.product_label__title,
   productPriceClassName: styleProduct.product_labelPrice,
+  salePriceContainerClassName: styleProduct.product_labelPrice__container,
   salePriceClassName: styleProduct.product_labelPrice__sale,
-  priceClassName: styleProduct.product_labelPrice__price
+  priceClassName: styleProduct.product_labelPrice__price,
+  
+  //category
+  categoryContainerClassName: styleProduct.product_category__container,
+  
+  //rating
+  ratingContainerClassName: styleProduct.product_rating__container,
+  ratingWrapperClassName: styleProduct.product_rating__wrapper,
+  ratingIconClassName: styleProduct.product_rating__icon,
+  ratingCountClassName: styleProduct.product_rating__count,
+  reviewCountClassName: styleProduct.product_rating__reviewCount,
+}
+
+const classesCategoryProduct = {
+  parentCategoryClassName: styleProduct.product_category__parent,
+  categoryItemsClassName: styleProduct.product_category__items,
 }
 
 const classesPlaceholderProduct = {
@@ -144,6 +161,12 @@ const Home: FC<any> = ({
                 itemPerPage={8}
                 classes={classesProducts}
                 pathPrefix="product"
+                isFlipImage
+                withCategory
+                productCategoryClasses={classesCategoryProduct}
+                withRating
+                showEmptyRating
+                ratingIcon={<RiStarFill color="#F2C14F" size={12} />}
                 lazyLoadedImage={false}
                 getPageInfo={(pageInfo) => getTotalItem(pageInfo.totalItems)}
                 emptyStateComponent={

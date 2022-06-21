@@ -8,7 +8,8 @@ import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { useRouter } from 'next/router'
 import {
   RiQuestionFill,
-  RiCloseLine
+  RiCloseLine,
+  RiStarFill
 } from 'react-icons/ri'
 import {
   FaChevronDown
@@ -54,7 +55,19 @@ const classesProducts = {
   productTitleClassName: styleProduct.product_label__title,
   productPriceClassName: styleProduct.product_labelPrice,
   salePriceClassName: styleProduct.product_labelPrice__sale,
+  salePriceContainerClassName: styleProduct.product_labelPrice__container,
   priceClassName: styleProduct.product_labelPrice__price,
+  titleContainerClassName: styleProduct.product_label__container,
+
+  //category
+  categoryContainerClassName: styleProduct.product_category__container,
+  
+  //rating
+  ratingContainerClassName: styleProduct.product_rating__container,
+  ratingWrapperClassName: styleProduct.product_rating__wrapper,
+  ratingIconClassName: styleProduct.product_rating__icon,
+  ratingCountClassName: styleProduct.product_rating__count,
+  reviewCountClassName: styleProduct.product_rating__reviewCount,
 }
 
 const classesProductSort = {
@@ -96,6 +109,11 @@ const classesProductCategory = {
   categoryNumberClassName: styleProducts.category_listTotalNumber,
   dropdownIconClassName: styleProducts.category_listIcon,
   childCategoryClassName: styleProducts.category
+}
+
+const classesCategoryProduct = {
+  parentCategoryClassName: styleProduct.product_category__parent,
+  categoryItemsClassName: styleProduct.product_category__items,
 }
 
 const ProductsPage: FC<any> = ({
@@ -185,6 +203,12 @@ const ProductsPage: FC<any> = ({
               classes={classesProducts}
               fullPath={`product/{id}`}
               pathPrefix={`product`}
+              isFlipImage
+              withCategory
+              productCategoryClasses={classesCategoryProduct}
+              withRating
+              showEmptyRating
+              ratingIcon={<RiStarFill color="#F2C14F" size={12} />}
               lazyLoadedImage={false}
               thumborSetting={{
                 width: size.width < 768 ? 512 : 800,

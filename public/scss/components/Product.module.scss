@@ -128,8 +128,13 @@
 
   &_label
   {
-    @include flex(column, flex-start, space-between);
+    @include flex(row, flex-start, flex-start, true);
     padding: 10px 0 0;
+
+    &__container
+    {
+      order: 3;
+    }
 
     &__title
     {
@@ -152,6 +157,11 @@
     color: $color_rose;
     margin-bottom: 0;
 
+    &__container
+    {
+      order: 4;
+    }
+    
     &__sale
     {
       @include fontSize(12);
@@ -174,6 +184,120 @@
     &Image
     {
       width: 100%;
+    }
+  }
+
+  &_category
+  {
+    &__container
+    {
+      order: 1;
+      margin: 0;
+      padding: 0;
+
+      ul, ol
+      {
+        @include fixedWidth(100%);
+        @include typographyBuilder(secondary, 400, 11, 12);
+        display: inline-block;
+        position: relative;
+        margin: 0;
+        padding: 0;
+        white-space: nowrap;
+        word-break: keep-all;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        color: $color_rose;
+
+        li
+        {
+          &::after
+          {
+            content: ", ";
+          }
+
+          &:last-child,
+          &:last-of-type,
+          &:only-child,
+          &:only-of-type
+          {
+            &::after
+            {
+              content: none;
+            }
+          }
+
+          &,
+          span,
+          a,
+          div
+          {
+            display: inline;
+            position: relative;
+            margin: 0;
+            padding: 0;
+            white-space: nowrap;
+            word-break: keep-all;
+            text-overflow: ellipsis;
+            overflow: hidden;
+          }
+
+          a
+          {
+            @include typographyBuilder(secondary, 400, 11, 12);
+            color: $color_rose;
+            text-decoration: none;
+
+            &:hover,
+            &:focus
+            &:focus-visible
+            {
+              color: $color_rose;
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+
+    &__parent
+    {
+      list-style-type: none;
+      margin: 0;
+    }
+
+    &__items
+    {
+      @include typography_builderSecondary(400, 11, 12);
+    }
+  }
+
+  &_rating
+  {
+    &__container
+    {
+      @include flex(row, flex-start, space-between);
+      order: 2;
+      align-self: center;
+      margin-left: auto;
+      margin-bottom: 3px;
+    }
+
+    &__wrapper
+    {
+      @include flex(row, flex-end, space-between, false);
+      @include typographyBuilder(secondary, 400, 11, 12);
+      color: $color_rose;
+    }
+
+    &__count
+    {
+      margin-left: 2px;
+    }
+
+    &__reviewCount
+    {
+      margin-left: 2px;
     }
   }
 }
