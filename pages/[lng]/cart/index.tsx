@@ -9,7 +9,11 @@ import Router from 'next/router'
 import Link from 'next/link'
 import { IoTrashBinOutline } from 'react-icons/io5'
 import { RiShoppingBag2Line, RiInformationLine } from 'react-icons/ri'
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
+import { 
+	FaArrowLeft, 
+	FaArrowRight,
+	FaEdit
+} from 'react-icons/fa'
 import { toast } from 'react-toastify'
 import {
 	useI18n,
@@ -45,6 +49,7 @@ const classesCartDetails = {
 	itemSalePriceClassName: styleCart.cartItem_salePrice,
 	itemDiscountNoteClassName: styleCart.cartItem_discNote,
 	itemQtyClassName: styleCart.cartItem_qty,
+	itemNoteClassName: styleCart.cartItem_note,
 	errorClassName: 'd-none',
 	qtyBoxClassName: styleCart.cartItem_qtyBox,
 	itemAmountClassName: styleCart.cartItem_totalPrice,
@@ -118,14 +123,16 @@ const Cart: FC<any> = ({
 						steps={[{ label: i18n.t('breadcrumb.home') }, { label: i18n.t('breadcrumb.cart') }]}
 					/>
 				</div>
-        {!!dataCart?.totalItem &&
-          <div className={styleCart.cart_header}>
-            <div>{`${i18n.t('cart.prefixItem')} ${dataCart?.totalItem} ${i18n.t('cart.item')}`}</div>
-            <div>
-              <Link href={`/${lng}/products`}>{i18n.t('cart.shopMore')}</Link>
-            </div>
-          </div>
-        }
+				{!!dataCart?.totalItem &&
+				<div className={styleCart.cart_header}>
+					<div>
+						{`${i18n.t('cart.prefixItem')} ${dataCart?.totalItem} ${i18n.t('cart.item')}`}
+					</div>
+					<div>
+						<Link href={`/${lng}/products`}>{i18n.t('cart.shopMore')}</Link>
+					</div>
+				</div>
+				}
 				{invalidMsg && !!dataCart?.totalItem && (
 					<div className={styleCart.cart_error}>
 						<div>
@@ -171,6 +178,20 @@ const Cart: FC<any> = ({
 								/>
 							</div>
 						}
+						withoutFooter
+						withProductNote
+						productNoteButtonElement={{
+						  filled: (
+							<span>{i18n.t("cart.change")}</span>
+						  ),
+						  save: <span>{i18n.t("cart.save")}</span>,
+						  empty: (
+							<>
+								<FaEdit />
+								<span>{i18n.t("cart.addNote")}</span>
+							</>
+						  )
+						}}
 					/>
 					{totalQuantity > 0 &&
 						<OrderSummaryBox

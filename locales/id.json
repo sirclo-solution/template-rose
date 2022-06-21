@@ -110,7 +110,9 @@
     "search": "Pencarian"
   },
   "cart": {
+    "addNote": "Tambahkan Catatan",
     "amount": "Jumlah",
+    "change": "Ubah",
     "closeOrderProduct": "Produk pesanan sudah ditutup",
     "errorSKUDesc": "Terdapat kendala saat menambahkan barang. Silakan hapus seluruh barang pesanan Anda, kemudian lakukan proses pembelian kembali",
     "errorSKUTitle": "Mohon maaf, pesanan belum dapat diproses",
@@ -122,7 +124,9 @@
     "outofStock": "Stok Habis",
     "prefixItem": "Terdapat",
     "price": "Harga",
+    "productNotePlaceholder": "Tulis catatan di sini",
     "quantity": "Kuantitas",
+    "save": "Simpan",
     "shopNow": "Belanja Sekarang",
     "shopMore": "+ Belanja Lagi",
     "title": "Keranjang",

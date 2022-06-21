@@ -6,8 +6,9 @@ import {
   FiChevronDown,
   FiChevronUp,
   FiX,
-  FiChevronLeft
+  FiChevronLeft,
 } from 'react-icons/fi'
+import { FaEdit } from 'react-icons/fa'
 import {
   OrderSummary,
   CartDetails
@@ -78,6 +79,7 @@ const classesCartDetails = {
   itemAmountClassName: styleOrderSummary.cart_totalPrice,
   itemPriceClassName: 'd-none',
   itemQtyClassName: 'd-none',
+	itemNoteClassName: styleOrderSummary.cart_itemNote,
   errorClassName: 'd-none',
   itemEditClassName: 'd-none',
   itemRemoveClassName: 'd-none',
@@ -142,6 +144,17 @@ const OrderSummaryComponent: FC<iProps> = ({
             loadingComponent={
               <Loader />
             }
+            withProductNote
+            productNoteButtonElement={{
+						  filled: <span>{i18n.t("cart.change")}</span>,
+						  save: <span>{i18n.t("cart.save")}</span>,
+						  empty: (
+							<>
+                <FaEdit />
+							  <span>{i18n.t("cart.addNote")}</span>
+							</>
+						  )
+            }}
           />
         </div>
       }

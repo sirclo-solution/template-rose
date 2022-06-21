@@ -262,6 +262,88 @@
       color: $color_error;
     }
   }
+
+  &_note
+  {
+    @include flex(row, flex-start, flex-start, true);
+    position: relative;
+    grid-row: 5;
+    grid-column: 2 / span 3;
+
+    & > span
+    {
+      @include flex(row, center, flex-start);
+      @include typographyBuilder('secondary', 400, 14, 24);
+      @include fixedWidth(100%);
+      position: relative;
+      margin: 0 0 8px;
+      padding: 10px;
+      border: none;
+      background-color: $color_rose_bg2;
+      color: $color_text_primary;
+
+      &:empty
+      {
+        opacity: 0;
+        padding: 0;
+      }
+    }
+
+    & > input
+    {
+      @include transition;
+      @include flex(row, center, flex-start);
+      @include fixedWidth(100%);
+      @include typographyBuilder('secondary', 400, 14, 24);
+
+      border: 1px solid $color_border;
+      border-radius: 37px;
+      background-color: $color_white;
+      color: $color_text_primary;
+      margin: 12px 0 4px;
+      padding: 0 24px;
+      height: 58px;
+      
+      &:focus
+      {
+        outline: none !important;
+        border: 1px solid $color_rose;
+        border-radius: 37px;
+      }
+    }
+
+    & > button
+    {
+      @include transition;
+      @include flex(row, center, flex-start);
+      @include typographyBuilder('secondary', 400, 12, 16);
+      position: relative;
+      margin: 0;
+      padding: 0;
+      border: none;
+      background-color: transparent;
+      box-shadow: none;
+      color: $color_rose;
+      cursor: pointer;
+
+      &:hover,
+      &:focus,
+      &:focus-visible,
+      &:active
+      {
+        outline: none;
+        box-shadow: none;
+        border: none;
+        background-color: transparent;
+      }
+
+      &:hover,
+      &:focus-visible
+      {
+        color: $color_text_primary;
+      }
+    }
+  }
 }
 
 .cartFooter
