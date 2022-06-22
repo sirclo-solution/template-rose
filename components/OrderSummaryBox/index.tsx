@@ -72,25 +72,6 @@ const classesOrderSummary = {
   pointButtonRemoveClassName: styleOrderSummary.orderSummary_voucherButtonRemove,
 }
 
-/*
-const classesCartDetails = {
-  className: styleOrderSummary.cart_detail,
-  cartHeaderClassName: 'd-none',
-  itemClassName: styleOrderSummary.cart_item,
-  itemImageClassName: styleOrderSummary.cart_image,
-  itemTitleClassName: styleOrderSummary.cart_title,
-  itemAmountClassName: styleOrderSummary.cart_totalPrice,
-  itemPriceClassName: 'itemPrice',
-  itemQtyClassName: 'itemQty',
-	itemNoteClassName: styleOrderSummary.cart_itemNote,
-  errorClassName: 'd-none',
-  itemEditClassName: 'd-none',
-  itemRemoveClassName: 'itemRemove',
-  cartFooterClassName: 'd-none',
-  cartFooterTitleClassName: 'd-none',
-}
-*/
-
 const classesCartDetails = {
 	className: styleOrderSummary.cart_detail,
 	cartHeaderClassName: 'd-none',
