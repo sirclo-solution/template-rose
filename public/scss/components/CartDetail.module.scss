@@ -8,6 +8,40 @@
     padding-right: 15px;
     height: calc(100vh - 265px);
     overflow-y: auto;
+
+    &[class*="id"],
+    &[class*="en"]
+    {
+      [class*="cartItem_note"] > span:not(:empty)
+      {
+        margin-top: calc(18px + 8px + 12px);
+
+        &::before
+        {
+          content: "Catatan Untuk Penjual";
+          @include flex(row, center, flex-start);
+          @include absolute(auto, auto, calc(100% + 8px), 0);
+          @include typographyBuilder('secondary', 400, 12, 16);
+          @include fixedWidth(100%);
+          margin: 0;
+          padding: 0;
+          border: none;
+          color: $color_text_primary;
+          text-transform: uppercase;
+        }
+      }
+    }
+
+    &[class*="en"]
+    {
+      [class*="cartItem_note"] > span:not(:empty)
+      {
+        &::before
+        {
+          content: "Note to Seller";
+        }
+      }
+    }
   }
 
   &_breadcrumb

@@ -624,9 +624,10 @@
         @include fixedWidth(100%);
         position: relative;
         margin: 24px 0 0;
-        padding: 0;
+        padding: 0 !important;
         border: none;
-        overflow: hidden;
+        overflow-y: auto;
+        height: auto !important;
     }
 
     &_header

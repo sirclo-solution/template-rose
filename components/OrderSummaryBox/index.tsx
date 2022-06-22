@@ -122,7 +122,7 @@ const OrderSummaryComponent: FC<iProps> = ({
   return (
     <>
       {withCartDetails &&
-        <div className={styleOrderSummary.cart_container}>
+        <div className={`${styleCart.cart_container} ${styleOrderSummary.cart_container} ${lng}`}>
           <div className={styleOrderSummary.cart_header}>
             <h6 className={styleOrderSummary.cart_headerTitle}>
               {i18n.t("orderSummary.yourCart")}

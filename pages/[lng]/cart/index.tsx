@@ -141,7 +141,7 @@ const Cart: FC<any> = ({
 						<div className="ml-1">{invalidMsg}</div>
 					</div>
 				)}
-				<div className={styleCart.cart_container}>
+				<div className={`${styleCart.cart_container} ${lng}`}>
 					<CartDetails
 						getSKU={(SKUs: any) => setSKUs(SKUs)}
 						classes={classesCartDetails}
