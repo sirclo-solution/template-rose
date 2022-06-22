@@ -141,11 +141,11 @@ const OrderSummaryComponent: FC<iProps> = ({
           <CartDetails
             currency="IDR"
             classes={classesCartDetails}
-						variantSeparator=", "
-						withSeparatedVariant
+            variantSeparator=", "
+            withSeparatedVariant
             itemRedirectPathPrefix={`product`}
             isEditable={true}
-						removeIcon={<IoTrashBinOutline />}
+            removeIcon={<IoTrashBinOutline />}
             onErrorMsg={(msg) => toast.error(msg)}
             lazyLoadedImage={false}
             thumborSetting={{
@@ -158,14 +158,14 @@ const OrderSummaryComponent: FC<iProps> = ({
             }
             withProductNote
             productNoteButtonElement={{
-						  filled: <span>{i18n.t("cart.change")}</span>,
-						  save: <span>{i18n.t("cart.save")}</span>,
-						  empty: (
-							<>
-                <FaEdit />
-							  <span>{i18n.t("cart.addNote")}</span>
-							</>
-						  )
+              filled: <span>{i18n.t("cart.change")}</span>,
+              save: <span>{i18n.t("cart.save")}</span>,
+              empty: (
+                <>
+                  <FaEdit />
+                  <span>{i18n.t("cart.addNote")}</span>
+                </>
+              )
             }}
           />
         </div>
