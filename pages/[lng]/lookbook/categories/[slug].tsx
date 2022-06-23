@@ -3,7 +3,7 @@ import { FC, useState } from 'react'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { IoArrowBackOutline } from 'react-icons/io5'
+import { IoArrowBackOutline, IoHelpCircle } from 'react-icons/io5'
 import { isLookbookAllowed, LookbookSingle, useI18n, Products } from '@sirclo/nexus'
 import { RiQuestionFill } from 'react-icons/ri'
 /* library template */
@@ -123,7 +123,7 @@ const LookbookSinglePage: FC<any> = ({
             <div className={styleLookbook.lookbook_empty}>
               <EmptyComponent
                 title={i18n.t('lookbook.isEmpty')}
-                icon={<RiQuestionFill color="#BCBCBC" />}
+                icon={<IoHelpCircle color="#BCBCBC" size={15}/>}
                 button={
                   <Link href="/[lng]/lookbook/categories" as={`/${lng}/lookbook/categories`}>
                     <a>{i18n.t('lookbook.back')}</a>

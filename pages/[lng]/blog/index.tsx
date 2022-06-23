@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import Link from 'next/link'
 import { RiQuestionFill } from 'react-icons/ri'
-import { IoChevronBack, IoChevronForward } from 'react-icons/io5'
+import { IoChevronBack, IoChevronForward, IoHelpCircle } from 'react-icons/io5'
 import { useI18n, Blogs, BlogCategories, getBlogHeaderImage, isBlogAllowed } from '@sirclo/nexus'
 /* library template */
 import { GRAPHQL_URI } from 'lib/Constants'
@@ -127,23 +127,29 @@ const Blog: FC<any> = ({
                 <div className={stylePlaceHolder.placeholderItem} style={{ height: 550 }} />
               }
               emptyStateComponent={
-                <div className={styleBlog.blog_empty}>
-                  <EmptyComponent
-                    title={i18n.t('blog.isEmpty')}
-                    icon={<RiQuestionFill color="#BCBCBC" />}
-                    button={
-                      <Link href="/[lng]" as={`/${lng}`}>
-                        <a>{i18n.t('blog.back')}</a>
-                      </Link>
-                    }
-                  />
-                </div>
+                <BlogEmpty i18n={i18n} lng={lng} />
               }
             />
           </div>
         </div>
       </div>
     </Layout>
+  )
+}
+
+const BlogEmpty = ({ i18n, lng }) => {
+  return (
+    <EmptyComponent
+      title={i18n.t("blog.isEmpty")}
+      icon={<IoHelpCircle size={15} />}
+      button={
+        <Link href="/[lng]/blog" as={`/${lng}/blog`}>
+          <a title={i18n.t("blog.back")}>
+            {i18n.t("blog.back")}
+          </a>
+        </Link>
+      }
+    />
   )
 }
 

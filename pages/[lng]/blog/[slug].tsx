@@ -2,15 +2,18 @@
 import { FC, useState } from 'react'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import Link from 'next/link'
-import { IoArrowBackOutline } from 'react-icons/io5'
+import { IoArrowBackOutline, IoHelpCircle } from 'react-icons/io5'
 import {
   BlogSingle,
   useI18n,
-  BlogRecent
+  BlogRecent,
+  getBlogSingle
 } from '@sirclo/nexus'
 /* library template */
 import { useBrand } from 'lib/useBrand'
+import { GRAPHQL_URI } from 'lib/Constants'
 /* components */
+import EmptyComponent from 'components/EmptyComponent/EmptyComponent'
 import Layout from 'components/Layout/Layout'
 import Breadcrumb from 'components/Breadcrumb/Breadcrumb'
 import SocialShare from 'components/SocialShare'
@@ -39,6 +42,7 @@ const classesBlogRecent = {
 }
 
 const BlogSlug: FC<any> = ({
+  data,
   lng,
   lngDict,
   slug,
@@ -86,13 +90,21 @@ const BlogSlug: FC<any> = ({
               <span className="spinner-border" />
             </div>
           }
+          emptyStateComponent={
+            <BlogEmpty i18n={i18n} lng={lng} />
+          }
+          errorComponent={
+            <BlogEmpty i18n={i18n} lng={lng} />
+          }
         />
         <div className={styleBlog.blog_shareContainer}>
           <div>
-            <SocialShare
-              urlSite={urlSite}
-              title={i18n.t("article.share")}
+            {data &&
+              <SocialShare
+                urlSite={urlSite}
+                title={i18n.t("article.share")}
             />
+            }
           </div>
         </div>
         <div className={styleBlog.blog_recent}>
@@ -127,12 +139,29 @@ const BlogSlug: FC<any> = ({
   )
 }
 
+const BlogEmpty = ({ i18n, lng }) => {
+  return (
+    <EmptyComponent
+      title={i18n.t("blog.isEmpty")}
+      icon={<IoHelpCircle color="#BCBCBC" size={15} />}
+      button={
+        <Link href="/[lng]/blog" as={`/${lng}/blog`}>
+          <a title={i18n.t("blog.back")}>
+            {i18n.t("blog.back")}
+          </a>
+        </Link>
+      }
+    />
+  )
+}
+
 export const getServerSideProps: GetServerSideProps = async ({
   params,
   req,
 }) => {
   const brand = await useBrand(req)
   const { slug } = params
+  const data = await getBlogSingle(GRAPHQL_URI(req), slug.toString())
   const urlSite = `https://${req.headers.host}/${params.lng}/blog/${slug}`
   const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
   const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
@@ -143,7 +172,8 @@ export const getServerSideProps: GetServerSideProps = async ({
       lngDict,
       slug,
       brand: brand || '',
-      urlSite
+      urlSite,
+      data
     },
   }
 }
