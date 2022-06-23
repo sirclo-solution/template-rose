@@ -620,16 +620,27 @@
 {
     &_container
     {
-        border: 1px solid $color_rose;
-        border-radius: 2px;
-        margin-top: 24px;
+        @include flex(column, stretch, flex-start);
+        @include fixedWidth(100%);
+        position: relative;
+        margin: 24px 0 0;
+        padding: 0 !important;
+        border: none;
+        overflow-y: auto;
+        height: auto !important;
     }
 
     &_header
     {
         @include flex(row, center, space-between);
+        position: relative;
         padding: 12px;
         background: $color_rose_bg2;
+
+        border: solid 1px $color_rose;
+        border-bottom: none;
+        border-radius: 2px 2px 0 0;
+        overflow: hidden;
 
         &Title
         {
@@ -649,59 +660,32 @@
 
     &_detail
     {
+        @include fixedWidth(100%);
+        position: relative;
+        margin: 0;
         padding: 12px;
+        border: solid 1px $color_rose;
+        border-top: none;
+        border-radius: 0 0 2px 2px;
     }
 
     &_item
     {
-        display: grid;
-        grid-template-columns: 64px auto;
-        grid-column-gap: 16px;
-        grid-row-gap: 2px;
-        padding: 12px 0;
-        border-bottom: 1px solid $color_border;
-
-        &:first-child
+        &:first-child,
+        &:first-of-type,
+        &:only-child,
+        &:only-of-type
         {
             padding-top: 0;
         }
 
-        &:last-child
+        &:last-child,
+        &:last-of-type,
+        &:only-child,
+        &:only-of-type
         {
-            padding-bottom: 0;
-            border-bottom: 0px solid transparent;
+            border-bottom: none;
         }
-    }
-
-    &_image
-    {
-        grid-column: 1;
-        grid-row: 1 / 3;
-
-        img
-        {
-            @include fixedWidth(64px);
-            @include fixedHeight(64px);
-            object-fit: cover;
-        }
-    }
-
-    &_title
-    {
-        grid-column: 2;
-        grid-row: 1;
-        align-self: end;
-        @include typographyBuilder(secondary, 400, 12, 16);
-        color: $color_text_primary;
-    }
-
-    &_totalPrice
-    {
-        grid-column: 2;
-        grid-row: 2;
-        align-self: flex-start;
-        @include typographyBuilder(secondary, 400, 12, 16);
-        color: $color_text_secondary;
     }
 }
 

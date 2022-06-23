@@ -6,8 +6,10 @@ import {
   FiChevronDown,
   FiChevronUp,
   FiX,
-  FiChevronLeft
+  FiChevronLeft,
 } from 'react-icons/fi'
+import { IoTrashBinOutline } from 'react-icons/io5'
+import { FaEdit } from 'react-icons/fa'
 import {
   OrderSummary,
   CartDetails
@@ -16,6 +18,7 @@ import {
 import Loader from 'components/Loader/Loader'
 /* styles */
 import styleOrderSummary from 'public/scss/components/OrderSummaryBox.module.scss'
+import styleCart from 'public/scss/components/CartDetail.module.scss'
 
 const classesOrderSummary = {
   containerClassName: styleOrderSummary.orderSummary,
@@ -70,19 +73,27 @@ const classesOrderSummary = {
 }
 
 const classesCartDetails = {
-  className: styleOrderSummary.cart_detail,
-  cartHeaderClassName: 'd-none',
-  itemClassName: styleOrderSummary.cart_item,
-  itemImageClassName: styleOrderSummary.cart_image,
-  itemTitleClassName: styleOrderSummary.cart_title,
-  itemAmountClassName: styleOrderSummary.cart_totalPrice,
-  itemPriceClassName: 'd-none',
-  itemQtyClassName: 'd-none',
-  errorClassName: 'd-none',
-  itemEditClassName: 'd-none',
-  itemRemoveClassName: 'd-none',
-  cartFooterClassName: 'd-none',
-  cartFooterTitleClassName: 'd-none',
+	className: styleOrderSummary.cart_detail,
+	cartHeaderClassName: 'd-none',
+	itemClassName: `${styleCart.cartItem} ${styleOrderSummary.cart_item}`,
+	itemImageClassName: styleCart.cartItem_image,
+	selectedVariantContainerClassName: styleCart.cartItem_variant,
+	itemTitleClassName: styleCart.cartItem_title,
+	itemPriceClassName: styleCart.cartItem_price,
+	itemRegularPriceClassName: styleCart.cartItem_regularPrice,
+	itemSalePriceWrapperClassName: styleCart.cartItem_salePriceWrapper,
+	itemSalePriceClassName: styleCart.cartItem_salePrice,
+	itemDiscountNoteClassName: styleCart.cartItem_discNote,
+	itemQtyClassName: styleCart.cartItem_qty,
+	itemNoteClassName: styleCart.cartItem_note,
+	errorClassName: 'd-none',
+	qtyBoxClassName: styleCart.cartItem_qtyBox,
+	itemAmountClassName: styleCart.cartItem_totalPrice,
+	itemEditClassName: 'd-none',
+	itemRemoveClassName: styleCart.cartItem_remove,
+	cartFooterClassName: 'd-none',
+	cartFooterTitleClassName: 'd-none',
+	cartFooterTextareaClassName: 'd-none',
 }
 
 type iProps = {
@@ -111,7 +122,7 @@ const OrderSummaryComponent: FC<iProps> = ({
   return (
     <>
       {withCartDetails &&
-        <div className={styleOrderSummary.cart_container}>
+        <div className={`${styleCart.cart_container} ${styleOrderSummary.cart_container} ${lng}`}>
           <div className={styleOrderSummary.cart_header}>
             <h6 className={styleOrderSummary.cart_headerTitle}>
               {i18n.t("orderSummary.yourCart")}
@@ -130,9 +141,12 @@ const OrderSummaryComponent: FC<iProps> = ({
           <CartDetails
             currency="IDR"
             classes={classesCartDetails}
+            variantSeparator=", "
+            withSeparatedVariant
             itemRedirectPathPrefix={`product`}
+            isEditable={true}
+            removeIcon={<IoTrashBinOutline />}
             onErrorMsg={(msg) => toast.error(msg)}
-            isEditable={false}
             lazyLoadedImage={false}
             thumborSetting={{
               width: 100,
@@ -142,6 +156,17 @@ const OrderSummaryComponent: FC<iProps> = ({
             loadingComponent={
               <Loader />
             }
+            withProductNote
+            productNoteButtonElement={{
+              filled: <span>{i18n.t("cart.change")}</span>,
+              save: <span>{i18n.t("cart.save")}</span>,
+              empty: (
+                <>
+                  <FaEdit />
+                  <span>{i18n.t("cart.addNote")}</span>
+                </>
+              )
+            }}
           />
         </div>
       }
