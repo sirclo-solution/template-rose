@@ -2,6 +2,7 @@
 import globby from 'globby'
 import {
   getProducts,
+  getProductCount,
   getCategories,
   getLookbooks,
   getBlogs,
@@ -21,9 +22,16 @@ export async function getServerSideProps({ req, res }) {
     "!pages/*.*",
   ]);
 
+  let products: Array<any> = [];
+  const { totalItems } = await getProductCount(GRAPHQL_URI(req));
+  const totalPage: number = Math.ceil(totalItems / 100);
+  for (let i = 0; i < totalPage && i < 10; i++) {
+    const result = await getProducts(GRAPHQL_URI(req), i);
+    products.push(...result.items);
+  }
+
   const languages = ["id", "en"];
   const allowedActions = await getAllowedActions(GRAPHQL_URI(req));
-  const products = await getProducts(GRAPHQL_URI(req));
   const categories = await getCategories(GRAPHQL_URI(req));
   const allArticles = await getArticles(GRAPHQL_URI(req));
   const articles = allArticles?.filter(item => item.isActive === true);
