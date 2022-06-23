@@ -413,7 +413,7 @@
     "placeholderOrderId": "Order ID",
     "pleaseLogin": "Your order ID not found. Please login with your account.",
     "titleCheckYoutOrder": "Check Order ID",
-    "to": "Payment to",
+    "to": "Select Designated Bank",
     "totalAmount": "Total amount payable for this order is:",
     "transactionDate": "Transaction Date",
     "unauthorize": "Payment confirmation has failed, please login first and try again",

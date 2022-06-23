@@ -2,9 +2,15 @@
 
 .paymentNotif
 {
+  
   &_container
   {
     padding: 78px 18px;
+
+    div:not([class])
+    {
+      @include typography_builderSecondary(400, 12, 24);
+    }
   }
 
   &_order
@@ -19,6 +25,17 @@
     margin-bottom: 16px;
   }
 
+  &_label
+  {
+    span
+    {
+      &::before
+      {
+        content: " ";
+      }
+    }
+  }
+  
   &_form
   {
     margin: 24px 0;
@@ -29,41 +46,104 @@
       color: $color_text_primary;
       margin-bottom: 16px;
 
-      &:nth-child(2)
+    }
+  }
+
+  &_select
+  {
+    background-color: $color_white;
+    color:  $color_text_secondary;
+    
+    option
+    {
+      padding: 0;
+      margin-left: auto; 
+    }
+  }
+
+  &_input
+  {
+    &[type="file"]
+    {
+      transform: translate(0, 10%);
+
+      &::-webkit-file-upload-button,
+      &::file-selector-button
       {
-        label
+        content: " ";
+        width: 17px;
+        margin-right: 5px;
+        @include typographyBuilder(secondary, 400, 12, 16);
+        border: none;
+        background: transparent;
+        color: transparent;
+        cursor: pointer;
+        @include svgIcon(false)
         {
-          display: none;
+          background-image: url("data:image/svg+xml,%3Csvg width='17' height='16' viewBox='0 0 17 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.25 9.25V11.5H16.5V13H14.25V15.25H12.75V13H10.5V11.5H12.75V9.25H14.25ZM14.256 0.25C14.667 0.25 15 0.58375 15 0.99475V7.75H13.5V1.75H1.5V12.2493L9 4.75L11.25 7V9.12175L9 6.87175L3.62025 12.25H9V13.75H0.744C0.54661 13.7498 0.357373 13.6712 0.217867 13.5316C0.0783615 13.392 -1.00091e-07 13.2026 0 13.0052V0.99475C0.00137253 0.797784 0.0801752 0.609263 0.219385 0.469913C0.358594 0.330563 0.547035 0.251571 0.744 0.25H14.256ZM4.5 3.25C4.89782 3.25 5.27936 3.40804 5.56066 3.68934C5.84196 3.97064 6 4.35218 6 4.75C6 5.14782 5.84196 5.52936 5.56066 5.81066C5.27936 6.09196 4.89782 6.25 4.5 6.25C4.10218 6.25 3.72064 6.09196 3.43934 5.81066C3.15804 5.52936 3 5.14782 3 4.75C3 4.35218 3.15804 3.97064 3.43934 3.68934C3.72064 3.40804 4.10218 3.25 4.5 3.25Z' fill='%23BCBCBC'/%3E%3C/svg%3E");
         }
-      }
 
-      & > input[type="file"]
-      {
-        padding-top: 16px;
-        padding-left: 115px;
-
-        &::-webkit-file-upload-button
+        &:active,
+        &:focus
         {
-          @include absolute(50%, auto, auto, 20px);
-          transform: translate(0, -50%);
-          @include typographyBuilder(secondary, 400, 12, 16);
-          border: none;
-          border-radius: 37px;
-          background: $color_rose_bg2;
-          color: $color_rose;
-          padding: 5px 10px;
-          cursor: pointer;
-  
-          &:active,
-          &:focus
-          {
-            outline: 0;
-          }
+          outline: 0;
         }
       }
     }
   }
 
+  &_uploaded
+  {
+    &Image
+    {
+      align-self: baseline;
+    }
+
+    &NameImage
+    {
+      @include flex(column, flex-start, center);
+      @include typographyBuilder(secondary,400,9,9);
+      align-content: center;
+      height: 58px;
+      width: 100%;
+      border: 1px solid $color_border;
+      box-sizing: border-box;
+      border-radius: 37px;
+      color: $color_text_primary;
+      padding: 10px 0 0 22px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      &:focus
+      {
+        outline: none !important;
+        border: 1px solid $color_rose;
+        border-radius: 37px;
+      }
+
+      &::placeholder {
+        color: $color_text_placeholder !important;
+        opacity: 1; /* Firefox */
+      }
+      
+      &:-ms-input-placeholder,&::-ms-input-placeholder 
+      { /* Internet Explorer 10-11 */
+        color: $color_text_placeholder !important;
+      }
+    }
+    
+    &RemoveImage
+    {
+      color: transparent;
+      padding: 5px;
+      @include absolute(47%,0,0,75%);
+      @include svgIcon(false)
+      {
+        background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='8' cy='8' r='8' fill='%23CC4534'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M9.42003 8.26956C9.36987 8.21838 9.34176 8.14956 9.34176 8.07789C9.34176 8.00622 9.36987 7.9374 9.42003 7.88622L11.7958 5.46048C11.9271 5.32486 12.0004 5.14338 12 4.95461C11.9996 4.76583 11.9257 4.58463 11.7939 4.44951L11.5567 4.20808C11.4921 4.14208 11.4149 4.08968 11.3297 4.05394C11.2445 4.01821 11.1531 3.99987 11.0607 4C10.9683 4.00013 10.8769 4.01874 10.7918 4.05472C10.7068 4.0907 10.6297 4.14333 10.5653 4.20951L8.19002 6.63573C8.16557 6.66087 8.13633 6.68086 8.10402 6.6945C8.07171 6.70815 8.037 6.71518 8.00193 6.71518C7.96685 6.71518 7.93214 6.70815 7.89983 6.6945C7.86752 6.68086 7.83828 6.66087 7.81383 6.63573L5.43381 4.21427C5.36948 4.14798 5.29251 4.09527 5.20744 4.05928C5.12236 4.02329 5.03093 4.00474 4.93856 4.00475H4.93761C4.84513 4.00477 4.7536 4.02337 4.66844 4.05944C4.58329 4.09552 4.50625 4.14833 4.44189 4.21475L4.20475 4.45713C4.07327 4.59271 3.99982 4.77419 4 4.96305C4.00018 5.1519 4.07397 5.33325 4.2057 5.46857L6.58572 7.88955C6.63557 7.94085 6.66354 8.00951 6.66372 8.08103C6.66389 8.15256 6.63627 8.22135 6.58667 8.27289L4.3676 10.5386C4.23522 10.6734 4.16236 10.8529 4.16236 11.0448C4.16284 11.2353 4.2357 11.4153 4.36808 11.5496L4.60618 11.7915C4.67074 11.8576 4.7479 11.9101 4.83309 11.9459C4.91828 11.9818 5.00979 12.0001 5.1022 12C5.19461 11.9999 5.28606 11.9812 5.37115 11.9452C5.45624 11.9091 5.53324 11.8564 5.59762 11.7901L7.81669 9.52386C7.84112 9.49886 7.87031 9.479 7.90253 9.46544C7.93475 9.45188 7.96935 9.4449 8.00431 9.4449C8.03926 9.4449 8.07387 9.45188 8.10609 9.46544C8.13831 9.479 8.16749 9.49886 8.19193 9.52386L10.4162 11.7858C10.69 12.0639 11.1353 12.0639 11.4067 11.7844L11.6448 11.542C11.7762 11.4064 11.8495 11.225 11.8493 11.0363C11.8492 10.8476 11.7755 10.6663 11.6439 10.531L9.42003 8.26908V8.26956Z' fill='white'/%3E%3C/svg%3E");
+      }
+    }
+  }
   &_infoUpload
   {
     @include typographyBuilder(secondary, 400, 12, 16);

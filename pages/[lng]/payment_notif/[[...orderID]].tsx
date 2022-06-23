@@ -29,11 +29,16 @@ import styles from 'public/scss/pages/PaymentNotif.module.scss'
 
 const classesPaymentConfirmation = {
   paymentConfirmationDivClassName: styles.paymentNotif_form,
+  labelClassName: styles.paymentNotif_label,
   inputContainerClassName: `${styleForm.form} ${styles.paymentNotif_formInput}`,
-  inputClassName: "tes3",
-  selectClassName: "tes4",
+  inputClassName: styles.paymentNotif_input,
+  selectClassName: styles.paymentNotif_select,
   buttonConfirmClassName: `${styleBtn.btn} ${styleBtn.btn_primary}`,
   paymentInfoUploadClassName: styles.paymentNotif_infoUpload,
+  // uploaded image
+  uploadedImageClassName: styles.paymentNotif_uploadedImage,
+  uploadedNameImageClassName: styles.paymentNotif_uploadedNameImage,
+  uploadedRemoveImageClassName: styles.paymentNotif_uploadedRemoveImage,
   // Detail
   paymentStatusCancelledClassName: styleOrderDetail.orderDetail_statusCancelled,
   paymentStatusReturnedClassName: styleOrderDetail.orderDetail_statusCancelled,
@@ -75,7 +80,7 @@ const classesBanksAccount = {
 const classesCheckPaymentOrder = {
   checkPaymentOrderContainerClassName: styleCheckPayment.checkPayment,
   checkPaymentOrderDescriptionClassName: styleCheckPayment.checkPayment_desc,
-  checkPaymentOrderInputContentClassName: `${styleForm.form} ${styles.paymentNotif_formInput}`,
+  checkPaymentOrderInputContentClassName: `${styleForm.form} ${styles.paymentNotif_formInput} "check123"`,
   checkPaymentOrderInputTitleClassName: styleCheckPayment.checkPayment_inputLabel,
   checkPaymentOrderInputClassName: styleCheckPayment.checkPayment_input,
   checkPaymentOrderSubmitButtonClassName: `${styleBtn.btn} ${styleBtn.btn_primary}`
@@ -165,7 +170,7 @@ const PaymentConfirmationPage: FC<any> = ({
             />
           </>
         }
-      </div>
+        </div>
     </Layout>
   )
 }
