@@ -390,6 +390,27 @@
     padding: 24px 0 0;
   }
 
+  &_stockContainer
+  {
+    @include flex(row, center, center);
+  }
+  
+  &_variantAvailable
+  {
+    @include typographyBuilder(secondary, 500, 10, 16);
+    color: $color_success;
+  }
+  
+  &_variantOutOfStock
+  {
+    @include typographyBuilder(secondary, 500, 12, 16);
+    color: $color_white;
+    text-transform: uppercase;
+    background: #898989;
+    padding: 4px 8px;
+    border-radius: 2px;
+  }
+
   &_empty
   {
     @include flex(row, center, center);
