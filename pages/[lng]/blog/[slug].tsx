@@ -103,7 +103,7 @@ const BlogSlug: FC<any> = ({
               <SocialShare
                 urlSite={urlSite}
                 title={i18n.t("article.share")}
-            />
+              />
             }
           </div>
         </div>
@@ -141,17 +141,19 @@ const BlogSlug: FC<any> = ({
 
 const BlogEmpty = ({ i18n, lng }) => {
   return (
-    <EmptyComponent
-      title={i18n.t("blog.isEmpty")}
-      icon={<IoHelpCircle color="#BCBCBC" size={15} />}
-      button={
-        <Link href="/[lng]/blog" as={`/${lng}/blog`}>
-          <a title={i18n.t("blog.back")}>
-            {i18n.t("blog.back")}
-          </a>
-        </Link>
-      }
-    />
+    <div className={styleBlog.blog_empty}>
+      <EmptyComponent
+        title={i18n.t("blog.isEmpty")}
+        icon={<IoHelpCircle color="#BCBCBC" size={15} />}
+        button={
+          <Link href="/[lng]/blog" as={`/${lng}/blog`}>
+            <a title={i18n.t("blog.back")}>
+              {i18n.t("blog.back")}
+            </a>
+          </Link>
+        }
+      />
+    </div>
   )
 }
 

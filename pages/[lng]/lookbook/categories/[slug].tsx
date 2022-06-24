@@ -1,10 +1,21 @@
 /* library package */
 import { FC, useState } from 'react'
-import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
+import {
+  GetServerSideProps,
+  InferGetServerSidePropsType
+} from 'next'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { IoArrowBackOutline, IoHelpCircle } from 'react-icons/io5'
-import { isLookbookAllowed, LookbookSingle, useI18n, Products } from '@sirclo/nexus'
+import {
+  IoArrowBackOutline,
+  IoHelpCircle
+} from 'react-icons/io5'
+import {
+  isLookbookAllowed,
+  LookbookSingle,
+  useI18n,
+  Products
+} from '@sirclo/nexus'
 import { RiQuestionFill } from 'react-icons/ri'
 /* library template */
 import { useBrand } from 'lib/useBrand'

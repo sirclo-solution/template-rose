@@ -80,7 +80,7 @@ const classesBanksAccount = {
 const classesCheckPaymentOrder = {
   checkPaymentOrderContainerClassName: styleCheckPayment.checkPayment,
   checkPaymentOrderDescriptionClassName: styleCheckPayment.checkPayment_desc,
-  checkPaymentOrderInputContentClassName: `${styleForm.form} ${styles.paymentNotif_formInput} "check123"`,
+  checkPaymentOrderInputContentClassName: `${styleForm.form} ${styles.paymentNotif_formInput}`,
   checkPaymentOrderInputTitleClassName: styleCheckPayment.checkPayment_inputLabel,
   checkPaymentOrderInputClassName: styleCheckPayment.checkPayment_input,
   checkPaymentOrderSubmitButtonClassName: `${styleBtn.btn} ${styleBtn.btn_primary}`

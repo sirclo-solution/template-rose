@@ -248,8 +248,8 @@
   {
     & > div > a 
     {
+      @include typographyBuilder(secondary, 500, 14, 24); 
       text-decoration: none;
-      @include typographyBuilder(secondary,500,14,24); 
       color: $color_rose;
       margin-top: 100px;
     }

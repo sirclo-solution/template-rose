@@ -86,7 +86,7 @@
   },
   "blog": {
     "allBlog": "Semua Blog",
-    "back": "Kembali Ke Daftar Blog",
+    "back": "Kembali ke Daftar Blog",
     "by": "Oleh",
     "categories": "Kategori",
     "isEmpty": "Blog belum tersedia",
@@ -277,7 +277,7 @@
     "withEmail": "Masuk dengan Email"
   },
   "lookbook": {
-    "back": "Kembali Ke lookbook",
+    "back": "Kembali ke Lookbook",
     "errorButton": "Kembali ke Halaman Awal",
     "errorDesc": "Coba beberapa saat lagi",
     "errorTitle": "Terjadi kesalahan",
