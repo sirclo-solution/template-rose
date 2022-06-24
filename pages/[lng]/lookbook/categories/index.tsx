@@ -2,7 +2,7 @@
 import { FC } from 'react'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import Link from 'next/link'
-import { RiQuestionFill } from 'react-icons/ri'
+import { IoHelpCircle } from 'react-icons/io5'
 import {
   Lookbook,
   isLookbookAllowed,
@@ -70,7 +70,7 @@ const LookbookCategory: FC<any> = ({
             <div className={styleLookbook.lookbook_empty}>
               <EmptyComponent
                 title={i18n.t('lookbook.isEmpty')}
-                icon={<RiQuestionFill color="#BCBCBC" />}
+                icon={<IoHelpCircle color="#BCBCBC" />}
                 button={
                   <Link href="/[lng]" as={`/${lng}`}>
                     <a>{i18n.t('lookbook.back')}</a>

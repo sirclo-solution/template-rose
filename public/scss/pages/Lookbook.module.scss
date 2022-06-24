@@ -69,16 +69,17 @@
     color: $color_white;
     z-index: 2;
     padding: 12px 16px;
-    @include typographyBuilder(primary,500,20,32);
+    @include typographyBuilder(primary, 500, 20, 32);
   }
 
   &_empty
   {
     & > div > a 
     {
+      @include typographyBuilder(secondary, 500, 14, 24); 
       text-decoration: none;
-      @include typographyBuilder(secondary,500,14,24); 
       color: $color_rose;
+      margin-top: 100px;
     }
   }
 
@@ -86,9 +87,9 @@
   {
     &_title
     {
+      @include typographyBuilder(primary, 500, 28, 40);
       text-align: center;
       margin-bottom: 12px;
-      @include typographyBuilder(primary,500,28,40);
       color: $color_rose;
     }
 
@@ -137,8 +138,8 @@
 
   &_relatedProducts
   {
+    @include typographyBuilder(primary, 500, 20, 32);
     text-align: center;
-    @include typographyBuilder(primary,500,20,32);
     padding-top: 12px;
     padding-bottom: 24px;
     color: $color_text_primary;
