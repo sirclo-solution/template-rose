@@ -2,7 +2,7 @@
 import { FC, useState } from 'react'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { useRouter } from 'next/router'
-import { RiQuestionFill } from 'react-icons/ri'
+import { IoHelpCircle } from 'react-icons/io5'
 import { ProductListByCategory, useI18n } from '@sirclo/nexus'
 /* library template */
 import { useBrand } from 'lib/useBrand'
@@ -36,10 +36,10 @@ const classesProductCategory = {
   productPriceClassName: styleProduct.product_labelPrice,
   salePriceClassName: styleProduct.product_labelPrice__sale,
   priceClassName: styleProduct.product_labelPrice__price,
-  productsListCategoryHeaderTitleClassName: styles.productsListCategoryHeaderTitle,
-  productsListCategoryHeaderClassName: styles.productsListCategoryHeader,
-  productsListCategoryContainerClassName: styles.productsListCategoryContainer,
-  productsListCategoryHeaderLinkClassName: styles.productsListCategoryHeaderLink,
+  productsListCategoryHeaderTitleClassName: styles.productsListCategory_header_title,
+  productsListCategoryHeaderClassName: styles.productsListCategory_header,
+  productsListCategoryContainerClassName: styles.productsListCategory_container,
+  productsListCategoryHeaderLinkClassName: styles.productsListCategory_header_link,
   productsListContainerClassName: styles.productsListContainer,
 }
 
@@ -88,7 +88,7 @@ const CategoriesPage: FC<any> = ({
               productCategoryType="INFINITE_SCROLL"
               itemPerPage={pageInfo.itemPerPage}
               classes={classesProductCategory}
-              itemProductsPerCategory={3}
+              itemProductsPerCategory={6}
               getPageInfo={setPageInfo as any}
               thumborSetting={{
                 width: size.width < 768 ? 512 : 800,
@@ -98,7 +98,7 @@ const CategoriesPage: FC<any> = ({
               emptyStateComponent={
                 <div className="col-12 my-3">
                   <EmptyComponent
-                    icon={<RiQuestionFill color="#A8A8A8" size={20} />}
+                    icon={<IoHelpCircle color="#BCBCBC" size={20} />}
                     title={i18n.t("product.isEmpty")}
                   />
                 </div>

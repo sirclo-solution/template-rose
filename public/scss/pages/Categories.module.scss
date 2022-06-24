@@ -1,35 +1,38 @@
 @import '../utils/variables';
 
-.productsListCategoryHeader
+.productsListCategory
 {
-  @include flex(row, baseline, space-between);
-}
-
-.productsListCategoryHeaderTitle
-{
-  @include typographyBuilder(secondary, 500, 14, 24);
-  text-transform: capitalize;
-  color: $color_text_primary;
-  padding: 0 15px;
-}
-
-.productsListCategoryContainer
-{
-  max-width: stretch;
-  margin-bottom: 32px;
-}
-
-.productsListCategoryHeaderLink
-{
-  @include typographyBuilder(secondary, 500, 14, 24);
-  text-transform: capitalize;
-  color: $color_rose;
-  padding: 0 15px;
-
-  &:hover
+  &_container
   {
-    color: $color_rose;
-    text-decoration: none;
+    max-width: stretch;
+    margin-bottom: 32px;    
+  }
+
+  &_header
+  {
+    @include flex(row, baseline, space-between);
+
+    &_link
+    {
+      @include typographyBuilder(secondary, 500, 14, 24);
+      text-transform: capitalize;
+      color: $color_rose;
+      padding: 0 15px;
+
+      &:hover
+      {
+        color: $color_rose;
+        text-decoration: none;
+      }
+    }
+
+    &_title
+    {
+      @include typographyBuilder(secondary, 500, 14, 24);
+      text-transform: capitalize;
+      color: $color_text_primary;
+      padding: 0 15px;
+    }
   }
 }
 

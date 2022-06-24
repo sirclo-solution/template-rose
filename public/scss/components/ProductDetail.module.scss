@@ -396,28 +396,24 @@
     margin-bottom: 24px;
   }
   
-  &_variantAvailable::before
-  {
-    content: "";
-    display: block;
-    position: relative;
-    width: 10px;
-    height: 10px;
-    margin: 0 4px 0 0;
-    padding: 0;
-    border: none;
-    background-color: transparent;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-image: url("data:image/svg+xml,%3Csvg width='11' height='10' viewBox='0 0 11 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.49985 10.0005C2.73835 10.0005 0.499847 7.76199 0.499847 5.00049C0.499847 2.23899 2.73835 0.000488281 5.49985 0.000488281C8.26135 0.000488281 10.4998 2.23899 10.4998 5.00049C10.4998 7.76199 8.26135 10.0005 5.49985 10.0005ZM5.00135 7.00049L8.53635 3.46499L7.82935 2.75799L5.00135 5.58649L3.58685 4.17199L2.87985 4.87899L5.00135 7.00049Z' fill='%2353B671'/%3E%3C/svg%3E%0A");
-  }
-  
   &_variantAvailable
   {
     @include typographyBuilder(secondary, 500, 10, 16);
     @include flex(row, center, flex-start);
     color: $color_success;
     margin: 0;
+    @include svgIcon(true)
+    {
+      display: block;
+      position: relative;
+      width: 10px;
+      height: 10px;
+      margin: 0 4px 0 0;
+      padding: 0;
+      border: none;
+      background-color: transparent;
+      background-image: url("data:image/svg+xml,%3Csvg width='11' height='10' viewBox='0 0 11 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.49985 10.0005C2.73835 10.0005 0.499847 7.76199 0.499847 5.00049C0.499847 2.23899 2.73835 0.000488281 5.49985 0.000488281C8.26135 0.000488281 10.4998 2.23899 10.4998 5.00049C10.4998 7.76199 8.26135 10.0005 5.49985 10.0005ZM5.00135 7.00049L8.53635 3.46499L7.82935 2.75799L5.00135 5.58649L3.58685 4.17199L2.87985 4.87899L5.00135 7.00049Z' fill='%2353B671'/%3E%3C/svg%3E%0A");
+    }
   }
   
   &_variantOutOfStock
@@ -425,7 +421,7 @@
     @include typographyBuilder(secondary, 500, 12, 16);
     color: $color_white;
     text-transform: uppercase;
-    background: #898989;
+    background: $color_text_secondary;
     padding: 4px 8px;
     margin: 0;
     border-radius: 2px;
