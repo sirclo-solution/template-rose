@@ -393,6 +393,7 @@
   &_stockContainer
   {
     @include flex(row, center, center);
+    margin-bottom: 24px;
   }
   
   &_variantAvailable::before

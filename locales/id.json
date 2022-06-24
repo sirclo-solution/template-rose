@@ -135,7 +135,8 @@
     "writeNoteToSeller": "Catatan untuk penjual"
   },
   "categories": {
-    "categories": "Kategori"
+    "categories": "Kategori",
+    "title": "Semua Kategori"
   },
   "contact": {
     "formIsEmpty": "Formulir belum diisi",

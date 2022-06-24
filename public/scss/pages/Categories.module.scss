@@ -1,0 +1,23 @@
+@import '../utils/variables';
+
+.productsListCategoryHeaderTitle
+{
+  @include typographyBuilder(secondary, 500, 14, 24);
+  text-transform: capitalize;
+  color: $color_text_primary;
+  padding: 0 15px;
+}
+
+.productsListCategoryContainer
+{
+  max-width: stretch;
+}
+
+.productsListContainer
+{
+  @include flex(row, flex-start, flex-start);
+  @include fixedWidth(100%, false);
+  max-width: 375px;
+  flex-wrap: nowrap;
+  overflow: auto;
+}

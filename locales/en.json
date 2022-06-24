@@ -135,7 +135,8 @@
     "writeNoteToSeller": "Note To Seller"
   },
   "categories": {
-    "categories": "Categories"
+    "categories": "Categories",
+    "title": "All Categories"
   },
   "contact": {
     "formIsEmpty": "Form is empty",

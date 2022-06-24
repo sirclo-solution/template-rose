@@ -88,7 +88,7 @@ const CategoriesPage: FC<any> = ({
               productCategoryType="INFINITE_SCROLL"
               itemPerPage={pageInfo.itemPerPage}
               classes={classesProductCategory}
-              itemProductsPerCategory={3}
+              itemProductsPerCategory={6}
               getPageInfo={setPageInfo as any}
               thumborSetting={{
                 width: size.width < 768 ? 512 : 800,
