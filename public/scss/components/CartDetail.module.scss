@@ -140,7 +140,7 @@
   {
     @include flex(column, stretch, center);
     position: relative;
-    padding: 0;
+    padding: 0 0 0 16px;
     grid-row: 2;
     grid-column: 3;
 
@@ -206,18 +206,13 @@
     @include flex(row, center, flex-start);
     @include typographyBuilder(secondary, 400, 10, 16);
     position: relative;
-    padding: 4px 0 0;
+    padding: 4px 0 0 16px;
     margin: 0;
     color: $color_error;
     width: 200%;
     left: 100%;
-
-    @media screen and (max-width: $breakpoint_min_xs)
-    {
-      padding-left: 16px;
-      white-space: nowrap;
-      word-break: keep-all;
-    }
+    white-space: nowrap;
+    word-break: keep-all;
   }
 
   &_qty
@@ -256,6 +251,7 @@
       border: none;
       text-align: center;
       grid-row: 1 / span 2;
+      height: calc(100% - 1px);
 
       &:focus,
       &:focus-visible,
