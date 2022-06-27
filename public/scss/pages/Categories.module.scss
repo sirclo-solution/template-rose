@@ -1,0 +1,57 @@
+@import '../utils/variables';
+
+.productsListCategory
+{
+  &_container
+  {
+    max-width: stretch;
+    margin-bottom: 32px;    
+  }
+
+  &_header
+  {
+    @include flex(row, baseline, space-between);
+
+    &_link
+    {
+      @include typographyBuilder(secondary, 500, 14, 24);
+      text-transform: capitalize;
+      color: $color_rose;
+      padding: 0 15px;
+
+      &:hover
+      {
+        color: $color_rose;
+        text-decoration: none;
+      }
+    }
+
+    &_title
+    {
+      @include typographyBuilder(secondary, 500, 14, 24);
+      text-transform: capitalize;
+      color: $color_text_primary;
+      padding: 0 15px;
+    }
+  }
+}
+
+.productsItemContainer
+{
+  max-width: 45%;
+  padding-right: 0;
+  
+  &Image
+  {
+    width: 100%;
+  }
+}
+
+.productsListContainer
+{
+  @include flex(row, flex-start, flex-start, false);
+  @include fixedWidth(100%, false);
+  max-width: 375px;
+  overflow: auto;
+  padding-right: 15px;
+}

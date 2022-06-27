@@ -68,6 +68,10 @@ const classesProductDetail = {
   descriptionClassName: styleProductDetail.productDetail_desc,
   additionalInfoClassName: 'd-none',
   accordionClassName: styleProductDetail.productDetail_descContainer,
+  // Stock Info
+  variantStockContainer: styleProductDetail.productDetail_stockContainer,
+  variantStockAvailableClassName: styleProductDetail.productDetail_variantAvailable,
+  variantOutOfStockClassName: styleProductDetail.productDetail_variantOutOfStock,
   // Open Order
   openOrderClassName: styleOpenOrder.openOrder,
   openOrderTitleClassName: styleOpenOrder.openOrder_title,
@@ -280,6 +284,7 @@ const Product: FC<any> = ({
           onError={() => setShowModalErrorAddToCart(true)}
           onErrorMsg={(msg) => msg && toast.error(msg)}
           withEstimateShipping={true}
+          withStockInfo
           prevIcon={<RiArrowLeftSLine color="#444444" size={25} />}
           nextIcon={<RiArrowRightSLine color="#444444" size={25} />}
           openOrderIconDate={

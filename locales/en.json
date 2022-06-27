@@ -135,7 +135,8 @@
     "writeNoteToSeller": "Note To Seller"
   },
   "categories": {
-    "categories": "Categories"
+    "categories": "Categories",
+    "title": "All Categories"
   },
   "contact": {
     "formIsEmpty": "Form is empty",
@@ -500,6 +501,7 @@
     "share": "Share Product",
     "shareProduct": "Share Product",
     "sort": "Sort",
+    "stockAvailable": "Stocks Available",
     "successAddToCart": "Successfuly add to cart!",
     "summary": "Summary",
     "timeout": "Time Out",
@@ -609,7 +611,8 @@
   "settingNotification": {
     "title": "Notification",
     "description": "You will get all notification from this store according to the medium you activated below",
-    "emailDescription": "All notification by email cannot changed"
+    "emailDescription": "All notification by email cannot changed",
+    "pleaseFillWANumber": "Please fill your Whatsapp number first"
   },
   "shipping": {
     "allocating": "Looking for a driver",
