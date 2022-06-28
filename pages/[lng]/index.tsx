@@ -164,6 +164,7 @@ const Home: FC<any> = ({
                 isFlipImage
                 withCategory
                 productCategoryClasses={classesCategoryProduct}
+                categoryLength={1}
                 withRating
                 showEmptyRating
                 ratingIcon={<RiStarFill color="#F2C14F" size={12} />}

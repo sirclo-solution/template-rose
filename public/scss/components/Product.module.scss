@@ -130,6 +130,7 @@
   {
     @include flex(row, flex-start, flex-start, true);
     padding: 10px 0 0;
+    flex-grow: 1;
 
     &__container
     {
@@ -197,7 +198,6 @@
 
       ul, ol
       {
-        @include fixedWidth(100%);
         @include typographyBuilder(secondary, 400, 11, 12);
         display: inline-block;
         position: relative;
@@ -207,6 +207,7 @@
         word-break: keep-all;
         text-overflow: ellipsis;
         overflow: hidden;
+        max-width: 50px;
         color: $color_rose;
 
         li
@@ -288,6 +289,7 @@
       @include flex(row, flex-end, space-between, false);
       @include typographyBuilder(secondary, 400, 11, 12);
       color: $color_rose;
+      float: right;
     }
 
     &__count
