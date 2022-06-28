@@ -205,6 +205,7 @@ const ProductsPage: FC<any> = ({
               pathPrefix={`product`}
               isFlipImage
               withCategory
+              categoryLength={1}
               productCategoryClasses={classesCategoryProduct}
               withRating
               showEmptyRating
