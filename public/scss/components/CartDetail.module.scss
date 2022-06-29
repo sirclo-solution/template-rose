@@ -311,6 +311,7 @@
       border: none;
       background-color: $color_rose_bg2;
       color: $color_text_primary;
+      word-break: break-all;
 
       &:empty
       {
