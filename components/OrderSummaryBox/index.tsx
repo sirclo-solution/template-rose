@@ -70,6 +70,15 @@ const classesOrderSummary = {
   pointsButtonAppliedClassName: styleOrderSummary.orderSummary_voucherButtonApplied,
   pointsAppliedTextClassName: styleOrderSummary.orderSummary_voucherAppliedText,
   pointButtonRemoveClassName: styleOrderSummary.orderSummary_voucherButtonRemove,
+
+  /* Grouping Coupon */
+  voucherTitleClassName: styleOrderSummary.orderSummary_voucherTitle,
+  voucherDetailHeaderClassName: styleOrderSummary.orderSummary_voucherDetailHeader,
+  voucherDetailCodeClassName: styleOrderSummary.orderSummary_voucherDetailCode,
+  voucherDetailTitleClassName: styleOrderSummary.orderSummary_voucherDetailTitle,
+  voucherDetailDescClassName: styleOrderSummary.orderSummary_voucherDetailDesc,
+  voucherDetailEstimateClassName: styleOrderSummary.orderSummary_voucherDetailEstimate,
+  voucherDetailEstimateDescClassName: styleOrderSummary.orderSummary_voucherDetailEstimateDesc,
 }
 
 const classesCartDetails = {
@@ -186,6 +195,13 @@ const OrderSummaryComponent: FC<iProps> = ({
             isAccordion
             onAddressInvalid={(e) => toast.error(e)}
             loadingComponent={<Loader />}
+            isCouponAccordion={true}
+            withCouponTitle
+            emptyComponentCoupon={
+              <div className={styleOrderSummary.orderSummary_voucherEmpty}>
+                <p>{i18n.t("coupon.empty")}</p>
+              </div>
+            }
             icons={{
               voucher: <img src="/icons/voucher.svg" alt="voucher" />,
               points: <img src="/icons/point.svg" alt="points" />,

@@ -154,10 +154,13 @@
   },
   "coupon": {
     "apply": "Apply",
+    "code": "Coupon Code",
     "couponPlaceholder": "Input your voucher",
     "discount": "Discount",
+    "empty": "No coupon yet",
     "enough": "You can get discount",
     "header": "Vouchers available",
+    "invalidTitle": "Coupon that still can't be used",
     "max": "Max",
     "minPoints": "Minimal points to redeem is",
     "minPurchase": "With Minimum Purchase",
@@ -168,7 +171,8 @@
     "pointsPlaceHolder": "Input point number",
     "redeem": "Redeem",
     "use": "Use",
-    "valid": "Valid Until",
+    "valid": "Valid up to {DAYS}",
+    "validTitle": "Available Coupons",
     "youHave": "You Have"
   },
   "customerDetail": {
@@ -542,6 +546,7 @@
     "doesntMatch": "Password doesn't match",
     "duplicateEmail": "Email has been registered",
     "email": "Email",
+    "emailIsInvalid": "Email is invalid",
     "emailPlaceholder": "Input your email",
     "errorConfPassword": "Reset password failed",
     "failed": "Registration failed",

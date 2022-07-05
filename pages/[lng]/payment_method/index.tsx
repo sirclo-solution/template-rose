@@ -4,7 +4,11 @@ import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { useRouter } from 'next/router'
 import { toast } from 'react-toastify'
 import { HiCheckCircle } from 'react-icons/hi'
-import { FiX } from 'react-icons/fi'
+import {
+  FiChevronDown,
+  FiChevronUp,
+  FiX,
+} from 'react-icons/fi'
 import {
   CustomerDetail,
   ListPaymentMethod,
@@ -25,6 +29,7 @@ import Loader from 'components/Loader/Loader'
 import LoaderPages from 'components/Loader/LoaderPages'
 import Placeholder from 'components/Placeholder'
 /* styles */
+import styleOrderSummary from 'public/scss/components/OrderSummaryBox.module.scss'
 import styleCustomer from 'public/scss/components/CustomerDetail.module.scss'
 import styleBtn from 'public/scss/components/Button.module.scss'
 import styles from 'public/scss/pages/PaymentMethod.module.scss'
@@ -71,15 +76,20 @@ const classesListPaymentMethod = {
   popupClassName: styles.payment_listItemOverlay,
   voucherContainerClassName: styles.payment_listItemPopup,
   closeButtonClassName: styles.payment_closeButton,
-  voucherFormContainerClassName: styles.payment_voucherFormContainer,
-  voucherFormClassName: styles.payment_voucherForm,
-  voucherInputClassName: styles.payment_voucherInput,
+  voucherFormContainerClassName: styleOrderSummary.orderSummary_voucherFormContainer,
+  voucherFormClassName: styleOrderSummary.orderSummary_voucherForm,
+  voucherInputClassName: styleOrderSummary.orderSummary_voucherInput,
   voucherSubmitButtonClassName: `${styleBtn.btn} ${styleBtn.btn_primary} ${styles.payment_voucherSubmitButton}`,
-  voucherListClassName: styles.ordersummary_popupVoucher,
-  voucherListHeaderClassName: styles.ordersummary_popupVoucherTitle,
-  voucherClassName: styles.ordersummary_popupVoucherItem,
-  voucherDetailClassName: styles.ordersummary_popupVoucherDetail,
-  voucherFooterClassName: styles.ordersummary_popupVoucherFooter,
+  voucherListClassName: styleOrderSummary.orderSummary_voucherList,
+  voucherListHeaderClassName: styleOrderSummary.orderSummary_voucherListHeader,
+  voucherClassName: styleOrderSummary.orderSummary_voucher,
+  voucherDetailClassName: styleOrderSummary.orderSummary_voucherDetail,
+  voucherFooterClassName: styleOrderSummary.orderSummary_popupVoucherFooter,
+  // voucherApplyButtonClassName: styleOrderSummary.orderSummary_voucherApplyButton,
+  // voucherButtonAppliedClassName: styleOrderSummary.orderSummary_voucherButtonApplied,
+  // voucherAppliedIconClassName: styleOrderSummary.orderSummary_voucherAppliedIcon,
+  // voucherAppliedTextClassName: styleOrderSummary.orderSummary_voucherAppliedText,
+  // voucherButtonRemoveClassName: styleOrderSummary.orderSummary_voucherButtonRemove,
   voucherApplyButtonClassName: `${styleBtn.btn} ${styleBtn.btn_primary}`,
   agreementContainerClassName: styles.payment_footer__agreement,
   agreementCheckboxClassName: styles.payment_footer__check,
@@ -108,7 +118,16 @@ const classesListPaymentMethod = {
   travelokaPayLaterFooterClassName: styles.payment_travelokaPayLater__footer,
   travelokaPayLaterFooterTextClassName: styles.payment_travelokaPayLater__text,
   travelokaPayLaterFooterLinkClassName: styles.payment_travelokaPayLater__link,
-  travelokaPayLaterFooterImgClassName: styles.payment_travelokaPayLater__img
+  travelokaPayLaterFooterImgClassName: styles.payment_travelokaPayLater__img,
+
+  // grouping coupon
+  voucherTitleClassName: styleOrderSummary.orderSummary_voucherTitle,
+  voucherDetailHeaderClassName: styleOrderSummary.orderSummary_voucherDetailHeader,
+  voucherDetailCodeClassName: styleOrderSummary.orderSummary_voucherDetailCode,
+  voucherDetailTitleClassName: styleOrderSummary.orderSummary_voucherDetailTitle,
+  voucherDetailDescClassName: styleOrderSummary.orderSummary_voucherDetailDesc,
+  voucherDetailEstimateClassName: styleOrderSummary.orderSummary_voucherDetailEstimate,
+  voucherDetailEstimateDescClassName: styleOrderSummary.orderSummary_voucherDetailEstimateDesc,
 }
 
 const classesPlaceholderCustomerDetail = {
@@ -271,6 +290,15 @@ const PaymentMethods: FC<any> = ({
             withNotificationOptInModal={hasOtp}
             onErrorMsg={(msg) => toast.error(msg)}
             onErrorMsgCoupon={(msg) => toast.error(msg)}
+            isCouponAccordion={true}
+            withCouponTitle
+            emptyComponentCoupon={
+              <div className={styleOrderSummary.orderSummary_voucherEmpty}>
+                <p>{i18n.t("coupon.empty")}</p>
+              </div>
+            }
+            expand={<FiChevronUp />}
+            collapse={<FiChevronDown />}
             voucherIcon={
               <img src="/icons/voucher.svg" className="mr-2" alt="voucher" />
             }

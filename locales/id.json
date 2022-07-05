@@ -154,10 +154,13 @@
   },
   "coupon": {
     "apply": "Terapkan",
+    "code": "Kode Kupon",
     "couponPlaceholder": "Masukkan kode kupon",
     "discount": "Diskon",
+    "empty": "Belum ada kupon",
     "enough": "Anda mendapat potongan sebesar",
     "header": "Voucher tersedia",
+    "invalidTitle": "Kupon yang masih belum dapat digunakan",
     "max": "Maks",
     "minPoints": "Minimal poin yang ditukarkan adalah",
     "minPurchase": "Dengan minimal pembelian",
@@ -168,7 +171,8 @@
     "pointsPlaceHolder": "Masukkan jumlah poin",
     "redeem": "Tukarkan",
     "use": "Gunakan",
-    "valid": "Dapat digunakan hingga",
+    "valid": "Berakhir dalam {DAYS}",
+    "validTitle": "Kupon yang tersedia",
     "youHave": "Anda Punya"
   },
   "customerDetail": {
@@ -542,6 +546,7 @@
     "doesntMatch": "Kata sandi tidak sama",
     "duplicateEmail": "Email sudah terdaftar",
     "email": "Email",
+    "emailIsInvalid": "Email tidak valid",
     "emailPlaceholder": "Masukan email anda",
     "errorConfPassword": "Gagal setel ulang kata sandi",
     "failed": "Gagal mendaftar",
