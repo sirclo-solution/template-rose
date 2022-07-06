@@ -2,10 +2,10 @@
 import { FC, useState } from 'react'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { 
-	Article, 
-	ArticleCategories, 
+  Article, 
+  ArticleCategories, 
   getArticle,
-	useI18n 
+  useI18n 
 } from '@sirclo/nexus'
 /* library template */
 import { GRAPHQL_URI } from 'lib/Constants'
@@ -48,8 +48,8 @@ const ArticleDetail: FC<any> = ({
     headerTitle: title,
     SEO: {
       title: data?.descriptions[0]?.title,
-			description: data?.SEOs[0]?.description,
-			keywords: data?.SEOs[0]?.keywords?.join(", ") 
+      description: data?.SEOs[0]?.description,
+      keywords: data?.SEOs[0]?.keywords?.join(", ") 
     }
   }
 
@@ -79,7 +79,7 @@ export const getServerSideProps: GetServerSideProps = async ({
   const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
   const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
   const slug = params.slug
-	const data = await getArticle(GRAPHQL_URI(req), slug.toString())
+  const data = await getArticle(GRAPHQL_URI(req), slug.toString())
 
   return {
     props: {
