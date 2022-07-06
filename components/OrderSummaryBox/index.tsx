@@ -186,6 +186,9 @@ const OrderSummaryComponent: FC<iProps> = ({
             currency="IDR"
             classes={{
               ...classesOrderSummary,
+              voucherTextClassName: `${styleOrderSummary.orderSummary_voucherText} ${lng}`,
+              voucherAppliedTextClassName: `${styleOrderSummary.orderSummary_voucherAppliedText} ${lng}`,
+              voucherTitleClassName: `${styleOrderSummary.orderSummary_voucherTitle} ${lng}`,
               containerClassName: `${styleOrderSummary.orderSummary} ${totalCrossSell === 0 && styleOrderSummary.orderSummary_extras}`
             }}
             submitButtonLabel={titleSubmit}

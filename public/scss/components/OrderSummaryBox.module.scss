@@ -239,12 +239,77 @@
             @include position(absolute, auto, 16px, auto, auto)
         }
     }
+
+    &_voucherButton,
+    &_voucherButtonApplied
+    {
+        &[data-identity*="coupon"],
+        &[data-identity*="point"]
+        {
+            [class*="voucherText"],
+            [class*="voucherAppliedText"],
+            [class*="pointAppliedText"]
+            {
+                &::before
+                {
+                    content: "";
+
+                    @include flex(row, center, flex-start);
+                    @include typographyBuilder(secondary, 400, 10, 16);
+                    margin: 0;
+                    padding: 0;
+                    color: $color_text_secondary;
+                }
+            }
+        }
+
+        &[data-identity*="coupon"]
+        {
+            [class*="voucherText"],
+            [class*="voucherAppliedText"]
+            {
+                &::before
+                {
+                    content: "Coupon";
+                }
+
+                &[class*="id"]
+                {
+                    &::before
+                    {
+                        content: "Kupon";
+                    }
+                }
+            }
+        }
+
+        &[data-identity*="point"]
+        {
+            [class*="voucherText"],
+            [class*="voucherAppliedText"],
+            [class*="pointAppliedText"]
+            {
+                &::before
+                {
+                    content: "Point";
+                }
+
+                &[class*="id"]
+                {
+                    &::before
+                    {
+                        content: "Poin";
+                    }
+                }
+            }
+        }
+    }
     
     &_voucherIcon
     {
         &[class*="end"]
         {
-            @include position(absolute, auto, 12px, auto, auto);
+            @include position(absolute, auto, 0, auto, auto);
             @include flex(row, center, center);
             @include fixedHeight(40px);
             @include fixedWidth(40px);
@@ -512,10 +577,9 @@
     {
         @include fixedWidth(100%);
         @include flex(column, center, center);
-        @include typographyBuilder(secondary, 500, 20, 24);
+        @include fontSize(0);
         padding: 24px 0 0;
-        color: $color_text_primary;
-        text-align: center;
+        color: rgba(255, 255, 255, 0);
 
         @include svgIcon
         {
@@ -524,6 +588,28 @@
             margin-bottom: 12px;
             background-size: 100%;
             background-image: url("data:image/svg+xml,%3Csvg width='33' height='32' viewBox='0 0 33 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15.1667 28C15.1667 27.4696 14.956 26.9609 14.581 26.5858C14.2059 26.2107 13.6972 26 13.1667 26C12.6363 26 12.1276 26.2107 11.7525 26.5858C11.3775 26.9609 11.1667 27.4696 11.1667 28H4.50008C4.14646 28 3.80732 27.8595 3.55727 27.6095C3.30722 27.3594 3.16675 27.0203 3.16675 26.6667V5.33333C3.16675 4.97971 3.30722 4.64057 3.55727 4.39052C3.80732 4.14048 4.14646 4 4.50008 4H11.1667C11.1667 4.53043 11.3775 5.03914 11.7525 5.41421C12.1276 5.78929 12.6363 6 13.1667 6C13.6972 6 14.2059 5.78929 14.581 5.41421C14.956 5.03914 15.1667 4.53043 15.1667 4H28.5001C28.8537 4 29.1928 4.14048 29.4429 4.39052C29.6929 4.64057 29.8334 4.97971 29.8334 5.33333V12.6667C28.9494 12.6667 28.1015 13.0179 27.4764 13.643C26.8513 14.2681 26.5001 15.1159 26.5001 16C26.5001 16.8841 26.8513 17.7319 27.4764 18.357C28.1015 18.9821 28.9494 19.3333 29.8334 19.3333V26.6667C29.8334 27.0203 29.6929 27.3594 29.4429 27.6095C29.1928 27.8595 28.8537 28 28.5001 28H15.1667ZM13.1667 14C13.6972 14 14.2059 13.7893 14.581 13.4142C14.956 13.0391 15.1667 12.5304 15.1667 12C15.1667 11.4696 14.956 10.9609 14.581 10.5858C14.2059 10.2107 13.6972 10 13.1667 10C12.6363 10 12.1276 10.2107 11.7525 10.5858C11.3775 10.9609 11.1667 11.4696 11.1667 12C11.1667 12.5304 11.3775 13.0391 11.7525 13.4142C12.1276 13.7893 12.6363 14 13.1667 14ZM13.1667 22C13.6972 22 14.2059 21.7893 14.581 21.4142C14.956 21.0391 15.1667 20.5304 15.1667 20C15.1667 19.4696 14.956 18.9609 14.581 18.5858C14.2059 18.2107 13.6972 18 13.1667 18C12.6363 18 12.1276 18.2107 11.7525 18.5858C11.3775 18.9609 11.1667 19.4696 11.1667 20C11.1667 20.5304 11.3775 21.0391 11.7525 21.4142C12.1276 21.7893 12.6363 22 13.1667 22Z' fill='%23998060'/%3E%3C/svg%3E%0A");
+        }
+
+        &::after
+        {
+            content: "Gunakan Kupon";
+
+            @include flex(row, center, center);
+            @include fixedWidth(100%);
+            @include typographyBuilder(secondary, 500, 20, 24);
+            position: relative;
+            margin: 0;
+            padding: 0;
+            color: $color_text_primary;
+            text-align: center;
+        }
+
+        &[class*="en"]
+        {
+            &::after
+            {
+                content: "Use Coupon";
+            }
         }
     }
 
