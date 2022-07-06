@@ -4,13 +4,14 @@ import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { 
 	Article, 
 	ArticleCategories, 
+  getArticle,
 	useI18n 
 } from '@sirclo/nexus'
 /* library template */
+import { GRAPHQL_URI } from 'lib/Constants'
 import { useBrand } from 'lib/useBrand'
 /* components */
 import Layout from 'components/Layout/Layout'
-import SEO from 'components/SEO'
 import Breadcrumb from 'components/Breadcrumb/Breadcrumb'
 import Placeholder from 'components/Placeholder'
 /* styles */
@@ -32,6 +33,7 @@ const ArticleDetail: FC<any> = ({
   lng,
   lngDict,
   slug,
+  data,
   brand,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const i18n: any = useI18n()
@@ -44,12 +46,15 @@ const ArticleDetail: FC<any> = ({
     lngDict,
     brand,
     headerTitle: title,
-    SEO: { title }
+    SEO: {
+      title: data?.descriptions[0]?.title,
+			description: data?.SEOs[0]?.description,
+			keywords: data?.SEOs[0]?.keywords?.join(", ") 
+    }
   }
 
   return (
     <Layout {...layoutProps}>
-      <SEO title={title} />
       <div className={styleArticle.article_container}>
         <div className={styleArticle.article_header}>
           <Breadcrumb steps={[{ label: i18n.t('breadcrumb.home') }, { label: title }]} />
@@ -73,12 +78,15 @@ export const getServerSideProps: GetServerSideProps = async ({
   const brand = await useBrand(req)
   const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
   const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
+  const slug = params.slug
+	const data = await getArticle(GRAPHQL_URI(req), slug.toString())
 
   return {
     props: {
       lng: defaultLanguage,
       lngDict,
-      slug: params.slug,
+      slug,
+      data,
       brand: brand || ''
     }
   }

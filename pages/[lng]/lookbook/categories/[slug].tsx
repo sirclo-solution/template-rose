@@ -13,11 +13,13 @@ import {
 import {
   isLookbookAllowed,
   LookbookSingle,
+  getLookbookSingle,
   useI18n,
   Products
 } from '@sirclo/nexus'
 import { RiQuestionFill } from 'react-icons/ri'
 /* library template */
+import { GRAPHQL_URI } from 'lib/Constants'
 import { useBrand } from 'lib/useBrand'
 import useWindowSize from 'lib/useWindowSize'
 import useQuery from 'lib/useQuery'
@@ -61,6 +63,7 @@ const LookbookSinglePage: FC<any> = ({
   lng,
   lngDict,
   slug,
+  data,
   brand,
   urlSite,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
@@ -88,7 +91,12 @@ const LookbookSinglePage: FC<any> = ({
     brand,
     withAllowed: LookbookAllowed,
     headerTitle: i18n.t('lookbook.title'),
-    SEO: { title }
+    SEO: { 
+      title: data?.name,
+      description: data?.SEOs[0]?.description,
+      keywords: data?.SEOs[0]?.keywords?.join(", "),
+      image: data?.imageURL
+    }
   }
 
   return (
@@ -105,7 +113,7 @@ const LookbookSinglePage: FC<any> = ({
                   as: `/${lng}/lookbook/categories`,
                 },
               },
-              { label: title },
+              { label: data?.name },
             ]}
           />
         </div>
@@ -213,12 +221,15 @@ export const getServerSideProps: GetServerSideProps = async ({
   const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
   const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
   const urlSite = `https://${req.headers.host}/${params.lng}/lookbook/categories/${params.slug}`
+  const slug = params.slug
+  const data = await getLookbookSingle(GRAPHQL_URI(req), slug.toString())
 
   return {
     props: {
       lng: defaultLanguage,
-      slug: params.slug,
       lngDict,
+      slug,
+      data,
       brand: brand || '',
       urlSite: urlSite,
     },
