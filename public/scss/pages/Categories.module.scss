@@ -28,10 +28,11 @@
 
     &_title
     {
+      @include flex(row, center, flex-start);
       @include typographyBuilder(secondary, 500, 14, 24);
       text-transform: capitalize;
       color: $color_text_primary;
-      padding: 0 15px;
+      padding: 0;
     }
   }
 }
@@ -50,8 +51,7 @@
 .productsListContainer
 {
   @include flex(row, flex-start, flex-start, false);
-  @include fixedWidth(100%, false);
-  max-width: 375px;
+  @include fixedWidth(calc(100% + 30px));
+  margin: 0 -15px;
   overflow: auto;
-  padding-right: 15px;
 }

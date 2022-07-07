@@ -125,6 +125,7 @@ const classesAccount = {
   paymentStatusShippedClassName: styleOrderHistory.order_status,
   paymentStatusDeliveredClassName: styleOrderHistory.order_status,
   paymentStatusCompletedClassName: styleOrderHistory.order_status,
+  paymentStatusConfirmingClassName: styleOrderHistory.order_status,
   OrderInfoSearchHereClassName: styleOrderHistory.order_info_button,
   popupConfirmationOrderContainerClassName: styleOrderHistory.order_popup,
   popupConfirmationOrderContentClassName: styleOrderHistory.order_popup_content,

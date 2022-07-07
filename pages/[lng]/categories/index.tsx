@@ -38,7 +38,7 @@ const classesProductCategory = {
   priceClassName: styleProduct.product_labelPrice__price,
   productsListCategoryHeaderTitleClassName: styles.productsListCategory_header_title,
   productsListCategoryHeaderClassName: styles.productsListCategory_header,
-  productsListCategoryContainerClassName: styles.productsListCategory_container,
+  productsListCategoryContainerClassName: `${styles.productsListCategory_container} col-12`,
   productsListCategoryHeaderLinkClassName: styles.productsListCategory_header_link,
   productsListContainerClassName: styles.productsListContainer,
 }

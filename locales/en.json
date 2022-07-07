@@ -154,10 +154,13 @@
   },
   "coupon": {
     "apply": "Apply",
-    "couponPlaceholder": "Input your voucher",
+    "code": "Coupon Code",
+    "couponPlaceholder": "Input your coupon",
     "discount": "Discount",
+    "empty": "No coupon yet",
     "enough": "You can get discount",
-    "header": "Vouchers available",
+    "header": "Coupons available",
+    "invalidTitle": "Coupon that still can't be used",
     "max": "Max",
     "minPoints": "Minimal points to redeem is",
     "minPurchase": "With Minimum Purchase",
@@ -168,7 +171,8 @@
     "pointsPlaceHolder": "Input point number",
     "redeem": "Redeem",
     "use": "Use",
-    "valid": "Valid Until",
+    "valid": "Valid up to {DAYS}",
+    "validTitle": "Available Coupons",
     "youHave": "You Have"
   },
   "customerDetail": {
@@ -362,9 +366,9 @@
     "subTotal": "Subtotal",
     "total": "Total",
     "usePoints": "Use point",
-    "useVoucher": "Use voucher",
+    "useVoucher": "Use coupon",
     "viewCart": "View Cart",
-    "voucherApplied": "Voucher applied",
+    "voucherApplied": "Coupon applied",
     "yourCart": "Your Cart"
   },
   "pageHeader": {
@@ -389,7 +393,7 @@
     "travelokaPayLaterLink": "Activate your Traveloka PayLater now!",
     "travelokaPayLaterText": "Turn your payments into installments via",
     "uniqueCode": "Unique Code",
-    "voucher": "Voucher",
+    "voucher": "Coupon",
     "warning": "Unable to proceed transaction amount below 10,000"
   },
   "paymentConfirm": {
@@ -542,6 +546,7 @@
     "doesntMatch": "Password doesn't match",
     "duplicateEmail": "Email has been registered",
     "email": "Email",
+    "emailIsInvalid": "Email is invalid",
     "emailPlaceholder": "Input your email",
     "errorConfPassword": "Reset password failed",
     "failed": "Registration failed",

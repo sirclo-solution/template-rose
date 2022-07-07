@@ -154,10 +154,13 @@
   },
   "coupon": {
     "apply": "Terapkan",
+    "code": "Kode Kupon",
     "couponPlaceholder": "Masukkan kode kupon",
     "discount": "Diskon",
+    "empty": "Belum ada kupon",
     "enough": "Anda mendapat potongan sebesar",
-    "header": "Voucher tersedia",
+    "header": "Kupon tersedia",
+    "invalidTitle": "Kupon yang masih belum dapat digunakan",
     "max": "Maks",
     "minPoints": "Minimal poin yang ditukarkan adalah",
     "minPurchase": "Dengan minimal pembelian",
@@ -168,7 +171,8 @@
     "pointsPlaceHolder": "Masukkan jumlah poin",
     "redeem": "Tukarkan",
     "use": "Gunakan",
-    "valid": "Dapat digunakan hingga",
+    "valid": "Berakhir dalam {DAYS}",
+    "validTitle": "Kupon yang tersedia",
     "youHave": "Anda Punya"
   },
   "customerDetail": {
@@ -361,10 +365,10 @@
     "shippingEmpty": "Semua kolom di alamat pengiriman tidak boleh kosong",
     "subTotal": "Subtotal",
     "total": "Total",
-    "useVoucher": "Gunakan voucher",
+    "useVoucher": "Gunakan kupon",
     "usePoints": "Gunakan poin",
     "viewCart": "Liat Keranjang",
-    "voucherApplied": "Voucher digunakan",
+    "voucherApplied": "Kupon digunakan",
     "yourCart": "Keranjang anda"
   },
   "pageHeader": {
@@ -389,7 +393,7 @@
     "travelokaPayLaterLink": "Aktifkan Traveloka PayLater-mu sekarang!",
     "travelokaPayLaterText": "Ubah pembayaranmu jadi cicilan melalui Aplikasi",
     "uniqueCode": "Kode Unik",
-    "voucher": "Voucher",
+    "voucher": "Kupon",
     "warning": "Transaksi di bawah 10,000 tidak dapat diproses"
   },
   "paymentConfirm": {
@@ -542,6 +546,7 @@
     "doesntMatch": "Kata sandi tidak sama",
     "duplicateEmail": "Email sudah terdaftar",
     "email": "Email",
+    "emailIsInvalid": "Email tidak valid",
     "emailPlaceholder": "Masukan email anda",
     "errorConfPassword": "Gagal setel ulang kata sandi",
     "failed": "Gagal mendaftar",

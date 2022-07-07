@@ -4,7 +4,11 @@ import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { useRouter } from 'next/router'
 import { toast } from 'react-toastify'
 import { HiCheckCircle } from 'react-icons/hi'
-import { FiX } from 'react-icons/fi'
+import {
+  FiChevronDown,
+  FiChevronUp,
+  FiX,
+} from 'react-icons/fi'
 import {
   CustomerDetail,
   ListPaymentMethod,
@@ -25,6 +29,7 @@ import Loader from 'components/Loader/Loader'
 import LoaderPages from 'components/Loader/LoaderPages'
 import Placeholder from 'components/Placeholder'
 /* styles */
+import styleOrderSummary from 'public/scss/components/OrderSummaryBox.module.scss'
 import styleCustomer from 'public/scss/components/CustomerDetail.module.scss'
 import styleBtn from 'public/scss/components/Button.module.scss'
 import styles from 'public/scss/pages/PaymentMethod.module.scss'
@@ -65,21 +70,22 @@ const classesListPaymentMethod = {
   // footer
   paymentMethodDetailFooterClassName: styles.payment_footer,
   promotionButtonGroupClassName: styles.payment_footer__promotion,
-  couponButtonClassName: `${styles.payment_pointButton} px-3`,
-  voucherAppliedTextClassName: styles.payment_voucherAppliedText,
-  voucherButtonRemoveClassName: styles.payment_voucherAppliedRemove,
+  couponButtonClassName:  styleOrderSummary.orderSummary_voucherButton,
   popupClassName: styles.payment_listItemOverlay,
-  voucherContainerClassName: styles.payment_listItemPopup,
+  voucherContainerClassName: styleOrderSummary.orderSummary_voucherContainer,
   closeButtonClassName: styles.payment_closeButton,
-  voucherFormContainerClassName: styles.payment_voucherFormContainer,
-  voucherFormClassName: styles.payment_voucherForm,
-  voucherInputClassName: styles.payment_voucherInput,
+  voucherFormContainerClassName: styleOrderSummary.orderSummary_voucherFormContainer,
+  voucherFormClassName: styleOrderSummary.orderSummary_voucherForm,
+  voucherInputClassName: styleOrderSummary.orderSummary_voucherInput,
   voucherSubmitButtonClassName: `${styleBtn.btn} ${styleBtn.btn_primary} ${styles.payment_voucherSubmitButton}`,
-  voucherListClassName: styles.ordersummary_popupVoucher,
-  voucherListHeaderClassName: styles.ordersummary_popupVoucherTitle,
-  voucherClassName: styles.ordersummary_popupVoucherItem,
-  voucherDetailClassName: styles.ordersummary_popupVoucherDetail,
-  voucherFooterClassName: styles.ordersummary_popupVoucherFooter,
+  voucherListClassName: styleOrderSummary.orderSummary_voucherList,
+  voucherListHeaderClassName: styleOrderSummary.orderSummary_voucherListHeader,
+  voucherClassName: styleOrderSummary.orderSummary_voucher,
+  voucherDetailClassName: styleOrderSummary.orderSummary_voucherDetail,
+  voucherFooterClassName: styleOrderSummary.orderSummary_popupVoucherFooter,
+  voucherAppliedIconClassName: styleOrderSummary.orderSummary_voucherAppliedIcon,
+  voucherAppliedTextClassName: styleOrderSummary.orderSummary_voucherAppliedText,
+  voucherButtonRemoveClassName: styleOrderSummary.orderSummary_voucherButtonRemove,
   voucherApplyButtonClassName: `${styleBtn.btn} ${styleBtn.btn_primary}`,
   agreementContainerClassName: styles.payment_footer__agreement,
   agreementCheckboxClassName: styles.payment_footer__check,
@@ -100,15 +106,24 @@ const classesListPaymentMethod = {
   pointsInsufficientClassName: styles.payment_pointsInsufficient,
   pointsSubmitButtonClassName: `${styleBtn.btn} ${styleBtn.btn_primary} ${styles.payment_pointsSubmitButton}`,
   pointsWarningClassName: styles.payment_pointsWarning,
-  pointButtonClassName: `${styleBtn.btn} ${styles.payment_pointButton} mb-3 px-3`,
+  pointButtonClassName: styleOrderSummary.orderSummary_voucherButton,
   pointAppliedTextClassName: styles.payment_pointAppliedText,
-  pointButtonRemoveClassName: styles.payment_pointAppliedRemove,
+  pointButtonRemoveClassName: styleOrderSummary.orderSummary_voucherButtonRemove,
   // traveloka paylater
   travelokaPayLaterHeaderClassName: styles.payment_travelokaPayLater__header,
   travelokaPayLaterFooterClassName: styles.payment_travelokaPayLater__footer,
   travelokaPayLaterFooterTextClassName: styles.payment_travelokaPayLater__text,
   travelokaPayLaterFooterLinkClassName: styles.payment_travelokaPayLater__link,
-  travelokaPayLaterFooterImgClassName: styles.payment_travelokaPayLater__img
+  travelokaPayLaterFooterImgClassName: styles.payment_travelokaPayLater__img,
+
+  // grouping coupon
+  voucherTitleClassName: styleOrderSummary.orderSummary_voucherTitle,
+  voucherDetailHeaderClassName: styleOrderSummary.orderSummary_voucherDetailHeader,
+  voucherDetailCodeClassName: styleOrderSummary.orderSummary_voucherDetailCode,
+  voucherDetailTitleClassName: styleOrderSummary.orderSummary_voucherDetailTitle,
+  voucherDetailDescClassName: styleOrderSummary.orderSummary_voucherDetailDesc,
+  voucherDetailEstimateClassName: styleOrderSummary.orderSummary_voucherDetailEstimate,
+  voucherDetailEstimateDescClassName: styleOrderSummary.orderSummary_voucherDetailEstimateDesc,
 }
 
 const classesPlaceholderCustomerDetail = {
@@ -267,10 +282,23 @@ const PaymentMethods: FC<any> = ({
             {i18n.t("payment.title")}
           </h3>
           <ListPaymentMethod
-            classes={classesListPaymentMethod}
+            classes={{
+              ...classesListPaymentMethod,
+              voucherAppliedTextClassName: `${styleOrderSummary.orderSummary_voucherAppliedText} ${lng}`,
+              voucherTitleClassName: `${styleOrderSummary.orderSummary_voucherTitle} ${lng}`
+            }}
             withNotificationOptInModal={hasOtp}
             onErrorMsg={(msg) => toast.error(msg)}
             onErrorMsgCoupon={(msg) => toast.error(msg)}
+            isCouponAccordion={true}
+            withCouponTitle
+            emptyComponentCoupon={
+              <div className={styleOrderSummary.orderSummary_voucherEmpty}>
+                <p>{i18n.t("coupon.empty")}</p>
+              </div>
+            }
+            expand={<FiChevronUp />}
+            collapse={<FiChevronDown />}
             voucherIcon={
               <img src="/icons/voucher.svg" className="mr-2" alt="voucher" />
             }
@@ -284,7 +312,10 @@ const PaymentMethods: FC<any> = ({
               <img src="/icons/point.svg" className="mr-2" alt="point-applied" />
             }
             removeVoucherIcon={
-              <FiX color="#CC4534" size={16} className="mr-2" />
+              <FiX color="#CC4534" size={16} className="" />
+            }
+            removePointIcon={
+              <FiX color="#CC4534" size={16} className="" />
             }
             closeButtonIcon={
               <FiX size={24} color="#444444" />

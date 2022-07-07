@@ -196,6 +196,7 @@ const Cart: FC<any> = ({
 					{totalQuantity > 0 &&
 						<OrderSummaryBox
 							i18n={i18n}
+							lng={lng}
 							page="cart"
 							withCartDetails={false}
 							totalCrossSell={pageInfo.totalItems}
