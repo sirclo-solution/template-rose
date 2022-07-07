@@ -181,7 +181,6 @@
     "registerByEmail": "Dengan menekan tombol 'Daftar', saya mengetahui dan menyetujui {TERMS_AND_CONDITIONS} serta {PRIVACY_POLICY} dari {BRAND_NAME}.",
     "shippingMethod": "Dengan menekan tombol 'Buat Pesanan', saya mengetahui dan menyetujui {TERMS_AND_CONDITIONS} serta {PRIVACY_POLICY} dari {BRAND_NAME}.",
     "termsAndCondition": "Syarat & Ketentuan",
-    "termsAndConditions": "Syarat & Ketentuan",
     "whatsappOTP": "Dengan menekan tombol 'Masuk/Daftar', saya setuju untuk menerima pemberitahuan melalui WhatsApp dan mengetahui {TERMS_AND_CONDITIONS} serta {PRIVACY_POLICY} dari {BRAND_NAME}."
   },
   "error": {

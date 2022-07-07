@@ -181,7 +181,6 @@
     "registerByEmail": "By clicking 'Register', you agree and acknowledge {TERMS_AND_CONDITIONS} and {PRIVACY_POLICY} of {BRAND_NAME}",
     "shippingMethod": "By clicking 'Place Order' you agree and acknowledge {TERMS_AND_CONDITIONS} and {PRIVACY_POLICY} of {BRAND_NAME}",
     "termsAndCondition": "Terms & Conditions",
-    "termsAndConditions": "Terms & Conditions",
     "whatsappOTP": "By clicking 'Login/Register' you agree to receive notifications via WhatsApp and acknowledge {TERMS_AND_CONDITIONS} and {PRIVACY_POLICY} from {BRAND_NAME}"
   },
   "error": {
