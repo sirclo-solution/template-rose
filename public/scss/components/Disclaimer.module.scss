@@ -1,0 +1,42 @@
+@import '../utils/variables';
+
+.disclaimerMessageContainer
+{
+  @include flex(row, center, center);
+  @include typographyBuilder(secondary, 400, 12, 16);
+
+  position: relative;
+  margin: 24px 0;
+  padding: 10px;
+
+  background-color: $color_rose_bg2;
+  color: $color_text_secondary;
+
+  span
+  {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+
+    a
+    {
+        @extend .disclaimerMessageLink;
+    }
+  }
+}
+
+.disclaimerMessageLink
+{
+  @include transition;
+  text-decoration: none;
+
+  &:hover,
+  &:focus,
+  &:focus-visible,
+  &:active
+  {
+    color: $color_text_primary;
+    text-decoration: none;
+  }
+}

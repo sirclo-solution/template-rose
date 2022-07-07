@@ -35,6 +35,7 @@ import styleForm from 'public/scss/components/Form.module.scss'
 import styleButton from 'public/scss/components/Button.module.scss'
 import stylePassword from 'public/scss/components/Password.module.scss'
 import styleWaOTP from 'public/scss/components/WhatsAppOTP.module.scss'
+import styleDisclaimer from 'public/scss/components/Disclaimer.module.scss'
 
 const loginClasses = {
   containerClassName: styleLogin.login_containerForm,
@@ -43,7 +44,7 @@ const loginClasses = {
   buttonClassName: `${styleButton.btn} ${styleButton.btn_primary}`,
   signUpText: `${styleButton.btn} ${styleButton.btn_secondary} ${styleLogin.login_signUp}`,
   forgotPasswordClass: styleLogin.login_forgotContainer,
-  footerClassName: "tes"
+  disclaimerMessageContainerClassName: styleDisclaimer.disclaimerMessageContainer
 }
 
 const classesWhatsAppOTP = {
@@ -89,7 +90,9 @@ const classesWhatsAppOTP = {
   accountContainerClassName: styleWaOTP.whatsapp_accountContainer,
   accountNameClassName: styleWaOTP.whatsapp_accountName,
   accountEmailClassName: styleWaOTP.whatsapp_accountEmail,
-  btnChooseAccountClassName: `${styleButton.btn} ${styleButton.btn_primary} ${styleWaOTP.whatsapp_buttonOtp}`
+  btnChooseAccountClassName: `${styleButton.btn} ${styleButton.btn_primary} ${styleWaOTP.whatsapp_buttonOtp}`,
+  disclaimerMessageContainerClassName: styleDisclaimer.disclaimerMessageContainer,
+  disclaimerMessageLinkClassName: styleDisclaimer.disclaimerMessageLink,
 }
 
 const LoginPage: FC<any> = ({

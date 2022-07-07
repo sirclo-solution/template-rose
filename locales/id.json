@@ -174,6 +174,16 @@
   "customerDetail": {
     "changePin": "Ganti Pin"
   },
+  "disclaimer": {
+    "contact": "Dengan menekan tombol 'Kirimkan', Customer menyatakan persetujuan apabila Merchant menggunakan detail yang diberikan untuk menghubungi Customer tentang permintaan atau pertanyaan khusus Anda. Kunjungi halaman {PRIVACY_POLICY} untuk detail mekanisme kami mengelola informasi Customer.",
+    "loginByEmail": "Dengan menekan tombol 'Masuk', saya mengetahui dan menyetujui {TERMS_AND_CONDITIONS} serta {PRIVACY_POLICY} dari {BRAND_NAME}.",
+    "privacyPolicy": "Kebijakan Privasi",
+    "registerByEmail": "Dengan menekan tombol 'Daftar', saya mengetahui dan menyetujui {TERMS_AND_CONDITIONS} serta {PRIVACY_POLICY} dari {BRAND_NAME}.",
+    "shippingMethod": "Dengan menekan tombol 'Buat Pesanan', saya mengetahui dan menyetujui {TERMS_AND_CONDITIONS} serta {PRIVACY_POLICY} dari {BRAND_NAME}.",
+    "termsAndCondition": "Syarat & Ketentuan",
+    "termsAndConditions": "Syarat & Ketentuan",
+    "whatsappOTP": "Dengan menekan tombol 'Masuk/Daftar', saya setuju untuk menerima pemberitahuan melalui WhatsApp dan mengetahui {TERMS_AND_CONDITIONS} serta {PRIVACY_POLICY} dari {BRAND_NAME}."
+  },
   "error": {
     "errorBackHome": "Kembali ke Halaman Utama",
     "errorTitle": "Halaman Tidak Ditemukan",
