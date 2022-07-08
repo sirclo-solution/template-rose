@@ -38,6 +38,7 @@ import styleForm from 'public/scss/components/Form.module.scss'
 import styleButton from 'public/scss/components/Button.module.scss'
 import stylePassword from 'public/scss/components/Password.module.scss'
 import styleWaOTP from 'public/scss/components/WhatsAppOTP.module.scss'
+import styleDisclaimer from 'public/scss/components/Disclaimer.module.scss'
 
 const classesRegister = {
   containerClassName: styleLogin.login_containerForm,
@@ -52,6 +53,7 @@ const classesRegister = {
   labelRequiredClassName: 'd-none',
   verificationContainerClassName: 'mt-2 mb-4 p-0',
   buttonClassName: `${styleButton.btn} ${styleButton.btn_primary}`,
+  disclaimerMessageContainerClassName: styleDisclaimer.disclaimerMessageContainer,
 }
 
 const classesWhatsAppOTP = {
@@ -97,7 +99,9 @@ const classesWhatsAppOTP = {
   accountContainerClassName: styleWaOTP.whatsapp_accountContainer,
   accountNameClassName: styleWaOTP.whatsapp_accountName,
   accountEmailClassName: styleWaOTP.whatsapp_accountEmail,
-  btnChooseAccountClassName: `${styleButton.btn} ${styleButton.btn_primary} ${styleWaOTP.whatsapp_buttonOtp}`
+  btnChooseAccountClassName: `${styleButton.btn} ${styleButton.btn_primary} ${styleWaOTP.whatsapp_buttonOtp}`,
+  disclaimerMessageContainerClassName: styleDisclaimer.disclaimerMessageContainer,
+  disclaimerMessageLinkClassName: styleDisclaimer.disclaimerMessageLink,
 }
 
 const RegisterPage: FC<any> = ({
