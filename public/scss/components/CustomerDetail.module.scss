@@ -209,4 +209,9 @@
     color: $color_text_primary;
     padding: 8px 16px;
   }
+
+  &_mapPinPointIcon
+  {
+    @include absolute(50%,auto,auto,50%);
+  }
 }

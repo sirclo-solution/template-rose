@@ -66,7 +66,8 @@ const classesShippingMethod = {
   mapHeaderNoteClassName: styleCustomer.customer_mapPopupNote,
   mapLabelAddressClassName: styleCustomer.customer_mapPopupLabelAddress,
   mapButtonFooterClassName: `${styleBtn.btn} ${styleBtn.btn_primary} ${styleShipping.shipping_item__pinButton}`,
-  mapCenterButtonClassName: styleCustomer.customer_mapPopupCenterButton
+  mapCenterButtonClassName: styleCustomer.customer_mapPopupCenterButton,
+  mapPinPointIconClassName: styleCustomer.customer_mapPinPointIcon,
 }
 
 const classesPlaceholderCustomerDetail = {

@@ -75,6 +75,7 @@ const classesAccount = {
   mapLabelAddressClassName: styleMap.map_mapPopupLabelAddress,
   mapCenterButtonClassName: styleMap.map_mapPopupCenterButton,
   mapButtonFooterClassName: `${styleButton.btn} ${styleButton.btn_primary} ${styleMap.map_btn}`,
+  mapPinPointIconClassName: styleMap.map_mapPinPointIcon,
   // change password
   passwordContainerClassName: stylePassword.password_passwordContainer,
   passwordStrengthBarContainerClassName: `${stylePassword.password} ${styleAccount.form_criteria}`,

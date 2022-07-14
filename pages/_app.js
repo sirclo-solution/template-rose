@@ -15,12 +15,15 @@ import '@brainhubeu/react-carousel/lib/style.css'
 import 'react-toastify/dist/ReactToastify.css'
 import 'public/scss/main.scss'
 import styleMaintenance from 'public/scss/components/Maintenance.module.scss'
+import { handleWebVitals } from 'lib/handleWebVitals'
 
 const classesMaintenance = {
   maintenanceContainerClassName: styleMaintenance.maintenance_container,
   imageContainerClassName: styleMaintenance.maintenance_containerImages,
   imageClassName: styleMaintenance.maintenance_containerImagesImg,
 }
+
+export const reportWebVitals = (metric) => handleWebVitals(metric)
 
 const MyApp = ({ 
   Component,

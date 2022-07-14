@@ -36,6 +36,7 @@ const classesOrderReview = {
   buyerHideNameContainerClassName: styleReview.review_checkboxContainer,
   buyerHideNameLabelClassName: styleReview.review_labelCheckbox,
   buyerHideNameSwitchClassName: styleForm.form_checkbox,
+  buyerHideNameSliderClassName: 'd-none',
   // tab
   reviewTabContainerClassName: styleReview.review_reviewTab,
   needsReviewTabContainerClassName: styleReview.review_reviewTabItem,
