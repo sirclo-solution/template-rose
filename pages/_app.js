@@ -19,6 +19,8 @@ import { handleWebVitals } from 'lib/handleWebVitals'
 
 const classesMaintenance = {
   maintenanceContainerClassName: styleMaintenance.maintenance_container,
+  maintenanceTitleClassName: styleMaintenance.maintenance_containerTitle,
+  maintenanceInfoClassName: styleMaintenance.maintenance_containerInfo,
   imageContainerClassName: styleMaintenance.maintenance_containerImages,
   imageClassName: styleMaintenance.maintenance_containerImagesImg,
 }
