@@ -303,6 +303,14 @@
     "seeMore": "See More",
     "title": "Lookbook"
   },
+  "map": {
+    "cityDistrictNotFound": "District not found. Please swipe the location pin",
+    "outOfReachDesc": "Please go to international shipping to make deliveries outside of Indonesia",
+    "outOfReachLabel": "Location out of reach",
+    "pinpointMismatch": "The location you selected does not match the specified point",
+    "searchLocation": "Search location",
+    "searchLocationPlaceholder": "Search location in here"
+  },
   "membership": {
     "exchangePoints": "Redeem your Point",
     "getPointPrompt": "Get points on your transactions",
