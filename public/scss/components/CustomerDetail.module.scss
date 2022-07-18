@@ -171,7 +171,7 @@
       border: 1px;
       background: $color_white;
       border-radius: 2px;
-      box-shadow: none;
+      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
       outline: 0;
 
       @include absolute(12px, 12px, auto, 16px);
@@ -190,16 +190,26 @@
     }
   }
 
+  &_mapPopupMaps > :last-child 
+  {
+    & > div > div > div > div > div > [class*='gmnoprint gm-bundled-control gm-bundled-control-on-bottom']
+    {
+      top: 50%;
+    }
+  }
+
   &_mapPopupCenterButton
   {
-    @include absolute(12px, 10px, auto, auto);
+    @include absolute(12px, 11px, auto, auto);
     @include fixedWidth(36px);
     @include fixedHeight(36px);
     @include flex(row, center, center);
     background: $color_white;
     padding: 0;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
     border: none;
     border-radius: 2px;
+    z-index: 4;
   }
 
   &_mapPopupLabelAddress
@@ -208,5 +218,11 @@
     background: $color_white;
     color: $color_text_primary;
     padding: 8px 16px;
+  }
+
+  &_mapPinPointIcon
+  {
+    @include absolute(50%, auto, auto, 50%);
+    transform: translate3d(-50%, -50%, 0);
   }
 }

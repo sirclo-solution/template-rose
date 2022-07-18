@@ -18,6 +18,7 @@ import {
 } from 'react-icons/ri'
 import { IoChevronBack, IoChevronForward } from 'react-icons/io5'
 import { BiTargetLock } from 'react-icons/bi'
+import { FiX } from 'react-icons/fi'
 import { toast } from 'react-toastify'
 /* library template */
 import { useBrand } from 'lib/useBrand'
@@ -75,6 +76,8 @@ const classesAccount = {
   mapLabelAddressClassName: styleMap.map_mapPopupLabelAddress,
   mapCenterButtonClassName: styleMap.map_mapPopupCenterButton,
   mapButtonFooterClassName: `${styleButton.btn} ${styleButton.btn_primary} ${styleMap.map_btn}`,
+  mapPinPointIconClassName: styleMap.map_mapPinPointIcon,
+  mapPopupBackgroundClassName: styleMap.map_mapPopupContainer,
   // change password
   passwordContainerClassName: stylePassword.password_passwordContainer,
   passwordStrengthBarContainerClassName: `${stylePassword.password} ${styleAccount.form_criteria}`,
@@ -270,8 +273,8 @@ const AccountsPage: FC<any> = ({
           passwordHideIcon={<RiEye2Line />}
           passwordFulfilledCriteriaIcon={<RiCheckboxCircleFill color="#53B671" size={10} />}
           passwordUnfulfilledCriteriaIcon={<RiCheckboxCircleLine color="#BCBCBC" size={10} />}
-          mapButtonCloseIcon={<RiCloseLine />}
-          mapCenterIcon={<BiTargetLock />}
+          mapButtonCloseIcon={<FiX color="#444444" size={20} />}
+          mapCenterIcon={<BiTargetLock color="#444444" size={20} />}
           membershipPaginationClasses={classesMembershipPagination}
           membershipPaginationNextLabel={<IoChevronForward />}
           membershipPaginationPrevLabel={<IoChevronBack />}

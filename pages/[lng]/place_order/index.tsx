@@ -68,6 +68,7 @@ const placeOrderClasses = {
   mapSelectAreaClassName: `${styleMap.map_btnLocation}`,
   mapPopupClassName: styleMap.map_mapPopup,
   mapPopupBackgroundClassName: styleMap.map_mapPopupContainer,
+  mapPinPointIconClassName: styleMap.map_mapPinPointIcon,
   mapClassName: styleMap.map_mapPopupMaps,
   mapHeaderWrapperClassName: styleMap.map_mapPopupHeader,
   mapHeaderTitleClassName: styleMap.map_mapPopupHeaderTitle,
@@ -82,7 +83,6 @@ type PrivateComponentPropsType = {
 }
 
 const PrivateRouteWrapper = ({ children }: PrivateComponentPropsType) => (
-  // ts-ignore
   <PrivateRoute
     page='place_order'
     loadingComponent={<LoaderPages />}
