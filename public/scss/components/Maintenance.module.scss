@@ -45,16 +45,47 @@
       order: 3 !important;
     }
 
-    h1, h2, h3, h4, h5, h6
+    & > div
     {
-      @include typographyBuilder(secondary, 400, 14, 24);
-      margin-bottom: 8px;
-    }
+      &:last-child,
+      &:last-of-type
+      {
+        @include typographyBuilder(secondary, 400, 14, 24);
+        position: relative;
+        margin: 0;
+        padding: 0;
+        order: 4;
+        
+        @media (min-width: #{$breakpoint_min_sm})
+        {
+          padding: 0 16px;
+        }
 
-    p
-    {
-      @include typographyBuilder(secondary, 400, 12, 18);
-      margin-bottom: 0;
+        img,
+        video,
+        figure,
+        object,
+        iframe,
+        table
+        {
+          display: block;
+          position: relative;
+          margin: 0 auto 8px;
+          padding: 0;
+          border: none;
+
+          max-width: 100%;
+          max-height: 300px;
+        }
+
+        h1, h2, h3, h4, h5, h6, p
+        {
+          @include typographyBuilder(secondary, 400, 14, 24);
+          position: relative;
+          margin: 0 auto 8px;
+          padding: 0;
+        }
+      }
     }
   }
 }
