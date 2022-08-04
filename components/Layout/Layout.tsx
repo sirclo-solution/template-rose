@@ -113,6 +113,12 @@ const Layout: FC<LayoutPropType> = ({
         {brand?.googleAdsWebsiteMetaToken &&
           <meta name="google-site-verification" content={getToken()} />
         }
+        {brand?.settings?.googleSearchConsole?.metaTagCode && (
+          <meta
+            name="google-site-verification"
+            content={brand?.settings?.googleSearchConsole?.metaTagCode}
+          />
+        )}
         <link
           rel="shortcut icon"
           href={brand?.settings?.faviconURL}
