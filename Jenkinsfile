@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        timeout(time: 1, unit: "HOURS") {
+                        timeout(time: 24, unit: "HOURS") {
                             input( message: 'release to staging', ok: 'deploy')
                         }
                     } catch (Throwable e) {
@@ -48,6 +48,9 @@ pipeline {
                                 gsutil cp -r /tmp/\$dockerimage/static gs://sirclo-1152-templates/rose/_next/ && \
                                 docker rm -v \$id"
                             sh "deployer --build-from-pod --use-helmfile --use-jenkins-agent --project=sirclo-nonprod --docker-tag=${GIT_COMMIT}-${BUILD_NUMBER}"
+                            sh """
+                                curl -X POST --data-urlencode \"payload={'channel': '#template-deployment', 'username': 'Jenkins Build', 'text': "[Blocked Production] ${env.JOB_BASE_NAME} (${env.BRANCH_NAME} #${BUILD_NUMBER}) <${BUILD_URL}|View Build>", 'icon_emoji': ':jenkins:'}\" https://hooks.slack.com/services/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
+                            """
                         }
                     }
                 }
@@ -61,7 +64,7 @@ pipeline {
                         Utils.markStageSkippedForConditional('are you sure to release to production?')
                     } else {
                         try {
-                            timeout(time: 1, unit: "HOURS") {
+                            timeout(time: 24, unit: "HOURS") {
                                 input( message: 'release to production', ok: 'deploy')
                             }
                         } catch (Throwable e) {
@@ -99,7 +102,9 @@ pipeline {
                                 gsutil cp -r /tmp/\$dockerimage/static gs://sirclo-template/rose/_next/ && \
                                 docker rm -v \$id"
                             sh "deployer --build-from-pod --use-helmfile --use-jenkins-agent --project=sirclo-prod --docker-tag=${GIT_COMMIT}-${BUILD_NUMBER}"
-                            sh 'curl -X POST --data-urlencode "payload={"channel": "#template-deployment", "username": "webhookbot", "text": "template Framic released to production", "icon_emoji": ":rocket:"}" https://hooks.slack.com/services/T02FRP3AM/B02T9N2HMEF/aMi6zFE3PqhmPbZMVKMh6lZ'
+                            sh """
+                                curl -X POST --data-urlencode \"payload={'channel': '#template-deployment', 'username': 'Jenkins Build', 'text': "[Released to Production] :rocket: ${env.JOB_BASE_NAME} (${env.BRANCH_NAME} #${BUILD_NUMBER}) <${BUILD_URL}|View Build>", 'icon_emoji': ':jenkins:'}\" https://hooks.slack.com/services/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
+                            """
                         }
                     }
                 }
