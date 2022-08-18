@@ -49,7 +49,7 @@ pipeline {
                                 docker rm -v \$id"
                             sh "deployer --build-from-pod --use-helmfile --use-jenkins-agent --project=sirclo-nonprod --docker-tag=${GIT_COMMIT}-${BUILD_NUMBER}"
                             sh """
-                                curl -X POST --data-urlencode \"payload={'channel': '#template-deployment', 'username': 'Jenkins Build', 'text': "[Blocked Production] ${env.JOB_BASE_NAME} (${env.BRANCH_NAME} #${BUILD_NUMBER}) <${BUILD_URL}|View Build>", 'icon_emoji': ':jenkins:'}\" https://hooks.slack.com/services/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
+                                curl -X POST --data-urlencode \"payload={'channel': '#template-deployment', 'username': 'Jenkins Build', 'text': \\\"[*Blocked Production*] ${env.JOB_NAME} #${BUILD_NUMBER}\nManual approval needed. <${BUILD_URL}|View Build>\\\", 'icon_emoji': ':jenkins:'}\" https://hooks.slack.com/services/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
                             """
                         }
                     }
@@ -103,7 +103,7 @@ pipeline {
                                 docker rm -v \$id"
                             sh "deployer --build-from-pod --use-helmfile --use-jenkins-agent --project=sirclo-prod --docker-tag=${GIT_COMMIT}-${BUILD_NUMBER}"
                             sh """
-                                curl -X POST --data-urlencode \"payload={'channel': '#template-deployment', 'username': 'Jenkins Build', 'text': "[Released to Production] :rocket: ${env.JOB_BASE_NAME} (${env.BRANCH_NAME} #${BUILD_NUMBER}) <${BUILD_URL}|View Build>", 'icon_emoji': ':jenkins:'}\" https://hooks.slack.com/services/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
+                                curl -X POST --data-urlencode \"payload={'channel': '#template-deployment', 'username': 'Jenkins Build', 'text': \\\"[*Released to Production*] :rocket: ${env.JOB_NAME} #${BUILD_NUMBER}\n<${BUILD_URL}|View Build>\\\", 'icon_emoji': ':jenkins:'}\" https://hooks.slack.com/services/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
                             """
                         }
                     }
