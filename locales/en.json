@@ -186,7 +186,7 @@
     "privacyPolicy": "Privacy Policy",
     "registerByEmail": "By clicking 'Register', you agree and acknowledge {TERMS_AND_CONDITIONS} and {PRIVACY_POLICY} of {BRAND_NAME}.",
     "shippingMethod": "By clicking 'Place Order' you agree and acknowledge {TERMS_AND_CONDITIONS} and {PRIVACY_POLICY} of {BRAND_NAME}.",
-    "termsAndCondition": "Terms & Conditions",
+    "termsAndConditions": "Terms & Conditions",
     "whatsappOTP": "By clicking 'Login/Register' you agree to receive notifications via WhatsApp and acknowledge {TERMS_AND_CONDITIONS} and {PRIVACY_POLICY} from {BRAND_NAME}."
   },
   "error": {
@@ -255,6 +255,7 @@
   "home": {
     "close": "Close",
     "featureProduct": "Feature Product",
+    "later": "Later",
     "loading": "Please Wait",
     "newProduct": "New",
     "ourProduct": "Our Product",
@@ -325,6 +326,7 @@
     "upLevelPrompt": "Make {MINIMUM_ORDER} transaction(s) left to reach {NEXT_LEVEL}",
     "usePoints": "Use Point",
     "warning": "You will not earn Points from transactions made with points",
+    "youHave": "You Have",
     "yourPoints": "Your Point"
   },
   "newsletter": {

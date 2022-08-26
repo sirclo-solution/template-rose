@@ -44,7 +44,8 @@ const loginClasses = {
   buttonClassName: `${styleButton.btn} ${styleButton.btn_primary}`,
   signUpText: `${styleButton.btn} ${styleButton.btn_secondary} ${styleLogin.login_signUp}`,
   forgotPasswordClass: styleLogin.login_forgotContainer,
-  disclaimerMessageContainerClassName: `${styleDisclaimer.disclaimerMessageContainer} d-none`
+  disclaimerMessageContainerClassName: styleDisclaimer.disclaimerMessageContainer,
+  disclaimerMessageLinkClassName: styleDisclaimer.disclaimerMessageLink,
 }
 
 const classesWhatsAppOTP = {

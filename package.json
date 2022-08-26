@@ -9,12 +9,14 @@
     "build:staging": "env-cmd -f .env.staging next build"
   },
   "dependencies": {
+    "@elgorditosalsero/react-gtm-hook": "^2.4.0",
     "@brainhubeu/react-carousel": "^1.19.14",
-    "@sirclo/nexus": "2.10.3",
+    "@sirclo/nexus": "2.12.3",
     "bootstrap": "^4.5.0",
     "cookie": "^0.4.1",
     "env-cmd": "^10.1.0",
     "globby": "^11.0.1",
+    "js-cookie": "^3.0.1",
     "next": "10.2.0",
     "next-page-transitions": "^1.0.0-beta.2",
     "next-pwa": "5.2.24",
@@ -43,5 +45,11 @@
     "prettier": "2.3.2",
     "typescript": "^3.9.5",
     "url-loader": "^4.1.0"
+  },
+  "overrides": {
+    "@elgorditosalsero/react-gtm-hook": {
+      "react": "^16.13.1",
+      "react-dom": "^16.13.1"
+    }
   }
 }

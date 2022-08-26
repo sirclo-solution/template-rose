@@ -186,7 +186,7 @@
     "privacyPolicy": "Kebijakan Privasi",
     "registerByEmail": "Dengan menekan tombol 'Daftar', saya mengetahui dan menyetujui {TERMS_AND_CONDITIONS} serta {PRIVACY_POLICY} dari {BRAND_NAME}.",
     "shippingMethod": "Dengan menekan tombol 'Buat Pesanan', saya mengetahui dan menyetujui {TERMS_AND_CONDITIONS} serta {PRIVACY_POLICY} dari {BRAND_NAME}.",
-    "termsAndCondition": "Syarat & Ketentuan",
+    "termsAndConditions": "Syarat & Ketentuan",
     "whatsappOTP": "Dengan menekan tombol 'Masuk/Daftar', saya setuju untuk menerima pemberitahuan melalui WhatsApp dan mengetahui {TERMS_AND_CONDITIONS} serta {PRIVACY_POLICY} dari {BRAND_NAME}."
   },
   "error": {
@@ -254,8 +254,9 @@
   },
   "home": {
     "close": "Tutup",
-    "loading": "Mohon Menunggu",
     "featureProduct": "Produk Unggulan",
+    "later": "Nanti saja",
+    "loading": "Mohon Menunggu",
     "newProduct": "Terbaru",
     "ourProduct": "Produk Kami",
     "preOrder": "Pre-order",
@@ -325,6 +326,7 @@
     "upLevelPrompt": "Tinggal {MINIMUM_ORDER} transaksi pembelian untuk mencapai {NEXT_LEVEL}",
     "usePoints": "Gunakan Poin Anda",
     "warning": "Anda tidak bisa mendapatkan poin dari transaksi pembelian dengan menggunakan poin",
+    "youHave": "Anda memiliki",
     "yourPoints": "Poin Anda"
   },
   "newsletter": {

@@ -54,6 +54,7 @@ const classesRegister = {
   verificationContainerClassName: 'mt-2 mb-4 p-0',
   buttonClassName: `${styleButton.btn} ${styleButton.btn_primary}`,
   disclaimerMessageContainerClassName: styleDisclaimer.disclaimerMessageContainer,
+  disclaimerMessageLinkClassName: styleDisclaimer.disclaimerMessageLink,
 }
 
 const classesWhatsAppOTP = {
@@ -162,7 +163,7 @@ const RegisterPage: FC<any> = ({
             <div className={styleLogin.login_container}>
               <Register
                 classes={classesRegister}
-                withHeaderLabel={true}
+                withHeaderLabel
                 onErrorMsg={(msg) => toast.error(msg)}
                 onSuccessMsg={(msg) => toast.success(msg)}
                 redirectPage={() => router.push(`/[lng]/login`, `/${lng}/login`)}
@@ -171,7 +172,7 @@ const RegisterPage: FC<any> = ({
                 passwordFulfilledCriteriaIcon={<RiCheckboxCircleFill color="#53B671" size={10} />}
                 passwordUnfulfilledCriteriaIcon={<RiCheckboxCircleLine color="#BCBCBC" size={10} />}
                 datePickerCalendarIcon={<></>}
-                withVerification={true}
+                withVerification
                 isVerified={isVerified}
                 loadingComponent={<Loader color="text-light" />}
                 verificationComponent={
