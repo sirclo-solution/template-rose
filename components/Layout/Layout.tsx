@@ -14,7 +14,7 @@ import Footer from '../Footer/Footer'
 import SEOHead from '../SEO'
 import PageNotFound from 'components/PageNotFound'
 import Copyright from 'components/Copyright'
-import Newsletters from 'components/Newsletter'
+import Newsletter from 'components/Newsletter'
 import GoogleTagManager from 'components/GoogleTagManager'
 
 type LayoutPropType = {
@@ -48,7 +48,6 @@ const Layout: FC<LayoutPropType> = ({
 }) => {
   const router: any = useRouter()
   const [isSticky, setSticky] = useState<boolean>(false)
-  const newsletterSetting = brand?.settings?.newsletter?.popupOnFirstVisit
 
   const handleScroll = () => {
     const offset = window.scrollY
@@ -161,9 +160,7 @@ const Layout: FC<LayoutPropType> = ({
       </main>
       { /* @ts-ignore */ }
       <ToastContainer />
-      {newsletterSetting &&
-        <Newsletters i18n={i18n} brand={brand} />
-      }
+      <Newsletter i18n={i18n} brand={brand} />
     </GoogleTagManager>
     </>
   )

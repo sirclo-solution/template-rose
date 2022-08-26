@@ -57,16 +57,12 @@ const Newsletters: FC<TNewsletterPopup> = ({ i18n, brand }) => {
   return (
     <>
     {displayPopup && 
-      <div className={styles.newsletter_overlay}>
+      <div className={styles.newsletter_overlay} onClick={handleClose}>
         <div className={styles.newsletter_popupContainer}>
           <Newsletter
             classes={classesNewsletter}
             withForm
-            noThanksButton={
-              <span onClick={handleClose}>
-                {i18n.t("home.later")}
-              </span>
-            }
+            noThanksButton={i18n.t("home.later")}
             buttonComponent={i18n.t("newsletter.subscribe")}
             onComplete={() => toast.success(i18n.t("newsletter.submitSuccess"))}
             onError={() => toast.error(i18n.t("newsletter.submitError"))}

@@ -4,12 +4,12 @@
 {
   &_overlay
   {
-    @include fixed(0,0,0,0);
+    @include fixed(0, 0, 0, 0);
+    @include flex(row, flex-end, center);
     background: rgba($color_black, 0.7);
     transition: opacity 500ms;
     opacity: 1;
     z-index: 20;
-    @include flex(row,flex-end,center);
 
     &:empty
     {
@@ -19,10 +19,11 @@
 
   &_popupContainer
   {
+    @include fixedWidth(100vw);
+    max-height: 75vh;
     padding: 32px 16px 24px;
     background: $color_white;
     border-radius: 4px;
-    @include fixedWidth(100vw);
     position: relative;
     transition: all .3s ease-in-out;
     overflow-y: auto;
@@ -39,7 +40,7 @@
 
     p
     {
-      @include typographyBuilder(secondary,400,12,16);
+      @include typographyBuilder(secondary, 400 ,12 ,16);
       text-align: center;
       background-color: $color_rose_bg2;
       padding: 12px;
@@ -59,7 +60,7 @@
 
     h1,h2,h3,h4,h5,h6
     {
-      @include typographyBuilder(secondary,500,20,24);
+      @include typographyBuilder(secondary, 500, 20, 24);
       text-align: center;
       margin: 8px 0 12px 0;
     }
@@ -79,14 +80,12 @@
   {
     order: 1;
     width: 100%;
-    max-height: 114px;
     border-radius: 2px;
     margin-bottom: 24px;
   }
 
   &_image
   {
-    object-fit: contain;
     width: 100%;
     height: 100%;
 
@@ -105,7 +104,7 @@
     height: 58px;
     position: relative;
     border-radius: 37px;
-    padding: 16px 24px 0 24px;
+    padding: 16px 24px 0;
     border: 1px solid $color_elements_lines;
     box-sizing: border-box;
   }
@@ -115,8 +114,8 @@
     @include typographyBuilder(secondary, 500, 10, 16);
     position: absolute;
     z-index: 1;
-    color: #898989;
-    padding: 9px 24px 0 24px;
+    color: $color_text_secondary;
+    padding: 9px 24px 0;
   }
 
   &_buttonSubmit
