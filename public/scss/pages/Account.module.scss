@@ -100,23 +100,55 @@
     margin: 12px 17px 0 17px;
     background-color: $color_rose_bg2;
     padding: 16px;
+    border-radius: 6px;
 
     & > p 
     {
-      color: $color_text_secondary;
       @include typographyBuilder(secondary,400,12,16);
+      color: $color_text_secondary;
+      margin-bottom: 0;
     }
+  }
+
+  &_groupStatus
+  {
+    @include flex(row, center, flex-start);
+    margin: 12px 17px 0 17px;
+    background-color: $color_rose_bg2;
+    padding: 16px;
+    border-radius: 6px;
+  }
+
+  &_group
+  {
+    @include typographyBuilder(secondary,500,12,16);
+    color: $color_text_primary;
+    margin-bottom: 0;
+
+    &::after
+    {
+      content: '\2022';
+      margin: 0 4px;
+    }      
+  }
+
+  &_totalGroupPoints
+  {
+    @include typographyBuilder(secondary,400,12,16);
+    color: $color_text_secondary;
+    margin-bottom: 0;
   }
   
   &_accordion
   {
-    padding-bottom: 12px;
+    padding-bottom: 3px;
     @include flex(row,normal,space-between);
 
     & > p 
     {
-      color: $color_text_secondary;
       @include typographyBuilder(secondary,400,12,16);
+      color: $color_text_secondary;
+      margin-bottom: 0;
     }
 
     &_toggle
@@ -125,8 +157,9 @@
 
       & > p 
       {
-        color: $color_text_primary;
         @include typographyBuilder(secondary,500,12,16);
+        color: $color_text_primary;
+        margin-bottom: 0;
       }
     }
 

@@ -57,6 +57,9 @@ const classesAccount = {
   accordionToggleClassName: styleAccount.membership_accordion_toggle,
   accordionIconClassName: styleAccount.membership_accordion_icon,
   membershipProgressClassName: styleAccount.membership_progress,
+  membershipGroupStatusClassName: styleAccount.membership_groupStatus,
+  membershipGroupClassName: styleAccount.membership_group,
+  totalGroupPointsClassName: styleAccount.membership_totalGroupPoints, 
   datePickerInputClassName: styleDatePicker.datePicker,
   // account
   myAccountContentClassName: styleAccount.myAccount,
