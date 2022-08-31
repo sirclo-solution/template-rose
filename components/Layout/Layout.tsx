@@ -54,6 +54,8 @@ const Layout: FC<LayoutPropType> = ({
     setSticky(offset > 0)
   }
 
+  const newsletterSetting = brand?.settings?.newsletter?.popupOnFirstVisit
+
   useEffect(() => {
     i18n?.locale(lng, lngDict)
   }, [lng, lngDict])
@@ -158,9 +160,10 @@ const Layout: FC<LayoutPropType> = ({
           <Copyright brand={brand} />
         }
       </main>
-      { /* @ts-ignore */ }
       <ToastContainer />
-      <Newsletter i18n={i18n} brand={brand} />
+      {newsletterSetting &&
+        <Newsletter i18n={i18n} brand={brand} />
+      }
     </GoogleTagManager>
     </>
   )
