@@ -105,6 +105,19 @@
   {
     @include flex(row,center,center);
 
+    & > div 
+    {
+      @include flex(row, center, center);
+      margin: 0 12px;
+      border-radius: 50px; 
+      box-shadow: none;
+      background: $color_rose_bg2; 
+      width: 54px;
+      height: 54px !important;
+      border: none;
+      box-shadow: none !important;
+    }
+
     & > span 
     {
       & > button

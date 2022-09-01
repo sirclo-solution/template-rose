@@ -29,6 +29,8 @@ const classesOrderSummary = {
   subTotalClassName: styleOrderSummary.orderSummary_subTotal,
   expandButtonClassName: styleOrderSummary.orderSummary_button__expand,
   expandedDivClassName: styleOrderSummary.orderSummary_expanded,
+  disclaimerMessageContainerClassName: 'd-none',
+  deductionPriceClassName: styleOrderSummary.orderSummary_deductedPrice,
   /* pop up */
   popupClassName: styleOrderSummary.orderSummary_popup,
   closeButtonClassName: styleOrderSummary.orderSummary_closeButton,
@@ -36,6 +38,8 @@ const classesOrderSummary = {
   voucherContainerClassName: styleOrderSummary.orderSummary_voucherContainer,
   voucherFormContainerClassName: styleOrderSummary.orderSummary_voucherFormContainer,
   voucherListClassName: styleOrderSummary.orderSummary_voucherList,
+  voucherBankLogoContainerClassName: styleOrderSummary.orderSummary_voucherBankContainer,
+  voucherBankLogoImageClassName: styleOrderSummary.orderSummary_voucherBankImage,
   /* voucher */
   voucherButtonClassName: styleOrderSummary.orderSummary_voucherButton,
   voucherIconClassName: styleOrderSummary.orderSummary_voucherIcon,
@@ -200,6 +204,10 @@ const OrderSummaryComponent: FC<iProps> = ({
             loadingComponent={<Loader />}
             isCouponAccordion={true}
             withCouponTitle
+            couponLoadingComponent={
+              <div className={styleOrderSummary.orderSummary_voucherLoading}>
+                <Loader />
+              </div>}
             emptyComponentCoupon={
               <div className={styleOrderSummary.orderSummary_voucherEmpty}>
                 <p>{i18n.t("coupon.empty")}</p>

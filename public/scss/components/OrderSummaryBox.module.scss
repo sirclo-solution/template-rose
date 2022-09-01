@@ -209,6 +209,19 @@
                 position: relative;
             }
         }
+
+        & div:not(:first-child)
+        {
+            & span:not(:first-child)[class*="orderSummary_deductedPrice"]
+            {
+                color: $color_error;
+            }
+        }
+    }
+
+    &_deductedPrice
+    {
+        color: unset;
     }
 
     &_header
@@ -217,6 +230,30 @@
     }
 
     /* Voucher */
+    &_voucherBankContainer
+    {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 8px;
+        row-gap: 4px;
+        padding: 4px 5px 4px 12px;
+        background-color: $color_rose_bg2;
+    }
+
+    &_voucherBankImage
+    {
+        height: 24px;
+        width: 40px;
+        object-fit: contain;
+    }
+
+    &_voucherLoading
+    {
+        @include flex(column, center, center);
+        min-height: 100px;
+        position: relative;
+    }
+
     &_voucherButton
     {
         @include fixedHeight(60px);
@@ -431,6 +468,13 @@
         @extend .btn_primary;
         @include typographyBuilder(secondary, 400, 12, 18);
         @include fixedWidth(30%);
+
+        div
+        {
+            min-height: unset;
+            padding: 0 17px;
+            margin: 0;
+        }
     }
 
     &_voucherListHeader
