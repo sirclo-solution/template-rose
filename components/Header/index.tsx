@@ -102,9 +102,9 @@ const Header: FC<any> = ({
           }
         >
           {headerTitle ?
-            <h3 className={styleHeader.header_title}>
+            <h1 className={styleHeader.header_title}>
               {headerTitle}
-            </h3> :
+            </h1> :
             <LazyLoadComponent
               placeholder={
                 <Placeholder classes={classesPlaceholderLogo} withImage={true} />
