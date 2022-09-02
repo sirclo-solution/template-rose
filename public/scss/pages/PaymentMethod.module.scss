@@ -277,6 +277,11 @@
       }
     }
 
+    &_deductionPrice
+    {
+      color: $color_error;
+    }
+
     &__price
     {
       margin-left: 5px;

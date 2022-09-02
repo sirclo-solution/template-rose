@@ -244,6 +244,11 @@ const RegisterPage: FC<any> = ({
                   {(hasGoogleAuth || hasFacebookAuth) &&
                     <SingleSignOn
                       className={styleLogin.login_containerAuth_item}
+                      googleButtonText={'signin_with'}
+                      googleButtonSize={'medium'}
+                      googleButtonType={'icon'}
+                      googleButtonTheme={'outline'}
+                      googleButtonShape={'circle'}
                       loadingComponent={
                         <div>
                           <LoaderPages />

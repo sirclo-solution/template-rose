@@ -67,6 +67,7 @@ const classesListPaymentMethod = {
   paymentDetailsRowClassName: styles.payment_listItemTableRow,
   paymentDetailsLabelClassName: styles.payment_listItemTableRow__label,
   paymentDetailsValueClassName: styles.payment_listItemTableRow__value,
+  paymentDetailsDeductionClassName: styles.payment_listItemTableRow_deductionPrice,
   // footer
   paymentMethodDetailFooterClassName: styles.payment_footer,
   promotionButtonGroupClassName: styles.payment_footer__promotion,
@@ -77,7 +78,7 @@ const classesListPaymentMethod = {
   voucherFormContainerClassName: styleOrderSummary.orderSummary_voucherFormContainer,
   voucherFormClassName: styleOrderSummary.orderSummary_voucherForm,
   voucherInputClassName: styleOrderSummary.orderSummary_voucherInput,
-  voucherSubmitButtonClassName: `${styleBtn.btn} ${styleBtn.btn_primary} ${styles.payment_voucherSubmitButton}`,
+  voucherSubmitButtonClassName: styleOrderSummary.orderSummary_voucherSubmitButton,
   voucherListClassName: styleOrderSummary.orderSummary_voucherList,
   voucherListHeaderClassName: styleOrderSummary.orderSummary_voucherListHeader,
   voucherClassName: styleOrderSummary.orderSummary_voucher,
@@ -87,6 +88,8 @@ const classesListPaymentMethod = {
   voucherAppliedTextClassName: styleOrderSummary.orderSummary_voucherAppliedText,
   voucherButtonRemoveClassName: styleOrderSummary.orderSummary_voucherButtonRemove,
   voucherApplyButtonClassName: `${styleBtn.btn} ${styleBtn.btn_primary}`,
+  voucherBankLogoContainerClassName: styleOrderSummary.orderSummary_voucherBankContainer,
+  voucherBankLogoImageClassName: styleOrderSummary.orderSummary_voucherBankImage,
   agreementContainerClassName: styles.payment_footer__agreement,
   agreementCheckboxClassName: styles.payment_footer__check,
   buttonContainerClassName: styles.payment_footer__button,
@@ -291,6 +294,11 @@ const PaymentMethods: FC<any> = ({
             onErrorMsgCoupon={(msg) => toast.error(msg)}
             isCouponAccordion={true}
             withCouponTitle
+            couponLoadingComponent={
+              <div className={styleOrderSummary.orderSummary_voucherLoading}>
+                <Loader />
+              </div>
+            }
             emptyComponentCoupon={
               <div className={styleOrderSummary.orderSummary_voucherEmpty}>
                 <p>{i18n.t("coupon.empty")}</p>
