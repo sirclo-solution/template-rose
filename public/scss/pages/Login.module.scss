@@ -108,12 +108,11 @@
     & > div 
     {
       @include flex(row, center, center);
+      @include fixedSize(54px);
       margin: 0 12px;
       border-radius: 50px; 
       box-shadow: none;
-      background: $color_rose_bg2; 
-      width: 54px;
-      height: 54px !important;
+      background: $color_rose_bg2;
       border: none;
       box-shadow: none !important;
     }
