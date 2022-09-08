@@ -1,5 +1,10 @@
 /* library package */
-import { FC, useState } from 'react'
+import {
+  FC,
+  useEffect,
+  useRef,
+  useState
+} from 'react'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { useRouter } from 'next/router'
 import { toast } from 'react-toastify'
@@ -116,6 +121,7 @@ const RegisterPage: FC<any> = ({
   const i18n: any = useI18n()
   const router: any = useRouter()
   const query = router?.query || {}
+  const recaptchaRef = useRef<any>()
 
   const STEPS = {
     WA: 'whatsapp-input',
@@ -124,6 +130,12 @@ const RegisterPage: FC<any> = ({
 
   const [step, setStep] = useState<string>(STEPS.WA)
   const [isVerified, setIsVerified] = useState<boolean>(false)
+
+  const getReCAPTCHAToken = async () => {
+    const token = await recaptchaRef.current.executeAsync()
+    recaptchaRef.current.reset()
+    return token
+  }
 
   const brandName = (brand: string): string => {
     const lower = brand?.toLowerCase()
@@ -145,6 +157,23 @@ const RegisterPage: FC<any> = ({
     },
     layoutClassName: 'layout_fullHeight'
   }
+
+  useEffect(() => {
+    if (!document.body.classList.contains("auth"))
+      document.body.classList.add("auth")
+  }, [])
+
+  useEffect(() => {
+    const removeAuthClassName = () => {
+      document.body.classList.remove("auth")
+    }
+
+    router.events.on('routeChangeComplete', removeAuthClassName)
+
+    return () => {
+      router.events.off('routeChangeComplete', removeAuthClassName)
+    }
+  }, [])
 
   return (
     <Layout {...layoutProps}>
@@ -192,6 +221,7 @@ const RegisterPage: FC<any> = ({
             }
             <div className={`${styleLogin.login_container} pt-2`}>
               <WhatsAppOTPInput
+                getReCAPTCHAToken={getReCAPTCHAToken}
                 brandName={brandName(brand?.name)}
                 onStepChange={setStep}
                 classes={classesWhatsAppOTP}
@@ -279,6 +309,11 @@ const RegisterPage: FC<any> = ({
           </div>
         }
       </div>
+      <ReCAPTCHA
+        ref={recaptchaRef}
+        sitekey={process.env.NEXT_PUBLIC_SITEKEY_RECAPTCHA_INVISIBLE}
+        size='invisible'
+      />
     </Layout>
   )
 }
