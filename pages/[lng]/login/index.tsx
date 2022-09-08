@@ -154,6 +154,18 @@ const LoginPage: FC<any> = ({
       document.body.classList.add("auth")
   }, [])
 
+  useEffect(() => {
+    const removeAuthClassName = () => {
+      document.body.classList.remove("auth")
+    }
+
+    router.events.on('routeChangeComplete', removeAuthClassName)
+
+    return () => {
+      router.events.off('routeChangeComplete', removeAuthClassName)
+    }
+  }, [])
+
   return (
     <Layout {...layoutProps}>
       <SEO title={i18n.t('login.title')} />
