@@ -1,8 +1,9 @@
 /* library package */
-import { 
-  FC, 
-  useRef, 
-  useState 
+import {
+  FC,
+  useEffect,
+  useRef,
+  useState
 } from 'react'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { useRouter } from 'next/router'
@@ -156,6 +157,11 @@ const RegisterPage: FC<any> = ({
     },
     layoutClassName: 'layout_fullHeight'
   }
+
+  useEffect(() => {
+    if (!document.body.classList.contains("auth"))
+      document.body.classList.add("auth")
+  }, [])
 
   return (
     <Layout {...layoutProps}>

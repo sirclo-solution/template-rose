@@ -1,5 +1,29 @@
 @import './utils/variables';
 
+body
+{
+  &[class*="auth"]
+  {
+    [id*="gb-widget-"]
+    {
+      bottom: calc(86px) !important;
+    }
+
+    @media (max-width: 575px)
+    {
+      [id*="gb-widget-"]
+      {
+        bottom: calc(86px + 72px) !important;
+      }
+
+      [class*="grecaptcha-badge"]
+      {
+        bottom: calc(14px + 72px) !important;
+      }
+    }
+  }
+}
+
 .page-transition
 {
   &-enter

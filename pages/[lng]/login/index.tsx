@@ -1,8 +1,9 @@
 /* library package */
-import { 
-  FC, 
-  useRef, 
-  useState 
+import {
+  FC,
+  useEffect,
+  useRef,
+  useState
 } from 'react'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { useRouter } from 'next/router'
@@ -147,6 +148,11 @@ const LoginPage: FC<any> = ({
       title: i18n.t("login.title")
     }
   }
+
+  useEffect(() => {
+    if (!document.body.classList.contains("auth"))
+      document.body.classList.add("auth")
+  }, [])
 
   return (
     <Layout {...layoutProps}>
