@@ -1,5 +1,9 @@
 /* library package */
-import { FC, useRef, useState } from 'react'
+import { 
+  FC, 
+  useRef, 
+  useState 
+} from 'react'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { useRouter } from 'next/router'
 import { toast } from 'react-toastify'
@@ -116,7 +120,7 @@ const RegisterPage: FC<any> = ({
   const i18n: any = useI18n()
   const router: any = useRouter()
   const query = router?.query || {}
-  const recaptchaRef = useRef<any>();
+  const recaptchaRef = useRef<any>()
 
   const STEPS = {
     WA: 'whatsapp-input',
