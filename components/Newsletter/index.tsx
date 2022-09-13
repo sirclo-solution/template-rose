@@ -35,11 +35,11 @@ type TNewsletterPopup = {
 const Newsletters: FC<TNewsletterPopup> = ({ i18n, brand }) => {
   const size: any = useWindowSize()
   const newsletterContent = brand?.settings?.newsletter?.content
-
+  
   const [displayPopup, setDisplayPopup] = useState<boolean>(true)
 
   useEffect(() => {
-    if (newsletterContent) {
+    if (newsletterContent || newsletterContent == "") {
       if (Cookies.get('POPUP_NEWSLETTER_CLOSED') == undefined) {
         setDisplayPopup(Cookies.get('POPUP_NEWSLETTER') == undefined ? true : false)
       } else {
@@ -56,25 +56,25 @@ const Newsletters: FC<TNewsletterPopup> = ({ i18n, brand }) => {
 
   return (
     <>
-    {displayPopup && 
-      <div className={styles.newsletter_overlay} onClick={handleClose}>
-        <div className={styles.newsletter_popupContainer}>
-          <Newsletter
-            classes={classesNewsletter}
-            withForm
-            noThanksButton={i18n.t("home.later")}
-            buttonComponent={i18n.t("newsletter.subscribe")}
-            onComplete={() => toast.success(i18n.t("newsletter.submitSuccess"))}
-            onError={() => toast.error(i18n.t("newsletter.submitError"))}
-            thumborSetting={{
-              width: size.width < 768 ? 512 : 800,
-              format: 'webp',
-              quality: 85,
-            }}
-          />
+      {displayPopup &&
+        <div className={styles.newsletter_overlay} onClick={handleClose}>
+          <div className={styles.newsletter_popupContainer}>
+            <Newsletter
+              classes={classesNewsletter}
+              withForm
+              noThanksButton={i18n.t("home.later")}
+              buttonComponent={i18n.t("newsletter.subscribe")}
+              onComplete={() => toast.success(i18n.t("newsletter.submitSuccess"))}
+              onError={() => toast.error(i18n.t("newsletter.submitError"))}
+              thumborSetting={{
+                width: size.width < 768 ? 512 : 800,
+                format: 'webp',
+                quality: 85,
+              }}
+            />
+          </div>
         </div>
-      </div>
-    }
+      }
     </>
   )
 }

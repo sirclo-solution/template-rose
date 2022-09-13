@@ -166,8 +166,9 @@
 
   &_moreShipping
   {
+    @include typographyBuilder(secondary, 500, 12, 16);
+    color: $color_rose;
     cursor: pointer;
-    padding: 16px;
-    border: 1px solid $color_border;
+    margin: 24px 0 28px;
   }
 }
