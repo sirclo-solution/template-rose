@@ -226,6 +226,8 @@
     "changeCart": "Change Cart",
     "checkoutTitle": "Check Order",
     "continueShopping": "Continue Shopping",
+    "day": "day",
+    "days": "days",
     "emailInvalid": "Email is invalid, please check the spelling.",
     "error": "Error",
     "links": "Links",

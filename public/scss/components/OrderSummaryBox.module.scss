@@ -232,19 +232,33 @@
     /* Voucher */
     &_voucherBankContainer
     {
-        display: flex;
-        flex-wrap: wrap;
-        column-gap: 8px;
-        row-gap: 4px;
-        padding: 4px 5px 4px 12px;
-        background-color: $color_rose_bg2;
+        display: contents;
+
+        img, span
+        {
+            display: inline-block;
+            vertical-align: top;
+            margin: 8px 8px 8px 0;
+        }
+
+        span
+        {
+            min-height: 15px;
+            height: 15px;
+            max-height: 15px;
+            font-size: 12px;
+            line-height: 16px;
+            position: relative;
+            padding: 0 2px;
+            min-width: 40px;
+            white-space: nowrap;
+            word-break: keep-all;
+        }
     }
 
     &_voucherBankImage
     {
-        height: 24px;
-        width: 40px;
-        object-fit: contain;
+        height: 12px;
     }
 
     &_voucherLoading
@@ -526,12 +540,26 @@
         padding: 0;
         background-color: $color_rose_bg1;
         border: 1px solid $color_rose_bg2;
-        border-radius: 6px;
+        border-radius: 3px;
         cursor: pointer;
     }
 
     &_voucherDetail
     {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: left;
+        background: $color_rose_bg2;
+        position: relative;
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+        margin: 0;
+        padding: 0 12px;
+        overflow: hidden;
+        width: 100%;
+        cursor: pointer;
+        
         & > p:first-child 
         {
             @include typographyBuilder(secondary, 500, 14, 18);
@@ -659,8 +687,14 @@
 
     &_voucherDetailHeader
     {
-        position: relative;
-        padding: 12px 12px 0;
+        padding: 12px 12px;
+        background-color: $color_rose_bg1;
+        min-width: calc(100% + (12px * 2));
+        width: calc(100% + (12px * 2));
+        max-width: calc(100% + (12px * 2));
+        flex-grow: 1;
+        margin-left: -12px;
+        margin-right: -12px;
     }
 
     &_voucherDetailCode
@@ -725,12 +759,15 @@
 
     &_voucherDetailEstimate
     {
-        @include flex(column, stretch, flex-start);
-        @include fixedWidth(100%);
-        position: relative;
-        margin: 12px 0 0;
-        padding: 8px 0;
+        min-width: calc(100% + (12px * 2));
+        width: calc(100% + (12px * 2));
+        max-width: calc(100% + (12px * 2));
+        flex-grow: 1;
+        margin-left: -12px;
+        margin-right: -12px;
+        padding: 12px 0;
         border-top: dashed 1px $color_border;
+        background-color: $color_rose_bg1;
     }
 
     &_voucherDetailEstimateDesc
