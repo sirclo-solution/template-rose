@@ -258,7 +258,9 @@
 
     &_voucherBankImage
     {
-        height: 12px;
+        height: 14px;
+        width: 40px;
+        object-fit: contain;
     }
 
     &_voucherLoading
