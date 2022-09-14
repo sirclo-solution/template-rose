@@ -234,25 +234,11 @@
     {
         display: contents;
 
-        img, span
+        img
         {
             display: inline-block;
             vertical-align: top;
             margin: 8px 8px 8px 0;
-        }
-
-        span
-        {
-            min-height: 15px;
-            height: 15px;
-            max-height: 15px;
-            font-size: 12px;
-            line-height: 16px;
-            position: relative;
-            padding: 0 2px;
-            min-width: 40px;
-            white-space: nowrap;
-            word-break: keep-all;
         }
     }
 
@@ -548,10 +534,7 @@
 
     &_voucherDetail
     {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: flex-start;
-        justify-content: left;
+        @include flex(row, flex-start, flex-start, true);
         background: $color_rose_bg2;
         position: relative;
         border-bottom-left-radius: 3px;
@@ -689,11 +672,9 @@
 
     &_voucherDetailHeader
     {
-        padding: 12px 12px;
+        @include fixedWidth(calc(100% + (12px * 2)));
+        padding: 12px;
         background-color: $color_rose_bg1;
-        min-width: calc(100% + (12px * 2));
-        width: calc(100% + (12px * 2));
-        max-width: calc(100% + (12px * 2));
         flex-grow: 1;
         margin-left: -12px;
         margin-right: -12px;
@@ -761,9 +742,7 @@
 
     &_voucherDetailEstimate
     {
-        min-width: calc(100% + (12px * 2));
-        width: calc(100% + (12px * 2));
-        max-width: calc(100% + (12px * 2));
+        @include fixedWidth(calc(100% + (12px * 2)));
         flex-grow: 1;
         margin-left: -12px;
         margin-right: -12px;
