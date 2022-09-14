@@ -40,6 +40,8 @@ const classesOrderSummary = {
   voucherListClassName: styleOrderSummary.orderSummary_voucherList,
   voucherBankLogoContainerClassName: styleOrderSummary.orderSummary_voucherBankContainer,
   voucherBankLogoImageClassName: styleOrderSummary.orderSummary_voucherBankImage,
+  voucherShipperLogoContainerClassName: styleOrderSummary.orderSummary_voucherBankContainer,
+  voucherShipperLogoImageClassName: styleOrderSummary.orderSummary_voucherBankImage,
   /* voucher */
   voucherButtonClassName: styleOrderSummary.orderSummary_voucherButton,
   voucherIconClassName: styleOrderSummary.orderSummary_voucherIcon,

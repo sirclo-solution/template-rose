@@ -90,6 +90,8 @@ const classesListPaymentMethod = {
   voucherApplyButtonClassName: `${styleBtn.btn} ${styleBtn.btn_primary}`,
   voucherBankLogoContainerClassName: styleOrderSummary.orderSummary_voucherBankContainer,
   voucherBankLogoImageClassName: styleOrderSummary.orderSummary_voucherBankImage,
+  voucherShipperLogoContainerClassName: styleOrderSummary.orderSummary_voucherBankContainer,
+  voucherShipperLogoImageClassName: styleOrderSummary.orderSummary_voucherBankImage,
   agreementContainerClassName: styles.payment_footer__agreement,
   agreementCheckboxClassName: styles.payment_footer__check,
   buttonContainerClassName: styles.payment_footer__button,
