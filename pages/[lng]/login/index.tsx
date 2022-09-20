@@ -50,7 +50,7 @@ const loginClasses = {
   buttonClassName: `${styleButton.btn} ${styleButton.btn_primary}`,
   signUpText: `${styleButton.btn} ${styleButton.btn_secondary} ${styleLogin.login_signUp}`,
   forgotPasswordClass: styleLogin.login_forgotContainer,
-  disclaimerMessageContainerClassName: styleDisclaimer.disclaimerMessageContainer,
+  disclaimerMessageContainerClassName: 'd-none',
   disclaimerMessageLinkClassName: styleDisclaimer.disclaimerMessageLink,
 }
 
