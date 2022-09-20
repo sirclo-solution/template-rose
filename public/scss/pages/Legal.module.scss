@@ -1,0 +1,75 @@
+@import '../utils/variables';
+
+.legal
+{
+  &_root
+  {
+    @include flex(row, flex-start, space-between, true);
+    margin: 58px 17.5px;
+    padding: 16px 0 40px;
+  }
+
+  &_container
+  {
+    @include flex(row, flex-start, space-between, true);
+    @include fontSize(15);
+    @include lineHeight(24);
+
+    color: $color_text_primary;
+    padding-top: 24px;
+    position: relative;
+    text-align: justify;
+    text-justify: inter-word;
+
+    p
+    {
+      @include typographyBuilder(secondary, 400, 14, 24);
+    }
+
+    & > p
+    {
+      width: 100%;
+    }
+  }
+
+  &_categories
+  {   
+      &Container
+      {
+        margin: 0 20px;
+      }
+
+      &List
+      {
+        @include flex(column, flex-start, flex-start, false);
+        margin: 0;
+        padding: 0;
+        white-space: nowrap;
+      }
+
+      &Item
+      {
+        @include typographyBuilder(secondary, 400, 14, 24);
+        text-decoration: none; 
+        margin: 0 10px;
+        padding: 12px;
+        border-radius: 6px;
+        cursor: pointer;
+
+        &:hover
+        {
+          text-decoration: underline;
+        }
+
+        &:first-child
+        {
+          padding-top: 0;
+        }
+
+        &Active
+        {
+          font-weight: bold;
+        }
+      }
+  }
+}
