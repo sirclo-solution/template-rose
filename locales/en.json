@@ -181,13 +181,12 @@
     "changePin": "Change Pin"
   },
   "disclaimer": {
-    "contact": "By clicking the 'Submit' button, the Customer expresses approval if the Merchant uses the details provided to contact the Customer about your special request or question. Visit the {PRIVACY_POLICY} page for details on how we manage customer information.",
-    "loginByEmail": "By clicking 'Login', you agree and acknowledge {TERMS_AND_CONDITIONS} and {PRIVACY_POLICY} of {BRAND_NAME}.",
+    "contact": "By clicking 'Submit', I acknowledge and agree to the {PRIVACY_POLICY} and I approve of merchant using the contact details provided to respond to my inquiries.",
     "privacyPolicy": "Privacy Policy",
-    "registerByEmail": "By clicking 'Register', you agree and acknowledge {TERMS_AND_CONDITIONS} and {PRIVACY_POLICY} of {BRAND_NAME}.",
-    "shippingMethod": "By clicking 'Place Order' you agree and acknowledge {TERMS_AND_CONDITIONS} and {PRIVACY_POLICY} of {BRAND_NAME}.",
+    "registerByEmail": "By clicking 'Register', I acknowledge and agree to the {TERMS_AND_CONDITIONS} and {PRIVACY_POLICY} of {BRAND_NAME}.",
+    "shippingMethod": "By clicking 'Order', I acknowledge and agree to the {TERMS_AND_CONDITIONS} and {PRIVACY_POLICY} of {BRAND_NAME}.",
     "termsAndConditions": "Terms & Conditions",
-    "whatsappOTP": "By clicking 'Login/Register' you agree to receive notifications via WhatsApp and acknowledge {TERMS_AND_CONDITIONS} and {PRIVACY_POLICY} from {BRAND_NAME}."
+    "whatsappOTP": "By clicking 'Login/Register', I agree to receive notifications via WhatsApp and acknowledge the {TERMS_AND_CONDITIONS} and {PRIVACY_POLICY} of {BRAND_NAME}."
   },
   "error": {
     "2900067": "Failed get price",
@@ -266,6 +265,11 @@
   },
   "instagram": {
     "cta": "follow us on instagram"
+  },
+  "legal": {
+    "privacyPolicy": "Privacy Policy",
+    "refundPolicy": "Refund Policy",
+    "termsAndConditions": "Terms & Conditions"
   },
   "loader": {
     "loading": "Loading"
