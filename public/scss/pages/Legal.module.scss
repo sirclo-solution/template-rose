@@ -33,37 +33,25 @@
   }
 
   &_categories
-  {   
-      &Container
-      {
-        margin: 0 20px;
-      }
-
+  {
       &List
       {
         @include flex(column, flex-start, flex-start, false);
-        margin: 0;
         padding: 0;
-        white-space: nowrap;
+        list-style: none;
       }
 
       &Item
       {
         @include typographyBuilder(secondary, 400, 14, 24);
-        text-decoration: none; 
-        margin: 0 10px;
-        padding: 12px;
-        border-radius: 6px;
+        text-decoration: none;
+        margin-right: 10px;
+        padding: 12px 12px 12px 0;
         cursor: pointer;
 
         &:hover
         {
           text-decoration: underline;
-        }
-
-        &:first-child
-        {
-          padding-top: 0;
         }
 
         &Active

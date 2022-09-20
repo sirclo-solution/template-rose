@@ -1,19 +1,19 @@
 /* library package */
 import { FC, useState } from 'react'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
+import { useRouter } from 'next/router'
 import {
   Legal,
   LegalCategories,
   useI18n
 } from '@sirclo/nexus'
-import { useRouter } from 'next/router'
 
 /* library template */
 import { useBrand } from 'lib/useBrand'
 
 /* components */
-import Layout from 'components/Layout/Layout'
 import Breadcrumb from 'components/Breadcrumb/Breadcrumb'
+import Layout from 'components/Layout/Layout'
 import LoaderPages from 'components/Loader/LoaderPages'
 import SEO from 'components/SEO'
 
@@ -88,11 +88,15 @@ export const getServerSideProps: GetServerSideProps = async ({
   req
 }) => {
   const brand = await useBrand(req)
+  const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
+  const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
   const { slug } = params
 
   return {
     props: {
-      ...brand,
+      brand: brand || "",
+      lng: defaultLanguage,
+      lngDict,
       slug,
     },
   }
