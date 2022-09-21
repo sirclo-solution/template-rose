@@ -5,7 +5,7 @@
   &_root
   {
     @include flex(row, flex-start, space-between, true);
-    margin: 58px 17.5px;
+    margin: 58px 18px;
     padding: 16px 0 40px;
   }
 
@@ -34,30 +34,37 @@
 
   &_categories
   {
-      &List
+    &Container
+    {
+      width: 100%;
+    }
+
+    &List
+    {
+      @include flex(column, flex-start, flex-start, false);
+      border-top: 1px solid $color_border;
+      width: 100%;
+      padding: 12px 0;
+      list-style: none;
+    }
+
+    &Item
+    {
+      @include typographyBuilder(secondary, 400, 14, 24);
+      text-decoration: none;
+      margin-right: 10px;
+      padding: 12px 12px 12px 0;
+      cursor: pointer;
+
+      &:hover
       {
-        @include flex(column, flex-start, flex-start, false);
-        padding: 0;
-        list-style: none;
+        color: $color_rose !important;
       }
 
-      &Item
+      &Active
       {
-        @include typographyBuilder(secondary, 400, 14, 24);
-        text-decoration: none;
-        margin-right: 10px;
-        padding: 12px 12px 12px 0;
-        cursor: pointer;
-
-        &:hover
-        {
-          text-decoration: underline;
-        }
-
-        &Active
-        {
-          font-weight: bold;
-        }
+        font-weight: bold;
       }
+    }
   }
 }

@@ -78,8 +78,8 @@ const LegalPage: FC<any> = ({
           router={router}
           classes={classesLegalCategories}
         />
-			</div>
-		</Layout>
+      </div>
+    </Layout>
   )
 }
 
