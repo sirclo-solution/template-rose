@@ -18,10 +18,11 @@
     position: relative;
     margin: 0;
     padding: 0;
+    text-align: center;
 
     a
     {
-        @extend .disclaimerMessageLink;
+      @extend .disclaimerMessageLink;
     }
   }
 }

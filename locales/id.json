@@ -181,8 +181,7 @@
     "changePin": "Ganti Pin"
   },
   "disclaimer": {
-    "contact": "Dengan menekan tombol 'Kirimkan', Customer menyatakan persetujuan apabila Merchant menggunakan detail yang diberikan untuk menghubungi Customer tentang permintaan atau pertanyaan khusus Anda. Kunjungi halaman {PRIVACY_POLICY} untuk detail mekanisme kami mengelola informasi Customer.",
-    "loginByEmail": "Dengan menekan tombol 'Masuk', saya mengetahui dan menyetujui {TERMS_AND_CONDITIONS} serta {PRIVACY_POLICY} dari {BRAND_NAME}.",
+    "contact": "Dengan menekan tombol 'Kirim', saya mengetahui dan menyetujui {PRIVACY_POLICY} serta mengizinkan penjual untuk menanggapi pesan saya menggunakan detail kontak yang telah saya berikan.",
     "privacyPolicy": "Kebijakan Privasi",
     "registerByEmail": "Dengan menekan tombol 'Daftar', saya mengetahui dan menyetujui {TERMS_AND_CONDITIONS} serta {PRIVACY_POLICY} dari {BRAND_NAME}.",
     "shippingMethod": "Dengan menekan tombol 'Buat Pesanan', saya mengetahui dan menyetujui {TERMS_AND_CONDITIONS} serta {PRIVACY_POLICY} dari {BRAND_NAME}.",
@@ -266,6 +265,11 @@
   },
   "instagram": {
     "cta": "ikuti kami di instagram"
+  },
+  "legal": {
+    "privacyPolicy": "Kebijakan Privasi",
+    "refundPolicy": "Kebijakan Pengembalian Dana",
+    "termsAndConditions": "Syarat & Ketentuan"
   },
   "loader": {
     "loading": "Menunggu"

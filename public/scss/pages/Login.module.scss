@@ -24,6 +24,7 @@
   &_containerForm 
   {
     @include flex(column);
+    @include fixedWidth(100%);
   }
 
   &_container
