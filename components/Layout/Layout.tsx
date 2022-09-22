@@ -157,7 +157,7 @@ const Layout: FC<LayoutPropType> = ({
           <Footer brand={brand} />
         }
         {withCopyright &&
-          <Copyright brand={brand} />
+          <Copyright/>
         }
       </main>
       <ToastContainer />
