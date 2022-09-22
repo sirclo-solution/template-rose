@@ -90,6 +90,7 @@ const LookbookSinglePage: FC<any> = ({
     lngDict,
     brand,
     withAllowed: LookbookAllowed,
+    withCopyright: true,
     headerTitle: i18n.t('lookbook.title'),
     SEO: { 
       title: data?.name,

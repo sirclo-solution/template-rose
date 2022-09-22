@@ -44,6 +44,7 @@ const LookbookCategory: FC<any> = ({
       title: i18n.t("lookbook.title")
     },
     withAllowed: LookbookAllowed,
+    withCopyright: true,
     headerTitle: i18n.t('lookbook.title'),
     layoutClassName: 'layout_fullHeight'
   }

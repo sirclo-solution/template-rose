@@ -228,6 +228,7 @@ const Product: FC<any> = ({
     lngDict,
     brand,
     layoutClassName: 'layout_fullHeight',
+    withCopyright: true,
     SEO: {
       title: data?.details[0]?.name || "",
       description: data?.SEOs[0]?.description || "",
