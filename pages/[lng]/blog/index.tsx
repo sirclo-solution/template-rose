@@ -77,6 +77,7 @@ const Blog: FC<any> = ({
     brand,
     headerTitle: i18n.t('blog.title'),
     layoutClassName: "layout_fullHeight",
+    withCopyright: true,
     SEO: {
       title: i18n.t("blog.title")
     },

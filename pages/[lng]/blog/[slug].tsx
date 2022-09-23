@@ -58,6 +58,7 @@ const BlogSlug: FC<any> = ({
     lngDict,
     brand,
     headerTitle: i18n.t('blog.title'),
+    withCopyright: true,
     SEO: {
       title: data?.descriptions[0]?.title,
       description: data?.descriptions[0]?.content,
