@@ -809,11 +809,9 @@
     &_voucherDetailEstimateDesc
     {
         @include flex(column, stretch, flex-start);
-        // @include fixedWidth(100%);
         @include typographyBuilder(secondary, 400, 12, 16);
         position: relative;
         margin: 0;
-        // padding: 0 12px;
         color: $color_text_secondary;
     }
 
