@@ -9,7 +9,7 @@ import {
   FiChevronLeft,
 } from 'react-icons/fi'
 import { IoTrashBinOutline } from 'react-icons/io5'
-import { FaEdit } from 'react-icons/fa'
+import { FaCopy, FaEdit } from 'react-icons/fa'
 import {
   OrderSummary,
   CartDetails
@@ -53,6 +53,7 @@ const classesOrderSummary = {
   voucherInputClassName: styleOrderSummary.orderSummary_voucherInput,
   voucherSubmitButtonClassName: styleOrderSummary.orderSummary_voucherSubmitButton,
   voucherValidListClassName: styleOrderSummary.orderSummary_voucherValidList,
+  voucherInvalidListClassName: styleOrderSummary.orderSummary_voucherInvalidList,
   voucherListHeaderClassName: styleOrderSummary.orderSummary_voucherListHeader,
   voucherListHeaderIconClassName: styleOrderSummary.orderSummary_voucherListHeaderIcon,
   voucherListItemsClassName: styleOrderSummary.orderSummary_voucherListItems,
@@ -84,7 +85,8 @@ const classesOrderSummary = {
   pointButtonRemoveClassName: styleOrderSummary.orderSummary_voucherButtonRemove,
 
   /* Grouping Coupon */
-  voucherTitleClassName: styleOrderSummary.orderSummary_voucherTitle,
+  voucherTitleClassName: "d-none",
+  voucherDetailInvalidClassName: styleOrderSummary.orderSummary_voucherDetailInvalid,
   voucherDetailHeaderClassName: styleOrderSummary.orderSummary_voucherDetailHeader,
   voucherDetailCodeClassName: "d-none",
   voucherDetailTitleClassName: styleOrderSummary.orderSummary_voucherDetailTitle,
@@ -220,7 +222,7 @@ const OrderSummaryComponent: FC<iProps> = ({
               ...classesOrderSummary,
               voucherTextClassName: `${styleOrderSummary.orderSummary_voucherText} ${lng}`,
               voucherAppliedTextClassName: `${styleOrderSummary.orderSummary_voucherAppliedText} ${lng}`,
-              voucherTitleClassName: `${styleOrderSummary.orderSummary_voucherTitle} ${lng}`,
+              // voucherTitleClassName: `${styleOrderSummary.orderSummary_voucherTitle} ${lng}`,
               containerClassName: `${styleOrderSummary.orderSummary} ${totalCrossSell === 0 && styleOrderSummary.orderSummary_extras}`
             }}
             submitButtonLabel={titleSubmit}
@@ -230,7 +232,6 @@ const OrderSummaryComponent: FC<iProps> = ({
             isAccordion
             onAddressInvalid={(e) => toast.error(e)}
             loadingComponent={<Loader />}
-            isCouponAccordion={true}
             withCouponTitle
             couponLoadingComponent={
               <div className={styleOrderSummary.orderSummary_voucherLoading}>
@@ -248,8 +249,7 @@ const OrderSummaryComponent: FC<iProps> = ({
               voucherApplied: <img src="/icons/voucher.svg" alt="voucher" />,
               voucherRemoved: <FiX color="#CC4534" size={16} />,
               pointsApplied: <img src="/icons/point.svg" alt="points" />,
-              expand: <FiChevronUp />,
-              collapse: <FiChevronDown />,
+              copyIcon: <FaCopy />
             }}
           />
         </>
