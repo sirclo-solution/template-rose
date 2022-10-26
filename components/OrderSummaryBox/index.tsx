@@ -224,6 +224,7 @@ const OrderSummaryComponent: FC<iProps> = ({
             }}
             submitButtonLabel={titleSubmit}
             continueShoppingLabel={i18n.t("orderSummary.continueShopping")}
+            onSuccessCopyCodeCoupon={() => toast.success(i18n.t('coupon.successCopyCode'))}
             onErrorMsg={(msg) => toast.error(msg)}
             onErrorMsgCoupon={(msg) => toast.error(msg)}
             isAccordion
