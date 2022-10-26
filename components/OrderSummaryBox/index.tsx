@@ -3,8 +3,6 @@ import { FC } from 'react'
 import Link from 'next/link'
 import { toast } from 'react-toastify'
 import {
-  FiChevronDown,
-  FiChevronUp,
   FiX,
   FiChevronLeft,
 } from 'react-icons/fi'
@@ -222,7 +220,6 @@ const OrderSummaryComponent: FC<iProps> = ({
               ...classesOrderSummary,
               voucherTextClassName: `${styleOrderSummary.orderSummary_voucherText} ${lng}`,
               voucherAppliedTextClassName: `${styleOrderSummary.orderSummary_voucherAppliedText} ${lng}`,
-              // voucherTitleClassName: `${styleOrderSummary.orderSummary_voucherTitle} ${lng}`,
               containerClassName: `${styleOrderSummary.orderSummary} ${totalCrossSell === 0 && styleOrderSummary.orderSummary_extras}`
             }}
             submitButtonLabel={titleSubmit}
