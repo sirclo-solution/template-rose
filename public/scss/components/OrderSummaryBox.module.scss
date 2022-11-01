@@ -748,6 +748,7 @@
     &_voucherDetailCode
     {
         @include typographyBuilder(secondary, 400, 12, 16);
+        display: none;
         position: relative;
         margin: 0;
         padding: 0;
