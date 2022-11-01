@@ -124,7 +124,7 @@ const classesListPaymentMethod = {
   // grouping coupon
   voucherDetailInvalidClassName: styleOrderSummary.orderSummary_voucherDetailInvalid,
   voucherDetailHeaderClassName: styleOrderSummary.orderSummary_voucherDetailHeader,
-  voucherDetailCodeClassName: "d-none",
+  voucherDetailCodeClassName: 'd-none',
   voucherDetailTitleClassName: styleOrderSummary.orderSummary_voucherDetailTitle,
   voucherDetailDescClassName: styleOrderSummary.orderSummary_voucherDetailDesc,
   voucherDetailEstimateClassName: styleOrderSummary.orderSummary_voucherDetailEstimate,
