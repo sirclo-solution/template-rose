@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import {
   Legal,
   LegalCategories,
+  useAuthToken,
   useI18n
 } from '@sirclo/nexus'
 
@@ -85,9 +86,13 @@ const LegalPage: FC<any> = ({
 
 export const getServerSideProps: GetServerSideProps = async ({ 
   params,
-  req
+  req,
+  res
 }) => {
-  const brand = await useBrand(req)
+  const [brand] = await Promise.all([
+		useBrand(req),
+		useAuthToken({req, res, env: process.env})
+	])
   const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
   const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
   const { slug } = params
@@ -97,7 +102,7 @@ export const getServerSideProps: GetServerSideProps = async ({
       brand: brand || "",
       lng: defaultLanguage,
       lngDict,
-      slug,
+      slug
     },
   }
 }

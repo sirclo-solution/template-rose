@@ -6,6 +6,7 @@ import { IoHelpCircle } from 'react-icons/io5'
 import {
   Lookbook,
   isLookbookAllowed,
+  useAuthToken,
   useI18n
 } from '@sirclo/nexus'
 /* library template */
@@ -94,8 +95,12 @@ const LookbookCategory: FC<any> = ({
 export const getServerSideProps: GetServerSideProps = async ({
   params,
   req,
+  res
 }) => {
-  const brand = await useBrand(req)
+  const [brand] = await Promise.all([
+		useBrand(req),
+		useAuthToken({req, res, env: process.env})
+	])
   const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
   const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
 
@@ -103,7 +108,7 @@ export const getServerSideProps: GetServerSideProps = async ({
     props: {
       lng: defaultLanguage,
       lngDict,
-      brand: brand || '',
+      brand: brand || ''
     },
   }
 }

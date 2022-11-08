@@ -5,7 +5,8 @@ import {
   Article, 
   ArticleCategories, 
   getArticle,
-  useI18n 
+  useAuthToken,
+  useI18n
 } from '@sirclo/nexus'
 /* library template */
 import { GRAPHQL_URI } from 'lib/Constants'
@@ -73,13 +74,20 @@ const ArticleDetail: FC<any> = ({
 
 export const getServerSideProps: GetServerSideProps = async ({
   req,
-  params,
+  res,
+  params
 }) => {
-  const brand = await useBrand(req)
+  const slug = params.slug
+  const [
+		brand,
+		data
+	] = await Promise.all([
+		useBrand(req),
+    getArticle(GRAPHQL_URI(req), slug.toString()),
+		useAuthToken({req, res, env: process.env}),
+	])
   const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
   const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
-  const slug = params.slug
-  const data = await getArticle(GRAPHQL_URI(req), slug.toString())
 
   return {
     props: {

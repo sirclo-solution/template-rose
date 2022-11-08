@@ -1,7 +1,11 @@
 /* library package */
 import { FC, useState } from 'react'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
-import { ResetPassword, useI18n } from '@sirclo/nexus'
+import {
+  ResetPassword,
+  useAuthToken,
+  useI18n
+} from '@sirclo/nexus'
 import { toast } from 'react-toastify'
 /* library template */
 import { parseCookies } from 'lib/parseCookies'
@@ -90,7 +94,10 @@ export const getServerSideProps: GetServerSideProps = async ({
   res,
   params
 }) => {
-  const brand = await useBrand(req)
+  const [brand] = await Promise.all([
+		useBrand(req),
+		useAuthToken({req, res, env: process.env})
+	])
   const cookies = parseCookies(req)
   const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
   const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)

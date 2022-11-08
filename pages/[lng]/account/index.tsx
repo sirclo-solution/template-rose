@@ -1,7 +1,11 @@
 /* library package */
 import { FC, useState } from 'react'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
-import { Account, useI18n } from '@sirclo/nexus'
+import {
+  Account,
+  useAuthToken,
+  useI18n
+} from '@sirclo/nexus'
 import { BiChevronDown } from 'react-icons/bi'
 import {
   RiEyeCloseLine,
@@ -335,8 +339,14 @@ export const getServerSideProps: GetServerSideProps = async ({
   res,
   params
 }) => {
-  const brand = await useBrand(req)
-  const hasOtp = await useWhatsAppOTPSetting(req)
+  const [
+		brand,
+		hasOtp
+	] = await Promise.all([
+		useBrand(req),
+    useWhatsAppOTPSetting(req),
+		useAuthToken({req, res, env: process.env}),
+	])
   const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
 
   const { default: lngDict = {} } = await import(

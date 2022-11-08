@@ -5,11 +5,12 @@ import { useRouter } from 'next/router'
 import { toast } from 'react-toastify'
 import ReCAPTCHA from 'react-google-recaptcha'
 import {
-  useI18n,
   Testimonials,
+  TestimonialForm,
   isTestimonialAllowed,
   isTestimonialFormAllowed,
-  TestimonialForm
+  useAuthToken,
+  useI18n
 } from '@sirclo/nexus'
 /* library template */
 import { useBrand } from 'lib/useBrand'
@@ -180,9 +181,13 @@ const TestimonialsPage: FC<any> = ({
 
 export const getServerSideProps: GetServerSideProps = async ({
   req,
-  params,
+  res,
+  params
 }) => {
-  const brand = await useBrand(req)
+  const [brand] = await Promise.all([
+		useBrand(req),
+		useAuthToken({req, res, env: process.env})
+	])
   const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
   const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
 
@@ -190,7 +195,7 @@ export const getServerSideProps: GetServerSideProps = async ({
     props: {
       lng: defaultLanguage,
       lngDict,
-      brand: brand || '',
+      brand: brand || ''
     },
   }
 }

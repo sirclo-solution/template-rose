@@ -1,5 +1,5 @@
 /* library package */
-import { getBrand } from '@sirclo/nexus'
+import { getBrand, useAuthToken } from '@sirclo/nexus'
 /* library template */
 import { GRAPHQL_URI } from 'lib/Constants'
 
@@ -7,7 +7,10 @@ const Manifest = () => <></>
 export default Manifest
 
 export async function getServerSideProps({ req, res }) {
-  const data = await getBrand(GRAPHQL_URI(req))
+  const [data] = await Promise.all([
+		getBrand(GRAPHQL_URI(req)),
+		useAuthToken({req, res, env: process.env})
+	])
 
   const body = `
     {
