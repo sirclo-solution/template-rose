@@ -228,7 +228,7 @@ export const getServerSideProps: GetServerSideProps = async ({
     useBrand(req),
     getLookbookSingle(GRAPHQL_URI(req), slug.toString()),
     useAuthToken({req, res, env: process.env})
-	])
+  ])
   const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
   const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
   const urlSite = `https://${req.headers.host}/${params.lng}/lookbook/categories/${params.slug}`
