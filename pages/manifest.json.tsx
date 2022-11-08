@@ -8,9 +8,9 @@ export default Manifest
 
 export async function getServerSideProps({ req, res }) {
   const [data] = await Promise.all([
-		getBrand(GRAPHQL_URI(req)),
-		useAuthToken({req, res, env: process.env})
-	])
+    getBrand(GRAPHQL_URI(req)),
+    useAuthToken({req, res, env: process.env})
+  ])
 
   const body = `
     {
