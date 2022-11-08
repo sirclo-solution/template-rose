@@ -171,12 +171,12 @@ export const getServerSideProps: GetServerSideProps = async ({
 }) => {
   const { slug } = params
   const [
-		brand,
-		data
+    brand,
+    data
 	] = await Promise.all([
-		useBrand(req),
+    useBrand(req),
     getBlogSingle(GRAPHQL_URI(req), slug.toString()),
-		useAuthToken({req, res, env: process.env})
+    useAuthToken({req, res, env: process.env})
 	])
   const urlSite = `https://${req.headers.host}/${params.lng}/blog/${slug}`
   const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'

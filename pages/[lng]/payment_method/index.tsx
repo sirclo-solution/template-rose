@@ -391,9 +391,9 @@ export const getServerSideProps: GetServerSideProps = async ({
     brand,
     hasOtp
   ] = await Promise.all([
-		useBrand(req),
+    useBrand(req),
     useWhatsAppOTPSetting(req),
-		useAuthToken({req, res, env: process.env})
+    useAuthToken({req, res, env: process.env})
 	])
   const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
   const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)

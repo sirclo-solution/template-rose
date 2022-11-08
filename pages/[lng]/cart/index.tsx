@@ -247,6 +247,7 @@ const Cart: FC<any> = ({
 
 export const getServerSideProps: GetServerSideProps = async ({
 	req,
+	res,
 	params
 }) => {
 	const [brand] = await Promise.all([
