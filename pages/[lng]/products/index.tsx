@@ -18,6 +18,7 @@ import {
   Products,
   ProductFilter,
   ProductCategory,
+  useAuthToken,
   useI18n,
   ProductSort,
 } from '@sirclo/nexus'
@@ -299,9 +300,13 @@ const ProductsPage: FC<any> = ({
 
 export const getServerSideProps: GetServerSideProps = async ({
   req,
-  params,
+  res,
+  params
 }) => {
-  const brand = await useBrand(req)
+  const [brand] = await Promise.all([
+    useBrand(req),
+    useAuthToken({req, res, env: process.env})
+  ])
   const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
   const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
 

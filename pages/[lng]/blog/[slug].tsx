@@ -4,10 +4,11 @@ import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import Link from 'next/link'
 import { IoArrowBackOutline, IoHelpCircle } from 'react-icons/io5'
 import {
-  BlogSingle,
-  useI18n,
   BlogRecent,
-  getBlogSingle
+  BlogSingle,
+  getBlogSingle,
+  useAuthToken,
+  useI18n
 } from '@sirclo/nexus'
 /* library template */
 import { useBrand } from 'lib/useBrand'
@@ -166,10 +167,17 @@ const BlogEmpty = ({ i18n, lng }) => {
 export const getServerSideProps: GetServerSideProps = async ({
   params,
   req,
+  res
 }) => {
-  const brand = await useBrand(req)
   const { slug } = params
-  const data = await getBlogSingle(GRAPHQL_URI(req), slug.toString())
+  const [
+    brand,
+    data
+  ] = await Promise.all([
+    useBrand(req),
+    getBlogSingle(GRAPHQL_URI(req), slug.toString()),
+    useAuthToken({req, res, env: process.env})
+  ])
   const urlSite = `https://${req.headers.host}/${params.lng}/blog/${slug}`
   const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
   const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)

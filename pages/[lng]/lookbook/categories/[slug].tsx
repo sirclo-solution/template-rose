@@ -14,6 +14,7 @@ import {
   isLookbookAllowed,
   LookbookSingle,
   getLookbookSingle,
+  useAuthToken,
   useI18n,
   Products
 } from '@sirclo/nexus'
@@ -217,13 +218,20 @@ const LookbookSinglePage: FC<any> = ({
 export const getServerSideProps: GetServerSideProps = async ({
   params,
   req,
+  res
 }) => {
-  const brand = await useBrand(req)
+  const slug = params.slug
+  const [
+    brand,
+    data
+  ] = await Promise.all([
+    useBrand(req),
+    getLookbookSingle(GRAPHQL_URI(req), slug.toString()),
+    useAuthToken({req, res, env: process.env})
+  ])
   const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
   const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
   const urlSite = `https://${req.headers.host}/${params.lng}/lookbook/categories/${params.slug}`
-  const slug = params.slug
-  const data = await getLookbookSingle(GRAPHQL_URI(req), slug.toString())
 
   return {
     props: {
@@ -232,7 +240,7 @@ export const getServerSideProps: GetServerSideProps = async ({
       slug,
       data,
       brand: brand || '',
-      urlSite: urlSite,
+      urlSite
     },
   }
 }
