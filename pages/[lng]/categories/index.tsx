@@ -3,7 +3,11 @@ import { FC, useState } from 'react'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { useRouter } from 'next/router'
 import { IoHelpCircle } from 'react-icons/io5'
-import { ProductListByCategory, useI18n } from '@sirclo/nexus'
+import {
+  ProductListByCategory,
+  useAuthToken,
+  useI18n
+} from '@sirclo/nexus'
 /* library template */
 import { useBrand } from 'lib/useBrand'
 import useInfiniteScroll from 'lib/useInfiniteScroll'
@@ -133,9 +137,13 @@ const CategoriesPage: FC<any> = ({
 
 export const getServerSideProps: GetServerSideProps = async ({
   req,
-  params,
+  res,
+  params
 }) => {
-  const brand = await useBrand(req)
+  const [brand] = await Promise.all([
+    useBrand(req),
+    useAuthToken({req, res, env: process.env})
+  ])
   const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
   const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
 

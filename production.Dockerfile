@@ -4,6 +4,8 @@ FROM node:16-alpine
 WORKDIR /usr/src/app
 
 ENV ASSET_PREFIX=https://template.sirclocdn.com/rose
+ENV CLIENT_CREDENTIAL=nexus:C5979C2DE9E4F77EA9F8FC32B31B1
+ENV CREDENTIAL_API_URI=https://accounts.sirclo.id
 
 # Install app dependencies
 COPY package*.json ./

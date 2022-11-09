@@ -20,6 +20,7 @@ import {
   Login,
   WhatsAppOTPInput,
   SingleSignOn,
+  useAuthToken,
   useI18n
 } from '@sirclo/nexus'
 /* library template */
@@ -301,14 +302,22 @@ export const getServerSideProps: GetServerSideProps = async ({
   res,
   params
 }) => {
-  const brand = await useBrand(req)
+  const [
+    brand,
+    hasGoogleAuth,
+    hasFacebookAuth,
+    hasOtp
+  ] = await Promise.all([
+    useBrand(req),
+    useGoogleAuth(req),
+    useFacebookAuth(req),
+    useWhatsAppOTPSetting(req),
+    useAuthToken({req, res, env: process.env})
+  ])
   const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
   const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
 
   const cookies = parseCookies(req)
-  const hasGoogleAuth = await useGoogleAuth(req)
-  const hasFacebookAuth = await useFacebookAuth(req)
-  const hasOtp = await useWhatsAppOTPSetting(req)
 
   redirectIfAuthenticated(res, cookies, 'account', defaultLanguage)
 
