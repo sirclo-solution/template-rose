@@ -3,13 +3,11 @@ import { FC } from 'react'
 import Link from 'next/link'
 import { toast } from 'react-toastify'
 import {
-  FiChevronDown,
-  FiChevronUp,
   FiX,
   FiChevronLeft,
 } from 'react-icons/fi'
 import { IoTrashBinOutline } from 'react-icons/io5'
-import { FaEdit } from 'react-icons/fa'
+import { FaCopy, FaEdit } from 'react-icons/fa'
 import {
   OrderSummary,
   CartDetails
@@ -43,13 +41,20 @@ const classesOrderSummary = {
   voucherShipperLogoContainerClassName: styleOrderSummary.orderSummary_voucherBankContainer,
   voucherShipperLogoImageClassName: styleOrderSummary.orderSummary_voucherBankImage,
   /* voucher */
+  voucherTitleInputClassName: styleOrderSummary.orderSummary_voucherTitleInput,
+  voucherSubTitleInputClassName: styleOrderSummary.orderSummary_voucherSubTitleInput,
+  voucherInputContainerClassName: styleOrderSummary.orderSummary_voucherInputContainer,
   voucherButtonClassName: styleOrderSummary.orderSummary_voucherButton,
   voucherIconClassName: styleOrderSummary.orderSummary_voucherIcon,
   voucherTextClassName: styleOrderSummary.orderSummary_voucherText,
   voucherFormClassName: styleOrderSummary.orderSummary_voucherForm,
   voucherInputClassName: styleOrderSummary.orderSummary_voucherInput,
   voucherSubmitButtonClassName: styleOrderSummary.orderSummary_voucherSubmitButton,
+  voucherValidListClassName: styleOrderSummary.orderSummary_voucherValidList,
+  voucherInvalidListClassName: styleOrderSummary.orderSummary_voucherInvalidList,
   voucherListHeaderClassName: styleOrderSummary.orderSummary_voucherListHeader,
+  voucherListHeaderIconClassName: styleOrderSummary.orderSummary_voucherListHeaderIcon,
+  voucherListItemsClassName: styleOrderSummary.orderSummary_voucherListItems,
   voucherClassName: styleOrderSummary.orderSummary_voucher,
   voucherFooterClassName: styleOrderSummary.orderSummary_voucherFooter,
   voucherApplyButtonClassName: styleOrderSummary.orderSummary_voucherApplyButton,
@@ -78,13 +83,34 @@ const classesOrderSummary = {
   pointButtonRemoveClassName: styleOrderSummary.orderSummary_voucherButtonRemove,
 
   /* Grouping Coupon */
-  voucherTitleClassName: styleOrderSummary.orderSummary_voucherTitle,
+  voucherTitleClassName: "d-none",
+  voucherDetailInvalidClassName: styleOrderSummary.orderSummary_voucherDetailInvalid,
   voucherDetailHeaderClassName: styleOrderSummary.orderSummary_voucherDetailHeader,
-  voucherDetailCodeClassName: styleOrderSummary.orderSummary_voucherDetailCode,
+  voucherDetailCodeClassName: "d-none",
   voucherDetailTitleClassName: styleOrderSummary.orderSummary_voucherDetailTitle,
   voucherDetailDescClassName: styleOrderSummary.orderSummary_voucherDetailDesc,
   voucherDetailEstimateClassName: styleOrderSummary.orderSummary_voucherDetailEstimate,
   voucherDetailEstimateDescClassName: styleOrderSummary.orderSummary_voucherDetailEstimateDesc,
+  voucherDetailViewDetailsClassName:  styleOrderSummary.orderSummary_voucherDetailViewDetails,
+  voucherDetailApplyedClassName:  styleOrderSummary.orderSummary_voucherDetailApplied,
+
+  voucherShowMoreContainerClassName: styleOrderSummary.orderSummary_voucherShowMoreContainer,
+  voucherShowMoreButtonClassName: styleOrderSummary.orderSummary_voucherShowMoreButton,
+  voucherDetailPopUpContainerClassName: styleOrderSummary.orderSummary_voucherDetailPopUpContainer,
+  voucherDetailPopUpBodyClassName: styleOrderSummary.orderSummary_voucherDetailPopUpBody,
+  voucherDetailPopUpHeaderClassName: styleOrderSummary.orderSummary_voucherDetailPopUpHeader,
+  voucherDetailPopUpHeaderTitleClassName: styleOrderSummary.orderSummary_voucherDetailPopUpHeaderTitle,
+  voucherDetailPopUpCloseClassName: styleOrderSummary.orderSummary_voucherDetailPopUpClose,
+  voucherDetailPopUpDescContainerClassName: styleOrderSummary.orderSummary_voucherDetailPopUpDescContainer,
+  voucherDetailPopUpTermsTitleClassName: styleOrderSummary.orderSummary_voucherDetailPopUpTermsTitle,
+  voucherDetailPopUpTermsContainerClassName: styleOrderSummary.orderSummary_voucherDetailPopUpTermsContainer,
+  voucherDetailPopUpDescDateClassName: styleOrderSummary.orderSummary_voucherDetailPopUpDescDate,
+  voucherDetailPopUpCodeContainerClassName: styleOrderSummary.orderSummary_voucherDetailPopUpCodeContainer,
+  voucherDetailPopUpCodeTitleClassName: styleOrderSummary.orderSummary_voucherDetailPopUpCodeTitle,
+  voucherDetailPopUpCodeCopyContainerClassName: styleOrderSummary.orderSummary_voucherDetailPopUpCodeCopyContainer,
+  voucherDetailPopUpCodeCopyTitleClassName: styleOrderSummary.orderSummary_voucherDetailPopUpCodeCopyTitle,
+  voucherDetailPopUpCodeCopyButtonClassName: styleOrderSummary.orderSummary_voucherDetailPopUpCodeCopyButton,
+  voucherDetailPopUpUseCouponClassName: styleOrderSummary.orderSummary_voucherDetailPopUpUseCoupon,
 }
 
 const classesCartDetails = {
@@ -194,17 +220,16 @@ const OrderSummaryComponent: FC<iProps> = ({
               ...classesOrderSummary,
               voucherTextClassName: `${styleOrderSummary.orderSummary_voucherText} ${lng}`,
               voucherAppliedTextClassName: `${styleOrderSummary.orderSummary_voucherAppliedText} ${lng}`,
-              voucherTitleClassName: `${styleOrderSummary.orderSummary_voucherTitle} ${lng}`,
               containerClassName: `${styleOrderSummary.orderSummary} ${totalCrossSell === 0 && styleOrderSummary.orderSummary_extras}`
             }}
             submitButtonLabel={titleSubmit}
             continueShoppingLabel={i18n.t("orderSummary.continueShopping")}
+            onSuccessCopyCodeCoupon={() => toast.success(i18n.t('coupon.successCopyCode'))}
             onErrorMsg={(msg) => toast.error(msg)}
             onErrorMsgCoupon={(msg) => toast.error(msg)}
             isAccordion
             onAddressInvalid={(e) => toast.error(e)}
             loadingComponent={<Loader />}
-            isCouponAccordion={true}
             withCouponTitle
             couponLoadingComponent={
               <div className={styleOrderSummary.orderSummary_voucherLoading}>
@@ -222,8 +247,7 @@ const OrderSummaryComponent: FC<iProps> = ({
               voucherApplied: <img src="/icons/voucher.svg" alt="voucher" />,
               voucherRemoved: <FiX color="#CC4534" size={16} />,
               pointsApplied: <img src="/icons/point.svg" alt="points" />,
-              expand: <FiChevronUp />,
-              collapse: <FiChevronDown />,
+              copyIcon: <FaCopy />
             }}
           />
         </>

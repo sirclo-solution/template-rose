@@ -7,6 +7,7 @@ import { RiQuestionFill, RiStarFill } from 'react-icons/ri'
 import {
   getBanner,
   Products,
+  useAuthToken,
   useI18n,
   Widget
 } from '@sirclo/nexus'
@@ -257,11 +258,16 @@ const Home: FC<any> = ({
 export const getServerSideProps: GetServerSideProps = async ({
   req,
   res,
-  params,
+  params
 }: any) => {
-
-  const brand = await useBrand(req)
-  const dataBanners = await getBanner(GRAPHQL_URI(req))
+  const [
+    brand,
+    dataBanners
+  ] = await Promise.all([
+    useBrand(req),
+    getBanner(GRAPHQL_URI(req)),
+    useAuthToken({req, res, env: process.env})
+  ])
   const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
   const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
   const allowedUri: Array<string> = ['en', 'id', 'graphql', 'favicon.ico'];
@@ -278,7 +284,7 @@ export const getServerSideProps: GetServerSideProps = async ({
       lng: defaultLanguage,
       lngDict,
       brand: brand || '',
-      dataBanners,
+      dataBanners
     },
   }
 }

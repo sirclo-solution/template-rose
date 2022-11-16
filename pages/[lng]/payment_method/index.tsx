@@ -4,15 +4,13 @@ import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { useRouter } from 'next/router'
 import { toast } from 'react-toastify'
 import { HiCheckCircle } from 'react-icons/hi'
-import {
-  FiChevronDown,
-  FiChevronUp,
-  FiX,
-} from 'react-icons/fi'
+import { FiX } from 'react-icons/fi'
+import { FaCopy } from 'react-icons/fa'
 import {
   CustomerDetail,
   ListPaymentMethod,
   PrivateRoute,
+  useAuthToken,
   useI18n,
   useShippingMethod,
   useBuyerNotes
@@ -80,6 +78,9 @@ const classesListPaymentMethod = {
   voucherInputClassName: styleOrderSummary.orderSummary_voucherInput,
   voucherSubmitButtonClassName: styleOrderSummary.orderSummary_voucherSubmitButton,
   voucherListClassName: styleOrderSummary.orderSummary_voucherList,
+  voucherListItemsClassName: styleOrderSummary.orderSummary_voucherListItems,
+  voucherValidListClassName: styleOrderSummary.orderSummary_voucherValidList,
+  voucherInvalidListClassName: styleOrderSummary.orderSummary_voucherInvalidList,
   voucherListHeaderClassName: styleOrderSummary.orderSummary_voucherListHeader,
   voucherClassName: styleOrderSummary.orderSummary_voucher,
   voucherDetailClassName: styleOrderSummary.orderSummary_voucherDetail,
@@ -122,13 +123,37 @@ const classesListPaymentMethod = {
   travelokaPayLaterFooterImgClassName: styles.payment_travelokaPayLater__img,
 
   // grouping coupon
-  voucherTitleClassName: styleOrderSummary.orderSummary_voucherTitle,
+  voucherDetailInvalidClassName: styleOrderSummary.orderSummary_voucherDetailInvalid,
   voucherDetailHeaderClassName: styleOrderSummary.orderSummary_voucherDetailHeader,
   voucherDetailCodeClassName: styleOrderSummary.orderSummary_voucherDetailCode,
   voucherDetailTitleClassName: styleOrderSummary.orderSummary_voucherDetailTitle,
   voucherDetailDescClassName: styleOrderSummary.orderSummary_voucherDetailDesc,
   voucherDetailEstimateClassName: styleOrderSummary.orderSummary_voucherDetailEstimate,
   voucherDetailEstimateDescClassName: styleOrderSummary.orderSummary_voucherDetailEstimateDesc,
+
+  // details popup
+  voucherDetailViewDetailsClassName:  styleOrderSummary.orderSummary_voucherDetailViewDetails,
+  voucherDetailApplyedClassName:  styleOrderSummary.orderSummary_voucherDetailApplied,
+  voucherTitleInputClassName: styleOrderSummary.orderSummary_voucherTitleInput,
+  voucherSubTitleInputClassName: styleOrderSummary.orderSummary_voucherSubTitleInput,
+  voucherInputContainerClassName: styleOrderSummary.orderSummary_voucherInputContainer,
+  voucherShowMoreContainerClassName: styleOrderSummary.orderSummary_voucherShowMoreContainer,
+  voucherShowMoreButtonClassName: styleOrderSummary.orderSummary_voucherShowMoreButton,
+  voucherDetailPopUpContainerClassName: styleOrderSummary.orderSummary_voucherDetailPopUpContainer,
+  voucherDetailPopUpBodyClassName: styleOrderSummary.orderSummary_voucherDetailPopUpBody,
+  voucherDetailPopUpHeaderClassName: styleOrderSummary.orderSummary_voucherDetailPopUpHeader,
+  voucherDetailPopUpHeaderTitleClassName: styleOrderSummary.orderSummary_voucherDetailPopUpHeaderTitle,
+  voucherDetailPopUpCloseClassName: styleOrderSummary.orderSummary_voucherDetailPopUpClose,
+  voucherDetailPopUpDescContainerClassName: styleOrderSummary.orderSummary_voucherDetailPopUpDescContainer,
+  voucherDetailPopUpTermsTitleClassName: styleOrderSummary.orderSummary_voucherDetailPopUpTermsTitle,
+  voucherDetailPopUpTermsContainerClassName: styleOrderSummary.orderSummary_voucherDetailPopUpTermsContainer,
+  voucherDetailPopUpDescDateClassName: styleOrderSummary.orderSummary_voucherDetailPopUpDescDate,
+  voucherDetailPopUpCodeContainerClassName: styleOrderSummary.orderSummary_voucherDetailPopUpCodeContainer,
+  voucherDetailPopUpCodeTitleClassName: styleOrderSummary.orderSummary_voucherDetailPopUpCodeTitle,
+  voucherDetailPopUpCodeCopyContainerClassName: styleOrderSummary.orderSummary_voucherDetailPopUpCodeCopyContainer,
+  voucherDetailPopUpCodeCopyTitleClassName: styleOrderSummary.orderSummary_voucherDetailPopUpCodeCopyTitle,
+  voucherDetailPopUpCodeCopyButtonClassName: styleOrderSummary.orderSummary_voucherDetailPopUpCodeCopyButton,
+  voucherDetailPopUpUseCouponClassName: styleOrderSummary.orderSummary_voucherDetailPopUpUseCoupon,
 }
 
 const classesPlaceholderCustomerDetail = {
@@ -292,10 +317,9 @@ const PaymentMethods: FC<any> = ({
               voucherTitleClassName: `${styleOrderSummary.orderSummary_voucherTitle} ${lng}`
             }}
             withNotificationOptInModal={hasOtp}
+            onSuccessCopyCodeCoupon={() => toast.success(i18n.t('coupon.successCopyCode'))}
             onErrorMsg={(msg) => toast.error(msg)}
             onErrorMsgCoupon={(msg) => toast.error(msg)}
-            isCouponAccordion={true}
-            withCouponTitle
             couponLoadingComponent={
               <div className={styleOrderSummary.orderSummary_voucherLoading}>
                 <Loader />
@@ -306,8 +330,7 @@ const PaymentMethods: FC<any> = ({
                 <p>{i18n.t("coupon.empty")}</p>
               </div>
             }
-            expand={<FiChevronUp />}
-            collapse={<FiChevronDown />}
+            copyIcon={<FaCopy />}
             voucherIcon={
               <img src="/icons/voucher.svg" className="mr-2" alt="voucher" />
             }
@@ -359,11 +382,21 @@ const PaymentMethods: FC<any> = ({
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ req, params }) => {
-  const brand = await useBrand(req)
+export const getServerSideProps: GetServerSideProps = async ({
+  req,
+  res,
+  params
+}) => {
+  const [
+    brand,
+    hasOtp
+  ] = await Promise.all([
+    useBrand(req),
+    useWhatsAppOTPSetting(req),
+    useAuthToken({req, res, env: process.env})
+  ])
   const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
   const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
-  const hasOtp = await useWhatsAppOTPSetting(req);
 
   return {
     props: {

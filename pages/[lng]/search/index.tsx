@@ -3,8 +3,9 @@ import { FC, useEffect, useRef, useState } from 'react'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { useRouter } from 'next/router'
 import { 
-  ProductCategory, 
-  Products, 
+  ProductCategory,
+  Products,
+  useAuthToken,
   useI18n 
 } from '@sirclo/nexus'
 import { RiQuestionFill, RiSearch2Line } from 'react-icons/ri'
@@ -214,8 +215,15 @@ const LoginPage: FC<any> = ({
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ params, req }) => {
-  const brand = await useBrand(req)
+export const getServerSideProps: GetServerSideProps = async ({
+  params,
+  req,
+  res
+}) => {
+  const [brand] = await Promise.all([
+    useBrand(req),
+    useAuthToken({req, res, env: process.env})
+  ])
   const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
   const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
 

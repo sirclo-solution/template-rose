@@ -19,6 +19,7 @@ import {
 } from 'react-icons/ri'
 import {
   PlaceOrderForm,
+  useAuthToken,
   useI18n,
   PrivateRoute
 } from '@sirclo/nexus'
@@ -189,8 +190,15 @@ const PlaceOrderPage: FC<any> = ({
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ req, params }) => {
-  const brand = await useBrand(req)
+export const getServerSideProps: GetServerSideProps = async ({
+  req,
+  res,
+  params
+}) => {
+  const [brand] = await Promise.all([
+    useBrand(req),
+    useAuthToken({req, res, env: process.env})
+  ])
   const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
   const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
 

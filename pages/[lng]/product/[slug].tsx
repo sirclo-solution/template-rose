@@ -19,6 +19,7 @@ import {
   RiChat1Line
 } from 'react-icons/ri'
 import {
+  useAuthToken,
   useI18n,
   ProductDetail,
   ProductReviews,
@@ -583,10 +584,20 @@ const Product: FC<any> = ({
   )
 }
 
-export async function getServerSideProps({ req, params }) {
+export async function getServerSideProps({
+  req,
+  res,
+  params
+}) {
   const { slug } = params
-  const data = await getProductDetail(GRAPHQL_URI(req), slug)
-  const brand = await useBrand(req)
+  const [
+    brand,
+    data
+  ] = await Promise.all([
+    useBrand(req),
+    getProductDetail(GRAPHQL_URI(req), slug),
+    useAuthToken({req, res, env: process.env})
+  ])
   const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
   const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
   const urlSite = `https://${req.headers.host}/${params.lng}/product/${slug}`
@@ -598,7 +609,7 @@ export async function getServerSideProps({ req, params }) {
       lngDict,
       data: data || null,
       brand: brand || "",
-      urlSite: urlSite,
+      urlSite
     },
   }
 }
