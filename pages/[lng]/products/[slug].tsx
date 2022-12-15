@@ -6,25 +6,14 @@ import {
 } from 'react'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { useRouter } from 'next/router'
-import {
-  RiQuestionFill,
-  RiCloseLine,
-  RiStarFill
-} from 'react-icons/ri'
-import {
-  FaChevronDown
-} from 'react-icons/fa'
+import { RiQuestionFill, RiStarFill } from 'react-icons/ri'
 import {
   Products,
-  ProductFilter,
-  ProductCategory,
   useAuthToken,
   useI18n,
-  ProductSort,
 } from '@sirclo/nexus'
 /* library template */
 import { useBrand } from 'lib/useBrand'
-import useQuery from 'lib/useQuery'
 import useInfiniteScroll from 'lib/useInfiniteScroll'
 import useWindowSize from 'lib/useWindowSize'
 /* components */
@@ -32,12 +21,9 @@ import SEO from 'components/SEO'
 import Layout from 'components/Layout/Layout'
 import Breadcrumb from 'components/Breadcrumb/Breadcrumb'
 import EmptyComponent from 'components/EmptyComponent/EmptyComponent'
-import Popup from 'components/Popup'
 /* styles */
 import styleButton from 'public/scss/components/Button.module.scss'
 import styleProduct from 'public/scss/components/Product.module.scss'
-import styleSort from 'public/scss/components/Sort.module.scss'
-import styleFilter from 'public/scss/components/Filter.module.scss'
 import styleProducts from 'public/scss/pages/Products.module.scss'
 import Loader from 'components/Loader/Loader'
 
@@ -71,47 +57,6 @@ const classesProducts = {
   reviewCountClassName: styleProduct.product_rating__reviewCount,
 }
 
-const classesProductSort = {
-  sortClassName: styleSort.sort,
-  sortOptionsClassName: styleSort.sort_options,
-  sortOptionClassName: styleSort.sort_optionItem,
-  sortOptionButtonClassName: styleSort.sort_optionButton
-}
-
-// const classesProductFilter = {
-//   filtersClassName: 'w-100',
-//   filterClassName: styleFilter.filter,
-//   filterNameClassName: styleFilter.filter_name,
-//   filterOptionPriceClassName: styleFilter.filter_price,
-//   filterPriceLabelClassName: styleFilter.filter_priceLabel,
-//   filterPriceInputClassName: styleFilter.filter_priceInput,
-//   filterOptionClassName: styleFilter.filter_option,
-//   filterColorLabelClassName: styleFilter.filter_optionLabel,
-//   filterLabelClassName: styleFilter.filter_optionLabel,
-//   filterInputClassName: styleFilter.filter_optionColorInput,
-//   filterColorPreviewClassName: styleFilter.filter_optionColorPreview,
-//   filterColorInputClassName: styleFilter.filter_optionColorInput,
-//   filterCheckboxClassName: styleFilter.filter_optionCheckbox,
-//   filterSliderClassName: styleFilter.filter_slider,
-//   filterSliderRailClassName: styleFilter.filter_sliderRail,
-//   filterSliderHandleClassName: styleFilter.filter_sliderHandle,
-//   filterSliderTrackClassName: styleFilter.filter_sliderTrack,
-//   filterSliderTooltipClassName: styleFilter.filter_sliderTooltip,
-//   filterSliderTooltipContainerClassName: styleFilter.filter_sliderTooltipContainer,
-//   filterSliderTooltipTextClassName: styleFilter.filter_sliderTooltipText,
-// }
-
-const classesProductCategory = {
-  parentCategoryClassName: styleProducts.category,
-  categoryItemClassName: styleProducts.category_list,
-  categoryValueContainerClassName: styleProducts.category_listContainer,
-  categoryValueClassName: styleProducts.category_listLink,
-  categoryNameClassName: styleProducts.category_listItem,
-  categoryNumberClassName: styleProducts.category_listTotalNumber,
-  dropdownIconClassName: styleProducts.category_listIcon,
-  childCategoryClassName: styleProducts.category
-}
-
 const classesCategoryProduct = {
   parentCategoryClassName: styleProduct.product_category__parent,
   categoryItemsClassName: styleProduct.product_category__items,
@@ -126,15 +71,8 @@ const ProductsHighlightPage: FC<any> = ({
   const router = useRouter()
   const i18n: any = useI18n()
   const size = useWindowSize()
-  
-  // const categories: string = useQuery("categories")
-  // const tagname: string | string[] = router.query.tagname || null
-  
-  const [openCustomize, setOpenCustomize] = useState<boolean>(false)
-  const [sort, setSort] = useState(null)
-  // const [filterProduct, setFilterProduct] = useState({})
-  const [titleProductSection, setTitleProductSection] = useState<string>("")
 
+  const [titleProductSection, setTitleProductSection] = useState<string>("")
   const [pageInfo, setPageInfo] = useState({
     pageNumber: 0,
     itemPerPage: 6,
@@ -145,18 +83,7 @@ const ProductsHighlightPage: FC<any> = ({
 
   useEffect(() => {
     setCurrPage(0)
-  // }, [filterProduct, categories, tagname, sort])
-  }, [sort])
-
-  // useEffect(() => {
-  //   setOpenCustomize(false)
-  // }, [categories])
-
-  // const toogleCustomize = () => setOpenCustomize(!openCustomize)
-  // const handleFilter = (selectedFilter: any) => {
-  //   setFilterProduct(selectedFilter)
-  //   setOpenCustomize(false)
-  // }
+  }, [])
 
   const layoutProps = {
     i18n,
@@ -182,13 +109,6 @@ const ProductsHighlightPage: FC<any> = ({
           <h6 className={styleProducts.products_headerTotalItem}>
             {i18n.t("products.show")} {pageInfo.totalItems} {i18n.t("products.item")}
           </h6>
-          {/* <div
-            className={styleProducts.products_headerCustomize}
-            onClick={() => toogleCustomize()}
-          >
-            <img src="/icons/filter.svg" alt="customize" />
-            {i18n.t("products.customize")}
-          </div> */}
         </div>
       </div>
       <div className={`container ${styleProducts.products}`}>
@@ -196,13 +116,9 @@ const ProductsHighlightPage: FC<any> = ({
           {Array.from(Array(currPage + 1)).map((_, i) => (
             <Products
               key={i}
-              // tagName={tagname}
               pageNumber={i}
               itemPerPage={pageInfo.itemPerPage}
               getPageInfo={setPageInfo as any}
-              // collectionSlug={categories}
-              sort={sort}
-              // filter={filterProduct}
               classes={classesProducts}
               fullPath={`product/{id}`}
               pathPrefix={`product`}
@@ -254,51 +170,6 @@ const ProductsHighlightPage: FC<any> = ({
           }
         </div>
       </div>
-      <Popup
-        title={i18n.t("product.filter")}
-        visibleState={openCustomize}
-        setVisibleState={setOpenCustomize}
-        withCloseButton
-        iconClose={<RiCloseLine size={24} />}
-        withButtonLeft={{
-          icon: <img src="/icons/refresh.svg" alt="refresh" />,
-          onClick: () => {
-            router.replace(`/${lng}/products`)
-          }
-        }}
-      >
-        {openCustomize &&
-          <>
-            <div className={styleProducts.products_sortLabel}>
-              {i18n.t("products.sort")}
-            </div>
-            <ProductSort
-              classes={classesProductSort}
-              type="list"
-              handleSort={(selectedSort: any) => {
-                setSort(selectedSort)
-                setOpenCustomize(false)
-              }}
-            />
-            <div className={styleProducts.products_sortLabel}>
-              {i18n.t("products.category")}
-            </div>
-            <ProductCategory
-              classes={classesProductCategory}
-              showCategoryNumber
-              dropdownIcon={<FaChevronDown size={14} />}
-            />
-            <ProductFilter
-              classes={classesProductFilter}
-              withPriceMinimumSlider
-              withPriceValueLabel
-              withPriceInput
-              withTooltip
-              handleFilter={handleFilter}
-            />
-          </>
-        }
-      </Popup>
     </Layout>
   )
 }
