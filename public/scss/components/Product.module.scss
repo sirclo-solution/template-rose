@@ -131,9 +131,10 @@
     @include flex(row, flex-start, flex-start, true);
     padding: 10px 0 0;
     flex-grow: 1;
-
+    
     &__container
     {
+      width: 100%;
       order: 3;
     }
 

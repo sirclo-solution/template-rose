@@ -14,6 +14,7 @@ import {
 } from '@sirclo/nexus'
 /* library template */
 import { useBrand } from 'lib/useBrand'
+import { useSizeBanner } from 'lib/useSizeBanner'
 import useInfiniteScroll from 'lib/useInfiniteScroll'
 import useWindowSize from 'lib/useWindowSize'
 /* components */
@@ -134,7 +135,7 @@ const ProductsHighlightPage: FC<any> = ({
               slug={slugSection}
               getTitleProductSection={(value: string) => setTitleProductSection(value)}
               thumborSetting={{
-                width: size.width < 768 ? 512 : 800,
+                width: useSizeBanner(size.width),
                 format: "webp",
                 quality: 85,
               }}
