@@ -302,4 +302,28 @@
       margin-left: 2px;
     }
   }
+
+  &_highlight
+  {
+    &_container
+    {
+      margin-top: 24px;
+    }
+
+    &_sectionContainer
+    {
+      @include flex(row, flex-start, flex-start);
+      @extend .scrollbar_none;
+      overflow-x: scroll;
+      overflow-y: none;
+      margin-bottom: 12px;
+    }
+
+    &_title
+    {
+      @include typography_builderPrimary(500, 20, 32);
+      text-align: center;
+      margin-bottom: 12px;
+    }
+  }
 }
