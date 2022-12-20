@@ -64,6 +64,12 @@
 
   &_product
   {
+    &Container
+    {
+      @include flex();
+      overflow: hidden;
+    }
+
     &Card
     {
       height: 185px;
