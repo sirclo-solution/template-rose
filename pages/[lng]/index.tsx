@@ -170,11 +170,12 @@ const Home: FC<any> = ({
                   format: "webp",
                   quality: 85
                 }}
-                loadingComponent={<>
-                  <div><Placeholder classes={classesPlaceholderProduct} withImage /></div>
-                  <div><Placeholder classes={classesPlaceholderProduct} withImage /></div>
-                  <div><Placeholder classes={classesPlaceholderProduct} withImage /></div>
-                </>}               
+                loadingComponent={
+                <div className={stylePlaceholder.placeholderItem_productContainer}>
+                  {[0,1,2].map((index)=>{
+                    return <div key={index}><Placeholder classes={classesPlaceholderProduct} withImage /></div>
+                  })}
+                </div>}               
                 />
             </LazyLoadComponent>
           </div>
@@ -224,11 +225,13 @@ const Home: FC<any> = ({
                   format: "webp",
                   quality: 85
                 }}
-                loadingComponent={<>
-                  <div><Placeholder classes={classesPlaceholderProduct} withImage /></div>
-                  <div><Placeholder classes={classesPlaceholderProduct} withImage /></div>
-                  <div><Placeholder classes={classesPlaceholderProduct} withImage /></div>
-                </>}               
+                loadingComponent={
+                <div className={stylePlaceholder.placeholderItem_productContainer}>
+                  {[0,1,2].map((index)=>{
+                    return <div key={index}><Placeholder classes={classesPlaceholderProduct} withImage /></div>
+                  })}
+                </div> 
+                }               
                 />
             </LazyLoadComponent>
           </div>
