@@ -18,7 +18,7 @@ import {
   RiCheckboxCircleLine
 } from 'react-icons/ri'
 import {
-  PlaceOrderForm,
+  PlaceOrderFormv2,
   useAuthToken,
   useI18n,
   PrivateRoute
@@ -66,7 +66,6 @@ const placeOrderClasses = {
   // map
   mapNoteClassName: "d-none",
   mapAreaClassName: styleMap.map_mapArea,
-  mapSelectAreaClassName: `${styleMap.map_btnLocation}`,
   mapPopupClassName: styleMap.map_mapPopup,
   mapPopupBackgroundClassName: styleMap.map_mapPopupContainer,
   mapPinPointIconClassName: styleMap.map_mapPinPointIcon,
@@ -75,8 +74,42 @@ const placeOrderClasses = {
   mapHeaderTitleClassName: styleMap.map_mapPopupHeaderTitle,
   mapHeaderCloseButtonClassName: styleMap.map_mapPopupClose,
   mapLabelAddressClassName: styleMap.map_mapPopupLabelAddress,
-  mapCenterButtonClassName: styleMap.map_mapPopupCenterButton,
   mapButtonFooterClassName: `${styleButton.btn} ${styleButton.btn_primary} ${styleMap.map_btn}`,
+
+  // place order v2
+  shippingAreaPopupClassName: stylePlaceorder.placeorder_shippingAreaPopup,
+  shippingAreaPopupBackgroundClassName: stylePlaceorder.placeorder_shippingAreaPopupBackground,
+  shippingAreaPopupHeaderClassName: stylePlaceorder.placeorder_shippingAreaPopupHeader,
+  shippingAreaTitleClassName: stylePlaceorder.placeorder_shippingAreaTitle,
+  shippingAreaCloseButtonClassName: stylePlaceorder.placeorder_shippingAreaCloseButton,
+  addressMapButtonMapContainerClassName: stylePlaceorder.placeorder_addressMapButtonMapContainer,
+  addressMapButtonMapLabelClassName: stylePlaceorder.placeorder_addressMapButtonMapLabel,
+  addressMapButtonMapButtonClassName: stylePlaceorder.placeorder_addressMapButtonMapButton,
+  addressPopupButtonClassName: `${styleButton.btn} ${styleButton.btn_primary} ${stylePlaceorder.placeorder_addressPopupButton}`,
+  mapSelectAreaClassName: styleMap.map_btnLocation,
+  mapSelectAreaSpanClassName: styleMap.map_mapSelectAreaSpan,
+
+  // map form
+  mapContainerClassName: styleMap.map_mapContainer,
+  mapAddressContainerClassName: styleMap.map_mapAddressContainer,
+  mapFullAddressClassName: styleMap.map_mapFullAddress,
+  mapCityClassName: styleMap.map_mapCity,
+  mapPostCodeClassName: styleMap.map_mapPostCode,
+  mapChangeAddressButtonClassName: styleMap.map_mapChangeAddressButton,
+
+  // map pop up
+  mapSearchBarContainerClassName: styleMap.map_mapSearchBarContainer,
+  mapSearchCloseButtonClassName: styleMap.map_mapSearchCloseButton,
+  mapSearchBarClassName: styleMap.map_mapSearchBar,
+  mapSearchBarInputClassName: styleMap.map_mapSearchBarInput,
+  mapCenterButtonContainerClassName: styleMap.map_mapCenterButtonContainer,
+  mapCenterButtonClassName: styleMap.map_mapPopupCenterButton,
+  mapFooterContainerClassName: styleMap.map_mapFooterContainer,
+  mapDistrictLabelClassName: styleMap.map_mapDistrictLabel,
+  mapButtonFooterContainerClassName: styleMap.map_mapButtonFooterContainer,
+  mapButtonInputManualContainerClassName: styleMap.map_mapButtonInputManualContainer,
+  mapButtonInputManualTitleClassName: styleMap.map_mapButtonInputManualTitle,
+  mapButtonInputManualButtonClassName: styleMap.map_mapButtonInputManualButton,
 }
 
 type PrivateComponentPropsType = {
@@ -125,8 +158,10 @@ const PlaceOrderPage: FC<any> = ({
           step={1}
         />
         <div className={stylePlaceorder.placeorder}>
-          <PlaceOrderForm
-            classes={placeOrderClasses}
+          <PlaceOrderFormv2
+            classes={{
+              ...placeOrderClasses,
+            }}
             onErrorMsg={(msg) => toast.error(msg)}
             passwordViewIcon={<RiEyeCloseLine />}
             passwordHideIcon={<RiEye2Line />}
