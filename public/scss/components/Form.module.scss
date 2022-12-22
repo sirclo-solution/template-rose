@@ -38,6 +38,21 @@
     }
   }
 
+  & > label[for="street"],
+  & > label[for="city"]
+  {
+    position: absolute;
+    z-index: 1;
+    color: $color_text_secondary;
+    padding: 9px 24px 0 36px;
+    @include typographyBuilder(secondary,500,10,16);
+
+    & ~ input, ~ div > input, ~ select
+    {
+      padding: 16px 24px 0 24px;
+    }
+  }
+
   & > input, > div > input
   {
     position: relative;
@@ -194,7 +209,7 @@
 
     & > div
     {
-      margin-left: 10px;
+      margin-left: 20px;
     }
 
     &::before
@@ -214,7 +229,7 @@
   {
     & > div
     {
-      margin-left: 10px;
+      margin-left: 20px;
 
       & > div[class^=" css-"][class$="-singleValue"]
       {
