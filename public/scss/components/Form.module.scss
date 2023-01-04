@@ -195,10 +195,7 @@
     
     & > div
     {
-      & > span[class^=" css-"][class$="-indicatorSeparator"]
-      {
-        display: none;
-      }
+      & > span[class^=" css-"][class$="-indicatorSeparator"],
       & > div[class^=" css-"][class$="-indicatorContainer"]
       {
         display: none;
