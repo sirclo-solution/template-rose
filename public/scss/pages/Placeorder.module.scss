@@ -65,6 +65,11 @@
     }
   }
 
+  &_shipping
+  {
+    margin-top: 12px;
+  }
+
   &_formError
   {
     background: $color_error;

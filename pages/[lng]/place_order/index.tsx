@@ -88,6 +88,7 @@ const placeOrderClasses = {
   addressPopupButtonClassName: `${styleButton.btn} ${styleButton.btn_primary} ${stylePlaceorder.placeorder_addressPopupButton}`,
   mapSelectAreaClassName: styleMap.map_btnLocation,
   mapSelectAreaSpanClassName: styleMap.map_mapSelectAreaSpan,
+  formClassName: styleForm.form_outer,
 
   // map form
   mapContainerClassName: styleMap.map_mapContainer,
@@ -187,6 +188,7 @@ const PlaceOrderPage: FC<any> = ({
               input: (provided) => ({ ...provided, marginRight: '0', marginLeft: '-8px' }),
               indicatorsContainer: (provided) => ({ ...provided, display: 'none' }),
             }}
+            signupLabelPosition='bottom'
           />
           <OrderSummaryBox
             i18n={i18n}
