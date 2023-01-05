@@ -38,19 +38,10 @@
     }
   }
 
-  & > label[for="street"],
-  & > label[for="city"]
+  & > div > div[class^=" css-"][class$="-control"] > div > div[class^=" css-"][class$="-placeholder"]
   {
-    position: absolute;
-    z-index: 1;
-    color: $color_text_secondary;
-    padding: 9px 24px 0 36px;
-    @include typographyBuilder(secondary,500,10,16);
-
-    & ~ input, ~ div > input, ~ select
-    {
-      padding: 16px 24px 0 24px;
-    }
+    color: $color_text_placeholder !important;
+    opacity: 1; /* Firefox */
   }
 
   & > input, > div > input
@@ -202,9 +193,13 @@
   {
     padding: 8px 48px 0 6px;
     
-    & > div[class*="IndicatorsContainer"]
+    & > div
     {
-      display: none;
+      & > span[class^=" css-"][class$="-indicatorSeparator"],
+      & > div[class^=" css-"][class$="-indicatorContainer"]
+      {
+        display: none;
+      }
     }
 
     & > div
@@ -231,14 +226,20 @@
     {
       margin-left: 20px;
 
-      & > div[class^=" css-"][class$="-singleValue"]
-      {
-        margin-left: 2px;
-      }
-
+      & > div[class^=" css-"][class$="-singleValue"],
       & > div[class^="css-"][class$="-Input"]
       {
         margin-left: 2px;
+      }
+    }
+    
+    & > div[class=" css-1hwfws3"],
+    & > div[class^=" css-"][class$="-Subscription"]
+    {
+      & > div:only-child,
+      & > div:nth-child(2)
+      {
+        margin-left: 2px !important;
       }
     }
   }
@@ -246,5 +247,23 @@
   & > div > div[class^=" css-"][class$="-menu"]
   {
     z-index: 2;
+  }
+
+  &_outer
+  {
+    & > div:first-child > label[for="street"],
+    & > div:nth-child(2) > label[for="city"]
+    {
+      position: absolute;
+      z-index: 1;
+      color: $color_text_secondary;
+      padding: 9px 24px 0 36px;
+      @include typographyBuilder(secondary,500,10,16);
+
+      & ~ input, ~ div > input, ~ select
+      {
+        padding: 16px 24px 0 24px;
+      }
+    }
   }
 }
