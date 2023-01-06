@@ -24,6 +24,7 @@
     "delivered": "Pesanan Tiba",
     "editAccount": "Sunting Akun",
     "editErrorMsg": "Gagal mengubah data akun",
+    "editInvalidMsg": "Input tidak sesuai, silahkan cek kembali",
     "editSuccessMsg": "Berhasil mengubah data akun",
     "email": "Email",
     "emailPlaceholder": "Masukan email anda",
@@ -475,6 +476,10 @@
     "unauthorize": "Konfirmasi pembayaran gagal, silakan login terlebih dahulu dan lakukan konfirmasi kembali",
     "uploadFailed": "Gagal mengunggah dokumen, silahkan coba lagi.",
     "wrongEmail": "Mohon gunakan email yang sesuai dengan saat membuat pesanan"
+  },
+  "paymentMethod": {
+    "copySuccess": "Berhasil tersalin",
+    "downloadQrSuccess": "Berhasil Mengunduh Gambar"
   },
   "paymentNotif": {
     "message": "Mohon masukkan detail transaksi anda setelah anda melakukan transfer melalui bank.",

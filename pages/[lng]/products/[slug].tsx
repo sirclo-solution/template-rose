@@ -8,9 +8,11 @@ import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { useRouter } from 'next/router'
 import { RiQuestionFill, RiStarFill } from 'react-icons/ri'
 import {
+  FeaturesType,
   Products,
   useAuthToken,
   useI18n,
+  TemplateFeatures
 } from '@sirclo/nexus'
 /* library template */
 import { useBrand } from 'lib/useBrand'
@@ -22,6 +24,7 @@ import SEO from 'components/SEO'
 import Layout from 'components/Layout/Layout'
 import Breadcrumb from 'components/Breadcrumb/Breadcrumb'
 import EmptyComponent from 'components/EmptyComponent/EmptyComponent'
+import Error404Page from 'pages/404'
 /* styles */
 import styleButton from 'public/scss/components/Button.module.scss'
 import styleProduct from 'public/scss/components/Product.module.scss'
@@ -99,78 +102,83 @@ const ProductsHighlightPage: FC<any> = ({
 
   return (
     <Layout {...layoutProps}>
-      <SEO title={i18n.t("product.products")} />
-      <div className="container mt-5 pt-4 pb-3">
-        <Breadcrumb
-          steps={[{ label: i18n.t('breadcrumb.home') }, { label: titleProductSection }]}
-        />
-      </div>
-      <div className="container">
-        <div className={styleProducts.products_header}>
-          <h6 className={styleProducts.products_headerTotalItem}>
-            {i18n.t("products.show")} {pageInfo.totalItems} {i18n.t("products.item")}
-          </h6>
+      <TemplateFeatures
+        id={FeaturesType.PRODUCT_HIGHLIGHT}
+        defaultChildren={<Error404Page />}
+      >
+        <SEO title={i18n.t("product.products")} />
+        <div className="container mt-5 pt-4 pb-3">
+          <Breadcrumb
+            steps={[{ label: i18n.t('breadcrumb.home') }, { label: titleProductSection }]}
+          />
         </div>
-      </div>
-      <div className={`container ${styleProducts.products}`}>
-        <div className="row">
-          {Array.from(Array(currPage + 1)).map((_, i) => (
-            <Products
-              key={i}
-              pageNumber={i}
-              itemPerPage={pageInfo.itemPerPage}
-              getPageInfo={setPageInfo as any}
-              classes={classesProducts}
-              fullPath={`product/{id}`}
-              pathPrefix={`product`}
-              isFlipImage
-              withCategory
-              categoryLength={1}
-              productCategoryClasses={classesCategoryProduct}
-              withRating
-              showEmptyRating
-              isProductSectionHighlight
-              ratingIcon={<RiStarFill color="#F2C14F" size={12} />}
-              lazyLoadedImage={false}
-              slug={slugSection}
-              getTitleProductSection={(value: string) => setTitleProductSection(value)}
-              thumborSetting={{
-                width: useSizeBanner(size.width),
-                format: "webp",
-                quality: 85,
-              }}
-              emptyStateComponent={
-                <div className="col-12 my-3">
-                  <EmptyComponent
-                    icon={<RiQuestionFill color="#A8A8A8" size={20} />}
-                    title={i18n.t("product.isEmpty")}
-                  />
-                </div>
-              }
-              loadingComponent={
-                <div className="col-12">
-                  <div className="d-flex justify-content-center align-center my-5">
-                    <Loader
-                      color="text-secondary"
-                      withText
+        <div className="container">
+          <div className={styleProducts.products_header}>
+            <h6 className={styleProducts.products_headerTotalItem}>
+              {i18n.t("products.show")} {pageInfo.totalItems} {i18n.t("products.item")}
+            </h6>
+          </div>
+        </div>
+        <div className={`container ${styleProducts.products}`}>
+          <div className="row">
+            {Array.from(Array(currPage + 1)).map((_, i) => (
+              <Products
+                key={i}
+                pageNumber={i}
+                itemPerPage={pageInfo.itemPerPage}
+                getPageInfo={setPageInfo as any}
+                classes={classesProducts}
+                fullPath={`product/{id}`}
+                pathPrefix={`product`}
+                isFlipImage
+                withCategory
+                categoryLength={1}
+                productCategoryClasses={classesCategoryProduct}
+                withRating
+                showEmptyRating
+                isProductSectionHighlight
+                ratingIcon={<RiStarFill color="#F2C14F" size={12} />}
+                lazyLoadedImage={false}
+                slug={slugSection}
+                getTitleProductSection={(value: string) => setTitleProductSection(value)}
+                thumborSetting={{
+                  width: useSizeBanner(size.width),
+                  format: "webp",
+                  quality: 85,
+                }}
+                emptyStateComponent={
+                  <div className="col-12 my-3">
+                    <EmptyComponent
+                      icon={<RiQuestionFill color="#A8A8A8" size={20} />}
+                      title={i18n.t("product.isEmpty")}
                     />
                   </div>
-                </div>
-              }
-            />
-          ))}
-          {(pageInfo.totalItems === 0) &&
-            <div className="col-12">
-              <button
-                className={`${styleButton.btn} ${styleButton.btn_secondary}`}
-                onClick={() => router.push(`/${lng}/products`)}
-              >
-                {i18n.t("products.seeAllProduct")}
-              </button>
-            </div>
-          }
+                }
+                loadingComponent={
+                  <div className="col-12">
+                    <div className="d-flex justify-content-center align-center my-5">
+                      <Loader
+                        color="text-secondary"
+                        withText
+                      />
+                    </div>
+                  </div>
+                }
+              />
+            ))}
+            {(pageInfo.totalItems === 0) &&
+              <div className="col-12">
+                <button
+                  className={`${styleButton.btn} ${styleButton.btn_secondary}`}
+                  onClick={() => router.push(`/${lng}/products`)}
+                >
+                  {i18n.t("products.seeAllProduct")}
+                </button>
+              </div>
+            }
+          </div>
         </div>
-      </div>
+      </TemplateFeatures>
     </Layout>
   )
 }

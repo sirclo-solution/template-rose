@@ -24,6 +24,7 @@
     "delivered": "Delivered",
     "editAccount": "Edit Account",
     "editErrorMsg": "Failed to edit profile data",
+    "editInvalidMsg": "Invalid input, please check again",
     "editSuccessMsg": "success to edit profile data",
     "email": "Email",
     "emailPlaceholder": "Input your email",
@@ -475,6 +476,10 @@
     "unauthorize": "Payment confirmation has failed, please login first and try again",
     "uploadFailed": "File upload failed. Please try again.",
     "wrongEmail": "Please use the email that you used to create the order"
+  },
+  "paymentMethod": {
+    "copySuccess": "Copied Successfully",
+    "downloadQrSuccess": "Image Downloaded Successfully"
   },
   "paymentNotif": {
     "message": "After you have made your bank transfer, please notify us by entering the details of the transaction.",
