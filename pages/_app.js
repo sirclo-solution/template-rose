@@ -5,6 +5,7 @@ import {
   useApollo,
   ApolloProvider,
   PackageFeatureProvider,
+  TemplateFeatureFlag,
   Widget,
   I18n
 } from '@sirclo/nexus'
@@ -55,15 +56,17 @@ const MyApp = ({
     >
       <ApolloProvider client={apolloClient} key={router.route}>
         <PackageFeatureProvider>
-          <MaintenanceMode classes={classesMaintenance}>
-            <I18n lngDict={pageProps.lngDict} locale={pageProps.lng}>
-              <Component {...pageProps} />
-              <Widget 
-                pos='script' 
-                hash={hash}
-              />
-            </I18n>
-          </MaintenanceMode>
+          <TemplateFeatureFlag>
+            <MaintenanceMode classes={classesMaintenance}>
+              <I18n lngDict={pageProps.lngDict} locale={pageProps.lng}>
+                <Component {...pageProps} />
+                <Widget 
+                  pos='script' 
+                  hash={hash}
+                />
+              </I18n>
+            </MaintenanceMode>
+          </TemplateFeatureFlag>
         </PackageFeatureProvider>
       </ApolloProvider>
     </PageTransition>
