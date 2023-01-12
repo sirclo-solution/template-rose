@@ -9,7 +9,7 @@ import {
 	RiShoppingBag2Line,
 	RiShoppingBag2Fill,
 	RiUser3Line,
-	RiUser3Fill,
+	RiUser3Fill
 } from 'react-icons/ri'
 import { 
 	PrivateComponent, 

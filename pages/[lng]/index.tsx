@@ -360,59 +360,6 @@ const Home: FC<any> = ({
           </LazyLoadComponent>
         </div>
       }
-      {/* <div className={styleWidget.widget_footer}>
-        <Widget
-          pos="footer-1"
-          containerClassName={styleWidget.widget_footerBrand}
-          widgetClassName={styleWidget.widget_footerBrandItem}
-          loadingComponent={
-            <>
-              <div className="col-12">
-                <Placeholder classes={classesPlaceholderWidgetService} withImage />
-              </div>
-            </>
-          }
-          thumborSetting={{
-            width: size.width < 768 ? 250 : 300,
-            format: "webp",
-            quality: 85
-          }}
-        />
-      </div>
-      <div className={styleWidget.widget_footer_second}>
-        <h6>{i18n.t("footer.newsletter")}</h6>
-        <p>{i18n.t("footer.newsletterDesc")}</p>
-        <NewsletterForm
-          classes={classesNewsletter}
-          buttonComponent={<>{i18n.t("footer.subscribe")}</>}
-          onComplete={() => toast.success(i18n.t("footer.submitSuccess"))}
-          onError={() => toast.error(i18n.t("footer.submitError"))}
-        />
-        <div className="container footer__bottom">
-          <Widget
-            pos="main-footer"
-            thumborSetting={{
-              width: 1,
-              format: 'webp',
-              quality: 5,
-            }}
-          />
-        </div>
-        <div className="footer__container--widget-socialMedia">
-          <SocialMediaIcons
-            socialMediaIcons={socialMediaIcons}
-            classes={classesMediaSocial}
-          />
-        </div>
-        <WidgetLinks
-            pos="footer-2"
-            size={size}
-          />
-          <WidgetLinks
-            pos="footer-3"
-            size={size}
-          />
-      </div> */}
     </Layout >
   )
 }

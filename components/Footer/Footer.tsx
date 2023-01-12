@@ -25,11 +25,7 @@ import styleIcons from 'public/scss/components/SocialMediaIcons.module.scss'
 
 const classesPlaceholderWidgetService = {
   placeholderImage: `${stylePlaceholder.placeholderItem} ${stylePlaceholder.placeholderItem_widgetService}`,
-}
-
-const classesPlaceholderWidget = {
-  placeholderTitle: "placeholder-item placeholder-item__footer--widget-title",
-  placeholderList: "placeholder-item placeholder-item__footer--widget-list"
+	placeholderList: `${stylePlaceholder.placeholderItem} ${stylePlaceholder.placeholderItem_widgetList}`,
 }
 
 const classesNewsletter = {
@@ -70,7 +66,7 @@ const Footer: FC<any> = () => {
       }}
       loadingComponent={
         <div className={styleWidget.widget_ContainerLink}>
-          <Placeholder classes={classesPlaceholderWidget} withTitle withList />
+          <Placeholder classes={classesPlaceholderWidgetService} withTitle listMany={4} withList />
         </div>
       }
     />

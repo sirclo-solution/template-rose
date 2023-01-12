@@ -9,7 +9,6 @@ import { useRouter } from 'next/router'
 import { ToastContainer } from 'react-toastify'
 import { withBrand } from '@sirclo/nexus'
 /* components */
-import BottomNavigation from 'components/BottomNavigation'
 import Header from '../Header'
 import Footer from '../Footer/Footer'
 import SEOHead from '../SEO'
@@ -17,6 +16,7 @@ import PageNotFound from 'components/PageNotFound'
 import Copyright from 'components/Copyright'
 import Newsletter from 'components/Newsletter'
 import GoogleTagManager from 'components/GoogleTagManager'
+import BottomNavigation from 'components/BottomNavigation'
 
 type LayoutPropType = {
   lngDict: any

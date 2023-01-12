@@ -4,10 +4,7 @@
 {
     &_container
     {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-start;
+        @include flex(row, center,flex-start);
         flex-wrap: wrap;
         position: relative;
         margin: 8px 0 0;
