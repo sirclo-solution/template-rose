@@ -14,7 +14,6 @@ import {
   useAuthToken,
   useI18n,
   Widget
-  // Copyright
 } from '@sirclo/nexus'
 /* library template */
 import useWindowSize from 'lib/useWindowSize'
