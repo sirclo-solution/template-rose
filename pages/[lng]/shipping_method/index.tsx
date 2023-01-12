@@ -28,6 +28,7 @@ import styleShipping from 'public/scss/components/Shipping.module.scss'
 import styleCustomer from 'public/scss/components/CustomerDetail.module.scss'
 import styleBtn from 'public/scss/components/Button.module.scss'
 import styles from 'public/scss/pages/ShippingMethod.module.scss'
+import styleMap from 'public/scss/components/Map.module.scss'
 
 const classesCustomerDetail = {
   customerDetailBoxClass: styleCustomer.customer,
@@ -68,8 +69,19 @@ const classesShippingMethod = {
   mapHeaderNoteClassName: styleCustomer.customer_mapPopupNote,
   mapLabelAddressClassName: styleCustomer.customer_mapPopupLabelAddress,
   mapButtonFooterClassName: `${styleBtn.btn} ${styleBtn.btn_primary} ${styleShipping.shipping_item__pinButton}`,
-  mapCenterButtonClassName: styleCustomer.customer_mapPopupCenterButton,
   mapPinPointIconClassName: styleCustomer.customer_mapPinPointIcon,
+  mapSearchBarContainerClassName: styleMap.map_mapSearchBarContainer,
+  mapSearchCloseButtonClassName: styleMap.map_mapSearchCloseButton,
+  mapSearchBarClassName: styleMap.map_mapSearchBar,
+  mapSearchBarInputClassName: styleMap.map_mapSearchBarInput,
+  mapCenterButtonContainerClassName: styleMap.map_mapCenterButtonContainer,
+  mapCenterButtonClassName: styleMap.map_mapPopupCenterButton,
+  mapFooterContainerClassName: styleMap.map_mapFooterContainer_shipping,
+  mapDistrictLabelClassName: styleMap.map_mapDistrictLabel,
+  mapButtonFooterContainerClassName: styleMap.map_mapButtonFooterContainer,
+  mapButtonInputManualContainerClassName: styleMap.map_mapButtonInputManualContainer,
+  mapButtonInputManualTitleClassName: styleMap.map_mapButtonInputManualTitle,
+  mapButtonInputManualButtonClassName: styleMap.map_mapButtonInputManualButton,
 }
 
 const classesPlaceholderCustomerDetail = {

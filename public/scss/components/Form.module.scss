@@ -38,6 +38,12 @@
     }
   }
 
+  & > div > div[class^=" css-"][class$="-control"] > div > div[class^=" css-"][class$="-placeholder"]
+  {
+    color: $color_text_placeholder !important;
+    opacity: 1; /* Firefox */
+  }
+
   & > input, > div > input
   {
     position: relative;
@@ -68,7 +74,8 @@
     }
   }
 
-  & > select
+  & > select,
+  & > div > div[class^=" css-"][class$="-control"]
   {
     position: relative;
     @include typographyBuilder(secondary,400,14,24);
@@ -112,6 +119,12 @@
     { /* Internet Explorer 10-11 */
      color: $color_text_placeholder !important;
     }
+  }
+
+  & > input[id="postalCode"]
+  {
+    width: 50%;
+    min-width: 155px;
   }
 
   & > input[type=number]
@@ -167,6 +180,84 @@
       @include absolute(9px,auto,auto,24px);
       z-index: 1;
       color: $color_text_secondary;
+      @include typographyBuilder(secondary,500,10,16);
+
+      & ~ input, ~ div > input, ~ select
+      {
+        padding: 16px 24px 0 24px;
+      }
+    }
+  }
+
+  & > div > div[class^=" css-"][class$="-control"]
+  {
+    padding: 8px 48px 0 6px;
+    
+    & > div
+    {
+      & > span[class^=" css-"][class$="-indicatorSeparator"],
+      & > div[class^=" css-"][class$="-indicatorContainer"]
+      {
+        display: none;
+      }
+    }
+
+    & > div
+    {
+      margin-left: 20px;
+    }
+
+    &::before
+    {
+      content: "";
+      @include fixedSize(18px);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23998060' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E");
+      position: absolute;
+      left: 8px;
+    }
+  }
+
+  & > div[id="selectType"] > div[class^=" css-"][class$="-control"]
+  {
+    & > div
+    {
+      margin-left: 20px;
+
+      & > div[class^=" css-"][class$="-singleValue"],
+      & > div[class^="css-"][class$="-Input"]
+      {
+        margin-left: 2px;
+      }
+    }
+    
+    & > div[class=" css-1hwfws3"],
+    & > div[class^=" css-"][class$="-Subscription"]
+    {
+      & > div:only-child,
+      & > div:nth-child(2)
+      {
+        margin-left: 2px !important;
+      }
+    }
+  }
+
+  & > div > div[class^=" css-"][class$="-menu"]
+  {
+    z-index: 2;
+  }
+
+  &_outer
+  {
+    & > div:first-child > label[for="street"],
+    & > div:nth-child(2) > label[for="city"]
+    {
+      position: absolute;
+      z-index: 1;
+      color: $color_text_secondary;
+      padding: 9px 24px 0 36px;
       @include typographyBuilder(secondary,500,10,16);
 
       & ~ input, ~ div > input, ~ select
