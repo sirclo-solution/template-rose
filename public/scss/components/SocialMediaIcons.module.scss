@@ -2,54 +2,51 @@
 
 .socialMediaIcons
 {
-    &_container
+  &_container
+  {
+    @include flex(row, center,flex-start);
+    flex-wrap: wrap;
+    position: relative;
+    margin: 8px 0 0;
+    padding: 0;
+  }
+
+  &_item
+  {
+    @include flex(column, center, center);
+    @include transition();
+    @include fixedSize(40px);
+    flex-wrap: nowrap;
+    position: relative;
+    margin: 0 8px 0 0;
+    padding: 0;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    border: solid 1px $color_border;
+    background-color: $color_white;
+    color: $color_white;
+    overflow: hidden;
+    border-radius: 100%;
+
+    & > svg
     {
-        @include flex(row, center,flex-start);
-        flex-wrap: wrap;
-        position: relative;
-        margin: 8px 0 0;
-        padding: 0;
+      @include transition();
+      filter: brightness(100%);
     }
 
-    &_item
+    &:hover,
+    &:focus
     {
-        @include flex(column, center, center);
-        @include transition();
-        @include fixedSize(40px);
-        flex-wrap: nowrap;
-        position: relative;
-        margin: 0 8px 0 0;
-        padding: 0;
+      color: $color_text_primary ;
+      background-color: $color_white;
+      border-color: $color_border;
+      text-decoration: none;
 
-        text-decoration: none;
-        text-transform: uppercase;
-        text-align: center;
-
-        border: solid 1px $color_border;
-        background-color: $color_white;
-        color: $color_white;
-
-        overflow: hidden;
-        border-radius: 100%;
-
-        & > svg
-        {
-            @include transition();
-            filter: brightness(100%);
-        }
-
-        &:hover,
-        &:focus
-        {
-            color: $color_text_primary ;
-            background-color: $color_white;
-            border-color: $color_border;
-            text-decoration: none;
-
-            & > svg
-            {
-                filter: brightness(0);
-            }
-        }
+      & > svg
+      {
+        filter: brightness(0);
+      }
     }
+  }
 }

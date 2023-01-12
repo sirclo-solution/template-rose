@@ -8,10 +8,11 @@
 
   &Navigasi
   {
-    @include fixed(auto,auto,24px,auto);
-    @include fixedSize(100%);
+    @include fixed(auto, auto, 24px, auto);
+    @include fixedWidth(100%);
     padding: 0 18px;
     max-height: 58px;
+    height: 100%;
     z-index: 10;
 
     &_menu
@@ -43,7 +44,7 @@
         & > div
         {
           @include flex(column);
-          @include typographyBuilder(secondary,400,10,12.1);
+          @include typographyBuilder(secondary , 400, 10, 12.1);
           padding-top: 12px;
           
           & > svg
