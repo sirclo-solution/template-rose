@@ -4,8 +4,7 @@
 {
   &_container
   {
-    @include flex(row, center,flex-start);
-    flex-wrap: wrap;
+    @include flex(row, center,flex-start, true);
     position: relative;
     margin: 8px 0 0;
     padding: 0;
@@ -16,7 +15,6 @@
     @include flex(column, center, center);
     @include transition();
     @include fixedSize(40px);
-    flex-wrap: nowrap;
     position: relative;
     margin: 0 8px 0 0;
     padding: 0;

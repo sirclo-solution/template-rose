@@ -36,9 +36,9 @@
     
       & > a 
       {
+        @include flex(column, center, flex-end);
         height: 100%;
         color: $color_text_primary;
-        @include flex(column, center, flex-end);
         text-decoration: none;
   
         & > div
@@ -79,7 +79,7 @@
     &_badge
     {
       @include typographyBuilder(secondary, 600, 8, 16);
-      @include absolute(-2px , auto, auto, 52%); 
+      @include absolute(-2px, auto, auto, 52%); 
       @include flex();
       border-radius: 50%;
       background-color: $color_error;

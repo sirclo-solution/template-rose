@@ -3,9 +3,9 @@ import { FC } from 'react'
 import { toast } from 'react-toastify'
 import {
 	useI18n,
-  Widget,
-  NewsletterForm,
-  SocialMediaIcons
+	Widget,
+	NewsletterForm,
+	SocialMediaIcons
 } from '@sirclo/nexus'
 import { 
   FaFacebookF,
