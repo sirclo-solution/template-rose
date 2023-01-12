@@ -190,64 +190,64 @@
 
   &_Container
   {
-    h1, h2, h3, h4, h5, h6
-    {
-      @include fontPrimary(500);
-      @include fontSize(32);
-      @include lineHeight(40);
-      display: block;
-      position: relative;
-      margin-bottom: 16px;
-      padding: 0;
-      color: $color_black;
-    }
+    margin-bottom: 16px;
 
-    h1, h2, h3, h4, h5, h6, p
+    &Item
     {
-      a
+      h1, h2, h3, h4, h5, h6
       {
-        @include transition();
-        
-        color: inherit;
-        text-decoration: none;
-        
-        &:hover,
-        &:focus
+        @include fontPrimary(500);
+        @include fontSize(32);
+        @include lineHeight(40);
+        display: block;
+        position: relative;
+        margin-bottom: 16px;
+        padding: 0;
+        color: $color_black;
+      }
+  
+      h1, h2, h3, h4, h5, h6, p
+      {
+        a
         {
-          color: $color_black;
-          text-decoration: underline;
+          @include transition();
+          
+          color: inherit;
+          text-decoration: none;
+          
+          &:hover,
+          &:focus
+          {
+            color: $color_black;
+            text-decoration: underline;
+          }
         }
       }
-    }
-
-    p
-    {
-      @include fontSecondary(400);
-      @include fontSize(12);
-      margin: 0;
-      color: $color_text_primary;
-
-      & + ul,
-      & + ol
+  
+      p
       {
-        margin-top: 28px;
+        @include fontSecondary(400);
+        @include fontSize(12);
+        margin: 0;
+        color: $color_text_primary;
+  
+        & + ul,
+        & + ol
+        {
+          margin-top: 28px;
+        }
       }
-    }
-
-    img
-    {
-      max-width: 100%;
-      margin-bottom: 16px;
-    }
-
-    &:not(:last-child)
-    {
-      margin-bottom: 16px;
-    }
-
-    &:last-child
-    {
-      padding-bottom: 24px;
+  
+      img
+      {
+        max-width: 100%;
+        margin-bottom: 16px;
+      }
+  
+      &:not(:last-child)
+      {
+        margin-bottom: 16px;
+      }
     }
 
     &Link

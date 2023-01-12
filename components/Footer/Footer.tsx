@@ -111,7 +111,8 @@ const Footer: FC<any> = () => {
 				<div className={styleWidget.widget_footerBottom}>
 					<Widget
 						pos="main-footer"
-						widgetClassName={styleWidget.widget_Container}
+						widgetClassName={styleWidget.widget_ContainerItem}
+						containerClassName={styleWidget.widget_Container}
 					/>
 					<SocialMediaIcons
 						socialMediaIcons={socialMediaIcons}
