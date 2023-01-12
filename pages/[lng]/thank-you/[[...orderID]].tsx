@@ -91,7 +91,6 @@ const ThankYouPage: FC<any> = ({
       title: i18n.t("thankYou.title")
     },
     withHeader: false,
-    withFooter: false,
     withCopyright: true,
     layoutClassName: 'layout_fullHeight'
   }

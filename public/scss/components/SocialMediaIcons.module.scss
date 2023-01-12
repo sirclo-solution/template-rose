@@ -1,0 +1,59 @@
+@import '../utils/variables';
+
+.socialMediaIcons
+{
+    &_container
+    {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        position: relative;
+        margin: 0;
+        padding: 0;
+    }
+
+    &_item
+    {
+        @include transition();
+        @include flex(column, center, center);
+        flex-wrap: nowrap;
+        position: relative;
+        margin: 0 8px 0 0;
+        padding: 0;
+
+        text-decoration: none;
+        text-transform: uppercase;
+        text-align: center;
+
+        border: solid 1px $color_border;
+        background-color: $color_white;
+        color: $color_white;
+
+        width: 40px;
+        height: 40px;
+        overflow: hidden;
+        border-radius: 100%;
+
+        & > svg
+        {
+            @include transition();
+            filter: brightness(100%);
+        }
+
+        &:hover,
+        &:focus
+        {
+            color: $color_text_primary ;
+            background-color: $color_white;
+            border-color: $color_border;
+            text-decoration: none;
+
+            & > svg
+            {
+                filter: brightness(0);
+            }
+        }
+    }
+}

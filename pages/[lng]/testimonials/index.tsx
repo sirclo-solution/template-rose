@@ -78,6 +78,7 @@ const TestimonialsPage: FC<any> = ({
     lng,
     lngDict,
     brand,
+    withCopyright: true,
     SEO: {
       title: i18n.t("testimonial.title")
     },

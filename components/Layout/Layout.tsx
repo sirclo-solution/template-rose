@@ -9,6 +9,7 @@ import { useRouter } from 'next/router'
 import { ToastContainer } from 'react-toastify'
 import { withBrand } from '@sirclo/nexus'
 /* components */
+import BottomNavigation from 'components/BottomNavigation'
 import Header from '../Header'
 import Footer from '../Footer/Footer'
 import SEOHead from '../SEO'
@@ -26,6 +27,8 @@ type LayoutPropType = {
   withHeader?: boolean
   headerTitle?: string
   withFooter?: boolean
+  withFooterOnly?: boolean
+  withNavigation?: boolean
   withCopyright?: boolean
   withAllowed?: boolean | undefined
   [otherProp: string]: any
@@ -40,6 +43,8 @@ const Layout: FC<LayoutPropType> = ({
   withHeader = true,
   headerTitle,
   withFooter = true,
+  withFooterOnly = false,
+  withNavigation = false,
   withCopyright = false,
   withAllowed = true,
   brand,
@@ -153,8 +158,24 @@ const Layout: FC<LayoutPropType> = ({
           props.children :
           <PageNotFound i18n={i18n} />
         }
-        {withFooter &&
-          <Footer brand={brand} />
+        {withFooter && (
+            <>
+              <Footer brand={brand} />
+              <BottomNavigation brand={brand} />
+            </>
+          )
+        }
+        {withFooterOnly && (
+            <>
+              <Footer brand={brand} />
+            </>
+          )
+        }
+        {withNavigation && (
+            <>
+              <BottomNavigation brand={brand} />
+            </>
+          )
         }
         {withCopyright &&
           <Copyright/>

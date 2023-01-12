@@ -95,6 +95,7 @@ const ProductsHighlightPage: FC<any> = ({
     lngDict,
     brand,
     headerTitle: titleProductSection,
+    withCopyright: true,
     SEO: {
       title: titleProductSection,
     }

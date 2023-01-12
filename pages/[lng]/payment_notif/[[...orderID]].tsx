@@ -105,7 +105,6 @@ const PaymentConfirmationPage: FC<any> = ({
     lng,
     lngDict,
     brand,
-    withFooter: false,
     withCopyright: true,
     headerTitle: orderID ? i18n.t('paymentConfirm.heading') : i18n.t('paymentConfirm.checkOrder'),
     layoutClassName: 'layout_fullHeight',
