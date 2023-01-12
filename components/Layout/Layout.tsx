@@ -16,6 +16,7 @@ import PageNotFound from 'components/PageNotFound'
 import Copyright from 'components/Copyright'
 import Newsletter from 'components/Newsletter'
 import GoogleTagManager from 'components/GoogleTagManager'
+import BottomNavigation from 'components/BottomNavigation'
 
 type LayoutPropType = {
   lngDict: any
@@ -26,6 +27,8 @@ type LayoutPropType = {
   withHeader?: boolean
   headerTitle?: string
   withFooter?: boolean
+  withFooterOnly?: boolean
+  withNavigation?: boolean
   withCopyright?: boolean
   withAllowed?: boolean | undefined
   [otherProp: string]: any
@@ -40,6 +43,8 @@ const Layout: FC<LayoutPropType> = ({
   withHeader = true,
   headerTitle,
   withFooter = true,
+  withFooterOnly = false,
+  withNavigation = false,
   withCopyright = false,
   withAllowed = true,
   brand,
@@ -153,8 +158,17 @@ const Layout: FC<LayoutPropType> = ({
           props.children :
           <PageNotFound i18n={i18n} />
         }
-        {withFooter &&
+        {withFooter && 
+          <>
+            <Footer brand={brand} />
+            <BottomNavigation brand={brand} />
+          </>
+        }
+        {withFooterOnly && 
           <Footer brand={brand} />
+        }
+        {withNavigation && 
+          <BottomNavigation brand={brand} />
         }
         {withCopyright &&
           <Copyright/>

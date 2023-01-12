@@ -37,6 +37,8 @@ const GiftCardPage: FC<any> = ({
     lngDict,
     brand,
     withFooter: false,
+    withFooterOnly: true,
+    withCopyright: true,
     headerTitle: i18n.t('giftCard.title'),
     SEO: {
       title: i18n.t("giftCard.title")

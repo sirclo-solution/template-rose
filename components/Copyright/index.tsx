@@ -11,6 +11,7 @@ const CopyrightComp: FC<any> = () => {
       <Copyright>
         <Widget
           pos="copyright-and-policy"
+          widgetClassName={styles.copyrightWidget}
           thumborSetting={{
             width: 1,
             format: 'webp',

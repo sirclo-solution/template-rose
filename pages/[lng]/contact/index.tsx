@@ -49,6 +49,7 @@ const ContactPage: FC<any> = ({
     brand,
     headerTitle: i18n.t('contact.title'),
     withFooter: false,
+    withFooterOnly: true,
     withCopyright: true,
     withAllowed: allowedEnquiry,
     SEO: {

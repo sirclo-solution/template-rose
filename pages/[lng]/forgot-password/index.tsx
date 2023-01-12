@@ -44,6 +44,7 @@ const ForgotPassword: FC<any> = ({
     layoutClassName: 'layout_fullHeight',
     withCopyright: true,
     withFooter: false,
+    withFooterOnly: true,
     SEO: {
       title: i18n.t("resetPassword.title")
     }

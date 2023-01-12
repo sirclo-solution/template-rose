@@ -109,7 +109,8 @@ const Cart: FC<any> = ({
     lngDict,
     brand,
     headerTitle: i18n.t('cart.title'),
-    withFooter: totalQuantity > 0 ? false : true,
+    withFooter: false,
+    withNavigation: totalQuantity > 0 ? false : true,
     layoutClassName: "layout_fullHeight",
     SEO: {
       title: i18n.t("cart.title")

@@ -215,7 +215,10 @@
     "login": "Login",
     "newsletter": "Stay in touch",
     "newsletterDesc": "Stay updated for new items & special offer",
-    "search": "Search"
+    "search": "Search",
+    "submitError":"Failed subscribe",
+    "submitSuccess":"Success subscribe",
+    "subscribe": "Subscribe Now"
   },
   "forgotPassword": {
     "requestFail": "Password reset request fail.",

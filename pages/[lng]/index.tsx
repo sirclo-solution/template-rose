@@ -116,6 +116,7 @@ const Home: FC<any> = ({
     lngDict,
     brand,
     withAnnouncement: true,
+    withCopyright: true,
     SEO: {
       title: i18n.t("home.title")
     },
@@ -232,25 +233,6 @@ const Home: FC<any> = ({
           </LazyLoadComponent>
         </div>
       }
-      <div className={styleWidget.widget_footer}>
-        <Widget
-          pos="footer-1"
-          containerClassName={styleWidget.widget_footerBrand}
-          widgetClassName={styleWidget.widget_footerBrandItem}
-          loadingComponent={
-            <>
-              <div className="col-12">
-                <Placeholder classes={classesPlaceholderWidgetService} withImage />
-              </div>
-            </>
-          }
-          thumborSetting={{
-            width: size.width < 768 ? 250 : 300,
-            format: "webp",
-            quality: 85
-          }}
-        />
-      </div>
     </Layout >
   )
 }
