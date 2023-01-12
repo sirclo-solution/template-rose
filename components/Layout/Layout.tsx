@@ -158,24 +158,17 @@ const Layout: FC<LayoutPropType> = ({
           props.children :
           <PageNotFound i18n={i18n} />
         }
-        {withFooter && (
-            <>
-              <Footer brand={brand} />
-              <BottomNavigation brand={brand} />
-            </>
-          )
+        {withFooter && 
+          <>
+            <Footer brand={brand} />
+            <BottomNavigation brand={brand} />
+          </>
         }
-        {withFooterOnly && (
-            <>
-              <Footer brand={brand} />
-            </>
-          )
+        {withFooterOnly && 
+          <Footer brand={brand} />
         }
-        {withNavigation && (
-            <>
-              <BottomNavigation brand={brand} />
-            </>
-          )
+        {withNavigation && 
+          <BottomNavigation brand={brand} />
         }
         {withCopyright &&
           <Copyright/>

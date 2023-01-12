@@ -9,10 +9,9 @@
   &Navigasi
   {
     @include fixed(auto,auto,24px,auto);
+    @include fixedSize(100%);
     padding: 0 18px;
     max-height: 58px;
-    height: 100%;
-    width: 100%;
     z-index: 10;
 
     &_menu
@@ -52,11 +51,13 @@
             width: 13.5px;
             height: 14.05px;
           }
+
           & > span 
           {
             margin-top: 6.25px;
             margin-bottom: 12px;
           }
+
           & > hr 
           {
             opacity: 0;
@@ -67,6 +68,7 @@
             width: 100%;
           }
         }
+
         &:hover 
         {
           color: $color_rose;
@@ -76,12 +78,12 @@
   
     &_badge
     {
-      @include absolute(-2px,auto,auto,52%); 
+      @include typographyBuilder(secondary, 600, 8, 16);
+      @include absolute(-2px , auto, auto, 52%); 
       @include flex();
       border-radius: 50%;
       background-color: $color_error;
       color: $color_white;
-      @include typographyBuilder(secondary,600,8,16);
       padding: 0 4px;
       min-width: 16px;
       max-width: 24px;
@@ -92,6 +94,7 @@
 .active
 {
   color: $color_rose !important;
+  
   hr 
   {
     opacity: 100 !important;
