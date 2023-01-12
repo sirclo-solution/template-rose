@@ -69,6 +69,7 @@ const CategoriesPage: FC<any> = ({
     lng,
     lngDict,
     brand,
+    withCopyright: true,
     headerTitle: i18n.t('categories.title'),
     SEO: {
       title: i18n.t("categories.title")

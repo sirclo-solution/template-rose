@@ -69,7 +69,7 @@ const PaymentStatus: FC<any> = ({
     lngDict,
     brand,
     withHeader: false,
-    withFooter: false,
+    withFooter: true,
     withCopyright: true,
     layoutClassName: 'layout_fullHeight',
     SEO: {

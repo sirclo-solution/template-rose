@@ -214,9 +214,12 @@
     "cart": "Keranjang",
     "home": "Beranda",
     "login": "Masuk",
-    "newsletter": "Tetap berlangganan",
-    "newsletterDesc": "Tetap update untuk item baru & penawaran khusus",
-    "search": "Pencarian"
+    "newsletter": "Berlangganan Newsletter",
+    "newsletterDesc": "Dapatkan penawaran menarik dengan berlangganan newsletter dari toko kami.",
+    "search": "Pencarian",
+    "submitError":"Gagal berlangganan",
+    "submitSuccess":"Sukses berlangganan",
+    "subscribe": "Berlangganan Sekarang"
   },
   "forgotPassword": {
     "requestFail": "Pengaturan ulang sandi gagal.",
@@ -360,7 +363,7 @@
   },
   "newsletter": {
     "close": "Tidak, nanti saja",
-    "inputEmailPlaceholder": "Masukan email Anda",
+    "inputEmailPlaceholder": "Masukan email anda",
     "submitError": "Gagal berlangganan",
     "submitSuccess": "Success berlangganan",
     "subscribe": "Berlangganan"

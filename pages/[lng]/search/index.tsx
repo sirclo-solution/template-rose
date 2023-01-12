@@ -97,6 +97,7 @@ const LoginPage: FC<any> = ({
     lng,
     lngDict,
     brand,
+    withCopyright: true,
     SEO: {
       title: i18n.t("global.search")
     }

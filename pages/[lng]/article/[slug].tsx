@@ -47,6 +47,7 @@ const ArticleDetail: FC<any> = ({
     lngDict,
     brand,
     headerTitle: title,
+    withCopyright: true,
     SEO: {
       title: data?.descriptions[0]?.title,
       description: data?.SEOs[0]?.description,

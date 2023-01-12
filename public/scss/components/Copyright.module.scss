@@ -2,11 +2,17 @@
 
 .copyright
 {
-  @include typographyBuilder(secondary, 400, 10, 16);
-  padding: 10px;
-  background: $color_rose_bg1;
+  @include typographyBuilder(secondary, 500, 10, 16);
+  padding: 0 16px 106px;
+  background: $color_rose_bg2;
   color: $color_rose;
   text-align: center;
+
+  &Widget
+  {
+    padding-top: 26px;
+    border-top: 1px solid $color_line_brown;
+  }
 
   a
   {

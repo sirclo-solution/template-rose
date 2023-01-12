@@ -1,94 +1,134 @@
 /* library package */
 import { FC } from 'react'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
+import { toast } from 'react-toastify'
 import {
-	RiHomeFill,
-	RiSearchLine,
-	RiSearchFill,
-	RiShoppingBag2Line,
-	RiShoppingBag2Fill,
-	RiUser3Line,
-	RiUser3Fill,
-} from 'react-icons/ri'
-import { PrivateComponent, useI18n, useCart } from '@sirclo/nexus'
+	useI18n,
+	Widget,
+	NewsletterForm,
+	SocialMediaIcons
+} from '@sirclo/nexus'
+import { 
+  FaFacebookF,
+  FaInstagram,
+  FaTiktok,
+  FaTwitter,
+  FaYoutube
+ } from 'react-icons/fa'
+ import Placeholder from 'components/Placeholder'
+ /* library template */
+import useWindowSize from 'lib/useWindowSize'
 /* styles */
 import styleFooter from 'public/scss/components/Footer.module.scss'
+import stylePlaceholder from 'public/scss/components/Placeholder.module.scss'
+import styleWidget from 'public/scss/components/Widget.module.scss'
+import styleIcons from 'public/scss/components/SocialMediaIcons.module.scss'
+
+const classesPlaceholderWidgetService = {
+  placeholderImage: `${stylePlaceholder.placeholderItem} ${stylePlaceholder.placeholderItem_widgetService}`,
+	placeholderList: `${stylePlaceholder.placeholderItem} ${stylePlaceholder.placeholderItem_widgetList}`,
+}
+
+const classesNewsletter = {
+  containerClassName: styleWidget.widget_footerNewsletterForm,
+  labelClassName: "label",
+  inputClassName: "input",
+  buttonClassName: "btn btn-block btn-newsletter",
+};
+
+const socialMediaIcons = {
+  facebook: <FaFacebookF color='#998060' height="1em" />,
+  twitter: <FaTwitter color='#998060' height="1em" />,
+  instagram: <FaInstagram color='#998060' height="1em" />,
+  youtube: <FaYoutube color='#998060' height="1em" />,
+  tiktok: <FaTiktok color='#998060' height="1em" />,
+};
+
+const classesMediaSocial = {
+  socialMediaIconContainer: styleIcons.socialMediaIcons_container,
+  socialMediaIcon: styleIcons.socialMediaIcons_item,
+};
 
 const Footer: FC<any> = () => {
 	const i18n: any = useI18n()
-	const {
-		route,
-		query: { lng },
-	} = useRouter()
+	const size = useWindowSize()
 
-	const { data: dataCart } = useCart()
+	const WidgetLinks = ({
+    pos,
+    size
+  }) => (
+    <Widget
+      pos={pos}
+      widgetClassName={styleWidget.widget_ContainerLink}
+      thumborSetting={{
+        width: size.width < 768 ? 100 : 200,
+        format: "webp",
+        quality: 85,
+      }}
+      loadingComponent={
+        <div className={styleWidget.widget_ContainerLink}>
+          <Placeholder classes={classesPlaceholderWidgetService} withTitle listMany={4} withList />
+        </div>
+      }
+    />
+  )
 
 	return (
 		<>
 			<footer className={styleFooter.footer}>
-				<nav className={`${styleFooter.footer_nav}`}>
-					<Link href="/[lng]" as={`/${lng}`}>
-						<a {...(route == '/[lng]' && { className: styleFooter.active })}>
-							<div>
-								<RiHomeFill color="#444444" />
-								<span>{i18n.t('footer.home')}</span>
-								<hr />
-							</div>
-						</a>
-					</Link>
-					<Link href="/[lng]/search" as={`/${lng}/search`}>
-						<a {...(route == '/[lng]/search' && { className: styleFooter.active })}>
-							<div>
-								{route == '/[lng]/search' ? <RiSearchFill /> : <RiSearchLine />}
-								<span>{i18n.t('footer.search')}</span>
-								<hr />
-							</div>
-						</a>
-					</Link>
-					<Link href="/[lng]/cart" as={`/${lng}/cart`}>
-						<a {...(route == '/[lng]/cart' && { className: styleFooter.active })}>
-							<div className={styleFooter.footer_menu}>
-								{route == '/[lng]/cart' ? <RiShoppingBag2Fill /> : <RiShoppingBag2Line />}
-								<span>{i18n.t('footer.cart')}</span>
-								{dataCart?.totalItem ? <span className={styleFooter.footer_badge}>{dataCart.totalItem}</span> : null}
-								<hr />
-							</div>
-						</a>
-					</Link>
-					<PrivateComponent
-						Auth={
-							<Link href="/[lng]/account" as={`/${lng}/account`}>
-								<a
-									{...(route == '/[lng]/account' && {
-										className: styleFooter.active,
-									})}
-								>
-									<div>
-										{route == '/[lng]/account' ? <RiUser3Fill /> : <RiUser3Line />}
-										<span>{i18n.t('footer.account')}</span>
-										<hr />
-									</div>
-								</a>
-							</Link>
+				<div className={styleWidget.widget_footer}>
+					<Widget
+						pos="footer-1"
+						containerClassName={styleWidget.widget_footerBrand}
+						widgetClassName={styleWidget.widget_footerBrandItem}
+						loadingComponent={
+							<>
+								<div className="col-12">
+									<Placeholder classes={classesPlaceholderWidgetService} withImage />
+								</div>
+							</>
 						}
-						NoAuth={
-							<Link href="/[lng]/login" as={`/${lng}/login`}>
-								<a
-									{...(route == '/[lng]/login' && {
-										className: styleFooter.active,
-									})}
-								>
-									<div>
-										{route == '/[lng]/login' ? <RiUser3Fill /> : <RiUser3Line />}
-										<span>{i18n.t('footer.login')}</span>
-										<hr />
-									</div>
-								</a>
-							</Link>
-						}
+						thumborSetting={{
+							width: size.width < 768 ? 250 : 300,
+							format: "webp",
+							quality: 85
+						}}
 					/>
-				</nav>
+				</div>
+				<div className={styleWidget.widget_footerNewsletter}>
+					<h6>{i18n.t("footer.newsletter")}</h6>
+					<p>{i18n.t("footer.newsletterDesc")}</p>
+					<NewsletterForm
+						classes={classesNewsletter}
+						buttonComponent={<>{i18n.t("footer.subscribe")}</>}
+						onComplete={() => toast.success(i18n.t("footer.submitSuccess"))}
+						onError={() => toast.error(i18n.t("footer.submitError"))}
+					/>
+      	</div>
+				<div className={styleWidget.widget_footerBottom}>
+					<Widget
+						pos="main-footer"
+						widgetClassName={styleWidget.widget_ContainerItem}
+						containerClassName={styleWidget.widget_Container}
+					/>
+					<SocialMediaIcons
+						socialMediaIcons={socialMediaIcons}
+						classes={classesMediaSocial}
+					/>
+					<div className={styleWidget.widget_footerLink}>
+						<WidgetLinks
+								pos="footer-2"
+								size={size}
+							/>
+						<WidgetLinks
+							pos="footer-3"
+							size={size}
+						/>
+						<WidgetLinks
+							pos="footer-4"
+							size={size}
+						/>
+					</div>
+				</div>
 			</footer>
 		</>
 	)
