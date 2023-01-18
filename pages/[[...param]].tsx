@@ -35,7 +35,7 @@ export const getServerSideProps = async ({
 
   const cookies = parseCookies(req)
   const lng = cookies.ACTIVE_LNG || 'id'
-  const location = `/${lng}` + req.url
+  const location = `/${lng}${req.url.replace(/\/$/, '')}`;
 
   if (allowedUri.indexOf(params.param) == -1) {
     if (
