@@ -54,6 +54,7 @@ const LegalPage: FC<any> = ({
     brand,
     headerTitle: data?.title,
     layoutClassName: "layout_fullHeight",
+    withCopyright: true,
     SEO: { title: data?.title },
   }
 
