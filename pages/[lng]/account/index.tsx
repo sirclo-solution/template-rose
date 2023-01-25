@@ -250,6 +250,7 @@ const AccountsPage: FC<any> = ({
     brand,
     hasOtp,
     layoutClassName: "layout_fullHeight",
+    withCopyright: true,
     SEO: {
       title: i18n.t("account.myAccount")
     },

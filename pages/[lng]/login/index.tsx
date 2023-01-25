@@ -145,6 +145,7 @@ const LoginPage: FC<any> = ({
     lngDict,
     brand,
     layoutClassName: 'layout_fullHeight',
+    withCopyright: true,
     SEO: {
       title: i18n.t("login.title")
     }

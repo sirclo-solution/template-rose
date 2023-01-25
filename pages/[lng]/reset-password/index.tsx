@@ -51,7 +51,6 @@ const ResetPasswordPage: FC<any> = ({
     lngDict,
     brand,
     headerTitle: i18n.t('resetPassword.setNew'),
-    withFooter: false,
     withCopyright: true,
     SEO: {
       title: i18n.t("resetPassword.setNew")
