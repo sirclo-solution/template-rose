@@ -13,7 +13,6 @@ import {
   RiCheckboxCircleFill,
   RiCheckboxCircleLine,
   RiCloseLine,
-  RiInformationLine,
   RiUser3Line,
   RiShoppingBag2Line,
   RiMailUnreadFill,
