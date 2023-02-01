@@ -334,10 +334,12 @@
     
     &_totalCost
     {
+      @include typographyBuilder(secondary,500,12,16);
+
       color: $color_text_primary;
       margin:0;
-      @include typographyBuilder(secondary,500,12,16);
       font-weight: 500;
+
       &_body
       {
         justify-content: end;
@@ -500,7 +502,6 @@
     @include typographyBuilder(secondary, 600, 12, 16);
     color: $color_text_primary !important;
     width: unset !important;
-
     margin-bottom: 0;
 
     & > a[data-identity="view-payment-page"]
