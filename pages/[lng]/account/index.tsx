@@ -120,7 +120,7 @@ const classesAccount = {
   shippingDetailsValueClassName: styleOrderHistory.order_item_valueDetail,
   shippingMethodContainerClassName: styleOrderHistory.order_item_containerMethod,
   shippingMethodLabelClassName: styleOrderHistory.order_item_labelDetail,
-  shippingMethodValueClassName: styleOrderHistory.order_item_valueDetail,
+  shippingMethodValueClassName: `${styleOrderHistory.order_item_valueDetail} ${styleOrderHistory.order_item_shippingMethodValue}`,
   paymentMethodContainerClassName: `${styleOrderHistory.order_item_containerMethod} ${styleOrderHistory.order_item_paymentMethod}`,
   paymentMethodLabelClassName: styleOrderHistory.order_item_labelDetail,
   orderControlClassName: styleOrderHistory.order_item_control,
