@@ -188,13 +188,15 @@
     height: 7px;
 
     &::-webkit-progress-bar,
-    &::-moz-progress-bar {
+    &::-moz-progress-bar
+    {
       border-radius: 6px;
       background-color: $color_border;
     }
 
     &::-webkit-progress-value,
-    &::-moz-progress-bar {
+    &::-moz-progress-bar
+    {
       background-color: $color_rose;
       border-radius: 6px;
     }
