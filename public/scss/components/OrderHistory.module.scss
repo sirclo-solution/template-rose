@@ -224,17 +224,17 @@
     &_reviewed
     {
       @include typographyBuilder(secondary,400,12,16);
+      @include flex(row,center,flex-start);
       color: $color_success !important;
       text-decoration: none !important;
-      @include flex(row,center,flex-start);
     }
 
     &_needReview
     {
       @include typographyBuilder(secondary,400,12,16);
+      @include flex(row,center,flex-start);
       color: $color_error !important;
       text-decoration: none !important;
-      @include flex(row,center,flex-start);
 
       &::before
       {
@@ -738,12 +738,10 @@
   &_chevronDownIcon
   {
     @include fixedSize(20px);
+    @include absolute(50%, 16px, auto);
     
     display: block;
     background-repeat: no-repeat;
-    position: absolute;
-    right: 16px;
-    top: 50%;
     cursor: pointer;
   }
 
