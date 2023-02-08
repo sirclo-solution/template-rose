@@ -48,6 +48,7 @@
     "mobilePhone": "Telepon Genggam",
     "mobilePhonePlaceholder": "Masukan nomor telepon genggam anda",
     "myAccount": "Akun Saya",
+    "needReview": "Butuh Ulasan",
     "newPassword": "Password Baru",
     "noOrder": "Belum ada order saat ini",
     "oldPassword": "Password Lama",
@@ -69,11 +70,11 @@
     "rejected": "Ditolak",
     "returned": "Dikembalikan",
     "save": "Simpan Perubahan",
-    "searchHere": "Cari disini",
+    "searchHere": "cari disini",
     "sessionExpired": "Sesi anda telah usai",
     "settingNotification": "Notifikasi",
     "shipped": "Dikirim",
-    "shippingDetails": "Detil pengiriman",
+    "shippingDetails": "Alamat Pengiriman",
     "shippingMethod": "Metode Pengiriman",
     "total": "Total :",
     "unpaid": "Belum Dibayar",
@@ -380,9 +381,9 @@
     "phoneInputPlaceholder": "Masukan nomor Whatsapp Anda"
   },
   "orderHistory": {
-    "lineItemNeedReview": "Needs Review",
-    "lineItemReviewed": "Reviewed",
     "lineItemDelivered": "Selesaikan Pesanan",
+    "lineItemNeedReview": "Butuh Ulasan",
+    "lineItemReviewed": "Sudah Diulas",
     "uploading": "Proses",
     "uploadReceipt": "Konfirmasi Pembayaran"
   },
