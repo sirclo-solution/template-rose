@@ -176,6 +176,10 @@ const classesAccount = {
   paymentMethodDetailExpiryContainerClassName: styleOrderHistory.order_paymentMethodDetailExpiryContainer,
   paymentMethodDetailExpiryWarningTextClassName: styleOrderHistory.order_paymentMethodDetailExpiryWarningText,
   paymentMethodDetailExpiryDateClassName: styleOrderHistory.order_paymentMethodDetailExpiryDate,
+  detailPriceSectionClassName: styleOrderHistory.order_detailPriceSection,
+  detailPriceLineClassName: styleOrderHistory.order_detailPriceLine,
+  detailTotalPriceLineClassName: styleOrderHistory.order_detailTotalPriceLine,
+  productNotesClassName: styleOrderHistory.order_productNotes,
   // tracker
   shipmentTrackingClassName: styleShipmentTracking.shipmentTracking,
   shipmentHeaderClassName: styleShipmentTracking.shipmentTracking_header,
