@@ -179,6 +179,7 @@ const classesAccount = {
   detailPriceSectionClassName: styleOrderHistory.order_detailPriceSection,
   detailPriceLineClassName: styleOrderHistory.order_detailPriceLine,
   detailTotalPriceLineClassName: styleOrderHistory.order_detailTotalPriceLine,
+  productNotesClassName: styleOrderHistory.order_productNotes,
   // tracker
   shipmentTrackingClassName: styleShipmentTracking.shipmentTracking,
   shipmentHeaderClassName: styleShipmentTracking.shipmentTracking_header,

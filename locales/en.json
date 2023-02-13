@@ -384,6 +384,7 @@
     "lineItemDelivered": "Delivered",
     "lineItemNeedReview": "Needs Review",
     "lineItemReviewed": "Reviewed",
+    "productNote": "Note",
     "uploading": "Process",
     "uploadReceipt": "Payment Confirmation"
   },
