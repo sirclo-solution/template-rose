@@ -326,6 +326,10 @@
       }
     }
 
+    &_body
+    {
+      background-color: $color_rose_bg1;
+    }
 
     &_footer
     {
@@ -715,6 +719,38 @@
   &_paymentMethodDetailExpiryWarningText
   {
     margin-left: 9.6px;
+  }
+
+  &_detailPriceSection
+  {
+    @include typographyBuilder(secondary, 400, 10, 16);
+
+    background-color: $color_rose_bg1;
+    color: $color_text_secondary;
+    padding: 0 19px 19px 19px;
+  }
+
+  &_detailPriceLine
+  {
+    @include flex(row, flex-start, space-between);
+    padding: 4px 0; 
+
+    &:first-child
+    {
+      border-top: 0.5px dashed $color_border2;
+      padding-top: 12px;
+    }
+  }
+
+  &_detailTotalPriceLine
+  {
+    @include flex(row, flex-start, space-between);
+    @include typographyBuilder(secondary, 500, 14, 24);
+    
+    color: $color_text_primary;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 0.5px dashed $color_border2;
   }
 
   &_infoIcon
