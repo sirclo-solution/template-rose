@@ -702,14 +702,16 @@
     @include flex(row, center, flex-start);
     @include typographyBuilder(secondary, 400, 12, 16);
 
-    display: inline-flex;
+    display: inline-block;
     padding: 4px 6px;
     border-radius: 4px;
     color: $color_text_primary;
     background: rgba(255, 152, 0, 0.1);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+
+    & > span:first-child
+    {
+      position: absolute;
+    }
   }
   
   &_paymentMethodDetailExpiryWarningText,
@@ -720,7 +722,7 @@
   
   &_paymentMethodDetailExpiryWarningText
   {
-    margin-left: 9.6px;
+    margin-left: 24px;
   }
 
   &_detailPriceSection
