@@ -102,11 +102,11 @@ const ProductsHighlightPage: FC<any> = ({
   }
 
   return (
-    <Layout {...layoutProps}>
-      <TemplateFeatures
-        id={FeaturesType.PRODUCT_HIGHLIGHT}
-        defaultChildren={<Error404Page />}
-      >
+    <TemplateFeatures
+      id={FeaturesType.PRODUCT_HIGHLIGHT}
+      defaultChildren={<Error404Page />}
+    >
+      <Layout {...layoutProps}>
         <SEO title={i18n.t("product.products")} />
         <div className="container mt-5 pt-4 pb-3">
           <Breadcrumb
@@ -179,8 +179,8 @@ const ProductsHighlightPage: FC<any> = ({
             }
           </div>
         </div>
-      </TemplateFeatures>
-    </Layout>
+      </Layout>
+    </TemplateFeatures>
   )
 }
 
