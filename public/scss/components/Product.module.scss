@@ -129,7 +129,7 @@
 
   &_label
   {
-    @include flex(row, flex-start, flex-start, true);
+    @include flex(column, flex-start, flex-start, true);
     padding: 10px 0 0;
     flex-grow: 1;
     

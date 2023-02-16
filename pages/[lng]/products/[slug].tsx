@@ -132,8 +132,6 @@ const ProductsHighlightPage: FC<any> = ({
                 fullPath={`product/{id}`}
                 pathPrefix={`product`}
                 isFlipImage
-                withCategory
-                categoryLength={1}
                 productCategoryClasses={classesCategoryProduct}
                 withRating
                 showEmptyRating
