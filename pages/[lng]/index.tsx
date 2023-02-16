@@ -185,9 +185,7 @@ const Home: FC<any> = ({
                       classes={classesProducts}
                       pathPrefix="product"
                       isFlipImage
-                      withCategory
                       productCategoryClasses={classesCategoryProduct}
-                      categoryLength={1}
                       withRating
                       showEmptyRating
                       ratingIcon={<RiStarFill color="#F2C14F" size={12} />}
@@ -256,16 +254,11 @@ const Home: FC<any> = ({
                   sectionProductHighlight={'Display1'}
                   pathPrefix="product"
                   isFlipImage
-                  withCategory
                   productCategoryClasses={classesCategoryProduct}
-                  categoryLength={1}
                   withRating
                   showEmptyRating
                   ratingIcon={<RiStarFill color="#F2C14F" size={12} />}
                   lazyLoadedImage={false}
-                  emptyStateComponent={<EmptyComponent
-                    icon={<RiQuestionFill color="#A8A8A8" size={20} />}
-                    title={i18n.t("product.isEmpty")} />}
                   thumborSetting={{
                     width: size.width < 768 ? 512 : 800,
                     format: "webp",
@@ -311,41 +304,38 @@ const Home: FC<any> = ({
           </>
         }
       >
-        <div className="container">
-            <div className={styleProduct.product_highlight}>
-              <LazyLoadComponent>
-                <ProductHighlights
-                  seeAllButtonPosition="Bottom"
-                  classes={classesProducts}
-                  item={4}
-                  sectionProductHighlight={'Display2'}
-                  pathPrefix="product"
-                  isFlipImage
-                  withCategory
-                  productCategoryClasses={classesCategoryProduct}
-                  categoryLength={1}
-                  withRating
-                  showEmptyRating
-                  ratingIcon={<RiStarFill color="#F2C14F" size={12} />}
-                  lazyLoadedImage={false}
-                  emptyStateComponent={<EmptyComponent
-                    icon={<RiQuestionFill color="#A8A8A8" size={20} />}
-                    title={i18n.t("product.isEmpty")} />}
-                  thumborSetting={{
-                    width: size.width < 768 ? 512 : 800,
-                    format: "webp",
-                    quality: 85
-                  }}
-                  loadingComponent={
-                    <div className={stylePlaceholder.placeholderItem_productContainer}>
-                      {[0,1,2].map((index)=>{
-                        return <div key={index}><Placeholder classes={classesPlaceholderProduct} withImage /></div>
-                      })}
-                    </div>
-                  }
-                  />
-              </LazyLoadComponent>
-            </div>
+        <div className={styleProduct.product_container}>
+          <div className="container">
+              <div className={styleProduct.product_highlight}>
+                <LazyLoadComponent>
+                  <ProductHighlights
+                    seeAllButtonPosition="Bottom"
+                    classes={classesProducts}
+                    item={4}
+                    sectionProductHighlight={'Display2'}
+                    pathPrefix="product"
+                    isFlipImage
+                    productCategoryClasses={classesCategoryProduct}
+                    withRating
+                    showEmptyRating
+                    ratingIcon={<RiStarFill color="#F2C14F" size={12} />}
+                    lazyLoadedImage={false}
+                    thumborSetting={{
+                      width: size.width < 768 ? 512 : 800,
+                      format: "webp",
+                      quality: 85
+                    }}
+                    loadingComponent={
+                      <div className={stylePlaceholder.placeholderItem_productContainer}>
+                        {[0,1,2].map((index)=>{
+                          return <div key={index}><Placeholder classes={classesPlaceholderProduct} withImage /></div>
+                        })}
+                      </div>
+                    }
+                    />
+                </LazyLoadComponent>
+              </div>
+          </div>
         </div>
       </TemplateFeatures>
       {brand?.socmedSetting?.instagramToken &&
