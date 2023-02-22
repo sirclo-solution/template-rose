@@ -1,6 +1,8 @@
+@import '../utils/variables';
+
 .category
 {
-  background: $color_gray;
+  background: $color_grey;
 
   &_order
   {
@@ -44,7 +46,7 @@
     {
       padding: .5rem 1rem;
       background: $color_white;
-      border: 1px solid $color_gray_low;
+      border: 1px solid $color_line_grey;
       border-radius: 34px;
       font-size: 1rem;
       cursor: pointer;
@@ -52,6 +54,63 @@
       @media screen and (max-width: 576px) {
         font-size: 1rem;
       }
+    }
+  }
+
+  &_home
+  {
+    &_container
+    {
+      display: block;
+    }
+
+    &_title
+    {
+      @include typography_builderPrimary(500, 20, 32);
+      text-align: center;
+
+      &_container
+      {
+        padding: 0 16px;
+        margin: 12px 0;
+      }
+    }
+
+    &_parent
+    {
+      @include flex(row, center, flex-start);
+      @extend .scrollbar_none;
+      list-style-type: none;
+      padding: 0 16px 4px;
+      overflow: auto;
+    }
+
+    &_item
+    {
+      margin: 0 8px;
+
+      &:first-child
+      {
+        margin-left: 0;
+      }
+
+      &:last-child
+      {
+        margin-right: 0;
+      }
+
+      img
+      {
+        object-fit: cover
+      }
+    }
+
+    &_name
+    {
+      @include typographyBuilder(secondary, 600, 14, 24);
+      margin-top: 4px;
+      text-align: center;
+      color: $color_text_primary;
     }
   }
 }
