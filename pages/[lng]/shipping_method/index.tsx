@@ -200,14 +200,6 @@ const ShippingMethodPage: FC<any> = ({
               <Placeholder classes={classesPlaceholderCustomerDetail} withImage />
             }
           />
-          <div className={styles.customer_section}>
-            <CustomerDetailHeader
-              i18n={i18n}
-              router={router}
-              title={i18n.t("global.notes")}
-              toDirect="cart"
-            />
-          </div>
         </div>
         <div className={styles.shippingMethod}>
           <h3 className={styles.shippingMethod_title}>
