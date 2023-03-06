@@ -11,8 +11,7 @@ import {
   ShippingMethods,
   useAuthToken,
   useI18n,
-  PrivateRoute,
-  useBuyerNotes
+  PrivateRoute
 } from '@sirclo/nexus'
 /* library template */
 import { useBrand } from 'lib/useBrand'
@@ -148,7 +147,6 @@ const ShippingMethodPage: FC<any> = ({
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const i18n: any = useI18n()
   const router: any = useRouter()
-  const { data: dataBuyerNotes } = useBuyerNotes()
 
   const layoutProps = {
     i18n,
@@ -202,17 +200,6 @@ const ShippingMethodPage: FC<any> = ({
               <Placeholder classes={classesPlaceholderCustomerDetail} withImage />
             }
           />
-          <div className={styles.customer_section}>
-            <CustomerDetailHeader
-              i18n={i18n}
-              router={router}
-              title={i18n.t("global.notes")}
-              toDirect="cart"
-            />
-            <div className={styles.customer_notes}>
-              {dataBuyerNotes?.buyerNotes?.buyerNotes || i18n.t("global.notesEmpty")}
-            </div>
-          </div>
         </div>
         <div className={styles.shippingMethod}>
           <h3 className={styles.shippingMethod_title}>
