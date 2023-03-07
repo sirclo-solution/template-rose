@@ -752,10 +752,16 @@
     @include flex(row, flex-start, space-between);
     padding: 4px 0; 
 
-    &:first-child
+    &:first-child,
+    &:nth-last-child(3)
     {
       border-top: 0.5px dashed $color_border2;
       padding-top: 12px;
+    }
+
+    &:nth-last-child(3)
+    {
+      margin-top: 12px;
     }
   }
 
