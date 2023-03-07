@@ -197,6 +197,7 @@
     &_orderedItemImg
     {
       @include fixedWidth(64px);
+      height: fit-content;
     }
 
     &_orderedItemDetail
