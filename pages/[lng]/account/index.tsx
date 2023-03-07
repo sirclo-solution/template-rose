@@ -339,6 +339,7 @@ const AccountsPage: FC<any> = ({
             warningIcon: <span className={styleOrderHistory.order_warningIcon}/>,
             chevronUpIcon: <span className={styleOrderHistory.order_chevronUpIcon} />,
             chevronDownIcon: <span className={styleOrderHistory.order_chevronDownIcon} />,
+            checkMarkIcon: ""
           }}
           loadingComponent={
             <div className="w-100 d-flex align-items-center justify-content-center">

@@ -11,7 +11,7 @@
   "dependencies": {
     "@brainhubeu/react-carousel": "^1.19.14",
     "@elgorditosalsero/react-gtm-hook": "^2.4.0",
-    "@sirclo/nexus": "2.18.19",
+    "@sirclo/nexus": "2.18.21",
     "bootstrap": "^4.5.0",
     "cookie": "^0.4.1",
     "env-cmd": "^10.1.0",
