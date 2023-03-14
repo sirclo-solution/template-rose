@@ -53,7 +53,7 @@
 
   &_info
   {
-    @include flex();
+    @include flex(row, center, flex-start);
     padding: 12px;
     margin: 0 17px;
     margin-bottom: 13px;
@@ -65,13 +65,25 @@
     {
       display: flex;
       padding-right: 8px;
+
+      @include fixedSize(12px);
+
+      display: block;
+      background-repeat: no-repeat;
+      background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M6 10.7509C3.38057 10.7509 1.24914 8.61943 1.24914 6C1.24914 3.38057 3.38057 1.24914 6 1.24914C8.61943 1.24914 10.7509 3.38057 10.7509 6C10.7509 8.61943 8.61943 10.7509 6 10.7509ZM6 0C9.30857 0 12 2.69143 12 6C12 9.30857 9.30857 12 6 12C2.69143 12 0 9.30857 0 6C0 2.69143 2.69143 0 6 0ZM6.20629 8.11029H5.79429C5.51029 8.11029 5.27886 8.32 5.27886 8.57829V9.18057C5.27886 9.43829 5.51029 9.648 5.79429 9.648H6.20629C6.49029 9.648 6.72057 9.43829 6.72057 9.18057V8.57829C6.72057 8.32 6.49029 8.10971 6.20629 8.10971V8.11029ZM6.20743 2.27771H5.79314C5.50457 2.27771 5.27886 2.46743 5.27886 2.70857V7.18629C5.27886 7.428 5.50457 7.61714 5.79314 7.61714H6.20743C6.49543 7.61714 6.72057 7.42857 6.72057 7.18629V2.70857C6.72057 2.46743 6.49543 2.27771 6.20743 2.27771V2.27771Z' fill='%23444444'/%3E%3C/svg%3E");
+      margin-right: 4px;
+
+      & > span
+      {
+        display: none;
+      }
     }
 
     &_button
     {
       border: none;
       background: none;
-      color: $color_rose;
+      color: $color_info;
     }
   }
 
@@ -86,20 +98,6 @@
     {
       background-color: $color_line_brown;
       position: relative;
-
-      &::after
-      {
-        @include absolute(50%,20px,auto,auto);
-        content: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxMiAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3QgeD0iMTIiIHk9IjEyIiB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHJ4PSI2IiB0cmFuc2Zvcm09InJvdGF0ZSgtMTgwIDEyIDEyKSIgZmlsbD0iIzk5ODA2MCIvPgo8cGF0aCBkPSJNNiA0TDkgN0gzTDYgNFoiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo=);
-      }
-
-      &:only-child
-      {
-        &::after
-        {
-          content: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxMiAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjEyIiBoZWlnaHQ9IjEyIiByeD0iNiIgZmlsbD0iIzk5ODA2MCIvPgo8cGF0aCBkPSJNNiA4TDMgNUg5TDYgOFoiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo=);
-        }
-      }
     }
 
     &_innerHeader
@@ -117,7 +115,7 @@
 
     &_date
     {
-      @include typographyBuilder(secondary,400,12,16);
+      @include typographyBuilder(secondary,600,12,16);
       color: $color_text_primary;
       padding: 8px 12px;
       margin-bottom: 1px;
@@ -132,6 +130,8 @@
     &_labelDetail
     {
       @include typographyBuilder(secondary,500,10,16);
+
+      display: block;
       color: $color_text_secondary;
     }
 
@@ -152,13 +152,21 @@
       color: $color_text_primary;
     }
 
+    &_shippingMethodValue
+    {
+      @include typographyBuilder(secondary,600,12,16);
+    }
+
     &_containerMethod
     {
-      margin-top: 16px;
-      padding-top: 16px;
       @include typographyBuilder(secondary,400,12,16);
+      @include flex(column, flex-start, flex-start);
+
+      margin: 16px 0;
+      padding-top: 16px;
       color: $color_text_primary;
       border-top: 1px solid $color_border;
+      gap: 4px;
     }
 
     &_paymentMethod
@@ -189,6 +197,7 @@
     &_orderedItemImg
     {
       @include fixedWidth(64px);
+      height: fit-content;
     }
 
     &_orderedItemDetail
@@ -213,19 +222,39 @@
       }
     }
 
-    &_needReview
+    &_reviewed
     {
       @include typographyBuilder(secondary,400,12,16);
-      color: $color_error !important;
-      text-decoration: none !important;
       @include flex(row,center,flex-start);
+      color: $color_success !important;
+      text-decoration: none !important;
 
       &::before
       {
-        width: 12px;
-        height: 12px;
+        @include fixedSize(10px);
+        content: "";
+        display: block;
+        background-repeat: no-repeat;
+        background-image: url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 10 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_4492_3846)'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8.95857 5C8.95857 7.18238 7.18238 8.9581 5 8.9581C2.81714 8.9581 1.04143 7.18238 1.04143 4.99952C1.04143 2.81667 2.81762 1.04095 5 1.04095C7.18238 1.04095 8.95857 2.81714 8.95857 4.99952V5ZM5 0C7.75714 0 10 2.24286 10 5C10 7.75714 7.75714 9.99905 5 9.99905C2.24286 9.99905 0 7.75714 0 5C0 2.24286 2.24286 0 5 0ZM6.76952 3.41667H6.76857C6.71216 3.41648 6.65628 3.42754 6.6042 3.44921C6.55211 3.47088 6.50487 3.50271 6.46524 3.54286L4.66762 5.35238C4.61653 5.40145 4.54845 5.42885 4.47762 5.42885C4.40679 5.42885 4.3387 5.40145 4.28762 5.35238L3.53286 4.59524C3.46651 4.52819 3.37972 4.48513 3.28619 4.47286L3.23 4.46905C3.1456 4.46944 3.06319 4.49471 2.99309 4.5417C2.92298 4.58869 2.86829 4.65532 2.83587 4.73324C2.80344 4.81116 2.79471 4.89691 2.81078 4.97976C2.82684 5.06262 2.86699 5.1389 2.92619 5.19905L4.17381 6.45619C4.25476 6.53809 4.36286 6.58238 4.47762 6.58238C4.53418 6.58264 4.59023 6.57162 4.64248 6.54995C4.69473 6.52828 4.74213 6.4964 4.7819 6.45619L7.07381 4.14762C7.15303 4.0671 7.19743 3.95867 7.19743 3.84571C7.19743 3.73276 7.15303 3.62433 7.07381 3.54381C7.03408 3.50347 6.98671 3.47144 6.93446 3.44961C6.88222 3.42778 6.82615 3.41658 6.76952 3.41667Z' fill='%23008566'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_4492_3846'%3E%3Crect width='10' height='10' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
         margin-right: 4px;
-        content: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxMiAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTYgMTFDMy4yMzg1IDExIDEgOC43NjE1IDEgNkMxIDMuMjM4NSAzLjIzODUgMSA2IDFDOC43NjE1IDEgMTEgMy4yMzg1IDExIDZDMTEgOC43NjE1IDguNzYxNSAxMSA2IDExWk02IDEwQzcuMDYwODcgMTAgOC4wNzgyOCA5LjU3ODU3IDguODI4NDMgOC44Mjg0M0M5LjU3ODU3IDguMDc4MjggMTAgNy4wNjA4NyAxMCA2QzEwIDQuOTM5MTMgOS41Nzg1NyAzLjkyMTcyIDguODI4NDMgMy4xNzE1N0M4LjA3ODI4IDIuNDIxNDMgNy4wNjA4NyAyIDYgMkM0LjkzOTEzIDIgMy45MjE3MiAyLjQyMTQzIDMuMTcxNTcgMy4xNzE1N0MyLjQyMTQzIDMuOTIxNzIgMiA0LjkzOTEzIDIgNkMyIDcuMDYwODcgMi40MjE0MyA4LjA3ODI4IDMuMTcxNTcgOC44Mjg0M0MzLjkyMTcyIDkuNTc4NTcgNC45MzkxMyAxMCA2IDEwVjEwWk01LjUgNy41SDYuNVY4LjVINS41VjcuNVpNNS41IDMuNUg2LjVWNi41SDUuNVYzLjVaIiBmaWxsPSIjQ0M0NTM0Ii8+Cjwvc3ZnPgo=);
+      }
+    }
+
+    &_needReview
+    {
+      @include typographyBuilder(secondary,400,12,16);
+      @include flex(row,center,flex-start);
+      color: $color_error !important;
+      text-decoration: none !important;
+
+      &::before
+      {
+        @include fixedSize(10px);
+        content: "";
+        display: block;
+        background-repeat: no-repeat;
+        background-image: url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 10 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M5 8.95905C2.81714 8.95905 1.04095 7.18286 1.04095 5C1.04095 2.81714 2.81714 1.04095 5 1.04095C7.18286 1.04095 8.95905 2.81714 8.95905 5C8.95905 7.18286 7.18286 8.95905 5 8.95905ZM5 0C7.75714 0 10 2.24286 10 5C10 7.75714 7.75714 10 5 10C2.24286 10 0 7.75714 0 5C0 2.24286 2.24286 0 5 0ZM5.17191 6.75857H4.82857C4.59191 6.75857 4.39905 6.93333 4.39905 7.14857V7.65048C4.39905 7.86524 4.59191 8.04 4.82857 8.04H5.17191C5.40857 8.04 5.60048 7.86524 5.60048 7.65048V7.14857C5.60048 6.93333 5.40857 6.7581 5.17191 6.7581V6.75857ZM5.17286 1.8981H4.82762C4.58714 1.8981 4.39905 2.05619 4.39905 2.25714V5.98857C4.39905 6.19 4.58714 6.34762 4.82762 6.34762H5.17286C5.41286 6.34762 5.60048 6.19048 5.60048 5.98857V2.25714C5.60048 2.05619 5.41286 1.8981 5.17286 1.8981Z' fill='%23CC4534'/%3E%3C/svg%3E");
+        margin-right: 4px;
       }
     }
 
@@ -279,6 +308,7 @@
         @include absolute(0,0,0,0);
         width: 100%;
         border-radius: 50px;
+        cursor: pointer;
       }
 
       & > label
@@ -309,6 +339,10 @@
       }
     }
 
+    &_body
+    {
+      background-color: $color_rose_bg1;
+    }
 
     &_footer
     {
@@ -322,9 +356,12 @@
     
     &_totalCost
     {
+      @include typographyBuilder(secondary,500,12,16);
+
       color: $color_text_primary;
       margin:0;
-      @include typographyBuilder(secondary,500,12,16);
+      font-weight: 500;
+
       &_body
       {
         justify-content: end;
@@ -452,5 +489,339 @@
   &_searchBtn
   {
     margin-top: 24px;
+  }
+
+  &_paymentMethodDetail
+  {
+    @include flex(column, left, flex-start);
+  }
+
+  &_paymentMethodDetailOption
+  {
+    @include flex(row, center, flex-start);
+  }
+
+  &_paymentMethodDetailWrapper
+  {
+    @include flex(column, left);
+
+    gap: 4px;
+  }
+
+  &_paymentMethodDetailCard
+  {
+    margin: 4px 0;
+    width: 252px;
+
+    & > div:nth-child(3)
+    {
+      width: 180px !important;
+    }
+  }
+
+  &_paymentMethodDetailText
+  {
+    @include typographyBuilder(secondary, 600, 12, 16);
+    color: $color_text_primary !important;
+    width: unset !important;
+    margin-bottom: 0;
+
+    & > a[data-identity="view-payment-page"]
+    {
+      @include typographyBuilder(secondary, 600, 12, 16);
+
+      color: $color_blue_text;
+    }
+  }
+
+  &_paymentMethodDetailCode
+  {
+    @include typographyBuilder(secondary, 600, 13, 20);
+
+    background-color: $color_white;
+    text-align: center;
+    color: $color_text_primary;
+    padding: 8px 12px;
+    margin-bottom: 0;
+    border: 1px solid $color_line_brown;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom: none;
+  }
+
+  &_paymentMethodDetailInstructionContainer
+  {
+    @include flex(row, flex-start, flex-start);
+
+    background-color: $color_blue_light;
+    color: $color_text_primary !important;
+    padding: 8px;
+    gap: 4px;
+
+    border-right: 0.5px solid $color_line_brown;
+    border-bottom: 0.5px solid $color_line_brown;
+    border-left: 0.5px solid $color_line_brown;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+
+    & > svg
+    {
+      @include fixedSize(10px);
+
+      margin-top: 1px;
+    }
+  }
+
+  &_paymentMethodDetailInstructionText
+  {
+    @include typographyBuilder(secondary, 400, 10, 16);
+
+    color: $color_blue_text !important;
+    margin-bottom: 0;
+
+    & > span
+    {
+      color: $color_blue_text !important;
+    }
+  }
+
+  &_paymentMethodDetailSeeMoreContainer
+  {
+    @include typographyBuilder(secondary, 400, 12, 16);
+  }
+
+  &_paymentMethodDetailSeeMoreLink
+  {
+    color: $color_info !important;
+    font-weight: 600;
+  }
+
+  &_paymentMethodDetailQr
+  {
+    @include flex(row, center, space-between);
+
+    width: 180px;
+
+    img 
+    {
+      position: relative;
+      width: inherit;
+      border-top: 0.5px solid $color_line_brown;
+      border-right: 0.5px solid $color_line_brown;
+      border-left: 0.5px solid $color_line_brown;
+      border-top-right-radius: 4px;
+      border-top-left-radius: 4px;
+    }
+
+    &DownloadBtn
+    {
+      @include flex(row, center, center);
+      @include typographyBuilder(secondary, 600, 13, 21);
+
+      width: 180px;
+      height: 28px;
+      border: none;
+      background-color: $color_white;
+      color: $color_text_primary;
+      padding-bottom: 10px;
+
+      border-right: 0.5px solid $color_line_brown;
+      border-left: 0.5px solid $color_line_brown;
+
+      &::before
+      {
+        @include fixedSize(14px);
+
+        content: "";
+        display: block;
+        background-repeat: no-repeat;
+        margin-right: 4px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23444444' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 15v4c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2v-4M17 9l-5 5-5-5M12 12.8V2.5'/%3E%3C/svg%3E");
+      }
+
+      svg 
+      {
+        @include fixedSize(14px);
+        
+        margin-right: 6px;
+      }
+    }
+  }
+
+  &_paymentMethodDetailBankList
+  {
+    background-color: $color_white;
+    border: 0.5px solid $color_line_brown;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    width: 100%;
+    float: left;
+    padding: 0;
+    margin: 0;
+
+    li
+    {
+      @include flex(row, center, space-between);
+
+      padding: 12px;
+      width: 100%;
+      border-bottom: 0.5px solid $color_line_brown;
+
+      p
+      {
+        margin: 0;
+        padding: 0;
+      }
+
+      &:last-child
+      {
+        border-bottom: none;
+      }
+    }
+  }
+
+  &_paymentMethodDetailBankInfo
+  {
+    & > span
+    {
+      @include typographyBuilder(secondary, 400, 12, 15);
+
+      color: $color_text_primary;
+    }
+
+    & > p
+    {
+      @include typographyBuilder(secondary, 400, 10, 12);
+
+      color: $color_text_secondary;
+    }
+  }
+
+  &_paymentMethodDetailCopyCodeButton
+  {
+    @include fixedSize(14px);
+
+    background: none;
+    border: none;
+    margin-left: 6px;
+    content: "";
+    display: block;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M2 3.95C2 2.87304 2.87304 2 3.95 2H9.35C10.427 2 11.3 2.87304 11.3 3.95V4.7H12.05C13.127 4.7 14 5.57305 14 6.65V12.05C14 13.127 13.127 14 12.05 14H6.65C5.57305 14 4.7 13.127 4.7 12.05V11.3H3.95C2.87304 11.3 2 10.427 2 9.35V3.95ZM5.9 12.05C5.9 12.4642 6.23579 12.8 6.65 12.8H12.05C12.4642 12.8 12.8 12.4642 12.8 12.05V6.65C12.8 6.23579 12.4642 5.9 12.05 5.9H6.65C6.23579 5.9 5.9 6.23579 5.9 6.65V12.05ZM10.1 4.7H6.65C5.57305 4.7 4.7 5.57305 4.7 6.65V10.1H3.95C3.53579 10.1 3.2 9.76421 3.2 9.35V3.95C3.2 3.53579 3.53579 3.2 3.95 3.2H9.35C9.76421 3.2 10.1 3.53579 10.1 3.95V4.7Z' fill='%23269CD9'/%3E%3C/svg%3E");
+  }
+
+  &_paymentMethodDetailExpiryContainer
+  {
+    @include flex(row, center, flex-start);
+    @include typographyBuilder(secondary, 400, 12, 16);
+
+    display: inline-block;
+    padding: 4px 6px;
+    border-radius: 4px;
+    color: $color_text_primary;
+    background: rgba(255, 152, 0, 0.1);
+
+    & > span:first-child
+    {
+      position: absolute;
+    }
+  }
+  
+  &_paymentMethodDetailExpiryWarningText,
+  &_paymentMethodDetailExpiryDate
+  {
+    margin-left: 3px;
+  }
+  
+  &_paymentMethodDetailExpiryWarningText
+  {
+    margin-left: 24px;
+  }
+
+  &_detailPriceSection
+  {
+    @include typographyBuilder(secondary, 400, 10, 16);
+
+    background-color: $color_rose_bg1;
+    color: $color_text_secondary;
+    padding: 0 19px 19px 19px;
+  }
+
+  &_detailPriceLine
+  {
+    @include flex(row, flex-start, space-between);
+    padding: 4px 0; 
+
+    &:first-child,
+    &:nth-last-child(3)
+    {
+      border-top: 0.5px dashed $color_border2;
+      padding-top: 12px;
+    }
+
+    &:nth-last-child(3)
+    {
+      margin-top: 12px;
+    }
+  }
+
+  &_detailTotalPriceLine
+  {
+    @include flex(row, flex-start, space-between);
+    @include typographyBuilder(secondary, 500, 14, 24);
+    
+    color: $color_text_primary;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 0.5px dashed $color_border2;
+  }
+
+  &_productNotes
+  {
+    @include typographyBuilder(secondary, 400, 12, 16);
+
+    color: $color_text_secondary;
+    max-width: 237px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &_infoIcon
+  {
+    @include fixedSize(12px);
+    display: block;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M9.99951 6C9.99951 8.20914 8.20865 10 5.99951 10C3.79037 10 1.99951 8.20914 1.99951 6C1.99951 3.79086 3.79037 2 5.99951 2C8.20865 2 9.99951 3.79086 9.99951 6ZM6.49951 4C6.49951 4.27614 6.27565 4.5 5.99951 4.5C5.72337 4.5 5.49951 4.27614 5.49951 4C5.49951 3.72386 5.72337 3.5 5.99951 3.5C6.27565 3.5 6.49951 3.72386 6.49951 4ZM5.49951 5.5C5.22337 5.5 4.99951 5.72386 4.99951 6C4.99951 6.27614 5.22337 6.5 5.49951 6.5V8C5.49951 8.27614 5.72337 8.5 5.99951 8.5H6.49951C6.77565 8.5 6.99951 8.27614 6.99951 8C6.99951 7.72386 6.77565 7.5 6.49951 7.5V6C6.49951 5.72386 6.27565 5.5 5.99951 5.5H5.49951Z' fill='%23269CD9'/%3E%3C/svg%3E");
+  }
+
+  &_warningIcon
+  {
+    @include fixedSize(16px);
+    
+    display: block;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg' fill='none'%3E%3Cpath fill='%23FFC043' fill-rule='evenodd' d='M8 1a2.143 2.143 0 00-1.827 1.024l-5.88 9.768a2.125 2.125 0 00.762 2.915c.322.188.687.289 1.06.293h11.77a2.143 2.143 0 001.834-1.074 2.126 2.126 0 00-.006-2.124L9.829 2.028A2.149 2.149 0 008 1zM7 11a1 1 0 011-1h.007a1 1 0 110 2H8a1 1 0 01-1-1zm1.75-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  }
+
+  &_chevronUpIcon,
+  &_chevronDownIcon
+  {
+    @include fixedSize(20px);
+    @include absolute(50%, 16px, auto);
+    
+    display: block;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+
+  &_chevronUpIcon
+  {
+    background-image: url("data:image/svg+xml,%3Csvg fill='none' xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 12 12'%3E%3Crect x='12' y='12' width='12' height='12' rx='6' transform='rotate(-180 12 12)' fill='%23998060' style=''/%3E%3Cpath d='M6 4L9 7H3L6 4Z' fill='white'/%3E%3C/svg%3E");
+  }
+
+  &_chevronDownIcon
+  {
+    background-image: url("data:image/svg+xml,%3Csvg fill='none' xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 12 12'%3E%3Crect x='12' y='12' width='12' height='12' rx='6' transform='rotate(-180 12 12)' fill='%23998060' style=''/%3E%3Cpath xmlns='http://www.w3.org/2000/svg' fill='white' d='M6 4L9 7H3L6 4Z' transform='rotate(180  6  6)'/%3E%3C/svg%3E");
   }
 }

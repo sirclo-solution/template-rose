@@ -13,7 +13,6 @@ import {
   RiCheckboxCircleFill,
   RiCheckboxCircleLine,
   RiCloseLine,
-  RiInformationLine,
   RiUser3Line,
   RiShoppingBag2Line,
   RiMailUnreadFill,
@@ -121,7 +120,7 @@ const classesAccount = {
   shippingDetailsValueClassName: styleOrderHistory.order_item_valueDetail,
   shippingMethodContainerClassName: styleOrderHistory.order_item_containerMethod,
   shippingMethodLabelClassName: styleOrderHistory.order_item_labelDetail,
-  shippingMethodValueClassName: styleOrderHistory.order_item_valueDetail,
+  shippingMethodValueClassName: `${styleOrderHistory.order_item_valueDetail} ${styleOrderHistory.order_item_shippingMethodValue}`,
   paymentMethodContainerClassName: `${styleOrderHistory.order_item_containerMethod} ${styleOrderHistory.order_item_paymentMethod}`,
   paymentMethodLabelClassName: styleOrderHistory.order_item_labelDetail,
   orderControlClassName: styleOrderHistory.order_item_control,
@@ -138,6 +137,7 @@ const classesAccount = {
   orderedItemDetailTitleClassName: styleOrderHistory.order_item_orderedItemDetail_title,
   orderedItemDetailPriceClassName: styleOrderHistory.order_item_orderedItemDetail_price,
   orderedItemDetailNeedReviewClassName: styleOrderHistory.order_item_needReview,
+  orderedItemDetailReviewedClassName: styleOrderHistory.order_item_reviewed,
   paymentStatusPaidClassName: styleOrderHistory.order_status,
   paymentStatusUnpaidClassName: styleOrderHistory.order_status,
   paymentStatusCancelledClassName: styleOrderHistory.order_status,
@@ -147,6 +147,7 @@ const classesAccount = {
   paymentStatusDeliveredClassName: styleOrderHistory.order_status,
   paymentStatusCompletedClassName: styleOrderHistory.order_status,
   paymentStatusConfirmingClassName: styleOrderHistory.order_status,
+  paymentStatusNeedReviewClassName: styleOrderHistory.order_status,
   OrderInfoSearchHereClassName: styleOrderHistory.order_info_button,
   popupConfirmationOrderContainerClassName: styleOrderHistory.order_popup,
   popupConfirmationOrderContentClassName: styleOrderHistory.order_popup_content,
@@ -156,6 +157,29 @@ const classesAccount = {
   popupConfirmationOrderWrapButtonClassName: styleOrderHistory.order_popup_wrapAction,
   popupConfirmationOrderButtonConfirmClassName: `${styleButton.btn} ${styleButton.btn_secondary}`,
   popupConfirmationOrderButtonNoClassName: `${styleButton.btn} ${styleButton.btn_primary}`,
+  // order history
+  paymentMethodDetailClassName: styleOrderHistory.order_paymentMethodDetail,
+  paymentMethodDetailOptionClassName: styleOrderHistory.order_paymentMethodDetailOption,
+  paymentMethodDetailWrapperClassName: styleOrderHistory.order_paymentMethodDetailWrapper,
+  paymentMethodDetailCardClassName: styleOrderHistory.order_paymentMethodDetailCard,
+  paymentMethodDetailTextClassName: styleOrderHistory.order_paymentMethodDetailText,
+  paymentMethodDetailCodeClassName: styleOrderHistory.order_paymentMethodDetailCode,
+  paymentMethodDetailInstructionContainerClassName: styleOrderHistory.order_paymentMethodDetailInstructionContainer,
+  paymentMethodDetailInstructionTextClassName: styleOrderHistory.order_paymentMethodDetailInstructionText,
+  paymentMethodDetailSeeMoreContainerClassName: styleOrderHistory.order_paymentMethodDetailSeeMoreContainer,
+  paymentMethodDetailSeeMoreLinkClassName: styleOrderHistory.order_paymentMethodDetailSeeMoreLink,
+  paymentMethodDetailQrClassName: styleOrderHistory.order_paymentMethodDetailQr,
+  paymentMethodDetailQrDownloadBtnClassName: styleOrderHistory.order_paymentMethodDetailQrDownloadBtn,
+  paymentMethodDetailBankListClassName: styleOrderHistory.order_paymentMethodDetailBankList,
+  paymentMethodDetailBankInfoClassName: styleOrderHistory.order_paymentMethodDetailBankInfo,
+  paymentMethodDetailCopyCodeButtonClassName: styleOrderHistory.order_paymentMethodDetailCopyCodeButton,
+  paymentMethodDetailExpiryContainerClassName: styleOrderHistory.order_paymentMethodDetailExpiryContainer,
+  paymentMethodDetailExpiryWarningTextClassName: styleOrderHistory.order_paymentMethodDetailExpiryWarningText,
+  paymentMethodDetailExpiryDateClassName: styleOrderHistory.order_paymentMethodDetailExpiryDate,
+  detailPriceSectionClassName: styleOrderHistory.order_detailPriceSection,
+  detailPriceLineClassName: styleOrderHistory.order_detailPriceLine,
+  detailTotalPriceLineClassName: styleOrderHistory.order_detailTotalPriceLine,
+  productNotesClassName: styleOrderHistory.order_productNotes,
   // tracker
   shipmentTrackingClassName: styleShipmentTracking.shipmentTracking,
   shipmentHeaderClassName: styleShipmentTracking.shipmentTracking_header,
@@ -277,7 +301,7 @@ const AccountsPage: FC<any> = ({
         </div>
         <Account
           orderHistoryIsInfinite
-          orderHistoryItemPerPage={1}
+          orderHistoryItemPerPage={5}
           classes={classesAccount}
           currency={ACTIVE_CURRENCY}
           onFetchCompleted={onFetchCompleted}
@@ -303,7 +327,7 @@ const AccountsPage: FC<any> = ({
           icons={{
             accordionIcon: <BiChevronDown />,
             closeIcon: <RiCloseLine />,
-            infoIcon: <RiInformationLine size={12} color="#444444" />,
+            infoIcon: <span className={styleOrderHistory.order_infoIcon} />,
             email: <RiMailUnreadFill size={20} />,
             whatsApp: <RiWhatsappFill color="#53B671" size={20} />,
             line: <RiLineLine color="#53B671" size={20} />,
@@ -312,6 +336,10 @@ const AccountsPage: FC<any> = ({
                 <img src="/icons/motorcycle.svg" alt="motorcycle" />
               </div>
             ),
+            warningIcon: <span className={styleOrderHistory.order_warningIcon}/>,
+            chevronUpIcon: <span className={styleOrderHistory.order_chevronUpIcon} />,
+            chevronDownIcon: <span className={styleOrderHistory.order_chevronDownIcon} />,
+            checkMarkIcon: ""
           }}
           loadingComponent={
             <div className="w-100 d-flex align-items-center justify-content-center">
