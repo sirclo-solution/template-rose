@@ -137,6 +137,7 @@ const classesAccount = {
   orderedItemDetailTitleClassName: styleOrderHistory.order_item_orderedItemDetail_title,
   orderedItemDetailPriceClassName: styleOrderHistory.order_item_orderedItemDetail_price,
   orderedItemDetailNeedReviewClassName: styleOrderHistory.order_item_needReview,
+  orderedItemDetailReviewedClassName: styleOrderHistory.order_item_reviewed,
   paymentStatusPaidClassName: styleOrderHistory.order_status,
   paymentStatusUnpaidClassName: styleOrderHistory.order_status,
   paymentStatusCancelledClassName: styleOrderHistory.order_status,
@@ -146,6 +147,7 @@ const classesAccount = {
   paymentStatusDeliveredClassName: styleOrderHistory.order_status,
   paymentStatusCompletedClassName: styleOrderHistory.order_status,
   paymentStatusConfirmingClassName: styleOrderHistory.order_status,
+  paymentStatusNeedReviewClassName: styleOrderHistory.order_status,
   OrderInfoSearchHereClassName: styleOrderHistory.order_info_button,
   popupConfirmationOrderContainerClassName: styleOrderHistory.order_popup,
   popupConfirmationOrderContentClassName: styleOrderHistory.order_popup_content,
@@ -174,6 +176,10 @@ const classesAccount = {
   paymentMethodDetailExpiryContainerClassName: styleOrderHistory.order_paymentMethodDetailExpiryContainer,
   paymentMethodDetailExpiryWarningTextClassName: styleOrderHistory.order_paymentMethodDetailExpiryWarningText,
   paymentMethodDetailExpiryDateClassName: styleOrderHistory.order_paymentMethodDetailExpiryDate,
+  detailPriceSectionClassName: styleOrderHistory.order_detailPriceSection,
+  detailPriceLineClassName: styleOrderHistory.order_detailPriceLine,
+  detailTotalPriceLineClassName: styleOrderHistory.order_detailTotalPriceLine,
+  productNotesClassName: styleOrderHistory.order_productNotes,
   // tracker
   shipmentTrackingClassName: styleShipmentTracking.shipmentTracking,
   shipmentHeaderClassName: styleShipmentTracking.shipmentTracking_header,
@@ -295,7 +301,7 @@ const AccountsPage: FC<any> = ({
         </div>
         <Account
           orderHistoryIsInfinite
-          orderHistoryItemPerPage={1}
+          orderHistoryItemPerPage={5}
           classes={classesAccount}
           currency={ACTIVE_CURRENCY}
           onFetchCompleted={onFetchCompleted}
@@ -330,7 +336,10 @@ const AccountsPage: FC<any> = ({
                 <img src="/icons/motorcycle.svg" alt="motorcycle" />
               </div>
             ),
-            warningIcon: <span className={styleOrderHistory.order_warningIcon}/>
+            warningIcon: <span className={styleOrderHistory.order_warningIcon}/>,
+            chevronUpIcon: <span className={styleOrderHistory.order_chevronUpIcon} />,
+            chevronDownIcon: <span className={styleOrderHistory.order_chevronDownIcon} />,
+            checkMarkIcon: ""
           }}
           loadingComponent={
             <div className="w-100 d-flex align-items-center justify-content-center">
