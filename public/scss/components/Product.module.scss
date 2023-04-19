@@ -123,19 +123,20 @@
     {
       width: 130px;
       object-fit: contain;
+      height: 167px;
     }
   }
 
   &_label
   {
-    @include flex(row, flex-start, flex-start, true);
+    @include flex(column, flex-start, flex-start, true);
     padding: 10px 0 0;
     flex-grow: 1;
     
     &__container
     {
       width: 100%;
-      order: 3;
+      order: 2;
     }
 
     &__title
@@ -161,7 +162,8 @@
 
     &__container
     {
-      order: 4;
+      order: 3;
+      margin-bottom: 4px;
     }
     
     &__sale
@@ -278,24 +280,21 @@
   {
     &__container
     {
-      @include flex(row, flex-start, space-between);
-      order: 2;
-      align-self: center;
-      margin-left: auto;
-      margin-bottom: 3px;
+      @include flex(row, center, flex-start);
+      order: 4;
     }
 
     &__wrapper
     {
       @include flex(row, flex-end, space-between, false);
       @include typographyBuilder(secondary, 400, 11, 12);
-      color: $color_rose;
+      color: $color_text_secondary;
       float: right;
     }
 
     &__count
     {
-      margin-left: 2px;
+      margin-left: 4px;
     }
 
     &__reviewCount
