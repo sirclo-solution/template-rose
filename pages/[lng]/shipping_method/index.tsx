@@ -56,6 +56,10 @@ const classesShippingMethod = {
   shippingNameDivClass: styleShipping.shipping_item__label,
   shippingNameClass: styleShipping.shipping_item__title,
   shippingPriceDivClass: styleShipping.shipping_item__price,
+  shippingPriceDivDiscountedClass: styleShipping.shipping_item__priceDiscount,
+  shippingDiscountPercentageDivClass: styleShipping.shipping_item__discountPercentage,
+  shippingDiscountedPriceClass: styleShipping.shipping_item__discount,
+  shippingPriceClass: styleShipping.shipping_item__priceShipping,
   pinPointLocationClassName: `${styleBtn.btn} ${styleBtn.btn_secondary} ${styleShipping.shipping_item__pinButton} mb-3`,
   shippingErrorMsgClass: styleShipping.shipping_item__errorMsg,
   moreShippingClassName: styleShipping.shipping_moreShipping,
@@ -246,7 +250,7 @@ export const getServerSideProps: GetServerSideProps = async ({
 }) => {
   const [brand] = await Promise.all([
     useBrand(req),
-    useAuthToken({req, res, env: process.env})
+    useAuthToken({ req, res, env: process.env })
   ])
   const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
   const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)

@@ -116,6 +116,11 @@ const classesProductDetail = {
   estimateShippingPopupProviderImgClassName: styleEstimate.popup_providerImage,
   estimateShippingPopupProviderLabelClassName: styleEstimate.popup_providerLabel,
   estimateShippingPopupProviderValueClassName: styleEstimate.popup_providerValue,
+  // Estimate Shipping Discount
+  estimateShippingPopupProviderValueContainerClassName: styleEstimate.popup_providerValueContainer,
+  estimateShippingPopupProviderDiscountedValueContainerClassName: styleEstimate.popup_providerDiscountedValueContainer,
+  estimateShippingPopupProviderDiscountedValuePercentageClassName: styleEstimate.popup_providerDiscountedValuePercentage,
+  estimateShippingPopupProviderDiscountedValuePriceClassName: styleEstimate.popup_providerDiscountedValuePrice
 }
 
 const classesProductReview = {
@@ -596,7 +601,7 @@ export async function getServerSideProps({
   ] = await Promise.all([
     useBrand(req),
     getProductDetail(GRAPHQL_URI(req), slug),
-    useAuthToken({req, res, env: process.env})
+    useAuthToken({ req, res, env: process.env })
   ])
   const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
   const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
