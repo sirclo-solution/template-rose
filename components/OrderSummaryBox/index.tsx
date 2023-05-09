@@ -249,7 +249,7 @@ const OrderSummaryComponent: FC<iProps> = ({
               voucherRemoved: <FiX color="#CC4534" size={16} />,
               pointsApplied: <img src="/icons/point.svg" alt="points" />,
               copyIcon: <FaCopy />,
-							expand: <FiChevronUp color="#998060" size={16} stroke-width="3" />, 
+							expand: <FiChevronUp color="#998060" size={16} stroke-width="3" />,
 							collapse: <FiChevronDown color="#998060" size={16} stroke-width="3" />
             }}
           />
