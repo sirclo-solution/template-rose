@@ -76,7 +76,7 @@
   z-index: 30;
   -webkit-overflow-scrolling: auto;
 
-  @media screen and (max-width: 575px)
+  @media screen and (max-width: $breakpoint_max_sm)
   {
     padding: 0;
   }
@@ -89,7 +89,7 @@
     background: $color_white;
     border-radius: 4px 4px 0px 0px;
 
-    @media screen and (max-width: 575px)
+    @media screen and (max-width: $breakpoint_max_sm)
     {
       @include fixedWidth(100%);
       height: auto;
