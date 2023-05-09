@@ -5,8 +5,8 @@ import { toast } from 'react-toastify'
 import {
   FiX,
   FiChevronLeft,
-	FiChevronUp, 
-	FiChevronDown
+  FiChevronUp, 
+  FiChevronDown
 } from 'react-icons/fi'
 import { IoTrashBinOutline } from 'react-icons/io5'
 import { FaCopy, FaEdit } from 'react-icons/fa'
@@ -21,7 +21,7 @@ import styleOrderSummary from 'public/scss/components/OrderSummaryBox.module.scs
 import styleCart from 'public/scss/components/CartDetail.module.scss'
 
 const classesOrderSummary = {
-	containerClassName: styleOrderSummary.orderSummary,
+  containerClassName: styleOrderSummary.orderSummary,
   continueShoppingClassName: styleOrderSummary.orderSummary_button__continueShopping,
   footerClassName: styleOrderSummary.orderSummary_footer,
   headerClassName: styleOrderSummary.orderSummary_header,
@@ -115,27 +115,27 @@ const classesOrderSummary = {
 }
 
 const classesCartDetails = {
-	className: styleOrderSummary.cart_detail,
-	cartHeaderClassName: 'd-none',
-	itemClassName: `${styleCart.cartItem} ${styleOrderSummary.cart_item}`,
-	itemImageClassName: styleCart.cartItem_image,
-	selectedVariantContainerClassName: styleCart.cartItem_variant,
-	itemTitleClassName: styleCart.cartItem_title,
-	itemPriceClassName: styleCart.cartItem_price,
-	itemRegularPriceClassName: styleCart.cartItem_regularPrice,
-	itemSalePriceWrapperClassName: styleCart.cartItem_salePriceWrapper,
-	itemSalePriceClassName: styleCart.cartItem_salePrice,
-	itemDiscountNoteClassName: styleCart.cartItem_discNote,
-	itemQtyClassName: styleCart.cartItem_qty,
-	itemNoteClassName: styleCart.cartItem_note,
-	errorClassName: 'd-none',
-	qtyBoxClassName: styleCart.cartItem_qtyBox,
-	itemAmountClassName: styleCart.cartItem_totalPrice,
-	itemEditClassName: 'd-none',
-	itemRemoveClassName: styleCart.cartItem_remove,
-	cartFooterClassName: 'd-none',
-	cartFooterTitleClassName: 'd-none',
-	cartFooterTextareaClassName: 'd-none',
+  className: styleOrderSummary.cart_detail,
+  cartHeaderClassName: 'd-none',
+  itemClassName: `${styleCart.cartItem} ${styleOrderSummary.cart_item}`,
+  itemImageClassName: styleCart.cartItem_image,
+  selectedVariantContainerClassName: styleCart.cartItem_variant,
+  itemTitleClassName: styleCart.cartItem_title,
+  itemPriceClassName: styleCart.cartItem_price,
+  itemRegularPriceClassName: styleCart.cartItem_regularPrice,
+  itemSalePriceWrapperClassName: styleCart.cartItem_salePriceWrapper,
+  itemSalePriceClassName: styleCart.cartItem_salePrice,
+  itemDiscountNoteClassName: styleCart.cartItem_discNote,
+  itemQtyClassName: styleCart.cartItem_qty,
+  itemNoteClassName: styleCart.cartItem_note,
+  errorClassName: 'd-none',
+  qtyBoxClassName: styleCart.cartItem_qtyBox,
+  itemAmountClassName: styleCart.cartItem_totalPrice,
+  itemEditClassName: 'd-none',
+  itemRemoveClassName: styleCart.cartItem_remove,
+  cartFooterClassName: 'd-none',
+  cartFooterTitleClassName: 'd-none',
+  cartFooterTextareaClassName: 'd-none',
 }
 
 type iProps = {
@@ -161,7 +161,7 @@ const OrderSummaryComponent: FC<iProps> = ({
   totalCrossSell = 0
 }) => {
 
-	return (
+  return (
     <>
       {withCartDetails &&
         <div className={`${styleCart.cart_container} ${styleOrderSummary.cart_container} ${lng}`}>
@@ -249,8 +249,8 @@ const OrderSummaryComponent: FC<iProps> = ({
               voucherRemoved: <FiX color="#CC4534" size={16} />,
               pointsApplied: <img src="/icons/point.svg" alt="points" />,
               copyIcon: <FaCopy />,
-							expand: <FiChevronUp color="#998060" size={16} stroke-width="3" />,
-							collapse: <FiChevronDown color="#998060" size={16} stroke-width="3" />
+              expand: <FiChevronUp color="#998060" size={16} stroke-width="3" />,
+              collapse: <FiChevronDown color="#998060" size={16} stroke-width="3" />
             }}
           />
         </>
