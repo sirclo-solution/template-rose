@@ -5,7 +5,7 @@ import { toast } from 'react-toastify'
 import {
   FiX,
   FiChevronLeft,
-	FiChevronUp,
+	FiChevronUp, 
 	FiChevronDown
 } from 'react-icons/fi'
 import { IoTrashBinOutline } from 'react-icons/io5'
