@@ -146,7 +146,7 @@
         &__expand
         {
             
-            @include fixed(auto, 0, 50px, 0);
+            @include fixed(auto, 55px, 42px, 0);
             @include transition();
             @include flex();
             @include typographyBuilder(secondary, 500, 14, 18);
