@@ -15,10 +15,11 @@
     border: 1px solid $color_border;
     background-color: $color_white;
     border-radius: 2px;
-    margin: 0 0 16px;
+    margin: 0 0 12px;
     cursor: pointer;
 
-    &[class*="disabled"] {
+    &[class*="disabled"]
+    {
       opacity: .5;
       pointer-events: none;
     }
@@ -78,10 +79,15 @@
     }
 
     &__radio,
+    &__label
+    {
+      @include flex(column, center, center);
+    }
+
+    &__radio,
     &__label,
     &__price
     {
-      @include flex(column, center, center);
       @include position(relative);
       margin: 16px 0;
       padding: 0;
@@ -153,13 +159,43 @@
 
     &__price
     {
+      @include flex(column, flex-end, center);
       order: 3;
       padding: 0 16px;
 
       p
       {
-        @include typographyBuilder(secondary, 400, 12, 24);
+        @include typographyBuilder(secondary, 400, 14, 24);
         color: $color_rose;
+      }
+
+      &Discount
+      {
+        @include flex(row);
+        gap: 5px;
+
+        & + .shipping_item__priceShipping
+        {
+          color: $color_text_secondary;
+          text-decoration-line: line-through;
+        }
+      }
+    }
+
+    &__discount
+    {
+      &Percentage
+      {
+        > p
+        {
+          @include fontSize(10);
+          font-weight: 500;
+          color: $color_white;
+          padding:  2px 8px;
+          text-transform: uppercase;
+        }
+
+        background: $color_rose;
       }
     }
   }
