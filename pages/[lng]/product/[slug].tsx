@@ -116,6 +116,11 @@ const classesProductDetail = {
   estimateShippingPopupProviderImgClassName: styleEstimate.popup_providerImage,
   estimateShippingPopupProviderLabelClassName: styleEstimate.popup_providerLabel,
   estimateShippingPopupProviderValueClassName: styleEstimate.popup_providerValue,
+  // Estimate Shipping Discount
+  estimateShippingPopupProviderValueContainerClassName: styleEstimate.popup_providerValueContainer,
+  estimateShippingPopupProviderDiscountedValueContainerClassName: styleEstimate.popup_providerDiscountedValueContainer,
+  estimateShippingPopupProviderDiscountedValuePercentageClassName: styleEstimate.popup_providerDiscountedValuePercentage,
+  estimateShippingPopupProviderDiscountedValuePriceClassName: styleEstimate.popup_providerDiscountedValuePrice
 }
 
 const classesProductReview = {
