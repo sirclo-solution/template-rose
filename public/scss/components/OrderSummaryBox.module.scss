@@ -467,12 +467,16 @@
             outline: 0;
             box-shadow: none;
         }
-        
+
         @media screen and (max-width: $breakpoint_max_md)
         {
             top: 0;
         }
 
+        &[data-identity="btn-close"]
+        {
+            @include position(absolute, 8px, 8px, auto, auto);
+        }
     }
 
     &_voucherForm
@@ -1138,6 +1142,7 @@
 
         input
         {
+            @include fixedHeight(58px);
             @include fixedWidth(calc(100% - 140px));
             @include typographyBuilder(secondary, 400, 14, 24);
             color: $color_text_primary;
@@ -1193,7 +1198,7 @@
 
         img
         {
-           width: 25px;
+           width: 32px;
            margin-bottom: 10px;
         }
     }
