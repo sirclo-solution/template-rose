@@ -1059,7 +1059,7 @@
         @include fixedWidth(375px);
         @include transition();
         min-height: 0;
-        max-height: calc(100vh - 58px);
+        max-height: calc(100vh - 58px); 
         height: auto;
         margin: auto auto 0 !important;
         padding: 16px;
@@ -1167,6 +1167,15 @@
         padding: 16px 16px 11px 16px;
     }
 
+    &_pointLabel
+    {
+        @include typographyBuilder(secondary, 500, 20, 24);
+        @include position(absolute, 80px, 0, auto, 0);
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
     &_pointsInsufficient
     {
         @include typographyBuilder(secondary, 400, 12, 18);
@@ -1199,7 +1208,7 @@
         img
         {
            width: 32px;
-           margin-bottom: 10px;
+           margin-bottom: 48px;
         }
     }
 
