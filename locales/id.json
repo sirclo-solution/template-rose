@@ -349,7 +349,7 @@
     "useCurrentLocation": "Gunakan lokasi saat ini"
   },
   "membership": {
-    "exchangePoints": "Tukar Poin Anda",
+    "exchangePoints": "Gunakan Poin",
     "getPointPrompt": "Dapatkan poin di setiap transaksi Anda",
     "insufficientPoints": "Poin tidak mencukupi",
     "orderID": "ID Pesanan",
