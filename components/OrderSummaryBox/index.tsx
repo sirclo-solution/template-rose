@@ -71,7 +71,7 @@ const classesOrderSummary = {
   pointsContainerClassName: styleOrderSummary.orderSummary_pointsContainer,
   changePointsClassName: styleOrderSummary.orderSummary_pointsChange,
   numberOfPointsClassName: styleOrderSummary.orderSummary_numberOfPoints,
-  pointLabelClassName: 'd-none',
+  pointLabelClassName: styleOrderSummary.orderSummary_pointLabel,
   pointsFormContainerClassName: styleOrderSummary.orderSummary_pointsFormContainer,
   pointsWarningClassName: styleOrderSummary.orderSummary_pointsWarning,
   pointsFormClassName: styleOrderSummary.orderSummary_pointsForm,
