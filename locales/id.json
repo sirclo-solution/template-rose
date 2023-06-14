@@ -349,7 +349,7 @@
     "useCurrentLocation": "Gunakan lokasi saat ini"
   },
   "membership": {
-    "exchangePoints": "Tukar Poin Anda",
+    "exchangePoints": "Gunakan Poin",
     "getPointPrompt": "Dapatkan poin di setiap transaksi Anda",
     "insufficientPoints": "Poin tidak mencukupi",
     "orderID": "ID Pesanan",
@@ -360,7 +360,7 @@
     "usePoints": "Gunakan Poin Anda",
     "warning": "Anda tidak bisa mendapatkan poin dari transaksi pembelian dengan menggunakan poin",
     "youHave": "Anda memiliki",
-    "yourPoints": "Poin Anda"
+    "yourPoints": "Poin anda"
   },
   "newsletter": {
     "close": "Tidak, nanti saja",
@@ -422,6 +422,7 @@
     "pointsLeft": "Point tersisa",
     "products": "Produk",
     "shipping": "Ongkos Kirim",
+    "shippingDiscount": "Diskon Ongkos Kirim",
     "shippingEmpty": "Semua kolom di alamat pengiriman tidak boleh kosong.",
     "subTotal": "Subtotal",
     "subTotalTransaction": "Subtotal",
@@ -572,6 +573,7 @@
     "day": "Hari",
     "description": "Deskripsi",
     "destination": "Tujuan",
+    "discount": "Diskon",
     "emptyCategory": "Kategori Kosong",
     "estimateCost": "Estimasi Ongkos Pengiriman",
     "estimateShipping": "Estimasi Pengiriman",
@@ -735,6 +737,7 @@
     "contactInfo": "Infomasi kontak",
     "created": "AWB telah dibuat",
     "delivered": "Pembeli telah menerima pesanan",
+    "discount": "Diskon",
     "inDelivery": "Kurir dalam perjalanan menuju pembeli",
     "inTransit": "Pesanan tiba di",
     "moreShipping": "Pilih Metode Pengiriman Lainnya",
