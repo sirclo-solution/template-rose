@@ -9,7 +9,8 @@ import { toast } from 'react-toastify'
 import { BiTargetLock } from 'react-icons/bi'
 import {
   FiX,
-  FiCalendar
+  FiCalendar,
+  FiChevronDown
 } from 'react-icons/fi'
 import {
   RiEyeCloseLine,
@@ -187,6 +188,26 @@ const PlaceOrderPage: FC<any> = ({
               singleValue: (provided) => ({ ...provided, marginRight: '0', marginLeft: '-8px' }),
               input: (provided) => ({ ...provided, marginRight: '0', marginLeft: '-8px' }),
               indicatorsContainer: (provided) => ({ ...provided, display: 'none' }),
+            }}
+            fieldPhoneNumberProps={{
+              name: 'phone_number',
+              dropdownIcon: <FiChevronDown color="#2F69FD" size={'14'} />,
+              selectedImgOptionHeight: '24px',
+              classes: {
+                fieldContainerClassName: styleForm.formPhoneContainer,
+                selectCountryContainerClassName:
+                  styleForm.formPhone_inputGroupAddOn,
+                selectCountryFlagClassName:
+                  styleForm.formPhone_selectCountryFlag,
+                dropdownListContainerClassName:
+                  styleForm.formPhone_dropdownListContainer,
+                dropdownListClassName: styleForm.formPhone_dropdownList,
+                countryOptionClassName: styleForm.formPhone_countryOption,
+                countryFlagClassName: 'phone-countryFlag',
+                countryNameClassName: 'phone-countryName',
+                dialCodeClassName: styleForm.formPhone_dialCode,
+                inputFieldPhoneClassName: styleForm.formPhone_input,
+              },
             }}
             signupLabelPosition='bottom'
           />

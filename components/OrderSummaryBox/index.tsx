@@ -82,6 +82,8 @@ const classesOrderSummary = {
   pointsButtonAppliedClassName: styleOrderSummary.orderSummary_voucherButtonApplied,
   pointsAppliedTextClassName: styleOrderSummary.orderSummary_voucherAppliedText,
   pointButtonRemoveClassName: styleOrderSummary.orderSummary_voucherButtonRemove,
+  minimumPointToExchangeClassName: styleOrderSummary.orderSummary_pointsMinimum,
+  invalidMinimumPointToExchangeClassName: styleOrderSummary.orderSummary_pointsMinimumInvalid,
 
   /* Grouping Coupon */
   voucherTitleClassName: "d-none",
