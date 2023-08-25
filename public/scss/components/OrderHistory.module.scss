@@ -91,12 +91,14 @@
   {
     margin: 12px 17px;
     display: grid;
-    border: 1px solid $color_line_brown;
+    // border: 1px solid $color_line_brown;
     border-radius: 2px;
 
     &_header
     {
       background-color: $color_line_brown;
+      // testing dulu
+      border: 1px solid $color_line_brown;
       position: relative;
     }
 
@@ -125,6 +127,8 @@
     {
       padding: 16px 16px 0 16px;
       background-color: $color_rose_bg1;
+      border: 1px solid $color_line_brown;
+      border-bottom: 0;
     }
 
     &_labelDetail
@@ -133,6 +137,12 @@
 
       display: block;
       color: $color_text_secondary;
+
+      &Container
+      {
+        border-top: 1px solid $color_line_brown;
+        padding: 16px 0;
+      }
     }
 
     &_note
@@ -162,15 +172,18 @@
       @include typographyBuilder(secondary,400,12,16);
       @include flex(column, flex-start, flex-start);
 
-      margin: 16px 0;
-      padding-top: 16px;
+      margin: 0px 0px 16px;
+      // padding-top: 16px;
       color: $color_text_primary;
-      border-top: 1px solid $color_border;
+      // border-top: 1px solid $color_border;
       gap: 4px;
     }
 
     &_paymentMethod
     {
+      padding-bottom: 16px;
+      border-bottom: 1px solid $color_line_brown;
+
       & > p
       {
         margin: 0;
@@ -186,6 +199,13 @@
       list-style: none;
       margin: 0;
       padding: 5px 16px;
+
+      &Container
+      {
+        margin-bottom: 20px;
+        border: 1px solid $color_line_brown;
+        border-top: 0;
+      }
     }
 
     &_orderedItem
@@ -229,6 +249,23 @@
       color: $color_success !important;
       text-decoration: none !important;
 
+      &Container
+      {
+        display: flex;
+        align-items: center;
+
+        &::before {
+          height: 12px;
+          width: 12px;
+          content: '';
+  
+          display: block;
+          background-repeat: no-repeat;
+          background-image: url('data:image/svg+xml,<svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.6339 1.56723C10.1457 1.07907 9.35427 1.07907 8.86612 1.56723L4.125 6.30834V8.07611H5.89277L10.6339 3.33499C11.122 2.84684 11.122 2.05538 10.6339 1.56723Z" fill="%232296CB"/><path fill-rule="evenodd" clip-rule="evenodd" d="M1 3.70111C1 3.01075 1.55964 2.45111 2.25 2.45111H4.75C5.09518 2.45111 5.375 2.73093 5.375 3.07611C5.375 3.42129 5.09518 3.70111 4.75 3.70111H2.25V9.95111H8.5V7.45111C8.5 7.10593 8.77982 6.82611 9.125 6.82611C9.47018 6.82611 9.75 7.10593 9.75 7.45111V9.95111C9.75 10.6415 9.19036 11.2011 8.5 11.2011H2.25C1.55964 11.2011 1 10.6415 1 9.95111V3.70111Z" fill="%232296CB"/></svg>');
+          margin-right: 4px;
+        }
+      }
+
       &::before
       {
         @include fixedSize(10px);
@@ -244,31 +281,27 @@
     {
       @include typographyBuilder(secondary,400,12,16);
       @include flex(row,center,flex-start);
-      color: $color_error !important;
+      color: $color_blue_text !important;
       text-decoration: none !important;
-
-      &::before
-      {
-        @include fixedSize(10px);
-        content: "";
-        display: block;
-        background-repeat: no-repeat;
-        background-image: url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 10 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M5 8.95905C2.81714 8.95905 1.04095 7.18286 1.04095 5C1.04095 2.81714 2.81714 1.04095 5 1.04095C7.18286 1.04095 8.95905 2.81714 8.95905 5C8.95905 7.18286 7.18286 8.95905 5 8.95905ZM5 0C7.75714 0 10 2.24286 10 5C10 7.75714 7.75714 10 5 10C2.24286 10 0 7.75714 0 5C0 2.24286 2.24286 0 5 0ZM5.17191 6.75857H4.82857C4.59191 6.75857 4.39905 6.93333 4.39905 7.14857V7.65048C4.39905 7.86524 4.59191 8.04 4.82857 8.04H5.17191C5.40857 8.04 5.60048 7.86524 5.60048 7.65048V7.14857C5.60048 6.93333 5.40857 6.7581 5.17191 6.7581V6.75857ZM5.17286 1.8981H4.82762C4.58714 1.8981 4.39905 2.05619 4.39905 2.25714V5.98857C4.39905 6.19 4.58714 6.34762 4.82762 6.34762H5.17286C5.41286 6.34762 5.60048 6.19048 5.60048 5.98857V2.25714C5.60048 2.05619 5.41286 1.8981 5.17286 1.8981Z' fill='%23CC4534'/%3E%3C/svg%3E");
-        margin-right: 4px;
-      }
     }
 
     &_control
     {
-      background-color: $color_rose_bg2;
-      margin: 0 16px;
-      padding: 8px 10px;
+      // background-color: $color_rose_bg2;
+      // margin: 16px 16px 0;
+      // padding: 8px 10px;
       @include flex(row,center,space-between);
+      border: 1px solid $color_line_brown;
+      border-bottom: 0;
     }
 
     &_controlInvoice
     {
       @include typographyBuilder(secondary,400,12,16);
+      margin: 16px 16px 0;
+      padding: 8px 10px;
+      background-color: $color_rose_bg2;
+      border-radius: 3px;
       text-decoration: none !important;
       color: $color_text_primary !important;
       @include flex(row,center,flex-end);
@@ -341,7 +374,7 @@
 
     &_body
     {
-      background-color: $color_rose_bg1;
+      // background-color: $color_rose_bg1;
     }
 
     &_footer
@@ -741,8 +774,10 @@
   &_detailPriceSection
   {
     @include typographyBuilder(secondary, 400, 10, 16);
-
+    //co
     background-color: $color_rose_bg1;
+    border: 1px solid $color_line_brown;
+    border-top: 0;
     color: $color_text_secondary;
     padding: 0 19px 19px 19px;
   }

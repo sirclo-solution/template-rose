@@ -266,4 +266,87 @@
       }
     }
   }
+
+  &Phone
+  {
+    &Container
+    {
+      position: relative;
+      width: 100% !important;
+      display: flex !important;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 24px;
+      border: 1px solid $color_border;
+      border-radius: 37px;
+
+      &:focus-within
+      {
+        border: 1px solid $color_rose;
+      }
+    }
+
+    &_inputGroupAddOn,
+    &_dialCode
+    {
+      display: flex;
+      align-items: center;
+      width: 40px;
+      padding: 16px 0 0 0;
+
+    }
+
+    &_inputGroupAddOn
+    {
+      cursor: pointer;
+      width: 50px;
+      & > svg {
+        color: $color_black !important;
+      }
+    }
+
+    &_dropdownList
+    {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+
+      &Container
+      {
+        @include position(absolute, 60px, null, null, 0);
+        z-index: 999;
+        padding: 0;
+        width: 100%;
+        max-width: 90vw;
+        height: 250px;
+        border: 1px solid $color_grey;
+        background-color: $color_white;
+        border-radius: 3px;
+        overflow-y: scroll;
+        text-align: left;
+      }
+    }
+
+    &_selectCountryFlag {
+      margin-right: 5px;
+    }
+
+    &_countryOption
+    {
+      padding: 0.5rem;
+      margin-bottom: 0.5rem;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $color_rose_bg2;
+      }
+    }
+
+    &_input
+    {
+      width: 80% !important;
+      border: none !important;
+      padding: 16px 0 1px 5px !important;
+    }
+  }
 }

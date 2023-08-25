@@ -1137,7 +1137,7 @@
 
     &_pointsForm
     {
-        @include flex(row, center, center);
+        @include flex(row, center, space-between);
         @include fixedWidth(100%);
 
         input
@@ -1159,6 +1159,28 @@
                 outline: 0;
                 box-shadow: none;
             }
+        }
+    }
+
+    &_pointsMinimum,
+    &_pointsMinimumInvalid
+    {
+        width: 100%;
+        margin-top: 8px;
+        align-self: flex-start;
+
+        & > p {
+            margin: 0;
+            @include typographyBuilder(secondary, 400, 12, 18);
+        }
+    }
+
+    &_pointsMinimumInvalid
+    {
+        & > p {
+            margin: 0;
+            color: $color_error;
+            @include typographyBuilder(secondary, 400, 12, 18);
         }
     }
     
