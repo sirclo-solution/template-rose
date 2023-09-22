@@ -5,7 +5,6 @@ import { useI18n } from '@sirclo/nexus'
 import { parseCookies } from 'lib/parseCookies'
 /* components */
 import Error from 'components/Error'
-
 interface Props {
   statusCode?: any
 }
@@ -32,6 +31,9 @@ export const getServerSideProps = async ({
     'manifest',
     'sitemap.xml'
   ]
+
+  // const tokenData = await useAuthToken({ req, res, env: process.env }); 
+  // const token = tokenData.value;
 
   const cookies = parseCookies(req)
   const lng = cookies.ACTIVE_LNG || 'id'
