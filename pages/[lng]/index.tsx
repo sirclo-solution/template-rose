@@ -33,6 +33,7 @@ import styleProduct from 'public/scss/components/Product.module.scss'
 import styleButton from 'public/scss/components/Button.module.scss'
 import stylePlaceholder from 'public/scss/components/Placeholder.module.scss'
 import styleCategory from  'public/scss/components/ProductCategory.module.scss'
+import { log } from 'console'
 
 const classesProducts = {
   productContainerClassName: styleProduct.product_item,
@@ -358,14 +359,16 @@ export const getServerSideProps: GetServerSideProps = async ({
   res,
   params
 }: any) => {
+  const tokenData = await useAuthToken({ req, res, env: process.env })
+  const token = tokenData.value
   const [
     brand,
     dataBanners
   ] = await Promise.all([
-    useBrand(req),
-    getBanner(GRAPHQL_URI(req)),
-    useAuthToken({req, res, env: process.env})
+    useBrand(req, token),
+    getBanner(GRAPHQL_URI(req), token),
   ])
+
   const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
   const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
   const allowedUri: Array<string> = ['en', 'id', 'graphql', 'favicon.ico'];
