@@ -387,14 +387,16 @@ export const getServerSideProps: GetServerSideProps = async ({
   res,
   params
 }) => {
+  const tokenData = await useAuthToken({ req, res, env: process.env });
+  const token = tokenData.value;
   const [
     brand,
     hasOtp
   ] = await Promise.all([
-    useBrand(req),
-    useWhatsAppOTPSetting(req),
-    useAuthToken({req, res, env: process.env})
+    useBrand(req, token),
+    useWhatsAppOTPSetting(req, token)
   ])
+
   const defaultLanguage = brand?.settings?.defaultLanguage || params.lng || 'id'
   const { default: lngDict = {} } = await import(`locales/${defaultLanguage}.json`)
 
