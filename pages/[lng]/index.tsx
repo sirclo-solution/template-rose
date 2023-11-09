@@ -359,7 +359,7 @@ export const getServerSideProps: GetServerSideProps = async ({
   params
 }: any) => {
   const tokenData = await useAuthToken({ req, res, env: process.env })
-  const token = tokenData.value
+  const token = tokenData?.value || ""
   const [
     brand,
     dataBanners
