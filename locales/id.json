@@ -545,6 +545,7 @@
     "fieldNotComplete": "Mohon dilengkapi form yang tersedia.",
     "haveAnAccount": "Sudah punya akun?",
     "internationalShipping": "Internasional (luar negeri)",
+    "maxRequestOTP": "Batas percobaan verifikasi OTP telah mencapai batas maksimum, silakan coba lagi.",
     "nameInvalid": "Nama harus mengandung huruf, silahkan cek lagi",
     "mobilePhone": "Telepon Genggam",
     "mobilePhonePlaceholder": "Masukan nomor telepon genggam anda",
