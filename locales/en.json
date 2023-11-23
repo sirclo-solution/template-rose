@@ -545,6 +545,7 @@
     "haveAnAccount": "Do you have an account?",
     "internationalShipping": "International",
     "maxRequestOTP": "Maximum retry of otp verification has been reached, please try again.",
+    "minimumAddress": "Address Detail minimum 11 characters",
     "mobilePhone": "Phone Number",
     "mobilePhonePlaceholder": "Input your phone number",
     "nameInvalid": "Name must contain letter, please check again",
